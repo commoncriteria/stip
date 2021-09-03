@@ -603,6 +603,7 @@ expected to enforce.<h:p/>
     <!-- 3.2 Assumptions -->
     <sec:Assumptions>
       <!-- Note: updated this section to be more in line with how these are done now. We don't want to use refinements on assignments because then multiple simultaneous PP-Module claims could cause mutually exclusive changes. -->
+      <!-- Do we care that these assumptions now do not show up in the rationale mapping table now (because that table is only populated off of actual <assumption> elements below, which we don't have) -->
       These assumptions are made on the Operational Environment in order to be able to ensure that the security functionality specified in the PP-Module can be provided by the TOE. 
       If the TOE is placed in an Operational Environment that does not meet these assumptions, the TOE may no longer be able to provide all of its security functionality.
       <h:p/>
@@ -622,6 +623,7 @@ expected to enforce.<h:p/>
     <!-- 3.3 Organizational Security Policies -->
 	<sec:Organizational_Security_Policies>
 <!--  Note: Need to have the ability to insert freeform text at he start of the OSP section. Module 1.0 describes how the P.ACCESS_BANNER OSP is applied to a STIP TOE and we don't currently have the ability to do that. -->
+	  <!-- Do we care that P.BANNER does not show up in the rationale mapping table now (because that table is only populated off of actual <OSP> elements below) -->
 	  
 		<OSPs>
 		  <OSP name="P.AUTHORIZATION_TO_INSPECT">
@@ -682,13 +684,13 @@ expected to enforce.<h:p/>
         <SO name="O.CERTIFICATES">
           <description>The TSF must ensure that certificates, certificate revocation lists, and certificate status information
             are valid.<h:p/>
-            Addressed by: FIA_X509_EXT.2 (from Base-PP), FIA_X509_EXT.3 (from Base-PP), FDP_CER_EXT.1, FDP_CER_EXT.2, FDP_CER_EXT.3, FDP_CSIR_EXT.1, FIA_ENR_EXT.1, FIA_X509_EXT.1/STIP, 
+            Addressed by: FIA_X509_EXT.1/Rev (from Base-PP), FIA_X509_EXT.3 (from Base-PP), FDP_CER_EXT.1, FDP_CER_EXT.2, FDP_CER_EXT.3, FDP_CSIR_EXT.1, FIA_ENR_EXT.1, FIA_X509_EXT.1/STIP, FIA_X509_EXT.2/STIP,
             FDP_PIN_EXT.1 (optional), FIA_ESTC_EXT.2 (optional), FDP_CER_EXT.4 (selection-based), 
             FDP_CER_EXT.5 (selection-based), FDP_CRL_EXT.1 (selection-based),
 			FDP_CSI_EXT.1 (selection-based), FDP_CSI_EXT.2 (selection-based), FDP_OCSP_EXT.1 (selection-based), FDP_OCSPS_EXT.1 (selection-based), FIA_ESTC_EXT.1 (selection-based)    
           </description>
-            <addressed-by>FIA_X509_EXT.2 (from Base-PP)</addressed-by>
-            <rationale>This SFR supports the objective by defining the TOE functionality for which X.509 certificate authentication is used. </rationale>
+            <addressed-by>FIA_X509_EXT.1/Rev (from Base-PP)</addressed-by>
+            <rationale>This SFR supports the objective by defining the TOE functionality for certificate validation. </rationale>
             <addressed-by>FIA_X509_EXT.3 (from Base-PP)</addressed-by>
             <rationale>This SFR supports the objective by defining the mechanism by which the TOE generates certificate signing requests, which includes validation of the certificate provided in response. </rationale>
             <addressed-by>FDP_CER_EXT.1</addressed-by>
@@ -703,7 +705,9 @@ expected to enforce.<h:p/>
             <rationale>This SFR supports the objective by defining the mechanism by which the TOE requests a certificate for its own embedded CA's signing key. </rationale>
             <addressed-by>FIA_X509_EXT.1/STIP</addressed-by>
             <rationale>This SFR supports the objective by defining the certificate validation rules that must be followed for certificates that are used for proxy TLS connections. </rationale>
-            <addressed-by>FDP_PIN_EXT.1 (optional)</addressed-by>
+          <addressed-by>FIA_X509_EXT.2/STIP</addressed-by>
+          <rationale>This SFR supports the objective by defining the certificate authentication behavior for STIP connections. </rationale>
+          <addressed-by>FDP_PIN_EXT.1 (optional)</addressed-by>
             <rationale>This SFR supports the objective by defining the optional implementation of certificate pinning. </rationale>
             <addressed-by>FIA_ESTC_EXT.2 (optional)</addressed-by>
             <rationale>This SFR supports the objective by defining requirements for the composition of EST requests if the TOE supports EST. </rationale>
@@ -765,18 +769,18 @@ expected to enforce.<h:p/>
             distributed TOE, and authorized IT entities. The TOE will protect data assets when they are being
             transmitted to and from the TOE, including through intervening untrusted components.
             <h:p/>
-            Addressed by: FCS_CKM.4 (from NDcPP), FCS_TLSC_EXT.1 (from NDcPP), FCS_TLSS_EXT.1 (from NDcPP), FTP_ITC.1 (refined from NDcPP), 
+            Addressed by: FCS_CKM.4 (from Base-PP), FCS_TLSC_EXT.1 (from Base-PP), FCS_TLSS_EXT.1 (from Base-PP), FTP_ITC.1 (refined from Base-PP), 
             FCS_COP.1/STIP, FCS_TTTC_EXT.1, FCS_TTTC_EXT.5, FCS_TTTS_EXT.1, FDP_PPP_EXT.1, FDP_PRC_EXT.1, FDP_STIP_EXT.1, FDP_TEP_EXT.1,
             FCS_TTTC_EXT.3 (selection-based), FCS_TTTC_EXT.4 (selection-based), FCS_TTTS_EXT.3
             (selection-based), FCS_TTTS_EXT.4 (selection-based), FDP_STIP_EXT.2 (selection-based)
           </description>
-          <addressed-by>FCS_CKM.4 (from NDcPP)</addressed-by>
+          <addressed-by>FCS_CKM.4 (from Base-PP)</addressed-by>
           <rationale>This SFR supports the objective by ensuring secret and private key data is disposed of immediately after use to prevent unauthorized disclosure of keys.</rationale>
-          <addressed-by>FCS_TLSC_EXT.1 (from NDcPP)</addressed-by>
+          <addressed-by>FCS_TLSC_EXT.1 (from Base-PP)</addressed-by>
           <rationale>This SFR supports the objective by defining requirements for the TOE's implementation of TLS as a client.</rationale>
-          <addressed-by>FCS_TLSS_EXT.1 (from NDcPP)</addressed-by>
+          <addressed-by>FCS_TLSS_EXT.1 (from Base-PP)</addressed-by>
           <rationale>This SFR supports the objective by defining requirements for the TOE's implementation of TLS as a server.</rationale>
-          <addressed-by>FTP_ITC.1 (refined from NDcPP)</addressed-by>
+          <addressed-by>FTP_ITC.1 (refined from Base-PP)</addressed-by>
           <rationale>This SFR supports the objective by defining the TOE interfaces that require protected communications as well as the methods of protection applied to these interfaces.</rationale>
           <addressed-by>FCS_COP.1/STIP</addressed-by>
           <rationale>This SFR supports the objective by defining cryptographic algorithms the TOE must support for decryption and re-encryption of proxy TLS traffic.</rationale>
@@ -841,10 +845,10 @@ expected to enforce.<h:p/>
             TOE will record in audit records: date and time of action and the entity responsible for the action. The
             TOE will provide the ability to store and review certificate information.
             <h:p/>
-            Addressed by: FAU_STG_EXT.1 (from NDcPP), FAU_GEN.1/STIP, FAU_GCR_EXT.1, FAU_SAR.3
+            Addressed by: FAU_STG_EXT.1 (from Base-PP), FAU_GEN.1/STIP, FAU_GCR_EXT.1, FAU_SAR.3
             (optional), FAU_SCR_EXT.1 (selection-based)
           </description>
-          <addressed-by>FAU_STG_EXT.1 (from NDcPP)</addressed-by>
+          <addressed-by>FAU_STG_EXT.1 (from Base-PP)</addressed-by>
           <rationale>This SFR supports the objective by defining a mechanism for the secure storage of audit data in the OE.</rationale>
           <addressed-by>FAU_GEN.1/STIP</addressed-by>
           <rationale>This SFR supports the objective by defining the auditable events specific to STIP functionality that the TSF must generate.</rationale>
@@ -967,11 +971,7 @@ expected to enforce.<h:p/>
         change is not affected by this PP-Module, it is not shown here as a refinement).</h:li>
       <h:li>Selections are indicated with <h:i>italicized</h:i> text.</h:li>
       <h:li>Iteration is indicated by appending the SFR name with a slash and unique identifier suggesting the
-        purpose of the iteration, e.g. ‘/VPN’ for an SFR relating to VPN functionality and/or a sequential
-        number in parentheses, e.g. (1). </h:li>  
-      <!-- We should get rid of the number and ( ) options for more than one reason. 
-        1. This PP is already written and it was done one way or the other.
-        2. We want it done our way: slashes for iterations, parens for instances.  -->
+        purpose of the iteration, e.g. ‘/STIP’ for an SFR relating to STIP functionality.</h:li>
       <h:li>Extended SFRs are identified by having a label “EXT” after the SFR name.</h:li>
     </h:ul>
     Note that selections and assignments to be completed by the ST author are preceded with “selection:”
@@ -979,17 +979,18 @@ expected to enforce.<h:p/>
     assignment has already been completed in this PP-Module and the ST author must use the text as
     written. 
     
-    <!-- 5.1 GPOS PP Security Functional Requirements Direction -->
-    <base-pp id="bpp-gpos">
+    <!-- 5.1 NDcPP Security Functional Requirements Direction -->
+    <base-pp id="bpp-nd">
 
+<!-- Note: How do we handle it when the Base-PP (in this case NDcPP) isn't on Github? -->
 		<raw-url>https://github.com/commoncriteria/operatingsystem/raw/master/input/operatingsystem.xml</raw-url>
 		<url>https://www.niap-ccevs.org/Profile/Info.cfm?PPID=442&amp;id=442</url>
 
 		<sec-func-req-dir> 
-			In a PP-Configuration that includes the GPOS PP, the VPN client is expected to rely on some of the
-			security functions implemented by the operating system as a whole and evaluated against the Base-PP.
+			In a PP-Configuration that includes the NDcPP, the STIP is expected to rely on some of the
+			security functions implemented by the network device as a whole and evaluated against the Base-PP.
 			In this case, the following sections describe any modifications that the ST author must make to the SFRs
-			defined in the Base-PP in addition to what is mandated by section 5.5.
+			defined in the Base-PP in addition to what is mandated by section 5.2.
 		</sec-func-req-dir> 
       
       <!-- 5.1.1 Modified SFRs -->      
@@ -1000,444 +1001,375 @@ expected to enforce.<h:p/>
         a specific manner in order to ensure that the functionality provided by the OS is consistent with the
         functionality required by the VPN client in order for it to conform to this PP-Module.  
 -->        
-        <section title="Cryptographic Support (FCS)" id="os-m-fcs">
-          
-          <!-- 5.1.1.1 FCS_CKM.1 Cryptographic Key Generation -->
-          <f-component cc-id="fcs_ckm.1" id="os-fcs-ckm-1" name="Cryptographic Key Generation">
-            <consistency-rationale>The ST author is instructed to make specific selections at minimum to
-              address VPN client requirements; the SFR behavior itself is
-              unmodified.</consistency-rationale>
-            <f-element id="os-fcs-ckm-1e1">
-              <title><h:b>The OS shall generate asymmetric cryptographic keys in accordance with a specified
-                cryptographic key generation algorithm: 
-                <h:ul><h:i>
-                  <h:li>ECC schemes using “NIST curves” P-256, P-384, and <selectables>
-                    <selectable>P-521</selectable>
-                    <selectable>no other curves</selectable>
-                  </selectables>
-                    that meet the following: FIPS PUB 186-4, “Digital Signature
-                    Standard (DSS),” Appendix B.4, and,
-                  </h:li></h:i>
-                </h:ul></h:b>
-                <selectables linebreak="yes">
-                  <selectable>RSA schemes using cryptographic key sizes of 2048-bit or greater that meet
-                    the following: FIPS PUB 186-4, “Digital Signature Standard (DSS),”
-                    Appendix B.3,</selectable>
-                  <selectable>FFC schemes using cryptographic key sizes of 2048-bit or greater that meet
-                    the following: FIPS PUB 186-4, “Digital Signature Standard (DSS),”
-                    Appendix B.1,</selectable> 
-                  <selectable>FFC Schemes using Diffie-Hellman group 14 that meet the following: RFC
-                    3526,</selectable>
-                  <selectable>FFC Schemes using safe primes that meet the following: ‘NIST Special
-                    Publication 800-56A Revision 3, “Recommendation for Pair-Wise Key
-                    Establishment Schemes,</selectable>
-                  <selectable><h:b>No other key generation methods</h:b></selectable>
-                </selectables>
-                <h:s>and specified cryptographic key sizes [assignment: cryptographic key sizes] that
-                  meet the following: [assignment: list of standards]</h:s>.
-                </title>
-              <note role="application">
-                This SFR is functionally identical to what is defined in the GPOS PP except that
-                ECC key generation with support for P-256 and P-384 has been made mandatory
-                in support of IPsec due to the mandated support for DH groups 19 and 20 in
-                FCS_IPSEC_EXT.1.8. The ST author must select all key generation schemes used
-                for key establishment and entity authentication. When key generation is used for
-                key establishment, the schemes in FCS_CKM.2 and selected cryptographic
-                protocols must match the selection. When key generation is used for entity
-                authentication, the public key is expected to be associated with an X.509v3
-                certificate.<h:p/>
-                If the OS acts only as a receiver in the RSA key establishment scheme, the OS
-                does not need to implement RSA key generation.
-              </note>
+        <!-- 5.1.1.1  -->
+        <section title="Security Audit (FAU)" id="nd-m-fau">
+          <f-component cc-id="fau_stg.1" id="nd-fau-stg-1" name="Protected Audit Trail Storage">
+            <consistency-rationale>Other than this SFR becoming mandatory versus optional, there is no modification to this SFR.</consistency-rationale>
+            <!-- Note: is this still how we want to handle Modified SFRs when there is no actual text in the element? This was used previously as a stop-gap and I'm not sure if there is (or is planned to be) something in the schema
+            that allows the text without sticking an SFR element name/number next to it. -->
+            <f-element id="nd-fau-stg-1e1">
+              <title>
+                This PP-Module does not modify this SFR as it is defined in the Base-PP. This SFR is optional in the Base-PP but is mandatory for a TOE that conforms to this PP-Module.
+              </title>
               <aactivity>
-                Refer to the evaluation activity for <no-link>FCS_CKM.1</no-link> in the GPOS PP for evaluating this SFR.
+                There is no change to the Base-PP EAs for this SFR when this PP-Module is claimed.
                 <no-tests/>
               </aactivity>
             </f-element>
             <audit-event/>
           </f-component>
-
-          <!-- 5.1.1.2 FCS_CKM.2 Cryptographic Key Establishment -->
-          <f-component cc-id="fcs_ckm.2" id="os-fcs-ckm-2" name="Cryptographic Key Establishment">
-            <consistency-rationale>The ST author is instructed to make specific selections at minimum to
-              address VPN client requirements; the SFR behavior itself is
-              unmodified.</consistency-rationale>
-            <f-element id="os-fcs-ckm-2e1">
-              <title><h:b>The OS shall implement functionality to perform cryptographic key
-                establishment in accordance with a specified key establishment method:</h:b>
-                <h:ul>
-                  <h:li><h:b><h:i>Elliptic curve-based key establishment schemes that meets the following:
-                    NIST Special Publication 800-56A Revision 3, “Recommendation for Pair-Wise Key
-                    Establishment Schemes Using Discrete Logarithm Cryptography,” and</h:i></h:b>
-                  </h:li>
-                </h:ul>
+        
+        </section>
+        <!-- 5.1.1.2 -->
+        <section title="Cryptographic Support (FCS)" id="nd-m-fcs">
+          
+          
+          <f-component cc-id="fcs_ckm.4" id="nd-fcs-ckm-4" name="Cryptographic Key Destruction">
+            <consistency-rationale>The ST author is instructed to include security critical parameters and when
+              key destruction is required.</consistency-rationale>
+            <f-element id="nd-fcs-ckm-4e1">
+              <title>
+                The TSF shall destroy all cryptographic keys <h:b>and critical security parameters,
+                  when no longer required</h:b> in accordance with the specified cryptographic key
+                destruction method
                 <selectables linebreak="yes">
-                  <selectable>RSA-based key establishment schemes that meets the following: RSAESPKCS1-v1_5 as specified in Section 7.2 of RFC 8017, “Public-Key
-                    Cryptography Standards (PKCS) #1: RSA Cryptography Specifications
-                    Version 2.2,</selectable>
-                  <selectable>Finite field-based key establishment schemes that meets the following: NIST
-                    Special Publication 800-56A Revision 3, “Recommendation for Pair-Wise Key
-                    Establishment Schemes Using Discrete Logarithm Cryptography”
-                  </selectable>
-                  <selectable>Key establishment scheme using Diffie-Hellman group 14 that meets the
-                    following: RFC 3526,</selectable>
-                  <selectable><h:b>No other key establishment schemes</h:b></selectable>
+                <selectable>
+                  For plaintext keys in volatile storage, the destruction shall be executed by a 
+                  <selectables linebreak="yes">
+                    <selectable>Single overwrite consisting of 
+                      <selectables linebreak="yes">
+                      <selectable>a pseudo-random pattern using the TSF's RBG</selectable>
+                      <selectable>zeroes</selectable>
+                      <selectable>ones</selectable>
+                      <selectable>a new value of the key</selectable>
+                      <selectable><assignable>a static or dynamic value that does not contain any CSP</assignable></selectable>
+                    </selectables>
+                    </selectable>
+                    <selectable>Destruction of reference to the key directly followed by a request for garbage collection</selectable>
+                  </selectables>
+                </selectable>
+                <selectable>
+                  For plaintext keys in non-volatile storage, the destruction shall be executed the invocation of an interface provided by a part of the TSF that 
+                  <selectables linebreak="yes">
+                    <selectable>Logically addresses the storage location of the key and performs a <selectables><selectable>single</selectable><selectable><assignable>number of passes</assignable>-pass</selectable></selectables>
+                    overwrite consisting of <selectables linebreak="yes">
+                      <selectable>a pseudo-random pattern using the TSF's RBG</selectable>
+                      <selectable>zeroes</selectable>
+                      <selectable>ones</selectable>
+                      <selectable>a new value of the key</selectable>
+                      <selectable><assignable>a static or dynamic value that does not contain any CSP</assignable></selectable>
+                    </selectables>
+                    </selectable>
+                    <selectable>Instructs a part of the TSF to destroy the abstraction that represents the key</selectable>
+                  </selectables>
+                </selectable>
                 </selectables>
-                  <h:s>that meets the following [assignment: list of standards]</h:s>.
+                that meets the following: [<h:i>no standard</h:i>].
               </title>
               <note role="application">
-                The ST author must select all key establishment schemes used for the selected
-                cryptographic protocols.<h:p/>
-                The elliptic curves used for the key establishment scheme must correlate with
-                the curves specified in FCS_CKM.1.1. The domain parameters used for the finite
-                field-based key establishment scheme are specified by the key generation
-                according to FCS_CKM.1.1.
+                This SFR is refined from its definition in the Base-PP through the inclusion of
+                security critical parameters and clarifies when destruction is required; a STIP
+                device includes persistent keys, including the embedded CA’s signing private key
+                that should not be destroyed until they are no longer needed. Security critical
+                parameters includes security related information (e.g., secret and private
+                cryptographic keys, authentication data such as passwords and PINs) appearing
+                in plaintext or otherwise unprotected form and whose disclosure or modification
+                can compromise the security of a CA or the security of the information protected
+                by the CA or the security of the information protected by the CA.
               </note>
-              <aactivity> 
-	  	Refer to the Assurance Activity for <no-link>FCS_CKM.2.1</no-link> in the GPOS PP for evaluating this SFR. Note that
-		because a TOE that conforms to this PP-Module must implement IPsec, the tested protocols shall
-		include IPsec at minimum.    
+              <aactivity>
+                This SFR is refined in this PP-Module to include requirementsfor destruction of security critical parameters
+                as well as keys. The EA for the Base-PP are extended to include security critical
+                parameters whenever keys are indicated.
+                <no-tests/>
+              </aactivity>
+            </f-element>
+            <audit-event/>
+          </f-component>
+          
+          <!-- FCS_TLSC_EXT.1 -->
+          <f-component cc-id="fcs_tlsc_ext.1" id="nd-fcs-tlsc-ext-1" name="TLS Client Protocol Without Mutual Authentication">
+            <consistency-rationale>Other than this SFR becoming mandatory versus selection-based, there is no modification to this SFR.</consistency-rationale>
+            <f-element id="nd-fcs-tlsc-ext-1e1">
+              <title>
+                This PP-Module does not modify this SFR as it is defined in the Base-PP. This SFR is selection-based in the Base-PP but is mandatory for a TOE that conforms to this PP-Module because of this PP-Module's modifications to FTP_ITC.1.
+              </title>
+              <aactivity>
+                There is no change to the Base-PP EAs for this SFR when this PP-Module is claimed.
+                <no-tests/>
+              </aactivity>
+            </f-element>
+            <audit-event/>
+          </f-component>
+          
+          <!-- FCS_TLSS_EXT.1 -->
+          <f-component cc-id="fcs_tlss_ext.1" id="nd-fcs-tlss-ext-1" name="TLS Server Protocol Without Mutual Authentication">
+            <consistency-rationale>Other than this SFR becoming mandatory versus selection-based, there is no modification to this SFR.</consistency-rationale>
+            <f-element id="nd-fcs-tlss-ext-1e1">
+              <title>
+                This PP-Module does not modify this SFR as it is defined in the Base-PP. This SFR is selection-based in the Base-PP but is mandatory for a TOE that conforms to this PP-Module because of this PP-Module's modifications to FTP_ITC.1.
+              </title>
+              <aactivity>
+                There is no change to the Base-PP EAs for this SFR when this PP-Module is claimed.
                 <no-tests/>
               </aactivity>
             </f-element>
             <audit-event/>
           </f-component>
 
-          <!-- 5.1.1.3 FCS_COP.1(1) Cryptographic Operation (Encryption/Decryption)  -->
-          <f-component cc-id="fcs_cop.1" id="os-fcs-cop-1-1" name="Cryptographic Operation (Encryption and Decryption)" iteration="1">
-            <consistency-rationale>The SFR is refined to list an additional AES mode that must be
-              supported to address VPN client requirements; the use of this mode
-              for VPN connectivity does not impact the ability of the OS to satisfy
-              any of its other security requirements.</consistency-rationale>
-            <f-element id="os-fcs-cop-1e1i1">
-              <title>The OS shall perform encryption/decryption services for data in accordance with
-                a specified cryptographic algorithm
-                <h:ul><h:b>
-                  <h:li>AES-CBC (as defined in NIST SP 800-38A),</h:li>
-                  <h:li>AES-GCM (as defined in NIST SP 800-38D), and</h:li></h:b>
-                </h:ul>
-                <selectables linebreak="yes">
-                  <selectable><h:b>AES-XTS (as defined in NIST SP 800-38E),</h:b></selectable>
-                  <selectable>AES-CCMP (as defined in FIPS PUB 197, NIST SP 800-38C and IEEE
-                    802.11-2012)</selectable>
-                  <selectable>AES Key Wrap (KW) (as defined in NIST SP 800-38F)</selectable>
-                  <selectable>AES Key Wrap with Padding (KWP) (as defined in NIST SP 800-38F)</selectable>
-                  <selectable>AES-CCM (as defined in NIST SP 800-38C)</selectable>
-                  <selectable>AES-CCMP-256 (as defined in NIST SP800-38C and IEEE 802.11ac-2013)</selectable>
-                  <selectable>AES-GCMP-256 (as defined in NIST SP800-38D and IEEE 802.11ac-2013)</selectable>
-                  <selectable>No other modes</selectable>
-                </selectables>
-                and cryptographic key sizes 
+        </section>
+        
+        <!-- 5.1.1.3  -->
+        <section title="Identification and Authentication" id="nd-m-fia">
+          <!-- Note: Not sure how we want to handle FIA_X509_EXT.1/Rev. The app note for it says that FIA_X509_EXT.1/STIP is used for the TLS connections between the TOE and monitored clients/requested servers. That means FIA_X509_EXT.1/Rev
+            is only used for the Base-PP interfaces that may require certificates. 
+            
+            Right now we *have* to claim this SFR because it is selection-based when FTP_ITC.1 claims TLS, and it's currently refined to do so.
+            
+            Is the argument for having this be required that the TOE has to verify its own CA certificate when that is loaded onto the TOE so this SFR is what governs that behavior? That seems like the only non-STIP use of X.509 that the TOE 
+            would actually be required to have. That would technically allow the SFR to be claimed which wouldn't break the FTP_ITC.1 dependency, but it is a little bit awkward because the dependency says "the TOE needs this because it supports TLS"
+            but the reality in this Module is that the TOE's TLS capability has its own iteration of FIA_X509_EXT.1 for that, and FIA_X509_EXT.1/Rev is being claimed for "the TOE needs this because it supports having a certificate loaded onto it"
+            which is obviously a different reason from the intended trigger. Is this something we could cover in the Implicitly Satisfied Requirements section?
+          
+          -->
+          <f-component cc-id="fia_x509_ext.1" iteration="Rev" id="nd-fia-x509-ext-1" name="X.509 Certificate Validation">
+            <consistency-rationale>Other than this SFR becoming mandatory versus selection-based, there is no modification to this SFR.</consistency-rationale>
+            <f-element id="nd-fia-x509-ext-1e1">
+              <title>
+                This PP-Module does not modify this SFR as it is defined in the Base-PP. This SFR is selection-based in the Base-PP but is mandatory for a TOE that conforms to this PP-Module because of this PP-Module's modifications to FTP_ITC.1.
+              </title>
+              <!-- Note: changed up application note to make it more clear and accurate, is this ok -->
+              <note role="Application">
+                FIA_X509_EXT.1/STIP defines the TOE's X.509 validation behavior for TLS certificates presented to the TSF as part of TLS proxying. At minimum, FIA_X509_EXT.1/Rev is used by the TOE to validate any certificates loaded onto it. If the TOE
+                has other functions that require the use of X.509 certificates (e.g. code signing for integrity testing or software updates, TLS interfaces used for a purpose other than session proxying such as audit server or authentication server connections), 
+                FIA_X509_EXT.1/Rev applies to those as well.
+              </note>
+              <aactivity>
+                There is no change to the Base-PP EAs for this SFR when this PP-Module is claimed.
+                <no-tests/>
+              </aactivity>
+            </f-element>
+            <audit-event/>
+          </f-component>
+          
+          <!-- Note: Not sure how to handle FIA_X509_EXT.2. The fact that we select 'TLS' in FTP_ITC.1.1 means that it should be claimed because it is a selection-based SFR and that is a trigger for it.
+          However, version 1.0 of the Module refines the SFR to include explicit references to a STIP management role (CA Operations Staff). Our general practice is to use iterations to handle such changes because of the case
+          where a PP-Config may be defined one day where two Modules make different modifications to the same Base-PP SFR and so there's no clear guidance on how the ST author handles that. But if we do that here, we make it so that there is no reason
+          to force the inclusion of the Base-PP SFR that the selection requires us to include. Is this something we could cover in the Implicitly Satisfied Requirements section?
+          
+          I've put 'FIA_X509_EXT.2/STIP' as a placeholder in the security objective mapping/rationale and I've kept the original ND version here for now but I'm still not 100% sure that's the correct approach to take. -->
+          
+          <f-component cc-id="fia_x509_ext.2" id="nd-fia-x509-ext-2" name="X.509 Certificate Authentication">
+            <consistency-rationale>The PP-Module partially completes selections in this SFR using the available options to specify minimum required functionality for X.509 authentication based on its use in STIP. The PP-Module
+              also refines the authorized management roles that can perform the function defined in FIA_X509_EXT.2.2.</consistency-rationale>
+            <f-element id="nd-fia-x509-ext-2e1">
+              <title>
+                The TSF shall use X.509v3 certificates as defined by RFC 5280 to support
+                authentication for <h:b>TLS,</h:b>
                 <selectables>
-                  <selectable>128-bit</selectable>
-                  <selectable>256-bit</selectable>
+                  <selectable>DTLS</selectable>
+                  <selectable>HTTPS</selectable>
+                  <selectable>IPsec</selectable>
+                  <selectable>SSH</selectable>
+                  <selectable><h:b>no other protocols</h:b></selectable>
+                </selectables>
+                and <selectables>
+                  <selectable>code signing for system software updates</selectable>
+                  <selectable>code signing for integrity verification</selectable>
+                  <selectable><assignable>other uses</assignable></selectable>
+                  <selectable>no additional uses</selectable>
                 </selectables>.
               </title>
-              <note role="application">
-                This SFR is identical to what is defined in the GPOS PP except that support for
-                CBC and GCM mode is mandatory in order to address the requirements for
-                FCS_IPSEC_EXT.1. In addition, both 128-bit and 256-bit for key sizes must be
-                selected in order to meet the requirements for FCS_IPSEC_EXT.1.
-              </note>
-              <aactivity>
-                Refer to the EA for <no-link>FCS_COP.1(1)</no-link> in the GPOS PP for evaluating this SFR.
+            </f-element>
+            <f-element id="nd-fia-x509-ext-2e2">
+              <title>When the TSF cannot establish a connection to determine the revocation status
+                of a certificate, the TSF shall <selectables>
+                  <selectable>allow the <h:b><selectables>
+                    <selectable>Security Administrator</selectable>
+                    <selectable>CA Operations Staff</selectable>
+                  </selectables></h:b>
+                    to choose whether to <h:b><selectables>
+                      <selectable>accept the certificate</selectable>
+                      <selectable>associate the failed connection event per FDP_TEP_EXT.1.5</selectable>
+                    </selectables></h:b> in these cases
+                  </selectable>
+                  <selectable>accept the certificate</selectable>
+                  <selectable>not accept the certificate</selectable>
+                </selectables>.
+              </title>
+            <note role="Application">
+              “TLS” is moved outside the selection in the first element, since the TOE must
+              implement TLS to accomplish the STIP functionality. The application notes for the
+              first element from the Base-PP also apply.
+              <h:p/>
+              It is worth noting that since this SFR applies to all uses of certificates in the TOE, it
+              may be the case that the actions taken in response to a failure to be able to
+              determine revocation status (which is specified in the 2nd element) is handled
+              differently for different connections. If this is the case, the ST author must make it
+              clear which actions are associated with which connections so that the correct
+              evaluation of the functionality can be performed.
+              <h:p/>
+              The second element has three modifications from that in the Base-PP. First, the
+              word “validity” is replaced with “revocation status” for clarity. This is consistent
+              with what is in the application note in the NDcPP, and using “revocation status”
+              more directly indicates what is required.
+              <h:p/>
+              Second, the general notion of “administrator” is replaced with the more refined
+              roles defined in this PP-Module; the ST author should make the appropriate
+              selection.
+              <h:p/>
+              Finally, a selection is added that allows ST author flexibility in addressing the issue
+              of failure to connect to check revocation status in the specific case that the
+              certificates being checked are associated with either a monitored client or a
+              requested server. This selection (“to associate the failed connection event per
+              FDP_TEP_EXT.1.5”), when chosen, indicates that selected administrative role is
+              able to specify a STIP operation (block, bypass, inspect) to be taken in the event
+              that the revocation status can’t be checked. The requirement that the TOE be able
+              to perform this operation when such an event occurs is specified in
+              FDP_TEP_EXT.1.5.
+            </note>
+            <aactivity>
+                There is no change to the Base-PP EAs for this SFR when this PP-Module is claimed.
                 <no-tests/>
               </aactivity>
             </f-element>
             <audit-event/>
           </f-component>
+          
+          <!-- Note: changed up application note to make it more clear and accurate, is this ok -->
+          <f-component cc-id="fia_x509_ext.3" id="nd-fia-x509-ext-3" name="X.509 Certificate Requests">
+            <consistency-rationale>There is no change to this SFR. Only its trigger for inclusion is changed because this PP-Module introduces an alternate method of obtaining a certificate for the TOE.</consistency-rationale>
+            <f-element id="nd-fia-x509-3e1">
+              <title>
+                In the Base-PP, this SFR is optional but must be claimed in any situation where the TOE presents its own X.509 certificate to an external entity (e.g. any case where the TOE acts as a TLS server or where the TOE acts as a TLS client
+                in an connection that uses mutual authentication). A STIP TOE must present an X.509 certificate to an external entity as part of TLS session proxying. The TOE may obtain this certificate either using PKCS#10 (covered by this SFR) or
+                through Enrollment over Secure Transport (EST), which is covered by the selection-based SFR FIA_ESTC_EXT.1. Therefore, the ST author only claims FIA_X509_EXT.3 is PKCS#10 is selected in FIA_ENR_EXT.1.
+              </title>
+              <aactivity>
+                There is no change to the Base-PP EAs for this SFR when this PP-Module is claimed.
+                <no-tests/>
+              </aactivity>
+            </f-element>
+            <audit-event/>
+          </f-component>
+          
+        </section>
+        
+        
+        <!-- 5.1.1.4  -->
+        <section title="Trusted Path/Channels" id="nd-m-ftp">
+          <f-component cc-id="ftp_itc.1" id="nd-ftp-itc-1" name="Inter-TSF Trusted Channel">
+            <consistency-rationale>The PP-Module partially completes selections and assignments in this SFR using the available options to specify external interfaces and trusted channels that all STIP products must support at minimum.</consistency-rationale>
+            <f-element id="nd-ftp-itc-1e1">
+              <title>
+                The TSF shall be capable of using <h:b>TLS</h:b> and <selectables>
+                  <selectable>IPsec</selectable>
+                  <selectable>SSH</selectable>
+                  <selectable>DTLS</selectable>
+                  <selectable>HTTPS</selectable>
+                  <selectable><h:b>no other protocols</h:b></selectable>
+                </selectables>
+                to provide a trusted communication channel between itself and authorized IT
+                entities supporting the following capabilities: audit server, <h:b>TLS session proxying</h:b>, <selectables>
+                  <selectable>authentication server</selectable>
+                  <selectable><assignable>other capabilities</assignable></selectable>
+                  <selectable>no other capabilities</selectable>
+                </selectables> 
+                that is logically distinct from
+                other communication channels and provides assured identification of its end points and
+                protection of the channel data from disclosure and detection of modification of the channel
+                data.
+              </title>
+            </f-element>
+              <f-element id="nd-ftp-itc-1e2">
+                <title>
+                  The TSF shall permit the TSF or the authorized IT entities to initiate
+                  communication via the trusted channel.
+                </title>
+              </f-element>
+                <f-element id="nd-ftp-itc-1e3">
+                  <!-- Note: is it ok to do the modification this way, specifically for the asignment? Or do we need to make it a selection between "assignment: list of services" and "no other services"?
+                  I'm never sure if 'null' is implied by an assignment prompt or if it needs to be called out separately as an explicit option -->
+                  <title>
+                    The TSF shall initiate communication via the trusted channel for <h:b>establishment of TLS proxy connections,</h:b> <assignable>
+                      list of services for which the TSF is able to initiate communications></assignable>.
+                  </title>
+                
+              <aactivity>
+                There is no change to the Base-PP EAs for this SFR when this PP-Module is claimed.
+                <no-tests/>
+              </aactivity>
+            </f-element>
+            <audit-event/>
+          </f-component>
+          
         </section>
       </modified-sfrs>
         
+        
+        
       <!-- 5.1.2 Additional SFRs -->
-      <additional-sfrs>
+      <additional-sfrs/>
 <!--        This section lists additional SFRs that must be added to the TOE boundary in order to implement the
         functionality in any PP-Configuration where the GPOS PP is claimed as the Base-PP.
 -->
-        <section title="Cryptographic Support (FCS)" id="os-a-fcs">
-          <ext-comp-def title="Cryptographic Key Management" fam-id="FCS_CKM_EXT">
-            <fam-behavior>Components in this family describe requirements for key management functionality such as key
-		storage and destruction.</fam-behavior>
-          </ext-comp-def>
-          
-          <!-- 5.1.2.1 FCS_CKM_EXT.2 Cryptographic Key Storage  -->
-          <f-component cc-id="fcs_ckm_ext.2" id="os-fcs-ckm-ext-2" name="Cryptographic Key Storage">
-            <consistency-rationale>Storage of key data related to VPN functionality can be accomplished
-              using the same mechanism defined by FCS_STO_EXT.1 in the OS PP.</consistency-rationale>
-            <comp-lev>requires the TSF to securely store key data when not in use</comp-lev>
-            <management>No specific management functions are identified.</management>
-            <audit>There are no auditable events foreseen.</audit>
-	    <dependencies>No dependencies.</dependencies>
-            <f-element id="os-fcs-ckm-ext-2e1">
-              <title>The <selectables>
-                <selectable>VPN client</selectable>
-                <selectable>OS</selectable>
-              </selectables> shall store persistent secrets and private keys
-                when not in use in OS-provided key storage.
-              </title>
-              <note role="application">
-                This requirement ensures that persistent secrets (credentials, secret keys) and
-                private keys are stored securely when not in use. If some secrets/keys are
-                manipulated by the VPN client and others are manipulated by the OS, then both
-                of the selections can be specified by the ST author.
-              </note>
-              <aactivity>
-                <TSS>Regardless of whether this requirement is met by the VPN client or the OS, the evaluator will check the
-			TSS to ensure that it lists each persistent secret (credential, secret key) and private key needed to meet
-			the requirements in the ST. For each of these items, the evaluator will confirm that the TSS lists for what
-			purpose it is used, and how it is stored. <h:p/>
-                  	The evaluator shall review the TSS for to determine that it makes a case that, for each item listed as being
-			manipulated by the VPN client, it is not written unencrypted to persistent memory, and that the item is
-			stored by the OS.<h:p/>
-                </TSS>
-                <Guidance>There are no AGD EAs for this requirement.<h:p/></Guidance>
-                <Tests>There are no test EAs for this component.</Tests>
-              </aactivity>
-            </f-element>
-            <audit-event/>
-          </f-component>
-        </section>
-
-        <section title="Identification and Authentication (FIA)" id="os-a-fia">
-          <ext-comp-def title="X.509 Certificate Use and Management" fam-id="FIA_X509_EXT">
-            <fam-behavior>Components in this family describe the requirements that pertain to IP traffic and information flow
-              through the VPN client.</fam-behavior>
-          </ext-comp-def>
-          
-          <!-- 5.1.2.2 FIA_X509_EXT.3 X.509 Certificate Authentication -->
-          <f-component cc-id="fia_x509_ext.3" id="os-fia-x509-ext-3" name="X.509 Certificate Use and Management">
-            <consistency-rationale>This SFR defines additional uses for X.509 certificate functionality that
-              do not conflict with those defined in the OS PP.</consistency-rationale>
-            <comp-lev>requires the TOE to perform X.509 certificate
-              authentication and describes the behavior that is followed if is the status of the certificate is unknown or
-              invalid.</comp-lev>
-            <management>No specific management functions are identified.</management>
-            <audit>There are no auditable events foreseen.</audit>
-            <dependencies>FIA_X509_EXT.1 X.509 Certificate Validation<h:p/>
-              <no-link>FPT_TST_EXT.1</no-link> TSF Self-Test<h:p/>
-            FPT_TUD_EXT.1 Trusted Update</dependencies>
-            <f-element id="os-fia-x509-ext-3e1">
-              <title>The TSF shall use X.509v3 certificates as defined by RFC 5280 to support
-              authentication for IPsec exchanges, and <selectables>
-                <selectable>digital signatures for FPT_TUD_EXT.1</selectable>
-                <selectable>integrity checks for FPT_TST_EXT.1</selectable>
-                <selectable>no additional uses</selectable>
-              </selectables>.
-              </title>
-            </f-element>
-            <f-element id="os-fia-x509-ext-3e2">
-                <title>
-                  When a connection to determine the validity of a certificate cannot be
-                  established, the <selectables>
-                    <selectable>VPN client</selectable>
-                    <selectable>OS</selectable>
-                  </selectables> shall <selectables>
-                    <selectable>allow the administrator to choose whether to accept the certificate in these cases</selectable>
-                    <selectable>accept the certificate</selectable>
-                    <selectable>not accept the certificate</selectable>
-                  </selectables>.
-                </title>
-                <note role="application">
-                    Oftentimes a connection must be established to perform a verification of the
-                    revocation status of a certificate - either to download a CRL or to perform OCSP.
-                    The selection is used to describe the behavior in the event that such a connection
-                    cannot be established (for example, due to a network error). The behavior of the
-                    TOE in these cases is described by the second selection. If the TOE has
-                    determined the certificate is valid according to all other rules in FIA_X509_EXT.1,
-                    the behavior indicated in the second selection will determine the validity. The
-                    TOE must not accept the certificate if it fails any of the other validation rules in
-                    FIA_X509_EXT.1. If the administrator-configured option is selected by the ST
-                    Author, the ST author must also make the appropriate selection in
-                    FMT_SMF.1/VPN.
-                </note>
-            </f-element>
-            <f-element id="os-fia-x509-ext-3e3">
-              <title>
-                The <selectables>
-                  <selectable>VPN client</selectable>
-                  <selectable>OS</selectable>
-                </selectables> shall not establish an SA if a certificate or
-                certificate path is deemed invalid.
-              </title>
-              <aactivity>
-                The EAs below apply to FIA_X509_EXT.3.2. FIA_X509_EXT.3.1 is evaluated as part of FCS_IPSEC_EXT.1 (and
-		conditionally as part of FPT_TUD_EXT.1 and/or FPT_TST_EXT.1) and FIA_X509_EXT.3.3 is evaluated as part
-		of FCS_IPSEC_EXT.1.11.<h:p/>
-                <TSS>The evaluator shall check the TSS to ensure that it describes whether the VPN client or the OS implements
-			the certificate validation functionality, how the VPN client/OS chooses which certificates to use, and any
-			necessary instructions in the administrative guidance for configuring the OS so that desired certificates
-			can be used.<h:p/>
-                  	The evaluator shall examine the TSS to confirm that it describes the behavior of the client/OS when a
-			connection cannot be established during the validity check of a certificate used in establishing a trusted
-			channel.<h:p/>
-                </TSS>
-                <Guidance>If the requirement indicates that the administrator is able to specify the default action, then the evaluator
-			shall ensure that the operational guidance contains instructions on how this configuration action is
-			performed.<h:p/>
-		</Guidance>
-                <Tests>
-                 	The evaluator shall perform the following test regardless of whether the certificate validation functionality
-			is implemented by the VPN client or by the OS:
-                  <testlist>
-                  	<test>The evaluator shall demonstrate that using a valid certificate that requires certificate validation
-				checking to be performed in at least some part by communicating with a non-TOE IT entity. The evaluator
-				shall then manipulate the environment so that the TOE is unable to verify the validity of the certificate,
-				and observe that the action selected in FIA_X509_EXT.3.2 is performed. If the selected action is
-				administrator-configurable, then the evaluator shall follow the operational guidance to determine that all
-				supported administrator-configurable options behave in their documented manner.
-			  </test>
-                  </testlist>
-                </Tests>
-              </aactivity>
-            </f-element>
-            <audit-event/>
-          </f-component>
-        </section>
-
-        <section title="Trusted Path/Channels (FTP)" id="os-a-ftp">
-          
-          <!-- 5.1.2.3 FTP_ITC Inter-TSF Trusted Channel -->
-          <f-component cc-id="ftp_itc.1" id="os-ftp-itc-1" name="Inter-TSF Trusted Channel">
-            <consistency-rationale>This SFR defines a trusted channel for IPsec, which is added
-              functionality that does not prevent the existing OS functions from
-              being performed.
-            </consistency-rationale>
-            <f-element id="os-ftp-itc-1e1">
-              <title>
-                The <h:b><selectables>
-                  <selectable>VPN client</selectable>
-                  <selectable>OS</selectable>
-                </selectables>
-                shall use IPsec to provide</h:b> a <h:b>trusted</h:b>
-                communication channel between itself and <h:b>
-                <selectables>
-                  <selectable>a remote VPN gateway</selectable>
-                  <selectable>a remote VPN client</selectable>
-                  <selectable>a remote IPsec-capable network device</selectable>
-                </selectables></h:b> that is logically
-                distinct from other communication channels and provides assured identification
-                of its end points and protection of the channel data <h:b>from disclosure and
-                detection of modification of the channel data</h:b>.
-              </title>
-            </f-element>
-            <f-element id="os-ftp-itc-1e2">
-              <title>
-                The <h:b>
-                <selectables>
-                  <selectable>VPN client</selectable>
-                  <selectable>OS</selectable>
-                </selectables></h:b> shall permit [<h:i>the TSF</h:i>] to initiate communication with the trusted channel.
-              </title>
-            </f-element>
-            <f-element id="os-ftp-itc-1e3">
-              <title>
-                The <h:b>
-                <selectables>
-                  <selectable>VPN client</selectable>
-                  <selectable>OS</selectable>
-                </selectables></h:b> shall initiate communication via the trusted
-                channel [<h:i>for all traffic traversing that connection</h:i>].
-              </title>
-              <note role="application">
-                The intent of the above requirement is to demonstrate that IPsec can be used to
-                establish remote communications in transport and/or tunnel mode.<h:p/>
-                The requirement implies that not only are communications protected when they
-                are initially established, but also on resumption after an outage. It may be the
-                case that some part of the TOE setup involves manually setting up tunnels to
-                protect other communication, and if after an outage the TOE attempts to reestablish 
-                the communication automatically with (the necessary) manual
-                intervention, there may be a window created where an attacker might be able to
-                gain critical information or compromise a connection.
-              </note>
-              <aactivity>
-                <TSS>The evaluator shall examine the TSS to determine that it describes the details of the TOE connecting to a
-			VPN gateway and/or VPN client and/or IPsec-capable network device in terms of the cryptographic
-			protocols specified in the requirement, along with TOE-specific options or procedures that might not be
-			reflected in the specification. The evaluator shall also confirm that all protocols listed in the TSS are
-			specified and included in the requirements in the ST.<h:p/>
-                </TSS>
-                <Guidance>The evaluator shall confirm that the operational guidance contains instructions for establishing the
-			connection to a VPN gateway and/or VPN client and/or IPsec-capable network device, and that it contains
-			recovery instructions should a connection be unintentionally broken.<h:p/>
-                </Guidance>
-                <Tests>
-                  The evaluator shall perform the following tests:
-                  <testlist>
-                    <test>The evaluators shall ensure that the TOE is able to initiate communications with a VPN gateway
-			and/or VPN client and/or IPsec-capable network device using the protocols specified in the requirement,
-			setting up the connections as described in the operational guidance and ensuring that communication is
-			successful.</test>
-                    <test>The evaluator shall ensure, for each communication channel with an IPsec peer, the channel data
-			is not sent in plaintext.
-                    </test>
-                    <test>The evaluator shall ensure, for each communication channel with an IPsec peer, modification of
-			the channel data is detected by the TOE.</test>
-                    <test>The evaluators shall physically interrupt the connection from the TOE to the IPsec peer. The
-			evaluators shall ensure that subsequent communications are appropriately protected, at a minimum in
-			the case of any attempts to automatically resume the connection or connect to a new access point.</test>
-                  </testlist>
-		  Further EAs are associated with requirements for FCS_IPSEC_EXT.1.
-                </Tests>
-              </aactivity>
-            </f-element>
-            <audit-event/>
-          </f-component>
-        </section>
-      </additional-sfrs>
       
 	  <!-- 6.1.1 Consistency of TOE Type -->
-      <con-toe>If this PP-Module is used to extend the GPOS PP, the TOE type for the overall TOE is still a 
-		general-purpose operating system. The TOE boundary is simply extended to include VPN client functionality that
-		is built into the operating system so that additional security functionality is claimed within the scope of
-		the TOE.  </con-toe>
+      <con-toe>If this PP-Module is used to extend the NDcPP, the TOE type for the overall TOE is still a generic network
+        device. However, one of the functions of the device must be the ability for it to act as an SSL/TLS Inspection
+        Proxy. The TOE boundary is simply extended to include that functionality. </con-toe>
 		
 	  <!-- 6.1.2 Consistency of Security Problem Description -->
-      <con-sec-prob>The threats and assumptions defined by this PP-Module (see sections 3.1 and 3.2) supplement those
-		defined in the GPOS PP as follows:</con-sec-prob>
+      <con-sec-prob>The threats, assumptions, and OSPs defined by this PP-Module (see sections 3.1 through 3.3) supplement those
+		defined in the NDcPP as follows:</con-sec-prob>
 	   <!-- 6.1.3 Consistency of Objectives -->
-      <con-obj>The security objectives defined by this PP-Module (see sections 4.1 and 4.2) supplement those defined
-		in the GPOS PP as follows:</con-obj>
+      <con-obj>The NDcPP does not define any TOE objectives; therefore, there is no inconsistency between it and this
+        PP-Module. The TOE objectives defined in this PP-Module are traced to SFRs, which are analyzed for
+        consistency with the NDcPP in the section below.
+        <h:p/>
+        The environmental security objectives defined by this PP-Module (see section 4.2) supplement those
+        defined in the NDcPP as follows:</con-obj>
       <con-op-en></con-op-en>
 	    
-	    <!-- 6.1.2 Consistency Rationale table for GPOS -->
-      <con-mod ref="T.UNAUTHORIZED_ACCESS">The threat of an attacker gaining access to a network interface or data
-        that is transmitted over it is consistent with the T.NETWORK_ATTACK and T.NETWORK_EAVESDROP threats in the GPOS PP.</con-mod>
-      <con-mod ref="T.TSF_CONFIGURATION">The threat of a misconfigured VPN client is consistent with the
-		T.NETWORK_ATTACK and T.NETWORK_EAVESDROP threats on the GPOS PP because misconfiguration could allow VPN traffic to be subjected
-		unexpectedly to unauthorized modification or disclosure..</con-mod>
-      <con-mod ref="T.USER_DATA_REUSE">Inadvertent disclosure of user data to an unauthorized recipient is
-		consistent with the T.NETWORK_EAVESDROP threat in the GPOS PP.</con-mod>
-      <con-mod ref="T.TSF_FAILURE">A failure of TSF functionality could compromise the local system, which is
-		consistent with the T.LOCAL_ATTACK threat in the GPOS PP.</con-mod>
-      <con-mod ref="A.NO_TOE_BYPASS">The A.NO_TOE_BYPASS assumption assumes that the operational
-		environment is configured in such a manner that the only network route to the protected network is through the TOE. This does not conflict with
-		the GPOS PP because the GPOS PP makes no assumptions about the network architecture in which the TOE is deployed.</con-mod>
-      <con-mod ref="A.PHYSICAL">The assumption that physical security is provided by the environment is
-		not explicitly stated in the GPOS PP but is consistent with the A.PLATFORM assumption defined in the GPOS PP, which expects the computing
-		platform to be trusted.</con-mod>
-      <con-mod ref="A.TRUSTED_CONFIG">The assumption that personnel responsible for the TOE’s configuration are
-		trusted to follow the guidance is consistent with the A.PROPER_ADMIN
-		defined in the GPOS PP.</con-mod>
+	    <!-- 6.1.2 Consistency Rationale table for ND -->
+      <!-- Note: modified some of these to make the consistency more obvious, is that ok? Also added the OSP because that was missing from 1.0's mapping -->
+      <con-mod ref="T.UNTRUSTED_COMMUNICATION">The threat of untrusted communication can provide unauthorized access
+        to unintended resources if using weak cryptography or use untrusted
+        intermediate systems. This can be mitigated either by protocols defined in
+        this PP-Module or in the Base-PP.</con-mod>
+      <con-mod ref="T.AUDIT">Auditing poses a threat if certain activities aren’t logged, like the issuance
+        of certificates. This threat can be mitigated if proper configurations are in
+        place to prevent the compromise of audit data defined in this PP-Module
+        or the Base-PP.</con-mod>
+      <con-mod ref="T.UNAUTHORIZED_USERS">The threat of unauthorized users attempting to gain access to other users’
+        credentials can be addressed by placing protections for logged-in users
+        and only allow privileged user access methods defined in this PP-Module
+        or in the Base-PP.</con-mod>
+      <con-mod ref="T.CREDENTIALS">Beyond the Base-PP, the threat of manipulation of the CA signing key can
+        be mitigated by providing access protection to persistent keys.</con-mod>
+      <con-mod ref="T.SERVICES">The threat of misuse or manipulation of services is not defined in the
+        Base-PP, but it is consistent with the general threat of unauthorized manipulation of the TSF.</con-mod>
+      <con-mod ref="T.DEVICE_FAILURE">The failure of the certificate authority or routing traffic to inspection poses
+        a threat not defined in the Base-PP.</con-mod>
+      <con-mod ref="T.UNAUTHORIZED_DISCLOSURE">The Base-PP does not include the threat of unauthorized disclosure to
+        sensitive data that is only intended for the monitored client because this is an interface that the Base-PP cannot assume all conformant TOEs have.</con-mod>
+      <con-mod ref="T.INAPPROPRIATE_ACCESS">The threat of inappropriate access to unintended servers could disclose
+        unauthorized traffic to inspection processes which is not defined in the
+        Base-PP because a generic network device does not necessarily have a traffic inspection functionality.</con-mod>
+      <con-mod ref="P.AUTHORIZATION_TO_INSPECT">The Base-PP cannot define the interactions that an end user will have with a generic device because it may vary depending on the specific device type. This PP-Module defines a policy
+      that is specific to the use case of a STIP device.</con-mod>
+
 			
 	  <!-- 6.1.3 Consistency of Objectives -->
-      <con-mod ref="O.AUTHENTICATION">This objective is consistent with the O.PROTECTED_COMMS objective of the
-		Base-PP, which also expects that trusted remote channels will enforce
-		authentication of remote endpoints.</con-mod>
-      <con-mod ref="O.CRYPTOGRAPHIC_FUNCTIONS">This objective is consistent with the O.PROTECTED_COMMS objective of the
-		Base-PP, which also expects that secure cryptographic functions are used to
-		implement trusted communications.</con-mod>
-      <con-mod ref="O.KNOWN_STATE">This objective is consistent with the O.INTEGRITY objective of the Base-PP,
-		which expects a conformant TOE to implement measures to maintain its
-		own integrity.</con-mod>
-      <con-mod ref="O.NONDISCLOSURE ">This objective is consistent with the O.PROTECTED_STORAGE objective of
-		the Base-PP, which ensures that sensitive data is not disclosed without
-		authorization.</con-mod>
-      <con-mod ref="OE.NO_TOE_BYPASS">This objective addresses behavior that is out of scope of the Base-PP and
-		does not define an environment that a GPOS TOE is incapable of existing in.</con-mod>
-      <con-mod ref="OE.PHYSICAL">This is part of satisfying OE.PLATFORM as defined in the GPOS PP because
-		physical security is required for hardware to be considered ‘trusted’</con-mod>
-      <con-mod ref="OE.TRUSTED_CONFIG">The expectation of trusted configuration is consistent with OE.PROPER_USER
-		and OE.PROPER_ADMIN in the GPOS PP.</con-mod>
+      <!-- Note: modified some of these to make the consistency more obvious, is that ok -->
+      <con-mod ref="OE.AUDIT">This objective intends for the TOE’s OE to have adequate storage to retain
+        the TOE's audit records. This objective is not defined in the Base-PP but can be assumed to be consistent with the Base-PP because FAU_STG_EXT.1 requires transmission of audit data to an 
+      environmental audit server, which means that there should be some assurance of the security of that server.</con-mod>
+      <con-mod ref="OE.CERT_REPOSITORY">This objective intends for the TOE’s OE to provide a certificate repository. This is not defined in the Base-PP because not all network devices will necessarily need to interface with a certificate repository.</con-mod>
+      <con-mod ref="OE.CERT_REPOSITORY_SEARCH">This objective intends for the TOE’s OE which will provide a certificate
+        repository to also have the capability to search within the repository. This is not defined in the Base-PP because not all network devices will necessarily need to interface with a certificate repository.</con-mod>
+      
+     
 	  
 	  <!-- 6.1.4 Consistency of Requirements -->
 	  <!-- This PP-Module identifies several SFRs from the GPOS PP that are needed to support VPN client
@@ -1446,22 +1378,6 @@ expected to enforce.<h:p/>
 		from the GPOS PP as well as new SFRs that are used entirely to provide VPN client functionality. The
 		rationale for why this does not conflict with SFRs defined by the GPOS PP are as follows: -->
 	  
-      <con-mod ref="os-fcs-ckm-1">The ST author is instructed to make specific selections at minimum to
-		address VPN client requirements; the SFR behavior itself is unmodified.</con-mod>
-      <con-mod ref="os-fcs-ckm-2">The ST author is instructed to make specific selections at minimum to
-		address VPN client requirements; the SFR behavior itself is unmodified</con-mod>
-      <con-mod ref="os-fcs-cop-1i1">The SFR is refined to list an additional AES mode that must be supported to
-		address VPN client requirements; the use of this mode for VPN connectivity
-		does not impact the ability of the GPOS to satisfy any of its other security
-		requirements.</con-mod>
-
-      <con-mod ref="os-fcs-ckm-ext-2">Storage of key data related to VPN functionality can be accomplished using
-		the same mechanism defined by FCS_STO_EXT.1 in the GPOS PP.</con-mod>
-      <con-mod ref="os-fia-x509-ext-3">This SFR defines additional uses for X.509 certificate functionality that do
-		not conflict with those defined in the GPOS PP.</con-mod>
-      <con-mod ref="os-ftp-itc-1">This SFR defines a trusted channel for IPsec, which is added functionality
-		that does not prevent the existing GPOS functions from being performed.</con-mod>
-		
       <con-mod ref="fcs-ckm-1-vpn">Generation of IKE peer authentication keys is added functionality that does
 		not prevent the existing GPOS functions from being performed.</con-mod>
       <con-mod ref="fcs-ipsec-ext-1">This SFR defines the VPN client’s IPsec implementation, which is added
