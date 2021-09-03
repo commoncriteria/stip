@@ -662,11 +662,12 @@ expected to enforce.<h:p/>
         <SO name="O.AUDIT_LOSS_RESPONSE">
           <description>The TOE will respond to possible loss of audit records when an audit trail cannot be written to by
             restricting auditable events.<h:p/>
-			Addressed by: FAU_STG.4
+			      Addressed by: FAU_STG.4
           </description>
-          <addressed-by>FAU_STG.4</addressed-by>
+          <!-- Note: columns in rationale table aren't lining up -->
+       <addressed-by>FAU_STG.4</addressed-by>
 			<rationale>This SFR supports the objective by requiring the TSF to disable the execution of auditable events if the audit trail cannot be written to.</rationale>
-        </SO>
+      </SO>
         
         <!-- Note: do we consider it a problem that this SO is not mapped to any mandatory Module SFRs -->
         <SO name="O.AUDIT_PROTECTION">
@@ -1042,12 +1043,8 @@ expected to enforce.<h:p/>
                       <selectable>zeroes</selectable>
                       <selectable>ones</selectable>
                       <selectable>a new value of the key</selectable>
-                      <selectable><assignable>a static or dynamic value that does not contain any CSP</assignable></selectable>
-                    </selectables>
-                    </selectable>
-                    <selectable>Destruction of reference to the key directly followed by a request for garbage collection</selectable>
-                  </selectables>
-                </selectable>
+                      <selectable><assignable>a static or dynamic value that does not contain any CSP</assignable></selectable></selectables></selectable>
+                    <selectable>Destruction of reference to the key directly followed by a request for garbage collection</selectable></selectables></selectable>
                 <selectable>
                   For plaintext keys in non-volatile storage, the destruction shall be executed the invocation of an interface provided by a part of the TSF that 
                   <selectables linebreak="yes">
@@ -1057,9 +1054,7 @@ expected to enforce.<h:p/>
                       <selectable>zeroes</selectable>
                       <selectable>ones</selectable>
                       <selectable>a new value of the key</selectable>
-                      <selectable><assignable>a static or dynamic value that does not contain any CSP</assignable></selectable>
-                    </selectables>
-                    </selectable>
+                      <selectable><assignable>a static or dynamic value that does not contain any CSP</assignable></selectable></selectables></selectable>
                     <selectable>Instructs a part of the TSF to destroy the abstraction that represents the key</selectable>
                   </selectables>
                 </selectable>
@@ -1191,8 +1186,7 @@ expected to enforce.<h:p/>
                     to choose whether to <h:b><selectables>
                       <selectable>accept the certificate</selectable>
                       <selectable>associate the failed connection event per FDP_TEP_EXT.1.5</selectable>
-                    </selectables></h:b> in these cases
-                  </selectable>
+                    </selectables></h:b> in these cases</selectable>
                   <selectable>accept the certificate</selectable>
                   <selectable>not accept the certificate</selectable>
                 </selectables>.
@@ -1243,7 +1237,7 @@ expected to enforce.<h:p/>
               <title>
                 In the Base-PP, this SFR is optional but must be claimed in any situation where the TOE presents its own X.509 certificate to an external entity (e.g. any case where the TOE acts as a TLS server or where the TOE acts as a TLS client
                 in an connection that uses mutual authentication). A STIP TOE must present an X.509 certificate to an external entity as part of TLS session proxying. The TOE may obtain this certificate either using PKCS#10 (covered by this SFR) or
-                through Enrollment over Secure Transport (EST), which is covered by the selection-based SFR FIA_ESTC_EXT.1. Therefore, the ST author only claims FIA_X509_EXT.3 is PKCS#10 is selected in FIA_ENR_EXT.1.
+                through Enrollment over Secure Transport (EST), which is covered by the selection-based SFR FIA_ESTC_EXT.1. Therefore, the ST author only claims FIA_X509_EXT.3 if PKCS#10 is selected in FIA_ENR_EXT.1.
               </title>
               <aactivity>
                 There is no change to the Base-PP EAs for this SFR when this PP-Module is claimed.
@@ -1292,7 +1286,7 @@ expected to enforce.<h:p/>
                   I'm never sure if 'null' is implied by an assignment prompt or if it needs to be called out separately as an explicit option -->
                   <title>
                     The TSF shall initiate communication via the trusted channel for <h:b>establishment of TLS proxy connections,</h:b> <assignable>
-                      list of services for which the TSF is able to initiate communications></assignable>.
+                      list of services for which the TSF is able to initiate communications</assignable>.
                   </title>
                 
               <aactivity>
@@ -1323,12 +1317,7 @@ expected to enforce.<h:p/>
       <con-sec-prob>The threats, assumptions, and OSPs defined by this PP-Module (see sections 3.1 through 3.3) supplement those
 		defined in the NDcPP as follows:</con-sec-prob>
 	   <!-- 6.1.3 Consistency of Objectives -->
-      <con-obj>The NDcPP does not define any TOE objectives; therefore, there is no inconsistency between it and this
-        PP-Module. The TOE objectives defined in this PP-Module are traced to SFRs, which are analyzed for
-        consistency with the NDcPP in the section below.
-        <h:p/>
-        The environmental security objectives defined by this PP-Module (see section 4.2) supplement those
-        defined in the NDcPP as follows:</con-obj>
+      <con-obj/>
       <con-op-en></con-op-en>
 	    
 	    <!-- 6.1.2 Consistency Rationale table for ND -->
@@ -1361,6 +1350,19 @@ expected to enforce.<h:p/>
 
 			
 	  <!-- 6.1.3 Consistency of Objectives -->
+      <!-- Note: the 1.0 Module has a single note that all objectives are consistent because the Base-PP doesn't define any. I didn't see any way to suppress these entries from the table so I've put in 
+      rationale that's basically just a duplicate of this in table form. Should we add something in the schema to optionally suppress the objectives or is how it's done now ok? -->
+      <con-mod ref="O.AUDIT_LOSS_RESPONSE">The Base-PP does not define any TOE objectives so PP-Module objectives do not conflict with it.</con-mod>
+      <con-mod ref="O.AUDIT_PROTECTION">The Base-PP does not define any TOE objectives so PP-Module objectives do not conflict with it.</con-mod>
+      <con-mod ref="O.CERTIFICATES">The Base-PP does not define any TOE objectives so PP-Module objectives do not conflict with it.</con-mod>
+      <con-mod ref="O.DISPLAY_BANNER">The Base-PP does not define any TOE objectives so PP-Module objectives do not conflict with it.</con-mod>
+      <con-mod ref="O.PERSISTENT_KEY_PROTECTION">The Base-PP does not define any TOE objectives so PP-Module objectives do not conflict with it.</con-mod>
+      <con-mod ref="O.PROTECTED_COMMUNICATIONS">The Base-PP does not define any TOE objectives so PP-Module objectives do not conflict with it.</con-mod>
+      <con-mod ref="O.RECOVERY">The Base-PP does not define any TOE objectives so PP-Module objectives do not conflict with it.</con-mod>
+      <con-mod ref="O.RESIDUAL_INFORMATION_CLEARING">The Base-PP does not define any TOE objectives so PP-Module objectives do not conflict with it.</con-mod>
+      <con-mod ref="O.SYSTEM_MONITORING">The Base-PP does not define any TOE objectives so PP-Module objectives do not conflict with it.</con-mod>
+      <con-mod ref="O.TOE_ADMINISTRATION">The Base-PP does not define any TOE objectives so PP-Module objectives do not conflict with it.</con-mod>
+      
       <!-- Note: modified some of these to make the consistency more obvious, is that ok -->
       <con-mod ref="OE.AUDIT">This objective intends for the TOE’s OE to have adequate storage to retain
         the TOE's audit records. This objective is not defined in the Base-PP but can be assumed to be consistent with the Base-PP because FAU_STG_EXT.1 requires transmission of audit data to an 
