@@ -1452,6 +1452,131 @@ expected to enforce.<h:p/>
         </f-element>
       </f-component>
         
+        <!-- Is FAU_GEN.1/STIP ok as-is or should it be changed in some manner, e.g. different app note, breaking up of audit event table references by section like the schema is able to handle.
+        I didn't do it that way because I thought referencing the individual tables would make the assignment/app note more complicated than just making one table and telling the ST author to include 
+        all the ones that correspond to SFRs the TOE claims -->
+        <f-component name="Audit Data Generation (STIP)" cc-id="fau_gen.1" iteration="STIP" id="fau-gen-1">
+          <consistency-rationale></consistency-rationale>
+          <f-element id="fau-gen-1e1-stip">
+            <title>
+              The TSF shall be able to generate an audit record of the following
+              auditable events: <h:ol type="a">
+                <h:li>Start-up and shutdown of the audit functions</h:li>
+                <h:li>All auditable events for the [<h:i>not specified</h:i>] level of audit; and</h:li>
+                <h:li>[<h:i>auditable events defined in Auditable Events table</h:i>]</h:li>
+              </h:ol>
+            </title>
+            <note role="application">
+              The "Start-up and shtudown of the audit functions" event is identical to the event defined in the Base-PP's iteration of FAU_GEN.1.
+              The TOE is not required to have two separate events for this behavior if there is only a single audit stream that which all audit events use.
+              If the TOE does maintain a separate logging facility for STIP-related behavior, then this event must be addressed for it. Note that if 
+              the audit functions cannot be started and stopped separately from the TOE itself, then auditing the start-up and shutdown of the TOE is sufficient to address this.
+            </note>
+          </f-element>
+          <f-element id="fau-gen-1e2-stip">
+            <title>The TSF shall record within each audit record at least the following
+              information: <h:ol type="a">
+                <h:li>Date and time of the event, type of event, subject identity (if
+                  applicable), and the outcome (success or failure) of the event; and </h:li>
+                <h:li>For each audit event type, based on the auditable event
+                  definitions of the functional components included in the PP/ST,
+                [<h:i>additional information defined in Auditable Events table for each auditable event, where applicable</h:i>].</h:li>
+              </h:ol>
+              
+              <h:table>
+                <h:tr class="header"><h:td>Requirement</h:td><h:td>Auditable Events</h:td><h:td>Additional Audit Record Contents</h:td></h:tr>
+                <h:tr><h:td>FAU_GCR_EXT.1</h:td><h:td colspan="2">None</h:td></h:tr>
+                <h:tr><h:td>FAU_SCR_EXT.1 (selection-based)</h:td><h:td colspan="2">None</h:td></h:tr>
+                <h:tr><h:td>FAU_SAR.1 (optional)</h:td><h:td colspan="2">None</h:td></h:tr>
+                <h:tr><h:td>FAU_SAR.3 (optional)</h:td><h:td colspan="2">None</h:td></h:tr>
+                <h:tr><h:td>FAU_STG.4 (optional)</h:td><h:td colspan="2">None</h:td></h:tr>
+                <h:tr><h:td>FCS_CKM_EXT.5 (selection-based)</h:td><h:td colspan="2">None</h:td></h:tr>
+                <h:tr><h:td>FCS_STG_EXT.1</h:td><h:td colspan="2">None</h:td></h:tr>
+                <h:tr><h:td>FCS_TTTC_EXT.1</h:td><h:td>Establishment of TLS session</h:td><h:td>TLS session parameters</h:td></h:tr>
+                <h:tr><h:td rowspan="2">FCS_TTTC_EXT.3 (selection-based)</h:td><h:td>Mutual authentication authorized</h:td><h:td><selectables>
+                  <selectable>client certificate value</selectable>
+                  <selectable><assignable>client certificate object identifier</assignable></selectable>
+                </selectables></h:td></h:tr>
+                <h:tr><h:td>Mutual authentication not authorized</h:td><h:td>None</h:td></h:tr>
+                <h:tr><h:td>FCS_TTTC_EXT.4 (selection-based)</h:td><h:td colspan="2">None</h:td></h:tr>
+                <h:tr><h:td>FCS_TTTC_EXT.5</h:td><h:td colspan="2">None</h:td></h:tr>
+                <h:tr><h:td>FCS_TTTS_EXT.1</h:td><h:td>Establishment of TLS session</h:td><h:td>TLS session parameters</h:td></h:tr>
+                <h:tr><h:td rowspan="2">FCS_TTTS_EXT.3 (selection-based)</h:td><h:td>Mutual authentication required and valid client certificate received</h:td><h:td>Client certificate</h:td></h:tr>
+                <h:tr><h:td>Mutual authentication not used</h:td><h:td>None</h:td></h:tr>
+                <h:tr><h:td>FCS_TTTS_EXT.4 (selection-based)</h:td><h:td colspan="2">None</h:td></h:tr>
+                <h:tr><h:td>FDP_CER_EXT.1</h:td><h:td colspan="2">None</h:td></h:tr>
+                <h:tr><h:td>FDP_CER_EXT.2</h:td><h:td>Linking of issued certificate to validated certificate</h:td><h:td>
+                  Success: <selectables>
+                    <selectable>issued certificate value</selectable>
+                    <selectable>issued certificate object identifier</selectable>
+                  </selectables>, <selectables>
+                    <selectable>validated certificate value</selectable>
+                    <selectable>validated certificate object identifier</selectable>
+                  </selectables>
+                  <h:p/>
+                  Failure: Reason for failure
+                </h:td></h:tr>
+                <h:tr><h:td>FDP_CER_EXT.3</h:td><h:td>Certificate generation</h:td><h:td>Success: <selectables>
+                  <selectable>certificate value</selectable>
+                  <selectable>certificate object identifier</selectable>
+                </selectables></h:td></h:tr>
+                <h:tr><h:td>FDP_CER_EXT.4 (selection-based)</h:td><h:td colspan="2">None</h:td></h:tr>
+                <h:tr><h:td>FDP_CER_EXT.5 (selection-based)</h:td><h:td>Certificate generation</h:td><h:td>Success: <selectables>
+                  <selectable>certificate value</selectable>
+                  <selectable>certificate object identifier</selectable>
+                </selectables></h:td></h:tr>
+                <h:tr><h:td>FDP_CRL_EXT.1 (selection-based)</h:td><h:td>Failure to generate CRL</h:td><h:td>None</h:td></h:tr>
+                <h:tr><h:td>FDP_CRL_EXT.2 (selection-based)</h:td><h:td colspan="2">None</h:td></h:tr>
+                <h:tr><h:td>FDP_CSI_EXT.1 (selection-based)</h:td><h:td colspan="2">None</h:td></h:tr>
+                <h:tr><h:td>FDP_CSI_EXT.2 (selection-based)</h:td><h:td colspan="2">None</h:td></h:tr>
+                <h:tr><h:td>FDP_CSIR_EXT.1 (selection-based)</h:td><h:td colspan="2">None</h:td></h:tr>
+                <h:tr><h:td>FDP_OCSP_EXT.1 (selection-based)</h:td><h:td>Failure to generate certificate status information</h:td><h:td>None</h:td></h:tr>
+                <h:tr><h:td>FDP_OCSPS_EXT.1 (selection-based)</h:td><h:td>Failure to include certificate status information in TLS handshake message</h:td><h:td>None</h:td></h:tr>
+                <h:tr><h:td>FDP_PIN_EXT.1 (optional)</h:td><h:td colspan="2">None</h:td></h:tr>
+                <h:tr><h:td>FDP_PPP_EXT.1</h:td><h:td>Configuration changes to the plaintext processing policy</h:td><h:td>None</h:td></h:tr>
+                <h:tr><h:td>FDP_PRC_EXT.1</h:td><h:td>Plaintext routed to inspection processing functional component</h:td><h:td>TLS session thread identifier, <assignable>processing element identifier</assignable></h:td></h:tr>
+                <h:tr><h:td>FDP_RIP.1</h:td><h:td colspan="2">None</h:td></h:tr>
+                <h:tr><h:td>FDP_STG_EXT.1</h:td><h:td colspan="2">None</h:td></h:tr>
+                <h:tr><h:td rowspan="4">FDP_STIP_EXT.1</h:td><h:td>Establishment of a TLS inspection session thread</h:td><h:td><assignable>TLS session thread attributes</assignable>, 
+                  <assignable>client attributes</assignable>, and <assignable>server attributes</assignable> associated with the thread</h:td></h:tr>
+                <h:tr><h:td>Establishment of an encrypted TLS data flow</h:td><h:td><assignable>encrypted TLS data flow attributes</assignable></h:td></h:tr>
+                <h:tr><h:td>Bypass operation invoked</h:td><h:td></h:td>TLS session thread identifier, identifier(s) of processing element(s) bypassed, reason for bypass</h:tr>
+                <h:tr><h:td>Block operation invoked</h:td><h:td>TLS session thread identifier, reason for blocking</h:td></h:tr>
+                <h:tr><h:td>FDP_STIP_EXT.2 (selection-based)</h:td><h:td colspan="2">None</h:td></h:tr>
+                <h:tr><h:td>FDP_TEP_EXT.1</h:td><h:td>Mutual authentication authorized</h:td><h:td><assignable>client attributes obtained from valid client certificate</assignable></h:td></h:tr>
+                <h:tr><h:td>FIA_ENR_EXT.1</h:td><h:td colspan="2">None</h:td></h:tr>
+                <h:tr><h:td>FIA_ESTC_EXT.1 (selection-based)</h:td><h:td>EST requests</h:td><h:td>None</h:td></h:tr>
+                <h:tr><h:td>FIA_ESTC_EXT.2 (objective)</h:td><h:td colspan="2">None</h:td></h:tr>
+                <h:tr><h:td>FIA_X509_EXT.1/STIP</h:td><h:td colspan="2">None</h:td></h:tr>
+                <h:tr><h:td>FMT_MOF.1</h:td><h:td colspan="2">None</h:td></h:tr>
+                <h:tr><h:td>FMT_SMF.1/STIP</h:td><h:td colspan="2">None</h:td></h:tr>
+                <h:tr><h:td>FMT_SMR.2/STIP</h:td><h:td colspan="2">None</h:td></h:tr>
+                <h:tr><h:td>FPT_FLS.1</h:td><h:td>Invocation of failures under this requirement</h:td><h:td>Indication that the TSF has failed with the type of failure that occurred</h:td></h:tr>
+                <h:tr><h:td>FPT_KST_EXT.1</h:td><h:td colspan="2">None</h:td></h:tr>
+                <h:tr><h:td>FPT_KST_EXT.2</h:td><h:td>
+                  All attempts to use the TOE's embedded CA's private signing key and <selectables>
+                    <selectable><assignable>other secret and private keys</assignable></selectable>
+                    <selectable>no other secret and private keys</selectable>
+                  </selectables>
+                </h:td><h:td>Identifier of user or process that attempted access</h:td></h:tr>
+                <h:tr><h:td rowspan="2">FPT_RCV.1</h:td><h:td>The fact that a failure or service discontinuity occurred</h:td><h:td>None</h:td></h:tr>
+                <!-- Note: I'm not clear on what the additional information for this event type is supposed to capture -->
+                <h:tr><h:td>Resumption of regular opartion</h:td><h:td>TSF failure types that are available on recovery</h:td></h:tr>
+                <h:tr><h:td>FTA_TAB.1/TLS (selection-based)</h:td><h:td colspan="2">None</h:td></h:tr>
+              </h:table><h:br/>
+              <h:b><ctr ctr-type="Table" id="manaudit">: Auditable Events</ctr></h:b>
+            </title>
+            <note role="application">The ST author only needs to include the rows from the Auditable Events table that correspond to the SFRs claimed in the ST.
+            The TOE is not required to generate auditable events for selection-based or optional SFRs that it does not claim.</note>
+            <aactivity>
+              <TSS></TSS>
+              <Guidance></Guidance>
+              <Tests></Tests>
+            </aactivity>
+          </f-element>
+        </f-component>
+        
+        
         <f-component name="Prevention of Audit Data Loss" cc-id="fau_stg.4" id="fau-stg-4">
           <consistency-rationale></consistency-rationale>
           <comp-lev></comp-lev>
@@ -3511,15 +3636,16 @@ legacy cipher suites. -->
               This SFR should be claimed if claimed if the selection ‘generate certificate status
               information’ is selected in FDP_CSIR_EXT.1.1.
               <h:p/>
+              <!-- Note: references to non-existent 'sub-item (g)' have been corrected -->
               The ST should specify the format(s) used to supply certificate status information
               in FDP_CSI_EXT.1.1, and the mechanism(s) used to provide the status to relying
               parties including all monitored clients in the second selection in FDP_CSI_EXT.1.3.
               If CRLs are identified in FDP_CSI_EXT.1.1, then cRLDistributionPoints must be
-              claimed in FDP_CSI_EXT.1.3 and in FDP_CER_EXT.1.2 item (g), sub-item (g). If the
+              claimed in FDP_CSI_EXT.1.3 and in FDP_CER_EXT.1.2 item (g), sub-item (e). If the
               OCSP standard is selected in FDP_CSI_EXT.1.1, then at least one of the last two
               options in the second selection of FDP_CSI_EXT.1.3 must be claimed. If the second
               option (OCSP) is claimed, authorityInfoAccess must be claimed in
-              FDP_CER_EXT.1.2 item (g), sub-item (g). OCSP stapling may also be claimed if the
+              FDP_CER_EXT.1.2 item (g), sub-item (e). OCSP stapling may also be claimed if the
               TOE only generates CRLs, but interfaces with an external OCSP responder that
               uses those CRLs.
               <h:p/>
@@ -4365,148 +4491,6 @@ legacy cipher suites. -->
         
       </section>
 	
-	  <!-- B.1 Identification and Authentication (FIA) -->
-      <section title="Identification and Authentication (FIA)" id="s-fia">
-			The TOE may support pre-shared keys for use in the IPsec protocol, and may use pre-shared keys in
-			other protocols as well. There are two types of pre-shared keys that must be supported by the TOE, as
-			specified in the requirements below. The first type is referred to as “text-based pre-shared keys,” which
-			refer to pre-shared keys that are entered by users as a string of characters from a standard character
-			set, similar to a password. Such pre-shared keys must be conditioned so that the string of characters is
-			transformed into a string of bits, which is then used as the key.<h:p/>
-			The second type is referred to as “bit-based pre-shared keys” (for lack of a standard term); this refers to
-			keys that are either generated by the TSF on a command from the administrator, or input in "direct
-			form" by an administrator. "Direct form" means that the input is used directly as the key, with no
-			"conditioning" as was the case for text-based pre-shared keys. An example would be a string of hex
-			digits that represent the bits that comprise the key.<h:p/>
-			The requirements below mandate that the TOE support text-based pre-shared keys. Bit-based preshared keys 
-	      		may or may not be supported, and if they are, generation of these keys may be done either
-			by the TOE or in the operational environment.
-	  
-        <ext-comp-def title="Pre-Shared Key Composition" fam-id="FIA_PSK_EXT">
-          <fam-behavior>Components in this family describes the requirements for pre-shared keys when implementing IPsec</fam-behavior>
-        </ext-comp-def>
-		
-		<!-- FIA_PSK_EXT.1 Pre-Shared Key Composition -->
-        <f-component cc-id="fia_psk_ext.1" id="fia-psk-ext-1" name="Pre-Shared Key Composition">
-          <depends on-sel="sel-ipsec-e11-psk"/>
-          <consistency-rationale/>
-          <comp-lev>defines the use and composition of pre-shared keys used for IPsec</comp-lev>
-          <management>No specific management functions are identified.</management>
-          <audit>The following actions should be auditable if FAU_GEN Security Audit Data Generation is included in the
-            PP/ST:<h:ul>
-              <h:li>Failure of the randomization process</h:li>
-            </h:ul>
-          </audit>
-          <dependencies>FCS_IPSEC_EXT.1 IPsec</dependencies>
-          <f-element id="fia-psk-ext-1e1">
-            <title>
-				The TSF shall be able to use pre-shared keys for IPsec.
-            </title>
-          </f-element>
-          <f-element id="fia-psk-ext-1e2">
-            <title>The TSF shall be able to accept text-based pre-shared keys that: 
-				<h:ul>
-					<h:li>Are 22 characters and 
-						<selectables>
-							<selectable><assignable>other supported lengths</assignable></selectable>
-							<selectable>no other lengths</selectable>
-							</selectables>,</h:li>
-					<h:li>Composed of any combination of upper and lower case letters, numbers,
-						and special characters (that include: “!”, “@”, “#”, “$”, “%”, “^”, “&amp;”, “*”,
-						“(“, “)”, and 
-						<selectables>
-							<selectable>no other special characters</selectable>
-							<selectable><assignable>list of additional supported special characters</assignable></selectable>
-						</selectables>.</h:li>
-				</h:ul>
-            </title>
-          </f-element>
-          <f-element id="fia-psk-ext-1e3">
-            <title>
-              The TSF shall condition the text-based pre-shared keys by using 
-			  <selectables>
-                <selectable>SHA-1</selectable>
-                <selectable>SHA-256</selectable>
-                <selectable>SHA-512</selectable>
-                <selectable><assignable>method of conditioning text string</assignable></selectable>
-              </selectables>, 
-			  <selectables>
-                <selectable>be able to 
-					<selectables>
-						<selectable>accept</selectable>
-						<selectable>generate using the random bit generator specified in FCS_RBG_EXT.1</selectable>
-					</selectables></selectable>
-                <selectable>perform no other conditioning</selectable>
-              </selectables>.
-            </title>
-            <note role="application">
-				This SFR is claimed if “pre-shared keys” is selected in FCS_IPSEC_EXT.1.11.<h:p/>
-				For the length of the text-based pre-shared keys, a common length (22
-				characters) is required to help promote interoperability. If other lengths are
-				supported they should be listed in the assignment; this assignment can also
-				specify a range of values (e.g., "lengths from 5 to 55 characters") as well.<h:p/>
-
-				For FIA_PSK_EXT.1.3, the ST author fills in the method by which the text string
-				entered by the administrator is “conditioned” into the bit string used as the key.
-				This can be done by using one of the specified hash functions, or some other
-				method through the assignment statement. If “bit-based pre-shared keys” is
-				selected, the ST author specifies whether the TSF merely accepts bit-based preshared keys, 
-				or is capable of generating them. If it generates them, the
-				requirement specified that they must be generated using the RBG specified by
-				the requirements. If the TOE does not use bit-based pre-shared keys, the second
-				selection should be completed with “perform no other conditioning,” as textbased pre-shared 
-				keys would then be the only type used.<h:p/>
-			</note>
-            <aactivity>
-              <TSS>The evaluator shall also examine the TSS to ensure it describes the process by which the
-		      bit-based preshared keys are generated (if the TOE supports this functionality), and
-		      confirm that this process uses the RBG specified in FCS_RBG_EXT.1.<h:p/>
-		      The evaluator shall examine the TSS to ensure that it states that text-based pre-shared keys of 22
-			characters are supported. The evaluator shall also confirm that the TSS states the conditioning that takes
-			place to transform the text-based pre-shared key from the key sequence entered by the user (e.g., ASCII
-			representation) to the bit string used by IPsec, and that this conditioning is consistent with the
-			FIA_PSK_EXT.1.3.<h:p/>
-              </TSS>
-              <Guidance>If the TOE supports bit-based pre-shared keys, the evaluator shall confirm the operational guidance
-				contains instructions for either entering bit-based pre- shared keys for each protocol identified in the
-				requirement, or generating a bit-based pre-shared key (or both). The evaluator shall also examine the TSS
-				to ensure it describes the process by which the bit-based pre-shared keys are generated (if the TOE
-				supports this functionality), and confirm that this process uses the RBG specified in FCS_RBG_EXT.1. <h:p/>
-                The evaluator shall check that any management functions related to pre-shared keys that are performed
-				by the TOE are specified in the operational guidance.<h:p/>
-                The evaluator shall examine the operational guidance to determine that it provides guidance on the
-				composition of strong text-based pre-shared keys, and (if the selection indicates keys of various lengths
-				can be entered) that it provides information on the merits of shorter or longer pre-shared keys. The
-				guidance must specify the allowable characters for pre-shared keys, and that list must include, at
-				minimum, the same items contained in FIA_PSK_EXT.1.2.<h:p/>
-              </Guidance>
-              <Tests>The evaluator shall perform the following tests:
-              <testlist>
-                <test>The evaluator shall compose a pre-shared key of 22 characters that contains a combination of the
-			allowed characters in accordance with the operational guidance, and demonstrates that a successful
-			protocol negotiation can be performed with the key.
-		</test>
-                <test> [conditional]: If the TOE supports pre-shared keys of multiple lengths, the evaluator shall
-                  repeat Test 1 using the minimum length; the maximum length; and invalid lengths that are below
-                  the minimum length, above the maximum length, null length, empty length, or zero length. The
-                  minimum and maximum length tests should be successful, and the invalid lengths must be rejected
-                  by the TOE.
-                </test>
-                <test> [conditional]: If the TOE supports but does not generate bit-based pre-shared keys, the evaluator
-			shall obtain a bit-based pre-shared key of the appropriate length and enter it per the instructions in the 
-			operational guidance. The evaluator shall then demonstrate that a successful protocol negotiation can be
-			performed with the key.</test>
-                <test> [conditional]: If the TOE does generate bit-based pre-shared keys, the evaluator shall generate a
-			bit-based pre-shared key of the appropriate length and use it according to the instructions in the
-			operational guidance. The evaluator shall then demonstrate that a successful protocol negotiation can be
-			performed with the key.</test>
-              </testlist>
-              </Tests>
-            </aactivity>
-          </f-element>
-		 <audit-event/>
-        </f-component>
-      </section>
     </sel-sfrs>
 
 
@@ -4520,6 +4504,33 @@ legacy cipher suites. -->
 	    </section> -->
       
       <section title="Identification and Authentication (FIA)" id="obj-fia">
+        
+        <f-component name="Client Use of TLS-Unique Value" cc-id="fia_estc_ext.2" id="fia-estc-ext-2">
+          <consistency-rationale></consistency-rationale>
+          <comp-lev></comp-lev>
+          <management></management>
+          <audit></audit>
+          <dependencies></dependencies>
+          <f-element id="fia-estc-ext-2e1">
+            <title>The TSF shall generate tls-unique values and integrate them into EST requests it
+              generates in accordance with RFC 7030 section 3.5.</title>
+            <note role="application">
+              This SFR describes an optional element of RFC 7030 that strengthens the
+              authentication provided by EST. While RFC 7030 requires EST servers to validate
+              the tls-unique values when presented, this requirement is not implemented in
+              current EST servers. 
+              <!-- Note: should we do this now or should we still keep it as something marked for a future release -->
+              FIA_ESTC_EXT.2.1 will be integrated into FIA_ESTC_EXT.1 in a
+              subsequent release of this PP-Module and should be claimed if the EST
+              implementation supports it. 
+            </note>
+            <aactivity>
+              <TSS></TSS>
+              <Guidance></Guidance>
+              <Tests></Tests>
+            </aactivity>
+          </f-element>
+        </f-component>
         
       </section>  
     </obj-sfrs>
