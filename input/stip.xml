@@ -1423,7 +1423,8 @@ expected to enforce.<h:p/>
 	  <!-- 5.2.1 Security Audit (FAU) -->
       <section title="Security Audit (FAU)" id="m-fau">
         <f-component name="Generation of Certificate Repository" cc-id="fau_gcr_ext.1" id="fau-gcr-ext-1">
-        <consistency-rationale></consistency-rationale>
+          <consistency-rationale>This SFR applies to storing certificates in a certificate repository which is not
+            listed in the Base-PP.</consistency-rationale>
         <comp-lev></comp-lev>
         <management></management>
         <audit></audit>
@@ -1456,7 +1457,7 @@ expected to enforce.<h:p/>
         I didn't do it that way because I thought referencing the individual tables would make the assignment/app note more complicated than just making one table and telling the ST author to include 
         all the ones that correspond to SFRs the TOE claims -->
         <f-component name="Audit Data Generation (STIP)" cc-id="fau_gen.1" iteration="STIP" id="fau-gen-1">
-          <consistency-rationale></consistency-rationale>
+          <consistency-rationale>This SFR adds new auditable events for the TOE that relate to the functionality that is introduced by the PP-Module</consistency-rationale>
           <f-element id="fau-gen-1e1-stip">
             <title>
               The TSF shall be able to generate an audit record of the following
@@ -1578,7 +1579,8 @@ expected to enforce.<h:p/>
         
         
         <f-component name="Prevention of Audit Data Loss" cc-id="fau_stg.4" id="fau-stg-4">
-          <consistency-rationale></consistency-rationale>
+          <consistency-rationale>This SFR applies to the prevention of audit data loss by the inclusion of the
+            auditor role which is not listed in the Base-PP.</consistency-rationale>
           <comp-lev></comp-lev>
           <management></management>
           <audit></audit>
@@ -1616,7 +1618,8 @@ expected to enforce.<h:p/>
       <section title="Cryptographic Support (FCS)" id="m-fcs">
 
         <f-component name="Cryptographic Operation (Data Encryption/Decryption in Support of STIP" cc-id="fcs_cop.1" iteration="STIP" id="fcs-cop-1-stip">
-          
+          <consistency-rationale>This SFR provides encryption/decryption cipher suites used in support for
+            the through-traffic processing of the TOE.</consistency-rationale>
           <f-element id="fcs-cop-1e1-stip">
             <title>
               The TSF shall perform encryption/decryption in accordance with a specified
@@ -1648,7 +1651,8 @@ expected to enforce.<h:p/>
         </f-component>
         
         <f-component name="Cryptographic Key Storage" cc-id="fcs_stg_ext.1" id="fcs-stg-ext-1">
-          <consistency-rationale></consistency-rationale>
+          <consistency-rationale>This SFR applies to the storage of persistent private and secret keys which is
+            not defined in the Base-PP.</consistency-rationale>
           <comp-lev></comp-lev>
           <management></management>
           <audit></audit>
@@ -1681,7 +1685,8 @@ expected to enforce.<h:p/>
           operating as the TLS client. Because it may be necessary to support “legacy” TLS versions and cipher suites
           for mission reasons, the SFR requires support for current and legacy TLS versions as well as current and
           legacy cipher suites. -->
-          <consistency-rationale></consistency-rationale>
+          <consistency-rationale>This SFR applies to thru-traffic TLS inspection client protocol which is not
+            defined in the Base-PP.</consistency-rationale>
           <comp-lev></comp-lev>
           <management></management>
           <audit></audit>
@@ -1856,7 +1861,8 @@ expected to enforce.<h:p/>
         </f-component>
         
         <f-component name="Thru-Traffic TLS Inspection Client Support for Supported Groups Extension" cc-id="fcs_tttc_ext.5" id="fcs-tttc-ext-5">
-          <consistency-rationale></consistency-rationale>
+          <consistency-rationale>This SFR applies to client supported groups extension for thru-traffic TLS
+            inspection.</consistency-rationale>
           <comp-lev></comp-lev>
           <management></management>
           <audit></audit>
@@ -1913,7 +1919,8 @@ established to support STIP functionality between the monitored client and the T
 operating as the TLS client. Because it may be necessary to support “legacy” TLS versions and cipher suites
 for mission reasons, the SFR requires support for current and legacy TLS versions as well as current and
 legacy cipher suites. -->
-          <consistency-rationale></consistency-rationale>
+          <consistency-rationale>This SFR applies to thru-traffic TLS inspection server protocol which is not
+            defined in the Base-PP.</consistency-rationale>
           <comp-lev></comp-lev>
           <management></management>
           <audit></audit>
@@ -2094,7 +2101,8 @@ legacy cipher suites. -->
 
 <!-- Note: come back to this one to make sure it looks ok -->
         <f-component name="Certificate Profiles for Server Certificates" cc-id="fdp_cer_ext.1" id="fdp-cer-ext-1">
-          <consistency-rationale></consistency-rationale>
+          <consistency-rationale>This SFR applies to the implementation of certificate profile functionality for
+            server certificates which is not defined in the Base-PP.</consistency-rationale>
           <comp-lev></comp-lev>
           <management></management>
           <audit></audit>
@@ -2264,7 +2272,8 @@ legacy cipher suites. -->
         </f-component>
         
         <f-component name="Certificate Request Matching of Server Certificates" cc-id="fdp_cer_ext.2" id="fdp-cer-ext-2">
-          <consistency-rationale></consistency-rationale>
+          <consistency-rationale>This SFR applies to the establishing and recording a linkage from validated to
+            issued certificates which is not defined in the Base-PP.</consistency-rationale>
           <comp-lev></comp-lev>
           <management></management>
           <audit></audit>
@@ -2289,7 +2298,8 @@ legacy cipher suites. -->
         </f-component>
     
         <f-component name="Certificate Issuance Rules for Server Certificates" cc-id="fdp_cer_ext.3" id="fdp-cer-ext-3">
-          <consistency-rationale></consistency-rationale>
+          <consistency-rationale>This SFR applies to rules for the issuance of certificates which is not defined
+            in the Base-PP.</consistency-rationale>
           <comp-lev></comp-lev>
           <management></management>
           <audit></audit>
@@ -2319,7 +2329,8 @@ legacy cipher suites. -->
         </f-component>
         
         <f-component name="Certificate Status Information Required" cc-id="fdp_csir_ext.1" id="fdp-csir-ext-1">
-          <consistency-rationale></consistency-rationale>
+          <consistency-rationale>This SFR applies to the ability to generate certificate status information if the
+            validity period can be configured to last longer than 24 hours.</consistency-rationale>
           <comp-lev></comp-lev>
           <management></management>
           <audit></audit>
@@ -2355,7 +2366,8 @@ legacy cipher suites. -->
         </f-component>
         
         <f-component name="Plaintext Processing Policy" cc-id="fdp_ppp_ext.1" id="fdp-ppp-ext-1">
-          <consistency-rationale></consistency-rationale>
+          <consistency-rationale>This SFR applies to the enforcement of the TLS processing policy which is not
+            defined in the Base-PP.</consistency-rationale>
           <comp-lev></comp-lev>
           <management></management>
           <audit></audit>
@@ -2483,7 +2495,8 @@ legacy cipher suites. -->
         
         
         <f-component name="Plaintext Routing Control" cc-id="fdp_prc_ext.1" id="fdp-prc-ext-1">
-          <consistency-rationale></consistency-rationale>
+          <consistency-rationale>This SFR applies to the routing of information flows containing plaintext
+            which is not defined in the Base-PP.</consistency-rationale>
           <comp-lev></comp-lev>
           <management></management>
           <audit></audit>
@@ -2510,7 +2523,9 @@ legacy cipher suites. -->
         </f-component>
         
         <f-component name="Subset Residual Information Protection" cc-id="fdp_rip.1" id="fdp-rip-1">
-          <consistency-rationale></consistency-rationale>
+          <consistency-rationale>This SFR applies to providing the capability to allocation or deallocation of
+            resources which in this PP-Module is any data buffers used to implement
+            STIP functionality which is not defined in the Base-PP.</consistency-rationale>
           <f-element id="fdp-rip-1e1">
             <title>
               The TSF shall ensure that any previous information content of a resource is made
@@ -2536,7 +2551,9 @@ legacy cipher suites. -->
         </f-component>
         
         <f-component name="Certificate Data Storage" cc-id="fdp_stg_ext.1" id="fdp-stg-ext-1">
-          <consistency-rationale></consistency-rationale>
+          <consistency-rationale>This SFR enforces protection of trusted public keys and certificates
+            implemented using access control or integrity mechanism which is not
+            defined in the Base-PP.</consistency-rationale>
           <comp-lev></comp-lev>
           <management></management>
           <audit></audit>
@@ -2559,7 +2576,8 @@ legacy cipher suites. -->
         </f-component>
         
         <f-component name="SSL/TLS Inspection Proxy Functions" cc-id="fdp_stip_ext.1" id="fdp-stip-ext-1">
-          <consistency-rationale></consistency-rationale>
+          <consistency-rationale>This SFR applies to STIP-specific processing operations which are not defined
+            in an RFC or specified in the Base-PP.</consistency-rationale>
           <comp-lev></comp-lev>
           <management></management>
           <audit></audit>
@@ -2655,7 +2673,8 @@ legacy cipher suites. -->
         <!-- Note: TD0516 app notes modified to remove explicit appendix references in favor of SFR names since the Github module formatting will be different -->
         <!-- Note: come back to make sure this one is ok -->
         <f-component name="SSL/TLS Inspection Proxy Policy" cc-id="fdp_tep_ext.1" id="fdp-tep-ext-1">
-          <consistency-rationale></consistency-rationale>
+          <consistency-rationale>This SFR applies to the enforcement of the TLS session establishment policy
+            which is not defined by the Base-PP.</consistency-rationale>
           <comp-lev></comp-lev>
           <management></management>
           <audit></audit>
@@ -3090,7 +3109,8 @@ legacy cipher suites. -->
       <section title="Identification and Authentication (FIA)" id="m-fia">
         
         <f-component name="Certificate Enrollment" cc-id="fia_enr_ext.1" id="fia-enr-ext-1">
-          <consistency-rationale></consistency-rationale>
+          <consistency-rationale>This SFR applies to the ability to generate a certificate request which is not
+            defined in the Base-PP.</consistency-rationale>
           <comp-lev></comp-lev>
           <management></management>
           <audit></audit>
@@ -3117,7 +3137,8 @@ legacy cipher suites. -->
         </f-component>  
         
         <f-component name="X.509 Certificate Validation (STIP)" cc-id="fia_x509_ext.1" iteration="STIP" id="fia-x509-ext-1-stip">
-          <consistency-rationale></consistency-rationale>
+          <consistency-rationale>This SFR specifies validation of certificates used for connections supporting
+            STIP functions.</consistency-rationale>
           <f-element id="fia-x509-ext-1e1-stip">
             <title>The TSF shall validate certificates used for connections supporting STIP
               functions in accordance with the following rules: <h:ul>
@@ -3239,10 +3260,242 @@ legacy cipher suites. -->
 
 	<!-- 5.2.5 Security Management (FMT)  -->
     <section title="Security Management (FMT)" id="m-fmt">
-        The TOE is not required to maintain a separate management role. It is, however, required to provide
-	functionality to configure certain aspects of TOE operation that should not be available to the general
-	user population. It is possible for the TOE, TOE Platform, or VPN Gateway to provide this functionality.
-	The client itself has to be configurable - whether it is from the EUD or from a VPN gateway.
+        The TOE is not required to maintain a management interface for STIP functions that is separate from the
+        management functions that the NDcPP requires. If some or all STIP functions are managed separately, 
+        the relevant management functions from the NDcPP also apply to any management interfaces used specifically to meet the requirements of this PP-Module.
+        
+      <f-component name="Specification of Management Functions" cc-id="fmt_mof.1" id="fmt-mof-1">
+        <consistency-rationale>This SFR applies to the restriction of management functions to certain roles
+          which are not defined in the Base-PP which only requires management
+          functionality to be performed by a security administrator.</consistency-rationale>
+        <f-element id="fmt-mof-1e1">
+          <title>
+            The TSF shall restrict the ability to [<h:i>modify the behaviour of</h:i>] the functions
+            <assignable>functions defined in the Management Functions and Privileges table
+              that are claimed in FMT_SMF.1.1 and FMT_SMF.1.1/STIP</assignable> to <assignable>roles defined in the
+            Management Functions and Privileges table</assignable>.
+            <h:p/>
+            <!-- Was not sure if exact reproduction of Module 1.0 table was possible using management-function-set tags so recreated table manually, is this ok -->
+            <h:table>
+              <h:tr class="header"><h:td>Management Function</h:td><h:td>Security Administrator</h:td><h:td>Auditor</h:td><h:td>Account Manager</h:td><h:td>CA Operations Staff</h:td></h:tr>
+              <h:tr><h:td colspan="5">Base-PP Mandatory Management Functions (FMT_SMF.1 and FMT_SMF.1/STIP)</h:td></h:tr>
+              <h:tr><h:td>Ability to administer the TOE locally and remotely</h:td><h:td>M</h:td><h:td>CM</h:td><h:td>CM</h:td><h:td>CM</h:td></h:tr>
+              <h:tr><h:td>Ability to configure the access banner</h:td><h:td>M</h:td><h:td>-</h:td><h:td>O</h:td><h:td>O</h:td></h:tr>
+              <h:tr><h:td>Ability to update the TOE and to verify the updates</h:td><h:td>M</h:td><h:td>-</h:td><h:td>O</h:td><h:td>O</h:td></h:tr>
+              <h:tr><h:td>Ability to configure the authentication failure parameters for FIA_AFL.1</h:td><h:td>M</h:td><h:td>-</h:td><h:td>O</h:td><h:td>O</h:td></h:tr>
+              <h:tr><h:td>Ability to manage user accounts</h:td><h:td>C</h:td><h:td>-</h:td><h:td>CM</h:td><h:td>-</h:td></h:tr>
+              <h:tr><h:td>Ability to manage remote audit mechanism</h:td><h:td>M</h:td><h:td>CM</h:td><h:td>-</h:td><h:td>-</h:td></h:tr>
+              <h:tr><h:td>Ability to perform on-demand integrity tests</h:td><h:td>O</h:td><h:td>O</h:td><h:td>O</h:td><h:td>O</h:td></h:tr>
+              <h:tr><h:td>Ability to import and remove X.509v3 certificates into/from the Trust Anchor database</h:td><h:td>C</h:td><h:td>-</h:td><h:td>-</h:td><h:td>CM</h:td></h:tr>
+              <h:tr><h:td>Ability to configure identifying information for the TOE's embedded CA</h:td><h:td>C</h:td><h:td>-</h:td><h:td>-</h:td><h:td>CM</h:td></h:tr>
+              <h:tr><h:td>Ability to configure a maximum certificate validity duration</h:td><h:td>C</h:td><h:td>-</h:td><h:td>-</h:td><h:td>CM</h:td></h:tr>
+              <h:tr><h:td>Ability to manage inspection policy</h:td><h:td>O</h:td><h:td>-</h:td><h:td>-</h:td><h:td>O</h:td></h:tr>
+              <h:tr><h:td>Ability to configure inspection processing details</h:td><h:td>O</h:td><h:td>-</h:td><h:td>-</h:td><h:td>O</h:td></h:tr>
+              <h:tr><h:td colspan="5">Base-PP Selectable Management Functions (FMT_SMF.1 and FMT_SMF.1/STIP)</h:td></h:tr>
+              <h:tr><h:td>Ability to start and stop services</h:td><h:td>O</h:td><h:td>-</h:td><h:td>-</h:td><h:td>O</h:td></h:tr>
+              <h:tr><h:td>Ability to configure local audit behavior</h:td><h:td>O</h:td><h:td>O</h:td><h:td>-</h:td><h:td>-</h:td></h:tr>
+              <h:tr><h:td>Ability to modify the behavior of the transmission of audit data to an external IT entity, the handling of audit data, the audit functionality when Local Audit Storage Space is full</h:td>
+                <h:td>M</h:td><h:td>CM</h:td><h:td>-</h:td><h:td>-</h:td></h:tr>
+              <h:tr><h:td>Ability to search local audit</h:td><h:td>C</h:td><h:td>CM</h:td><h:td>-</h:td><h:td>-</h:td></h:tr>
+              <h:tr><h:td>Ability to configure the list of TOE-provided services available before an entity is identified and authenticated, as specified in FIA_UIA_EXT.1</h:td>
+                <h:td>M</h:td><h:td>-</h:td><h:td>O</h:td><h:td>-</h:td></h:tr>
+              <h:tr><h:td>Ability to manage cryptographic keys</h:td><h:td>M</h:td><h:td>-</h:td><h:td>-</h:td><h:td>CM</h:td></h:tr>
+              <h:tr><h:td>Ability to configure the cryptographic functionality</h:td><h:td>M</h:td><h:td>-</h:td><h:td>-</h:td><h:td>O</h:td></h:tr>
+              <h:tr><h:td>Ability to configure thresholds for SSH rekeying</h:td><h:td>M</h:td><h:td>-</h:td><h:td>O</h:td><h:td>O</h:td></h:tr>
+              <h:tr><h:td>Ability to configure the lifetime for IPsec SAs</h:td><h:td>M</h:td><h:td>-</h:td><h:td>-</h:td><h:td>-</h:td></h:tr>
+              <h:tr><h:td>Ability to configure the interaction between TOE components</h:td><h:td>M</h:td><h:td>O</h:td><h:td>-</h:td><h:td>O</h:td></h:tr>
+              <h:tr><h:td>Ability to enable or disable automatic checking for updates or automatic updates</h:td><h:td>M</h:td><h:td>-</h:td><h:td>-</h:td><h:td>-</h:td></h:tr>
+              <h:tr><h:td>Ability to re-enable an administrator account</h:td><h:td>C</h:td><h:td>-</h:td><h:td>CM</h:td><h:td>-</h:td></h:tr>
+              <h:tr><h:td>Ability to set the time which is used for time-stamps</h:td><h:td>M</h:td><h:td>O</h:td><h:td>-</h:td><h:td>O</h:td></h:tr>
+              <h:tr><h:td>Ability to configure NTP</h:td><h:td>M</h:td><h:td>-</h:td><h:td>-</h:td><h:td>-</h:td></h:tr>
+              <h:tr><h:td>Ability to configure the reference identifier for the peer</h:td><h:td>M</h:td><h:td>-</h:td><h:td>-</h:td><h:td>O</h:td></h:tr>
+              <h:tr><h:td>Ability to manage the TOE's trust store and designate X.509v3 certificates as trust anchors</h:td><h:td>M</h:td><h:td>-</h:td><h:td>-</h:td><h:td>CM</h:td></h:tr>
+              <h:tr><h:td>Ability to import X.509v3 certificates to the TOE's trust store</h:td><h:td>M</h:td><h:td>-</h:td><h:td>-</h:td><h:td>CM</h:td></h:tr>
+              <h:tr><h:td>Ability to configure and manage certificate profiles</h:td><h:td>C</h:td><h:td>-</h:td><h:td>-</h:td><h:td>CM</h:td></h:tr>
+              <h:tr><h:td>Ability to revoke issued certificates</h:td><h:td>C</h:td><h:td>-</h:td><h:td>-</h:td><h:td>CM</h:td></h:tr>
+              <h:tr><h:td>Ability to configure certificate status services</h:td><h:td>C</h:td><h:td>-</h:td><h:td>-</h:td><h:td>CM</h:td></h:tr>
+              <h:tr><h:td>Ability to configure automated process used to approve the revocation of a certificate or information about the revocation of a certificate</h:td>
+                <h:td>C</h:td><h:td>-</h:td><h:td>-</h:td><h:td>CM</h:td></h:tr>
+              <h:tr><h:td>Ability to clear a cache of valid issued certificates</h:td><h:td>M</h:td><h:td>-</h:td><h:td>-</h:td><h:td>CM</h:td></h:tr>
+              <h:tr><h:td>Ability to configure rules for automated issuance of certificates</h:td><h:td>C</h:td><h:td>-</h:td><h:td>-</h:td><h:td>CM</h:td></h:tr>
+              <h:tr><h:td>Ability to modify the CRL and/or OCSP configuration</h:td><h:td>C</h:td><h:td>-</h:td><h:td>-</h:td><h:td>CM</h:td></h:tr>
+              <h:tr><h:td>Ability to import private keys</h:td><h:td>C</h:td><h:td>-</h:td><h:td>-</h:td><h:td>CM</h:td></h:tr>
+              <h:tr><h:td>Ability to configure the TOE's behavior on validating certificates whose revocation status cannot be determined</h:td>
+                <h:td>M</h:td><h:td>-</h:td><h:td>-</h:td><h:td>CM</h:td></h:tr>
+              <h:tr><h:td>Ability to configure the TOE's behavior when non-supported critical extensions occur in a requested server certificate</h:td>
+                <h:td>C</h:td><h:td>-</h:td><h:td>-</h:td><h:td>CM</h:td></h:tr>
+              <h:tr><h:td>Ability to generate and export PKCS#10 messages</h:td><h:td>C</h:td><h:td>-</h:td><h:td>-</h:td><h:td>CM</h:td></h:tr>
+              <h:tr><h:td>Ability to configure EST functionality to generate and export EST requests</h:td><h:td>C</h:td><h:td>-</h:td><h:td>-</h:td><h:td>CM</h:td></h:tr>
+              <h:tr><h:td>Ability to configure TLS error responses for monitored clients</h:td><h:td>M</h:td><h:td>-</h:td><h:td>-</h:td><h:td>O</h:td></h:tr>
+              <h:tr><h:td>Ability to configure notification and consent message for monitored clients</h:td><h:td>M</h:td><h:td>-</h:td><h:td>-</h:td><h:td>O</h:td></h:tr>
+              <h:tr><h:td>Ability to configure rules for displaying a notification and consent message for acknowledgement prior to TLS inspection processing</h:td>
+                <h:td>M</h:td><h:td>-</h:td><h:td>-</h:td><h:td>O</h:td></h:tr>
+              <h:tr><h:td>Ability to search the certificate repository</h:td><h:td>C</h:td><h:td>CM</h:td><h:td>-</h:td><h:td>CM</h:td></h:tr>
+            </h:table>
+          </title>
+          <note role="application">
+            <!-- is this change to the app note ok -->
+            The management functions defined in this table are the same as the management
+            functions defined in FMT_SMF.1 in the Base-PP as well as those defined in FMT_SMF.1/STIP in this PP-Module. The NDcPP only requires management
+            functionality to be performed by a Security Administrator. This PP-Module defines optional additional management roles that may be claimed; if any of these are selected,
+            this PP-Module provides guidance on how to apply those roles to the Base-PP's management functions.
+            <h:p/>
+            The Management Functions and Privileges table uses the following key:
+            M: Mandatory (this role must perform this function)
+            <h:p/>
+            CM: Conditionally Mandatory (if this role is part of the TSF it must perform this
+            function but if the role itself does not exist it may be satisfied elsewhere)
+            <h:p/>
+            C: Conditional (if a role does not exist to satisfy a conditionally mandatory
+            function, this is that function’s “backup” role)
+            <h:p/>
+            O: Optional (this role may or may not perform this function)
+            <h:p/>
+            The ST author should reproduce this table and update as needed to show which
+            functions are implemented by which roles.
+            <h:p/>
+            If a selectable function has a mandatory role mapping, this means that if the
+            function is implemented it must be satisfied in a certain way; it does not mean
+            that it is mandatory to implement that function.
+            <h:p/>
+            If a selectable function does not have a mandatory role but is mapped to multiple
+            optional roles, then at least one of them must be selected if the function is
+            implemented.
+          </note>
+          <aactivity>
+            <TSS></TSS>
+            <Guidance></Guidance>
+            <Tests></Tests>
+          </aactivity>
+        </f-element>
+      </f-component>
+	
+      <f-component name="Specification of Management Functions" cc-id="fmt_smf.1" iteration="STIP" id="fmt-smf-1-stip">
+        <consistency-rationale>This SFR defines additional management functions to address the STIP functionality not defined in the Base-PP.</consistency-rationale>
+        <f-element id="fmt-smf-1e1-stip">
+          <title>The TSF shall be capable of performing the following management functions <h:b>in support of STIP operations</h:b>: [<h:i>
+          <h:ul>
+            <h:li>Ability to manage user accounts</h:li>
+            <h:li>Ability to manage remote audit mechanism</h:li>
+            <h:li>Ability to perform on-demand integrity tests</h:li>
+            <!-- Note: This is already covered in the Base-PP by "Ability to manage the TOE's trust store..." is it ok that we have a very similar one in the STIP iteration? 
+            Alternative would be we refine FMT_SMF.1 to force the selection in Modified SFRs but then we go back to the "a second Module may modify the SFR in a contradictory manner" issue that required 
+            us to iterate this SFR in the first place -->
+            <h:li>Ability to import and remove X.509v3 certificates into/from the Trust
+            Anchor Database</h:li>
+            <h:li>Ability to configure identifying information for the TOE’s embedded CA</h:li>
+            <h:li>Ability to configure a maximum certificate validity duration</h:li>
+            <h:li>Ability to manage inspection policy</h:li>
+            <h:li>Ability to configure inspection processing [assignment: details beyond
+            those covered by “inspection policy”]</h:li>
+          </h:ul>
+            <selectables linebreak="yes">
+              <selectable>Ability to configure local audit behavior</selectable>
+              <selectable>Ability to configure and manage certificate profiles</selectable>
+              <selectable>Ability to revoke issued certificates</selectable>
+              <selectable>Ability to configure certificate status services</selectable>
+              <selectable>Ability to configure automated process used to approve the
+              revocation of a certificate or information about the revocation of a
+              certificate</selectable>
+              <selectable>Ability to clear a cache of valid issued certificates</selectable>
+              <selectable>Ability to configure rules for automated issuance of certificates</selectable>
+              <selectable>Ability to modify the CRL configuration</selectable>
+              <selectable>Ability to modify the OCSP configuration</selectable>
+              <selectable>Ability to import private keys</selectable>
+              <selectable>Ability to configure the TOE’s behavior on validating certificates
+              whose revocation status cannot be determined</selectable>
+              <selectable>Ability to configure the TOE’s behavior when non-supported critical
+              extensions occur in a requested server certificate</selectable>
+              <selectable>Ability to generate and export PKCS#10 messages</selectable>
+              <selectable>Ability to generate and export EST messages and accept and process
+              EST responses</selectable>
+              <selectable>Ability to configure TLS error responses for monitored clients</selectable>
+              <selectable>Ability to configure notification and consent message for monitored
+              clients</selectable>
+              <selectable>Ability to configure rules for displaying a notification and consent
+              message for acknowledgement prior to TLS inspection processing</selectable>
+              <selectable>Ability to search the certificate repository</selectable>
+              <selectable>No other capabilities</selectable>
+            </selectables>
+          </h:i>].
+          </title>
+          <note role="application">
+            This SFR defines mandatory and selectable management functions for STIP functionality specifically. The claims made here are in addition to those functions claimed for the Base-PP iteration of FMT_SMF.1.
+          </note>
+          <aactivity>
+            <TSS></TSS>
+            <Guidance></Guidance>
+            <Tests></Tests>
+          </aactivity>
+        </f-element>
+      </f-component>
+      
+      <f-component name="Restrictions on Security Roles" cc-id="fmt_smr.2" iteration="STIP" id="fmt-smr-2-stip">
+        <consistency-rationale>This SFR defines additional management roles that the TOE may define to enforce role separation, which is a security enhancement on the Base-PP's requirement that only
+        one management role is necessary.</consistency-rationale>
+        <f-element id="fmt-2e1-stip">
+          <title>
+            The TSF shall maintain the roles: [<h:i>
+            <h:ul>
+              <h:li>Security Administrator,</h:li>
+            </h:ul>
+            <selectables linebreak="yes">
+              <selectable>Auditor</selectable>
+              <selectable>CA Operations Staff</selectable>
+              <selectable>Account Manager</selectable>
+              <selectable>no other roles</selectable>
+            </selectables></h:i>].
+          </title>
+          <note role="application">This SFR is an iterated version of the FMT_SMR.2 SFR for the Base-PP. The purpose of this iteration is that the STIP functionality may be 
+            distributed across multiple administrative roles. If the TOE does not enforce role separation, the ST author selects "no other roles" to indicate that STIP functionality is managed
+            by the same Security Administrator role specified in the Base-PP.
+            <h:p/>
+            As is the case in the Base-PP, the TOE does not need its roles to have the same
+            names as those defined in this SFR. It is expected that the ST will
+            define the administrative roles and privileges defined by the TSF and map them to
+            the roles listed in this PP-Module.
+            <h:p/>
+            If “ability to configure local audit storage behavior” is selected in FMT_SMF.1/STIP, the
+            ‘Auditor’ role must be selected here; role separation is required for audit storage
+            functionality. </note>
+        </f-element>
+        <f-element id="fmt-2e2-stip">
+          <title>The TSF shall be able to associate users with roles.</title>
+        </f-element>
+        <f-element id="fmt-2e3-stip">
+            <title>
+              The TSF shall ensure that the conditions [<h:i>
+                <h:ul>
+                  <h:li>All roles shall be able to administer the TOE locally,</h:li>
+                  <h:li>All roles shall be able to administer the TOE remotely,</h:li>
+                </h:ul>
+                  <selectables linebreak="yes">
+                    <selectable>No identity is authorized to assume both an Account Manager role
+                      and any of the other roles in FMT_SMR.2.1/STIP,</selectable>
+                    <selectable>No identity is authorized to assume both an Auditor role and any of
+                      the other roles in FMT_SMR.2.1/STIP,</selectable>
+                    <selectable>No other conditions</selectable>
+                  </selectables></h:i>] are satisifed.
+            </title>
+          <note role="application">
+            <!-- Note: we may want to iterate FMT_MOF.1 for STIP (Base-PP doesn't have an un-iterated FMT_MOF.1 but having the Module's version be un-iterated may imply to the reader that
+            this SFR was originally from the Base-PP -->
+            This PP-Module refines the SFR defined in the Base-PP to include additional
+            administrative roles. As defined in FMT_MOF.1, the TSF is expected to provide
+            different privileges to the given roles.
+            <h:p/>
+            If the TSF supports an Auditor and/or Account Manager role, it is expected that
+            the relevant selections above will be made. It is the intent of this PP-Module that
+            if either or both of these roles are provided, their critical functionality is isolated
+            from any other roles (see FMT_MOF.1).
+          </note>
+          <aactivity>
+            <TSS></TSS>
+            <Guidance></Guidance>
+            <Tests></Tests>
+          </aactivity>
+        </f-element>
+      </f-component>
 
       </section>  <!-- FMT -->
 
@@ -3250,7 +3503,8 @@ legacy cipher suites. -->
       <section title="Protection of the TSF (FPT)" id="m-fpt">
 	 
         <f-component name="Failure with Preservation of Secure State" cc-id="fpt_fls.1" id="fpt-fls-1">
-          <consistency-rationale></consistency-rationale>
+          <consistency-rationale>This SFR applies to preserving a secure state when different failures occur
+            which is not defined in the Base-PP.</consistency-rationale>
           <f-element id="fpt-fls-1e1">
             <title>The TSF shall preserve a secure state when the following types of failures occur: <h:b>
               DRBG failure, integrity test failure, external audit server is unavailable, <selectables>
@@ -3283,7 +3537,8 @@ legacy cipher suites. -->
         </f-component>
         
         <f-component name="No Plaintext Key Export" cc-id="fpt_kst_ext.1" id="fpt-kst-ext-1">
-          <consistency-rationale></consistency-rationale>
+          <consistency-rationale>This SFR applies to the prevention of plaintext key export which is not
+            defined in the Base-PP.</consistency-rationale>
           <comp-lev></comp-lev>
           <management></management>
           <audit></audit>
@@ -3303,7 +3558,8 @@ legacy cipher suites. -->
         </f-component>
         
         <f-component name="TSF Key Protection" cc-id="fpt_kst_ext.2" id="fpt-kst-ext-2">
-          <consistency-rationale></consistency-rationale>
+          <consistency-rationale>This SFR applies to the prevention of unauthorized use of private and secret
+            keys which is not defined in the Base-PP.</consistency-rationale>
           <comp-lev></comp-lev>
           <management></management>
           <audit></audit>
@@ -3336,7 +3592,8 @@ legacy cipher suites. -->
         </f-component>
         
         <f-component name="Manual Trusted Recovery" cc-id="fpt_rcv.1" id="fpt-rcv-1">
-          <consistency-rationale></consistency-rationale>
+          <consistency-rationale>This SFR applies to the maintenance mode that provides the ability to return
+            to a secure state is provided which is not defined in the Base-PP.</consistency-rationale>
           <f-element id="fpt-rcv-1e1">
             <title>After <assignable>list of failures/service discontinuities</assignable> the TSF shall enter a
               maintenance mode where the ability to return to a secure state is provided.</title>
@@ -3446,7 +3703,8 @@ legacy cipher suites. -->
         audit capability.
         
         <f-component name="Audit Review" cc-id="fau_sar.1" id="fau-sar-1">
-          <consistency-rationale></consistency-rationale>
+          <consistency-rationale>This SFR applies to who can view all the audit records which includes the
+            added role of the auditor, which is not defined in the Base-PP.</consistency-rationale>
           <f-element id="fau-sar-1e1">
             <title>
               The TSF shall provide <selectables>
@@ -3470,7 +3728,8 @@ legacy cipher suites. -->
         </f-component>
         
         <f-component name="Selectable Audit Review" cc-id="fau_sar.3" id="fau-sar-3">
-          <consistency-rationale></consistency-rationale>
+          <consistency-rationale>This SFR applies to the ability to search within audit records based on various
+            identifiers which is not defined in the Base-PP.</consistency-rationale>
           <f-element id="fau-sar-3e1">
             <title>
               The TSF shall provide the ability to apply searches of local audit data based on <h:b>
@@ -3493,7 +3752,7 @@ legacy cipher suites. -->
         providing this feature. 
         
         <f-component name="Certificate Pinning" cc-id="fdp_pin_ext.1" id="fdp-pin-ext-1">
-          <consistency-rationale></consistency-rationale>
+          <consistency-rationale>This SFR applies to certificate pinning which is not defined in the Base-PP.</consistency-rationale>
           <comp-lev></comp-lev>
           <management></management>
           <audit></audit>
@@ -3552,7 +3811,8 @@ legacy cipher suites. -->
         
         <f-component name="Certificate Revocation List Generation" cc-id="fdp_crl_ext.1" id="fdp-crl-ext-1">
           <depends on-sel="CRLs"/>
-          <consistency-rationale></consistency-rationale>
+          <consistency-rationale>This SFR applies to the revocation of certificates which is not defined in the
+            Base-PP.</consistency-rationale>
           <comp-lev></comp-lev>
           <management></management>
           <audit></audit>
@@ -3593,7 +3853,8 @@ legacy cipher suites. -->
         
         <f-component name="Certificate Status Information" cc-id="fdp_csi_ext.1" id="fdp-csi-ext-1">
           <depends on-sel="genStatus"/>
-          <consistency-rationale></consistency-rationale>
+          <consistency-rationale>This SFR applies to generating certificate status information which is not
+            defined in the Base-PP.</consistency-rationale>
           <comp-lev></comp-lev>
           <management></management>
           <audit></audit>
@@ -3664,7 +3925,8 @@ legacy cipher suites. -->
         
         <f-component name="OCSP Basic Response Generation" cc-id="fdp_ocsp_ext.1" id="fdp-ocsp-ext-1">
           <depends on-sel="OCSP"/>
-          <consistency-rationale></consistency-rationale>
+          <consistency-rationale>This SFR applies to generating OCSP responses which is not defined in the
+            Base-PP.</consistency-rationale>
           <comp-lev></comp-lev>
           <management></management>
           <audit></audit>
@@ -3699,7 +3961,7 @@ legacy cipher suites. -->
         
         <f-component name="OCSP Stapling" cc-id="fcs_ocsps_ext.1" id="fcs-ocsps-ext-1">
           <depends on-sel="stapling"/>
-          <consistency-rationale></consistency-rationale>
+          <consistency-rationale>This SFR applies to OCSP stapling which is not defined in the Base-PP.</consistency-rationale>
           <comp-lev></comp-lev>
           <management></management>
           <audit></audit>
@@ -3743,7 +4005,8 @@ legacy cipher suites. -->
         
         <f-component name="Enrollment over Secure Transport (EST) Client" cc-id="fia_estc_ext.1" id="fia-estc-ext-1">
           <depends on-sel="EST"/>
-          <consistency-rationale></consistency-rationale>
+          <consistency-rationale>This SFR applies to the enforcement of Enrollment of Secure Transport to
+            obtain its embedded CA certificate which is not defined in the Base-PP.</consistency-rationale>
           <comp-lev></comp-lev>
           <management></management>
           <audit></audit>
@@ -3826,7 +4089,8 @@ legacy cipher suites. -->
         
         <f-component name="TOE Access Banner (Consent to Monitor Banner for TLS Inspection" cc-id="fta_tab.1" iteration="TLS" id="fta-tab-1">
           <depends on-sel="banner"/>
-          <consistency-rationale></consistency-rationale>
+          <consistency-rationale>This SFR applies to having a notice and consent warning message at the start
+            of an SSL/TLS inspection session which is not defined in the Base-PP. </consistency-rationale>
           <f-element id="fta-tab-1e1-tls">
             <title>
               Before forwarding decrypted application data intended for the requested server
@@ -3881,7 +4145,8 @@ legacy cipher suites. -->
       
         <f-component name="Thru-Traffic TLS Inspection Client Protocol with Mutual Authentication Representing Monitored Clients" cc-id="fcs_tttc_ext.3" id="fcs-tttc-ext-3">
           <depends on-sel="clientAuth"/>
-          <consistency-rationale></consistency-rationale>
+          <consistency-rationale>This SFR applies to thru-traffic TLS Inspection Client Protocol with mutual
+            authentication which is not defined in the Base-PP.</consistency-rationale>
           <comp-lev></comp-lev>
           <management></management>
           <audit></audit>
@@ -3907,7 +4172,8 @@ legacy cipher suites. -->
         
         <f-component name="Thru-Traffic TLS Inspection Server Protocol with Mutual Authentication of Monitored Clients" cc-id="fcs_ttts_ext.3" id="fcs-ttts-ext-3">
           <depends on-sel="serverAuth"/>
-          <consistency-rationale></consistency-rationale>
+          <consistency-rationale>This SFR applies to thru-traffic TLS Inspection Server Protocol with mutual
+            authentication which is not defined in the Base-PP.</consistency-rationale>
           <comp-lev></comp-lev>
           <management></management>
           <audit></audit>
@@ -3954,7 +4220,7 @@ legacy cipher suites. -->
         <!-- Note: come back to this one to make sure it looks ok -->
         <f-component name="Certificate Profiles for Client Certificates" cc-id="fdp_cer_ext.4" id="fdp-cer-ext-4">
           <depends on-sel="clientAuth"/>
-          <consistency-rationale></consistency-rationale>
+          <consistency-rationale>This SFR applies to the implementation of the certificate profile functionality for TLS client certificates.</consistency-rationale>
           <comp-lev></comp-lev>
           <management></management>
           <audit></audit>
@@ -4124,7 +4390,8 @@ legacy cipher suites. -->
         
         <f-component name="Certificate Issuance Rules for Client Certificates" cc-id="fdp_cer_ext.5" id="fdp-cer-ext-5">
           <depends on-sel="clientAuth"/>
-          <consistency-rationale></consistency-rationale>
+          <consistency-rationale>This SFR applies to the certificate issuance rules applied for client certificates
+            which is not defined in the Base-PP.</consistency-rationale>
           <comp-lev></comp-lev>
           <management></management>
           <audit></audit>
@@ -4171,7 +4438,8 @@ legacy cipher suites. -->
           if there is such a way at all -->
           <depends on-sel="genStatus"/>
           <depends on-sel="clientAuth"/>
-          <consistency-rationale></consistency-rationale>
+          <consistency-rationale>This SFR applies to generating certificate status information for issued client
+            certificates which is not defined in the Base-PP.</consistency-rationale>
           <comp-lev></comp-lev>
           <management></management>
           <audit></audit>
@@ -4255,7 +4523,8 @@ legacy cipher suites. -->
 
         <f-component name="Mutual Authentication Inspection Operation" cc-id="fdp_stip_ext.2" id="fdp-stip-ext-2">
           <depends on-sel="clientAuth"/>
-          <consistency-rationale></consistency-rationale>
+          <consistency-rationale>This SFR applies to the TLS session implementation of the inspection
+            operation that is not defined in the Base-PP.</consistency-rationale>
           <comp-lev></comp-lev>
           <management></management>
           <audit></audit>
@@ -4313,7 +4582,8 @@ legacy cipher suites. -->
         
         <f-component name="Certificate Repository Review" cc-id="fau_scr_ext.1" id="fau-scr-ext-1">
           <depends on-sel="certStore"/>
-          <consistency-rationale></consistency-rationale>
+          <consistency-rationale>This SFR applies to providing the capability to search the certificate
+            repository which is not defined by the Base-PP.</consistency-rationale>
           <comp-lev></comp-lev>
           <management></management>
           <audit></audit>
@@ -4369,7 +4639,8 @@ legacy cipher suites. -->
         
         <f-component name="Public Key Integrity" cc-id="fcs_ckm_ext.5" id="fcs-ckm-ext-5">
           <depends on-sel="keyIntegrity"/>
-          <consistency-rationale></consistency-rationale>
+          <consistency-rationale>This SFR applies to the protection of persistent public keys from undetected
+            modification which is not defined in the Base-PP.</consistency-rationale>
           <comp-lev></comp-lev>
           <management></management>
           <audit></audit>
@@ -4411,7 +4682,8 @@ legacy cipher suites. -->
         
         <f-component name="STIP Client-Side Support for Renegotiation" cc-id="fcs_tttc_ext.4" id="fcs-tttc-ext-4">
           <depends on-sel="clientRenegotiation"/>
-          <consistency-rationale></consistency-rationale>
+          <consistency-rationale>This SFR applies to session renegotiation for thru-traffic TLS inspection
+            (client-side).</consistency-rationale>
           <comp-lev></comp-lev>
           <management></management>
           <audit></audit>
@@ -4467,7 +4739,8 @@ legacy cipher suites. -->
         
         <f-component name="STIP Server-Side Support for Renegotiation" cc-id="fcs_ttts_ext.4" id="fcs-ttts-ext-4">
           <depends on-sel="serverRenegotiation"/>
-          <consistency-rationale></consistency-rationale>
+          <consistency-rationale>This SFR applies to session renegotiation for thru-traffic TLS inspection
+            (server-side).</consistency-rationale>
           <comp-lev></comp-lev>
           <management></management>
           <audit></audit>
@@ -4506,7 +4779,8 @@ legacy cipher suites. -->
       <section title="Identification and Authentication (FIA)" id="obj-fia">
         
         <f-component name="Client Use of TLS-Unique Value" cc-id="fia_estc_ext.2" id="fia-estc-ext-2">
-          <consistency-rationale></consistency-rationale>
+          <consistency-rationale>This SFR applies to the generation of TLS unique values used by client which
+            is not defined in the Base-PP.</consistency-rationale>
           <comp-lev></comp-lev>
           <management></management>
           <audit></audit>
@@ -4553,6 +4827,7 @@ legacy cipher suites. -->
 	been evaluated.
 -->
 	
+	<!-- Note: come back to when we know whether there are any of these (believe all dependencies were met in 1.0 but that could change) -->
 	<h:b><ctr ctr-type="Table" pre="Table " id="imp-sat-reqs-table">: Implicitly Satisfied Requirements</ctr></h:b>
     <h:table>	
 		<h:tr class="header"><h:td>Requirement</h:td><h:td>Rationale for Satisfaction</h:td></h:tr>
@@ -4571,116 +4846,6 @@ legacy cipher suites. -->
 		through requirements defined in the Base-PPs.
 	</h:td>
 	</h:tr>
-	<h:tr>
-		<h:td><h:b>FCS_CKM.4 – Cryptographic Key Destruction</h:b></h:td>
-	<h:td>
-	 	FCS_CKM.1 (which is defined in this PP-Module as
-		FCS_CKM.1/VPN) requires FCS_CKM.4 to be claimed so that
-		the generated keys are not disclosed through improper or
-		nonexistent key destruction methods.<h:p/>
-		Each of the supported Base-PPs except for the App PP define
-		FCS_CKM_EXT.4 as an extended SFR, which defines key
-		destruction functionality consistent with FCS_CKM.4, but with
-		additional details that are specific to the respective
-		technology types of the Base-PP. When the App PP is the
-		Base-PP, this PP-Module defines its own instance of
-		FCS_CKM_EXT.4 to achieve the same purpose. The
-		dependency on FCS_CKM.4 is considered to be satisfied
-		through the fact that a compliant TOE will always claim
-		FCS_CKM_EXT.4, which is intended to satisfy the same
-		purpose.
-	</h:td>
-	</h:tr>
-	<h:tr>
-		<h:td><h:b>FCS_COP.1 – Cryptographic Operation</h:b></h:td>
-	<h:td>
-		FCS_IPSEC_EXT.1 has a dependency on FCS_COP.1 because of
-		the cryptographic operations that are needed in support of
-		implementing the IPsec protocol. FCS_COP.1 is not defined in
-		this PP-Module because each of the supported Base-PPs 
-		define iterations of FCS_COP.1 that support the functions
-		that are relevant to IPsec.
-	</h:td>
-	</h:tr>
-	<h:tr>
-		<h:td><h:b>FMT_MTD.1 – Management of TSF Data</h:b></h:td>
-	<h:td>
-		FAU_SEL.1/VPN has a dependency on FMT_MTD.1 to enforce
-		appropriate access controls on the audit configuration, as this
-		is TSF data. This SFR is not explicitly defined in any of the
-		supported Base-PPs but the dependency is implicitly
-		addressed by each Base-PP in the following manner:<h:ul>
-		<h:li>GPOS PP: The GPOS PP implicitly defines the
-			existence of ‘user’ and ‘administrator’ roles in the
-			extended SFRs FMT_MOF_EXT.1 and
-			FMT_SMF_EXT.1. A TOE that conforms to this BasePP can associate the ability to perform the
-			functionality defined by FAU_SEL.1/VPN to one or
-			both of these roles.</h:li>
-		<h:li>MDF PP: The GPOS PP implicitly defines the existence
-			of ‘user,’ ‘administrator,’ and ‘MDM’ roles in the
-			extended SFRs FMT_MOF_EXT.1 and
-			FMT_SMF_EXT.1. A TOE that conforms to this BasePP can associate the ability to perform the
-			functionality defined by FAU_SEL.1/VPN to one or
-			more of these roles.</h:li>
-		<h:li>App PP: The App PP does not define the existence of
-			a separately authenticated management interface;
-			instead, the App PP assumes that authentication to
-			the underlying OS platform is sufficient authorization
-			to access the application’s management functionality.</h:li>
-		<h:li>MDM PP: The MDM PP defines the existence of
-			management roles in FMT_SMR.1(1). A TOE that
-			conforms to this Base-PP can associate the ability to
-			perform the functionality defined by FAU_SEL.1/VPN
-			to one or more of the roles defined here.</h:li></h:ul>
-	</h:td>
-	</h:tr>
-	<h:tr>
-		<h:td><h:b>FPT_STM.1 – Reliable Time Stamps</h:b></h:td>
-	<h:td>
-	  FAU_GEN.1/VPN has a dependency on FPT_STM.1 because
-		audit records are required to have timestamps that are based
-		on reliable clock data. All of the supported Base-PPs either
-		define this requirement explicitly or provide rationale for why
-		the reader to expect that a reliable clock service is expected
-		to be present. Depending on the claimed Base-PP, the
-		dependency is satisfied in the following manner:<h:ul>
-		<h:li>GPOS PP: The GPOS PP states that FPT_STM.1 is
-			implicitly satisfied by the requirements of FAU_GEN.1 
-			since that requirement could not be satisfied if no
-			clock service was present. Additionally, a clock
-			service is reasonably assumed to be provided by a
-			general-purpose OS.</h:li>
-		<h:li>MDF PP: The MDF PP explicitly defines FPT_STM.1.</h:li>
-		<h:li>App PP: The App PP assumption A.PLATFORM
-			assumes that the general-purpose computing
-			platform on which the TOE is installed is ‘a
-			trustworthy computing platform.’ System time data is
-			not explicitly mentioned but a clock service is
-			reasonably assumed to be provided by a generalpurpose computer.</h:li>
-		<h:li>MDM PP: The MDM PP assumption
-			A.MDM_SERVER_PLATFORM assumes that the
-			platform on which the TOE is installed will provide
-			reliable time services.</h:li></h:ul>
-	</h:td>
-	</h:tr>
-	<h:tr>
-	<h:td><h:b>FPT_STM.1 – Reliable Time Stamps</h:b></h:td>
-	<h:td>
-	  FAU_GEN.1 has a dependency on FPT_STM.1. While not explicitly stated in the PP, it is assumed
-	  that this will be provided by the underlying hardware platform on which the TOE is installed. 
-	  This is because the TOE is installed as a software or firmware product that runs on general-purpose 
-	  computing hardware so a hardware clock is assumed to be available.
-	</h:td>
-	</h:tr>
-	<h:tr>
-	<h:td><h:b>FPT_STM.1 – Reliable Time Stamps</h:b></h:td>
-	<h:td>
- 	  FIA_X509_EXT.1 has a dependency on FPT_STM.1. While not explicitly stated in the PP, it is assumed that
-	  this will be provided by the underlying hardware platform on which the TOE is installed. This is 
-	  because the TOE is installed as a software or firmware product that runs on general-purpose computing
-	  hardware so a hardware clock is assumed to be available.
-	</h:td>
-	</h:tr>
     </h:table>
   </appendix>	
 	
@@ -4688,50 +4853,26 @@ legacy cipher suites. -->
 <appendix title="Entropy Documentation and Assessment" id="app-ent">
 							
 	The TOE does not require any additional supplementary information to describe its entropy source(s)
-	beyond the requirements outlined in the Base-PPs. As with other Base-PP requirements, the only
-	additional requirement is that the entropy documentation also applies to the specific VPN client
+	beyond the requirements outlined in the Base-PP. As with other Base-PP requirements, the only
+	additional requirement is that the entropy documentation also applies to the specific STIP
 	capabilities of the TOE in addition to the functionality required by the claimed Base-PP.		 
  </appendix>
   
   <bibliography>
     <cc-entry/>
-    <entry id="bibOSPP">
-      <tag>OS PP</tag>
+    <entry id="bibNDcPP">
+      <tag>NDcPP</tag>
       <description>
-        <h:a href="https://www.niap-ccevs.org/Profile/Info.cfm?PPID=442&amp;id=442/">
-			Protection Profile for General Purpose Operating Systems</h:a>, Version 4.2.1, April 2019
+        <h:a href="https://www.niap-ccevs.org/Profile/Info.cfm?PPID=447&amp;id=447/">
+			collaborative Protection Profile for Network Devices</h:a>, Version 2.2E, March 2020
       </description>
     </entry>
 
-    <entry id="bibMDPP">
-      <tag>MD PP</tag>
+    <entry id="bibNDSD">
+      <tag>ND-SD</tag>
       <description>
-        <h:a href="https://www.niap-ccevs.org/Profile/Info.cfm?PPID=417&amp;id=417">
-			Protection Profile for Mobile Device Fundamentals</h:a>, Version 3.1, June 2017
-      </description>
-    </entry>
-
-    <entry id="bibMDMPP">
-      <tag>MDM PP</tag>
-      <description>
-        <h:a href="https://www.niap-ccevs.org/Profile/Info.cfm?PPID=417&amp;id=417">
-			Protection Profile for Mobile Device Management (This needs to be updated) </h:a>, Version 3.1, June 2017
-      </description>
-    </entry>
-
-    <entry id="bibAppPP">
-      <tag>App PP</tag>
-      <description>
-        <h:a href="https://www.niap-ccevs.org/Profile/Info.cfm?PPID=429&amp;id=429/">
-			Protection Profile for Application Software</h:a>, Version 1.3, March 2019
-      </description>
-    </entry>
-
-    <entry id="bibSD"> <!-- TODO: Not sure if this is even necessary or if the 'combined' document is going to be the primary one used -->
-      <tag>SD</tag>
-      <description>
-        Supporting Document Mandatory Technical Document, PP-Module for Virtual Private Network (VPN) Clients, 
-			Version 2.1, November 2019
+        <h:a href="https://www.niap-ccevs.org/Profile/Info.cfm?PPID=447&amp;id=447/">
+          Supporting Document - Mandatory Technical Document - Evaluation Activities for Network Device cPP</h:a>, Version 2.2, December 2019
       </description>
     </entry>
 
