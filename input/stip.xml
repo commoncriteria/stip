@@ -1431,7 +1431,7 @@ expected to enforce.<h:p/>
         <f-element id="fau-gcr-ext-1e1">
           <title>
             The TSF shall <selectables>
-              <selectable>store</selectable>
+              <selectable id="certStore">store</selectable>
               <selectable>invoke the Operational Environment to store</selectable>
             </selectables> certificates issued by the TSF.
           </title>
@@ -1618,8 +1618,8 @@ expected to enforce.<h:p/>
                 </selectables></h:li>
               </h:ul>
               </h:i>] and also supports functionality for <selectables linebreak="yes">
-                <selectable>mutual authentication</selectable>
-                <selectable>session renegotiation</selectable>
+                <selectable id="clientAuth">mutual authentication</selectable>
+                <selectable id="clientRenegotiation">session renegotiation</selectable>
                 <!-- Note: is it ok that we changed this selection to make the SFR parse better if it's chosen -->
                 <selectable>neither mutual authentication nor session renegotiation</selectable>
               </selectables>.
@@ -1850,8 +1850,8 @@ legacy cipher suites. -->
                 </selectables></h:li>
               </h:ul>
               </h:i>] and also supports functionality for <selectables linebreak="yes">
-                <selectable>mutual authentication</selectable>
-                <selectable>session renegotiation</selectable>
+                <selectable id="serverAuth">mutual authentication</selectable>
+                <selectable id="serverRenegotiation">session renegotiation</selectable>
                 <!-- Note: is it ok that we changed this selection to make the SFR parse better if it's chosen -->
                 <selectable>neither mutual authentication nor session renegotiation</selectable>
               </selectables>.
@@ -2201,7 +2201,7 @@ legacy cipher suites. -->
           <dependencies></dependencies>
           <f-element id="fdp-csir-ext-1e1">
             <title>The TSF shall <selectables>
-              <selectable>generate certificate status information</selectable>
+              <selectable id="genStatus">generate certificate status information</selectable>
               <selectable>only issue certificates with validity period of less than [24 hours]</selectable>
             </selectables>.
             </title>
@@ -2420,7 +2420,7 @@ legacy cipher suites. -->
             <title>The TSF shall use
               <selectables>
                 <selectable>access controlled storage</selectable>
-                <selectable>an integrity mechanism</selectable>
+                <selectable id="keyIntegrity">an integrity mechanism</selectable>
               </selectables> to protect the trusted public keys and certificates (trust store elements) used to
               validate local logon, trusted channel, and external communication to the STIP.</title>
             <note role="application">If “an integrity mechanism” is selected, FCS_CKM_EXT.5 must be included in the
@@ -2475,7 +2475,7 @@ legacy cipher suites. -->
           <f-element id="fdp-stip-ext-1e3">
             <title>The TSF shall <selectables>
               <selectable>require administrator confirmation of consent</selectable>
-              <selectable>provide a consent to monitor banner to the client, in accordance with
+              <selectable id="banner">provide a consent to monitor banner to the client, in accordance with
                 FTA_TAB.1<h:b>/TLS</h:b>, and receive an affirmative response</selectable>
             </selectables> prior to sending decrypted TLS application data from a monitored client to
               inspection processing functional component as part of an inspection operation.</title>
@@ -2975,7 +2975,7 @@ legacy cipher suites. -->
               The TSF shall be able to generate a certificate request to an external certification
               authority to receive a certificate for the TOE’s embedded CA’s signing key using <selectables linebreak="yes">
               <selectable>PKCS#10 in accordance with FIA_X509_EXT.3</selectable>
-              <selectable>Enrollment over Secure Transport (EST) in accordance with
+              <selectable id="EST">Enrollment over Secure Transport (EST) in accordance with
               FIA_ESTC_EXT.1</selectable>
               </selectables>.
             </title>
@@ -3426,6 +3426,7 @@ legacy cipher suites. -->
       <section title="Certificate Status Information" id="s-b1">
         
         <f-component name="Certificate Revocation List Generation" cc-id="fdp_crl_ext.1" id="fdp-crl-ext-1">
+          <depends on-sel="CRLs"/>
           <consistency-rationale></consistency-rationale>
           <comp-lev></comp-lev>
           <management></management>
@@ -3466,6 +3467,7 @@ legacy cipher suites. -->
         </f-component>
         
         <f-component name="Certificate Status Information" cc-id="fdp_csi_ext.1" id="fdp-csi-ext-1">
+          <depends on-sel="genStatus"/>
           <consistency-rationale></consistency-rationale>
           <comp-lev></comp-lev>
           <management></management>
@@ -3475,8 +3477,8 @@ legacy cipher suites. -->
             <title>The TSF shall generate certificate status information whose format complies with
               <selectables>
                 <!-- Is X.509v2 correct or should it be v3? -->
-                <selectable>ITU-T Recommendation X.509v2 CRL</selectable>
-                <selectable>the OCSP standard as defined by RFC 6960</selectable>
+                <selectable id="CRLs">ITU-T Recommendation X.509v2 CRL</selectable>
+                <selectable id="OCSP">the OCSP standard as defined by RFC 6960</selectable>
               </selectables>.</title>
           </f-element>
           <f-element id="fdp-csi-ext-1e2">
@@ -3502,7 +3504,7 @@ legacy cipher suites. -->
               FDP_CSI_EXT.1.1 via <selectables>
                 <selectable>posting CRLs at the location specified in the cRLDistributionPoints of the issued certificate</selectable>
                 <selectable>an OCSP mechanism indicated in the authorityInfoAccess extension of the issued certificate</selectable>
-                <selectable>OCSP Stapling in accordance with FDP_OCSPS_EXT.1</selectable>
+                <selectable id="stapling">OCSP Stapling in accordance with FDP_OCSPS_EXT.1</selectable>
               </selectables>.
             </title>
             <note role="application">
@@ -3535,6 +3537,7 @@ legacy cipher suites. -->
         </f-component>
         
         <f-component name="OCSP Basic Response Generation" cc-id="fdp_ocsp_ext.1" id="fdp-ocsp-ext-1">
+          <depends on-sel="OCSP"/>
           <consistency-rationale></consistency-rationale>
           <comp-lev></comp-lev>
           <management></management>
@@ -3569,6 +3572,7 @@ legacy cipher suites. -->
         </f-component>
         
         <f-component name="OCSP Stapling" cc-id="fcs_ocsps_ext.1" id="fcs-ocsps-ext-1">
+          <depends on-sel="stapling"/>
           <consistency-rationale></consistency-rationale>
           <comp-lev></comp-lev>
           <management></management>
@@ -3612,6 +3616,7 @@ legacy cipher suites. -->
       <section title="Certificate Enrollment" id="s-b2">
         
         <f-component name="Enrollment over Secure Transport (EST) Client" cc-id="fia_estc_ext.1" id="fia-estc-ext-1">
+          <depends on-sel="EST"/>
           <consistency-rationale></consistency-rationale>
           <comp-lev></comp-lev>
           <management></management>
@@ -3694,6 +3699,7 @@ legacy cipher suites. -->
         session establishment policy requires it.
         
         <f-component name="TOE Access Banner (Consent to Monitor Banner for TLS Inspection" cc-id="fta_tab.1" iteration="TLS" id="fta-tab-1">
+          <depends on-sel="banner"/>
           <consistency-rationale></consistency-rationale>
           <f-element id="fta-tab-1e1-tls">
             <title>
@@ -3748,6 +3754,7 @@ legacy cipher suites. -->
         information, even if the constraint for short validity periods is achieved
       
         <f-component name="Thru-Traffic TLS Inspection Client Protocol with Mutual Authentication Representing Monitored Clients" cc-id="fcs_tttc_ext.3" id="fcs-tttc-ext-3">
+          <depends on-sel="clientAuth"/>
           <consistency-rationale></consistency-rationale>
           <comp-lev></comp-lev>
           <management></management>
@@ -3773,6 +3780,7 @@ legacy cipher suites. -->
         </f-component>
         
         <f-component name="Thru-Traffic TLS Inspection Server Protocol with Mutual Authentication of Monitored Clients" cc-id="fcs_ttts_ext.3" id="fcs-ttts-ext-3">
+          <depends on-sel="serverAuth"/>
           <consistency-rationale></consistency-rationale>
           <comp-lev></comp-lev>
           <management></management>
@@ -3819,6 +3827,7 @@ legacy cipher suites. -->
         
         <!-- Note: come back to this one to make sure it looks ok -->
         <f-component name="Certificate Profiles for Client Certificates" cc-id="fdp_cer_ext.4" id="fdp-cer-ext-4">
+          <depends on-sel="clientAuth"/>
           <consistency-rationale></consistency-rationale>
           <comp-lev></comp-lev>
           <management></management>
@@ -3988,6 +3997,7 @@ legacy cipher suites. -->
         </f-component>
         
         <f-component name="Certificate Issuance Rules for Client Certificates" cc-id="fdp_cer_ext.5" id="fdp-cer-ext-5">
+          <depends on-sel="clientAuth"/>
           <consistency-rationale></consistency-rationale>
           <comp-lev></comp-lev>
           <management></management>
@@ -4031,6 +4041,10 @@ legacy cipher suites. -->
         </f-component>
         
         <f-component name="Certificate Status Information for Client Certificates" cc-id="fdp_csi_ext.2" id="fdp-csi-ext-2">
+          <!-- Note: FDP_CSI_EXT.2 depends on two selections: mutual auth (TTTC_EXT.1) and TSF-provided status info (FDP_CSIR_EXT.1), unsure if this is the correct way to make multiple triggers work or 
+          if there is such a way at all -->
+          <depends on-sel="genStatus"/>
+          <depends on-sel="clientAuth"/>
           <consistency-rationale></consistency-rationale>
           <comp-lev></comp-lev>
           <management></management>
@@ -4114,6 +4128,7 @@ legacy cipher suites. -->
         </f-component>
 
         <f-component name="Mutual Authentication Inspection Operation" cc-id="fdp_stip_ext.2" id="fdp-stip-ext-2">
+          <depends on-sel="clientAuth"/>
           <consistency-rationale></consistency-rationale>
           <comp-lev></comp-lev>
           <management></management>
@@ -4171,6 +4186,7 @@ legacy cipher suites. -->
       <section title="Other Selection-Based SFRs" id="s-b5">
         
         <f-component name="Certificate Repository Review" cc-id="fau_scr_ext.1" id="fau-scr-ext-1">
+          <depends on-sel="certStore"/>
           <consistency-rationale></consistency-rationale>
           <comp-lev></comp-lev>
           <management></management>
@@ -4226,6 +4242,7 @@ legacy cipher suites. -->
         </f-component>
         
         <f-component name="Public Key Integrity" cc-id="fcs_ckm_ext.5" id="fcs-ckm-ext-5">
+          <depends on-sel="keyIntegrity"/>
           <consistency-rationale></consistency-rationale>
           <comp-lev></comp-lev>
           <management></management>
@@ -4267,6 +4284,7 @@ legacy cipher suites. -->
         </f-component>
         
         <f-component name="STIP Client-Side Support for Renegotiation" cc-id="fcs_tttc_ext.4" id="fcs-tttc-ext-4">
+          <depends on-sel="clientRenegotiation"/>
           <consistency-rationale></consistency-rationale>
           <comp-lev></comp-lev>
           <management></management>
@@ -4322,6 +4340,7 @@ legacy cipher suites. -->
         </f-component>
         
         <f-component name="STIP Server-Side Support for Renegotiation" cc-id="fcs_ttts_ext.4" id="fcs-ttts-ext-4">
+          <depends on-sel="serverRenegotiation"/>
           <consistency-rationale></consistency-rationale>
           <comp-lev></comp-lev>
           <management></management>
