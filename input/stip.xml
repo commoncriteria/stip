@@ -1013,8 +1013,7 @@ expected to enforce.<h:p/>
                 This PP-Module does not modify this SFR as it is defined in the Base-PP. This SFR is optional in the Base-PP but is mandatory for a TOE that conforms to this PP-Module.
               </title>
               <aactivity>
-                There is no change to the Base-PP EAs for this SFR when this PP-Module is claimed.
-                <no-tests/>
+                <no-tests>There is no change to the Base-PP EAs for this SFR when this PP-Module is claimed.</no-tests>
               </aactivity>
             </f-element>
             <audit-event/>
@@ -1073,10 +1072,9 @@ expected to enforce.<h:p/>
                 by the CA or the security of the information protected by the CA.
               </note>
               <aactivity>
-                This SFR is refined in this PP-Module to include requirementsfor destruction of security critical parameters
-                as well as keys. The EA for the Base-PP are extended to include security critical
-                parameters whenever keys are indicated.
-                <no-tests/>
+                <no-tests>This SFR is refined in this PP-Module to include requirementsfor destruction of security critical parameters
+                  as well as keys. The EA for the Base-PP are extended to include security critical
+                  parameters whenever keys are indicated.</no-tests>
               </aactivity>
             </f-element>
             <audit-event/>
@@ -1090,8 +1088,7 @@ expected to enforce.<h:p/>
                 This PP-Module does not modify this SFR as it is defined in the Base-PP. This SFR is selection-based in the Base-PP but is mandatory for a TOE that conforms to this PP-Module because of this PP-Module's modifications to FTP_ITC.1.
               </title>
               <aactivity>
-                There is no change to the Base-PP EAs for this SFR when this PP-Module is claimed.
-                <no-tests/>
+                <no-tests>There is no change to the Base-PP EAs for this SFR when this PP-Module is claimed.</no-tests>
               </aactivity>
             </f-element>
             <audit-event/>
@@ -1105,8 +1102,7 @@ expected to enforce.<h:p/>
                 This PP-Module does not modify this SFR as it is defined in the Base-PP. This SFR is selection-based in the Base-PP but is mandatory for a TOE that conforms to this PP-Module because of this PP-Module's modifications to FTP_ITC.1.
               </title>
               <aactivity>
-                There is no change to the Base-PP EAs for this SFR when this PP-Module is claimed.
-                <no-tests/>
+                <no-tests>There is no change to the Base-PP EAs for this SFR when this PP-Module is claimed.</no-tests>
               </aactivity>
             </f-element>
             <audit-event/>
@@ -1140,8 +1136,7 @@ expected to enforce.<h:p/>
                 FIA_X509_EXT.1/Rev applies to those as well.
               </note>
               <aactivity>
-                There is no change to the Base-PP EAs for this SFR when this PP-Module is claimed.
-                <no-tests/>
+                <no-tests>There is no change to the Base-PP EAs for this SFR when this PP-Module is claimed.</no-tests>
               </aactivity>
             </f-element>
             <audit-event/>
@@ -1223,8 +1218,7 @@ expected to enforce.<h:p/>
               FDP_TEP_EXT.1.5.
             </note>
             <aactivity>
-                There is no change to the Base-PP EAs for this SFR when this PP-Module is claimed.
-                <no-tests/>
+              <no-tests>There is no change to the Base-PP EAs for this SFR when this PP-Module is claimed.</no-tests>
               </aactivity>
             </f-element>
             <audit-event/>
@@ -1240,8 +1234,7 @@ expected to enforce.<h:p/>
                 through Enrollment over Secure Transport (EST), which is covered by the selection-based SFR FIA_ESTC_EXT.1. Therefore, the ST author only claims FIA_X509_EXT.3 if PKCS#10 is selected in FIA_ENR_EXT.1.
               </title>
               <aactivity>
-                There is no change to the Base-PP EAs for this SFR when this PP-Module is claimed.
-                <no-tests/>
+                <no-tests>There is no change to the Base-PP EAs for this SFR when this PP-Module is claimed.</no-tests>
               </aactivity>
             </f-element>
             <audit-event/>
@@ -1290,8 +1283,7 @@ expected to enforce.<h:p/>
                   </title>
                 
               <aactivity>
-                There is no change to the Base-PP EAs for this SFR when this PP-Module is claimed.
-                <no-tests/>
+                <no-tests>There is no change to the Base-PP EAs for this SFR when this PP-Module is claimed.</no-tests>
               </aactivity>
             </f-element>
             <audit-event/>
@@ -1422,13 +1414,23 @@ expected to enforce.<h:p/>
 
 	  <!-- 5.2.1 Security Audit (FAU) -->
       <section title="Security Audit (FAU)" id="m-fau">
+        
+        <ext-comp-def fam-id="FAU_GCR_EXT" title="Generation of Certificate Repository">
+          <fam-behavior>Components in this family define requirements for persistent certificate storage in a repository.
+          </fam-behavior>
+        </ext-comp-def>
+        
         <f-component name="Generation of Certificate Repository" cc-id="fau_gcr_ext.1" id="fau-gcr-ext-1">
           <consistency-rationale>This SFR applies to storing certificates in a certificate repository which is not
             listed in the Base-PP.</consistency-rationale>
-        <comp-lev></comp-lev>
-        <management></management>
-        <audit></audit>
-        <dependencies></dependencies>
+          <comp-lev> requires a conformant TOE to specify how it stores
+            certificates that are issued by the TSF. </comp-lev>
+          <management>No specific management functions are identified.</management>
+          <audit>There are no auditable events foreseen.</audit>
+        <dependencies>
+          FDP_CER_EXT.1 Certificate Profiles for Server Certificates<h:p/>
+          FDP_CER_EXT.3 Certificate Issuance Rules for Server Certificates
+        </dependencies>
         <f-element id="fau-gcr-ext-1e1">
           <title>
             The TSF shall <selectables>
@@ -4998,9 +5000,8 @@ legacy cipher suites. -->
               administrator to interpret the information.
             </title>
             <aactivity>
-              This activity should be accomplished in conjunction with the testing of FAU_GEN.1. Review of each of the
-              generated audit records demonstrates that these records are reviewable.
-              <no-tests/>
+              <no-tests>This activity should be accomplished in conjunction with the testing of FAU_GEN.1. Review of each of the
+                generated audit records demonstrates that these records are reviewable.</no-tests>
             </aactivity>
           </f-element>
         </f-component>
@@ -5016,8 +5017,7 @@ legacy cipher suites. -->
             <note role="application"></note>
             <!-- Note: not actually sure if this is true, we don't explicitly talk about this SFR's behavior in FAU_GEN.1/STIP EAs -->
             <aactivity>
-              This activity should be accomplished in conjunction with the testing of FAU_GEN.1.
-              <no-tests/>
+              <no-tests>This activity should be accomplished in conjunction with the testing of FAU_GEN.1.</no-tests>
             </aactivity>
           </f-element>
         </f-component>
@@ -5343,10 +5343,9 @@ legacy cipher suites. -->
               status is provided via OCSP stapling contained within TLS Server certificate status
               message(s).</note>
             <aactivity>
-              For any selection, evaluation activities are included in the TSS, guidance portions, and Tests 2 and 3 within
-              the Test portion of the evaluation activities in FDP_CSI_EXT.1. Additional activities if the first option of
-              FDP_OCSPS_EXT.1.2 is claimed are covered under the evaluation activities for FDP_OCSP_EXT.1.
-              <no-tests/>
+              <no-tests>For any selection, evaluation activities are included in the TSS, guidance portions, and Tests 2 and 3 within
+                the Test portion of the evaluation activities in FDP_CSI_EXT.1. Additional activities if the first option of
+                FDP_OCSPS_EXT.1.2 is claimed are covered under the evaluation activities for FDP_OCSP_EXT.1.</no-tests>
             </aactivity>
           </f-element>
         </f-component>
@@ -6243,14 +6242,23 @@ legacy cipher suites. -->
       
       <section title="Other Selection-Based SFRs" id="s-b5">
         
+        <ext-comp-def fam-id="FAU_SCR_EXT" title="Certificate Repository Review">
+          <fam-behavior>Components in this family define requirements for searching the contents of a certificate repository.
+          </fam-behavior>
+        </ext-comp-def>
+        
         <f-component name="Certificate Repository Review" cc-id="fau_scr_ext.1" id="fau-scr-ext-1">
           <depends on-sel="certStore"/>
           <consistency-rationale>This SFR applies to providing the capability to search the certificate
             repository which is not defined by the Base-PP.</consistency-rationale>
-          <comp-lev></comp-lev>
-          <management></management>
-          <audit></audit>
-          <dependencies></dependencies>
+          <comp-lev> requires a conformant TOE to support the searching of a
+            certificate repository based on the values of specific certificate fields. </comp-lev>
+          <management>The following actions could be considered for the management functions in FMT:<h:ul>
+            <h:li>Ability to search the certificate repository</h:li>
+          </h:ul></management>
+          <audit>There are no auditable events foreseen.</audit>
+          <dependencies>FAU_GCR_EXT.1 Generation of Certificate Repository</dependencies>
+          
           <f-element id="fau-scr-ext-1e1">
             <title>
               The TSF shall 
@@ -6272,8 +6280,17 @@ legacy cipher suites. -->
                 <selectable><assignable>list of other certificate fields</assignable></selectable>
               </selectables></h:b>
               returning all matching certificates and <assignable>object identifier(s)</assignable> of
-              matching certificate(s).
+              matching certificate.
             </title>
+            <ext-comp-def-title>
+              <title>The TSF shall
+                <selectables>
+                  <selectable>provide</selectable>
+                  <selectable>invoke the Operational Environment to provide</selectable>
+                </selectables> the ability to search certificates containing specified values of the following
+                certificate fields: <assignable>list of certificate fields</assignable>, returning all matching 
+                certificates and <assignable>object identifier(s)</assignable> of matching certificates.</title>
+            </ext-comp-def-title>
             <note role="application">
               This SFR must be claimed if the selection in FAU_GCR_EXT.1.1 is ‘store.’ It may be
               claimed if the selection in FAU_GCR_EXT.1.1 is ‘invokes the Operational
@@ -6565,7 +6582,7 @@ legacy cipher suites. -->
                 include TLS-unique values in the certificate request. The evaluator shall establish trust with an external
                 EST server and associated CA and submit a simple certificate request. The evaluator shall review the
                 request received by the EST server and observe that the request contains the TLS-unique value and that
-                it matches the TLS-unique value established under the TLS session</Tests>
+                it matches the TLS-unique value established under the TLS session.</Tests>
             </aactivity>
           </f-element>
         </f-component>
