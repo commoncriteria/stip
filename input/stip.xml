@@ -1863,7 +1863,7 @@ expected to enforce.<h:p/>
           </f-element>
         </f-component>
         
-        <ext-comp-def fam-id="FCS_STG_EXT" title="Certificate Repository Review">
+        <ext-comp-def fam-id="FCS_STG_EXT" title="Cryptographic Key Storage">
           <fam-behavior>Components in this family define requirements for the secure storage of cryptographic keys.
           </fam-behavior>
         </ext-comp-def>
@@ -2520,7 +2520,7 @@ expected to enforce.<h:p/>
           </f-element>
         </f-component>
 
-        <ext-comp-def fam-id="FAU_SCR_EXT" title="Certificate Repository Review">
+        <ext-comp-def fam-id="FCS_TTTS_EXT" title="Thru-Traffic TLS Inspection Server Protocol">
           <fam-behavior>Components in this family define requirements for the TOE’s ability to act as a TLS server for the purpose
             of reconstructing the original intended TLS connection that it is inserted into as a proxy.
           </fam-behavior>
@@ -3886,7 +3886,7 @@ legacy cipher suites. -->
           </f-element>
         </f-component>
         
-        <ext-comp-def fam-id="FAU_SCR_EXT" title="Certificate Repository Review">
+        <ext-comp-def fam-id="FDP_STIP_EXT" title="SSL/TLS Inspection Proxy Functions">
           <fam-behavior>Components in this family define requirements for the TOE to act as a man-in-the-middle for SSL/TLS
             connections by establishing two separate TLS connections between itself and the endpoints of the original
             connection.
@@ -7062,7 +7062,7 @@ legacy cipher suites. -->
       
       <section title="Other Selection-Based SFRs" id="s-b5">
         
-        <ext-comp-def fam-id="FAU_SCR_EXT" title="Certificate Repository Review">
+        <ext-comp-def fam-id="FAU_SCR_EXT" title="">
           <fam-behavior>Components in this family define requirements for searching the contents of a certificate repository.
           </fam-behavior>
         </ext-comp-def>
