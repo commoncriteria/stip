@@ -24,7 +24,7 @@
     <entry>
       <version>1.1</version>
       <date>2021-09-10</date>
-      <subject>Updates to reflect Github conversion, compatibility with NDcPP v2.2E, and Technical Decisions applied to version 1.0</subject>
+      <subject>Updates to reflect Github conversion, compatibility with CPP_ND_V2.2E, and Technical Decisions applied to version 1.0</subject>
     </entry>
   </RevisionHistory>
   <RevisionHistory>
@@ -45,7 +45,7 @@
       products. This PP-Module is intended for use with the following Base-PPs:
 
       <h:ul>
-        <h:li>collaborative Protection Profile for Netowrk Devices (NDcPP), Version 2.2E</h:li>
+        <h:li>collaborative Protection Profile for Network Devices (NDcPP or CPP_ND_V2.2E), Version 2.2E</h:li>
       </h:ul>
       
       This Base-PP is valid because a STIP is a specific type of network appliance that is able to function as an authorized man-in-the-middle for TLS connections.
@@ -134,7 +134,7 @@
         Certificate Request, Client Certificate, Client Certificate Verify, Server Finished
         and Client Finished messages. </term>
       <term full="TLS session parameters">
-        The parameters of a TLS session established by the TOE for protecting thrutraffic, minimally to include: the negotiated version, negotiated cipher suite,
+        The parameters of a TLS session established by the TOE for protecting thru-traffic, minimally to include: the negotiated version, negotiated cipher suite,
         the size of any key exchange values sent or received in key exchange
         messages, the server certificate received, (a reference to) the server
         certificate sent, the client certificate received, (a reference to) the client
@@ -209,7 +209,7 @@
         
         <h:p/>
         As can be seen from this figure, the TOE sits between a monitored client and requested server in order to
-        intercept TLS traffic between them. For connections subject to inspection, the TOE will replace the endto-end TLS session between the monitored client and requested server and establish a TLS session thread
+        intercept TLS traffic between them. For connections subject to inspection, the TOE will replace the end-to-end TLS session between the monitored client and requested server and establish a TLS session thread
         in order to forward the plaintext application traffic to one or more inspection processing functional
         components in the operational environment for inspection. The TSF provides an embedded CA that is
         used to reconstruct the TLS channel and pass it to its intended destination in an encrypted format. The
@@ -240,7 +240,7 @@
       <usecases>
         <usecase id="usecase1" title="Inspection Operation">
           <description>
-            The TOE intercepts traffic authorized for inspection from monitored clients requesting a serveronly authenticated TLS session with a requested server. The TOE initiates a TLS session with the
+            The TOE intercepts traffic authorized for inspection from monitored clients requesting a server-only authenticated TLS session with a requested server. The TOE initiates a TLS session with the
             requested server and validates the requested server’s certificate as legitimately issued by a
             trusted element of its trust store. The TOE authenticates the server on behalf of the client and
             generates a certificate that indicates the TOE is an authorized proxy for the requested server. The
@@ -254,43 +254,29 @@
         
         <usecase id="usecase1" title="TLS Bypass Operation">
           <description>
-            The TOE intercepts traffic authorized for inspection from monitored clients requesting a serveronly authenticated TLS session with a requested server. The TOE initiates a TLS session with the
-            requested server and validates the requested server’s certificate as legitimately issued by a
-            trusted element of its trust store. The TOE authenticates the server on behalf of the client and
-            generates a certificate that indicates the TOE is an authorized proxy for the requested server. The
-            certificate is issued by the TOE’s embedded CA, which is trusted by the monitored client. The TOE
-            establishes a valid TLS session with the monitored client using the issued certificate. Any TLS traffic
-            between the monitored client and the requested server is decrypted by the TOE and assigned to 
-            a unique TLS session thread that is routed to one or more inspection processes, and encrypted
-            into the respective TLS sessions. 
+            The TOE determines that TLS traffic between a monitored client and a requested server is not to
+            be decrypted for inspection, and routes the TLS handshake messages without modification.
           </description>
         </usecase>
 
         <usecase id="usecase1" title="TLS Blocking Operation">
           <description>
-            The TOE intercepts traffic authorized for inspection from monitored clients requesting a serveronly authenticated TLS session with a requested server. The TOE initiates a TLS session with the
-            requested server and validates the requested server’s certificate as legitimately issued by a
-            trusted element of its trust store. The TOE authenticates the server on behalf of the client and
-            generates a certificate that indicates the TOE is an authorized proxy for the requested server. The
-            certificate is issued by the TOE’s embedded CA, which is trusted by the monitored client. The TOE
-            establishes a valid TLS session with the monitored client using the issued certificate. Any TLS traffic
-            between the monitored client and the requested server is decrypted by the TOE and assigned to 
-            a unique TLS session thread that is routed to one or more inspection processes, and encrypted
-            into the respective TLS sessions. 
+            The TOE determines that a TLS session between a monitored client and a requested server is not
+            authorized, and then performs a blocking operation that refuses to pass the attempted TLS traffic.
+            In addition to dropping and logging of incoming TLS messages, an error response to the client may
+            be provided. The blocking operation may be invoked during the initial TLS handshake, or during
+            the processing of decrypted traffic obtained as part of an inspection operation. In the latter case,
+            a transition from inspection operation to blocking operation includes termination of the TLS
+            session thread.
           </description>
         </usecase>
         
         <usecase id="usecase1" title="Exception Processing">
           <description>
-            The TOE intercepts traffic authorized for inspection from monitored clients requesting a serveronly authenticated TLS session with a requested server. The TOE initiates a TLS session with the
-            requested server and validates the requested server’s certificate as legitimately issued by a
-            trusted element of its trust store. The TOE authenticates the server on behalf of the client and
-            generates a certificate that indicates the TOE is an authorized proxy for the requested server. The
-            certificate is issued by the TOE’s embedded CA, which is trusted by the monitored client. The TOE
-            establishes a valid TLS session with the monitored client using the issued certificate. Any TLS traffic
-            between the monitored client and the requested server is decrypted by the TOE and assigned to 
-            a unique TLS session thread that is routed to one or more inspection processes, and encrypted
-            into the respective TLS sessions. 
+            The TOE supports allowances for inspection of TLS sessions using outdated TLS versions, cipher
+            suites, or key exchange values, and for servers using invalid certificates. These are managed such
+            that monitored clients, requested servers, or (optionally) specific client-server pairs can be
+            associated with allowed TLS versions, cipher suites, and key exchange values.
           </description>
         </usecase>
 
@@ -518,7 +504,7 @@ expected to enforce.<h:p/>
             <rationale>
               The TOE verifies certificates,
               certificate revocation lists, and
-              certificate status information is
+              certificate status information are
               valid.
             </rationale>
           </objective-refer>
@@ -664,7 +650,7 @@ expected to enforce.<h:p/>
             restricting auditable events.<h:p/>
 			      Addressed by: FAU_STG.4
           </description>
-          <!-- Note: columns in rationale table aren't lining up -->
+    
        <addressed-by>FAU_STG.4</addressed-by>
 			<rationale>This SFR supports the objective by requiring the TSF to disable the execution of auditable events if the audit trail cannot be written to.</rationale>
       </SO>
@@ -740,6 +726,18 @@ expected to enforce.<h:p/>
 			<rationale>This SFR supports the objective by applying a warning banner to any interface used by an administrator to access the TOE.</rationale>
           <addressed-by>FTA_TAB.1/TLS (selection-based)</addressed-by>
 			<rationale>This SFR supports the objective by optionally applying a warning banner to a user whose network activity passes through the TOE for decryption and potential inspection.</rationale>
+        </SO>
+        
+        <SO name="O.INTEGRITY_PROTECTION">
+          <description>The TOE will provide appropriate integrity protection for TSF data and software and any user data
+            stored by the TOE.<h:p/>
+            Addressed by: FTA_TST_EXT.1 (from Base-PP), FPT_FLS.1
+          </description>
+          
+          <addressed-by>FTA_TAB.1 (from Base-PP</addressed-by>
+          <rationale>This SFR supports the objective by applying a warning banner to any interface used by an administrator to access the TOE.</rationale>
+          <addressed-by>FTA_TAB.1/TLS (selection-based)</addressed-by>
+          <rationale>This SFR supports the objective by optionally applying a warning banner to a user whose network activity passes through the TOE for decryption and potential inspection.</rationale>
         </SO>
         
         <!-- Note: FCS_CKM_EXT.5 added to mapping here as it's relevant to the objective -->
@@ -1172,7 +1170,7 @@ expected to enforce.<h:p/>
               </title>
             </f-element>
             <f-element id="nd-fia-x509-ext-2e2">
-              <title>When the TSF cannot establish a connection to determine the revocation status
+              <title>When the TSF cannot establish a connection to determine the <h:b>revocation status</h:b>
                 of a certificate, the TSF shall <selectables>
                   <selectable>allow the <h:b><selectables>
                     <selectable>Security Administrator</selectable>
@@ -1471,7 +1469,7 @@ expected to enforce.<h:p/>
               auditable events: <h:ol type="a">
                 <h:li>Start-up and shutdown of the audit functions</h:li>
                 <h:li>All auditable events for the [<h:i>not specified</h:i>] level of audit; and</h:li>
-                <h:li>[<h:i>auditable events defined in Auditable Events table</h:i>]</h:li>
+                <h:li>[<h:i>auditable events defined in Auditable Events table</h:i>].</h:li>
               </h:ol>
             </title>
             <note role="application">
@@ -1534,7 +1532,6 @@ expected to enforce.<h:p/>
                   <selectable>certificate object identifier</selectable>
                 </selectables></h:td></h:tr>
                 <h:tr><h:td>FDP_CRL_EXT.1 (selection-based)</h:td><h:td>Failure to generate CRL</h:td><h:td>None</h:td></h:tr>
-                <h:tr><h:td>FDP_CRL_EXT.2 (selection-based)</h:td><h:td colspan="2">None</h:td></h:tr>
                 <h:tr><h:td>FDP_CSI_EXT.1 (selection-based)</h:td><h:td colspan="2">None</h:td></h:tr>
                 <h:tr><h:td>FDP_CSI_EXT.2 (selection-based)</h:td><h:td colspan="2">None</h:td></h:tr>
                 <h:tr><h:td>FDP_CSIR_EXT.1 (selection-based)</h:td><h:td colspan="2">None</h:td></h:tr>
@@ -1548,7 +1545,7 @@ expected to enforce.<h:p/>
                 <h:tr><h:td rowspan="4">FDP_STIP_EXT.1</h:td><h:td>Establishment of a TLS inspection session thread</h:td><h:td><assignable>TLS session thread attributes</assignable>, 
                   <assignable>client attributes</assignable>, and <assignable>server attributes</assignable> associated with the thread</h:td></h:tr>
                 <h:tr><h:td>Establishment of an encrypted TLS data flow</h:td><h:td><assignable>encrypted TLS data flow attributes</assignable></h:td></h:tr>
-                <h:tr><h:td>Bypass operation invoked</h:td><h:td></h:td>TLS session thread identifier, identifier(s) of processing element(s) bypassed, reason for bypass</h:tr>
+                <h:tr><h:td>Bypass operation invoked</h:td><h:td></h:td><h:td>TLS session thread identifier, identifier(s) of processing element(s) bypassed, reason for bypass</h:td></h:tr>
                 <h:tr><h:td>Block operation invoked</h:td><h:td>TLS session thread identifier, reason for blocking</h:td></h:tr>
                 <h:tr><h:td>FDP_STIP_EXT.2 (selection-based)</h:td><h:td colspan="2">None</h:td></h:tr>
                 <h:tr><h:td>FDP_TEP_EXT.1</h:td><h:td>Mutual authentication authorized</h:td><h:td><assignable>client attributes obtained from valid client certificate</assignable></h:td></h:tr>
@@ -1649,10 +1646,10 @@ expected to enforce.<h:p/>
                 where an external repository is supported, and tests the ability of the TOE to detect when the connection
                 to the repository becomes unavailable:
                 <testlist>
-                  <test>(conditional) The evaluator shall cause the audit trail to become full, verify that the TSF
+                  <test>(conditional, the audit trail is local to the TOE) The evaluator shall cause the audit trail to become full, verify that the TSF
                     behaves as documented in the TSS, and verify that a privileged user can perform the
                     documented remedial steps.</test>
-                  <test>(conditional) The evaluator shall cause the audit trail to become unavailable, verify that
+                  <test>(conditional, the audit trail is stored in the Operational Environment) The evaluator shall cause the audit trail to become unavailable, verify that
                     the TSF behaves as documented in the TSS, and verify that a privileged user can perform the
                     documented remedial steps.
                   </test>
@@ -1673,7 +1670,7 @@ expected to enforce.<h:p/>
           <f-element id="fcs-cop-1e1-stip">
             <title>
               The TSF shall perform encryption/decryption in accordance with a specified
-              cryptographic algorithms[<h:i>AES in CCM and CCM-8 mode and <selectables>
+              cryptographic algorithms [<h:i>AES in CCM and CCM-8 mode and <selectables>
                 <selectable>TDES used
                 in CBC mode with 3 distinct keys in its key set</selectable>
                 <selectable>no other algorithms
@@ -1701,7 +1698,7 @@ expected to enforce.<h:p/>
                 in the SFR. 
               <h:p/></TSS>
               <Guidance>
-                The evaluator shall verify that the operationsl guidance documentation includes instructions for meeting this
+                The evaluator shall verify that the operational guidance documentation includes instructions for meeting this
                 requirement, including any configuration required to ensure the TSF only supports Triple Data Encryption
                 Standard (TDES) with three distinct keys.
               <h:p/></Guidance>
@@ -1781,8 +1778,8 @@ expected to enforce.<h:p/>
                     and 15 sets of input plus ciphertext, and obtain the decrypted payload. Ten of the 15 input sets supplied
                     should fail verification and five should pass.
                   </test>
-                  <!-- Note: come back to formatting for conditional testing and make it the same everywhere -->
-                  <test>(conditional): The evaluator shall test the TDES implementation used to support TLS cipher suites
+                  
+                  <test>(conditional, the TSF supports TDES): The evaluator shall test the TDES implementation used to support TLS cipher suites
                     in accordance with NIST SP 800-67 Rev 2, by conducting the following tests:
                     <h:p/>
                     <h:b>Variable Plaintext/Ciphertext Known Answer Test:</h:b>
@@ -1981,7 +1978,8 @@ expected to enforce.<h:p/>
                 <h:li>TLS_DHE_RSA_WITH_AES_128_CCM_8 as defined in RFC 6655</h:li>
                 <h:li>TLS_DHE_RSA_WITH_AES_256_CCM_8 as defined in RFC 6655</h:li>
                 <h:li>TLS_RSA_WITH_AES_256_CCM_8 as defined in RFC 6655</h:li>
-                <h:li><selectables>
+              </h:ul>
+                <selectables linebreak="yes">
                   <selectable>TLS_ECDHE_RSA_WITH_3DES_EDE_CBC_SHA as defined in RFC 8422</selectable>
                   <selectable>TLS_DHE_RSA_WITH_3DES_EDE_CBC_SHA as defined in RFC 5246</selectable>
                   <selectable>TLS_RSA_WITH_3DES_EDE_CBC_SHA as defined in RFC 5246</selectable>
@@ -1989,8 +1987,8 @@ expected to enforce.<h:p/>
                   (e.g. if chacha20 suites are claimed there is no supporting claim that the TSF implements this aglrotihm properly) -->
                   <selectable><assignable>other supported cipher suites</assignable></selectable>
                   <selectable>no other cipher suites</selectable>
-                </selectables></h:li>
-              </h:ul>
+                </selectables>
+              
               </h:i>] and also supports functionality for <selectables linebreak="yes">
                 <selectable id="clientAuth">mutual authentication</selectable>
                 <selectable id="clientRenegotiation">session renegotiation</selectable>
@@ -2005,7 +2003,6 @@ expected to enforce.<h:p/>
                 and reference to RFC in which each is defined</assignable> and also supports functionality for <selectables linebreak="yes">
                   <selectable>mutual authentication</selectable>
                   <selectable>session renegotiation</selectable>
-                  <!-- Note: is it ok that we changed this selection to make the SFR parse better if it's chosen -->
                   <selectable>neither mutual authentication nor session renegotiation</selectable>
                 </selectables>.
               </title>
@@ -2026,8 +2023,7 @@ expected to enforce.<h:p/>
               The selection should indicate if mutual authentication and/or session
               renegotiation is supported. These selections must be the same for both
               FCS_TTTC_EXT.1.1 and FCS_TTTS_EXT.1.1. If mutual authentication is selected,
-              <!-- Note: come back to all section B.4 and B.5 references and update as needed when we know what the actual sections look like (we may just end up explicitly listing the SFRs that come into play when 
-              the TOE has support for mutual auth. Not going to repeat this comment but it applies globally to all appendix B.* references -->
+
               the requirements in Section B.4 will be included by the ST author. For this
               technology, mutual authentication is not desirable on these connections because
               the STIP will have to issue a certificate representing the client to the requested
@@ -2050,7 +2046,7 @@ expected to enforce.<h:p/>
                 the TOE so that the versions and cipher suites used conform with FCS_TTTC_EXT.1.1 and the configured
                 TLS session establishment policy.
                 <h:p/>
-                The evaluator shall verify that the operationsl guidance includes instructions for setting the reference identifier
+                The evaluator shall verify that the operational guidance includes instructions for setting the reference identifier
                 to be used for the purposes of certificate validation in TLS. 
               <h:p/></Guidance>
               <Tests>
@@ -2085,7 +2081,7 @@ expected to enforce.<h:p/>
                     CA that has the indicated extendedKeyUsage condition, and is otherwise identical to the certificate used
                     for the similarly configured server from Test 1. The evaluator shall configure the server to present the new
                     certificate in its TLS handshake. The evaluator shall then make a TLS request in turn from a monitored
-                    client to each of the reconfigured serversthrough the TOE, and observe that the TLS session from the TOE
+                    client to each of the reconfigured servers through the TOE, and observe that the TLS session from the TOE
                     to the requested server is established.
                   </test>
                   <test>
@@ -2298,7 +2294,7 @@ expected to enforce.<h:p/>
               <Guidance>
                 If the TSS indicates that the TLS session establishment policy is used to determine the TSF’s behaviour for
                 establishing a TLS session for through-traffic processing when certificate revocation information is not
-                available, the evaluator shall validate that the operationsl guidance includes instructions to configure the
+                available, the evaluator shall validate that the operational guidance includes instructions to configure the
                 allowances to allow or not allow such connections.
               <h:p/></Guidance>
               <Tests>Using the setup for test 1 of FCS_TTTC_EXT.1.1, the evaluator shall establish one or more trusted
@@ -2394,7 +2390,7 @@ expected to enforce.<h:p/>
                 session establishment policy allowances and that the ordering of cipher suites within a Client Hello sent
                 by the TSF to a requested server is in accordance with FCS_TTTC_EXT.1.4.
               <h:p/></TSS>
-              <Guidance>The evaluator shall ensure that the operationsl guidance documents include instructions on configuring the TLS
+              <Guidance>The evaluator shall ensure that the operational guidance documents include instructions on configuring the TLS
                 session establishment policy to restrict the inclusion of cipher suites in a Client Hello to a particular
                 requested server for through-traffic processing.<h:p/></Guidance>
               <Tests>Setup: The evaluator shall establish one or more monitored clients and requested servers that are
@@ -2414,11 +2410,11 @@ expected to enforce.<h:p/>
                   FCS_TTTC_EXT.1.1. The evaluator shall confirm that the requested server sends the TOE a Server Hello
                   indicating the configured version and cipher suite, and confirm that the TSF responds by terminating the
                   TLS handshake with the requested server.</test>
-                <test>The evaluator shall follow operationsl guidance to reconfigure the TLS session establishment policy to
+                <test>The evaluator shall follow operational guidance to reconfigure the TLS session establishment policy to
                   allow any supported version to the requested servers, but only allow the subset of cipher suites as
                   indicated in the setup. For each supported version, the evaluator shall configure the requested server to
                   negotiate the version and a valid cipher suite for that version which is included in FCS_TTTC_EXT.1.1, but
-                  not allowed for the requested server, asin the setup, regardless of the Client Hello received. The evaluator
+                  not allowed for the requested server, as in the setup, regardless of the Client Hello received. The evaluator
                   shall in turn initiate a TLS session from the monitored client to the requested server configured for the
                   supported version, through the TOE. The evaluator shall observe that the Client Hello generated by the
                   TSF specifies version 1.2 and the allowed cipher suites in the order indicated in FCS_TTTC_EXT.1.1. The
@@ -2441,7 +2437,7 @@ expected to enforce.<h:p/>
           <dependencies>FCS_TTTC_EXT.1 Thru-Traffic TLS Inspection Client Protocol</dependencies>
           <f-element id="fcs-tttc-ext-5e1">
             <title>
-              The TSF shall present the Supported Groups Extension in the Client Hellow with the supported groups <h:b>
+              The TSF shall present the Supported Groups Extension in the Client Hello with the supported groups <h:b>
                 <selectables linebreak="yes">
                   <selectable>secp256r1</selectable>
                   <selectable>secp384r1</selectable>
@@ -2483,14 +2479,14 @@ expected to enforce.<h:p/>
                 including configuration of allowances controlling the use of curves other than the NIST named curves,
                 secp256r1, secp384r1, or secp521r1, if supported.<h:p/></TSS>
               <Guidance>If the TSS indicates that the TOE must be configured to meet FCS_TTTC_EXT.5.1 requirements for the
-                Supported Elliptic Curves Extension, the evaluator shall verify the operationsl guidance includes instructions for
+                Supported Elliptic Curves Extension, the evaluator shall verify the operational guidance includes instructions for
                 configuration of the Supported Elliptic Curves Extension.
               <h:p/></Guidance>
               <Tests>
                 <testlist>
                    <test>The evaluator shall establish a requested server to negotiate a supported version and cipher suite
                    using ECDSA signature and ECDHE key exchange using a custom elliptic curve not included in
-                   FCS_TTTC_EXT.5.1, regardless of the Client Hello received. The evaluator shall follow operationsl guidance to
+                   FCS_TTTC_EXT.5.1, regardless of the Client Hello received. The evaluator shall follow operational guidance to
                    configure the TLS session establishment policy so the TSF inspects traffic to the so configured server from
                    a monitored client. The evaluator shall initiate a TLS session to the requested server from the monitored
                    client through the TOE and observe that the TSF sends a Client Hello to the requested server, and receives
@@ -2499,7 +2495,7 @@ expected to enforce.<h:p/>
                   <test>(conditional, the TSF supports additional elliptic curves that are managed via TLS session establishment policy allowances): 
                     For each elliptic curve claimed in the assignment of FCS_TTTC_EXT.5.1, the evaluator shall establish a
                     requested server to use the curve in a TLS handshake with a supported version and cipher suite using
-                    ECDSA signature and ECDHE key exchange, using the curve. The evaluator shall follow operationsl guidance to
+                    ECDSA signature and ECDHE key exchange, using the curve. The evaluator shall follow operational guidance to
                     configure the TLS session establishment policy to perform the inspection operation for TLS traffic to the
                     server and allow the server to negotiate the additional curve. The evaluator shall initiate a TLS request
                     from a monitored client to the server and observe that the Client Hello sent from the TSF to the requested
@@ -2509,7 +2505,7 @@ expected to enforce.<h:p/>
                     For each elliptic curve claimed in the assignment of FCS_TTTC_EXT.5.1, the evaluator shall establish a
                     requested server to use the curve in a TLS handshake with a supported version and cipher suite using
                     ECDSA signature and ECDHE key exchange, regardless of the Client Hello received. The evaluator shall
-                    follow operationsl guidance to configure the TLS session establishment policy to perform the inspection
+                    follow operational guidance to configure the TLS session establishment policy to perform the inspection
                     operation for TLS traffic to the server, but not allow the server to negotiate the additional curve. The
                     evaluator shall initiate a TLS request from a monitored client to the server and observe that the Supported
                     Groups extension Client Hello sent from the TSF to the requested does not include the curve. The
@@ -2606,7 +2602,8 @@ legacy cipher suites. -->
                 <h:li>TLS_DHE_RSA_WITH_AES_128_CCM_8 as defined in RFC 6655</h:li>
                 <h:li>TLS_DHE_RSA_WITH_AES_256_CCM_8 as defined in RFC 6655</h:li>
                 <h:li>TLS_RSA_WITH_AES_256_CCM_8 as defined in RFC 6655</h:li>
-                <h:li><selectables>
+              </h:ul>
+                <selectables linebreak="yes">
                   <selectable>TLS_ECDHE_RSA_WITH_3DES_EDE_CBC_SHA as defined in RFC 8422</selectable>
                   <selectable>TLS_DHE_RSA_WITH_3DES_EDE_CBC_SHA as defined in RFC 5246</selectable>
                   <selectable>TLS_RSA_WITH_3DES_EDE_CBC_SHA as defined in RFC 5246</selectable>
@@ -2614,8 +2611,7 @@ legacy cipher suites. -->
                   (e.g. if chacha20 suites are claimed there is no supporting claim that the TSF implements this aglrotihm properly) -->
                   <selectable><assignable>other supported cipher suites</assignable></selectable>
                   <selectable>no other cipher suites</selectable>
-                </selectables></h:li>
-              </h:ul>
+                </selectables>
                 <!-- Note: "and no other cipher suites" removed here because it's implied by the previous list, and if "no other cipher suites" is chosen in the selection above it makes the SFR parse badly -->
               </h:i>] and also supports functionality for <selectables linebreak="yes">
                 <selectable id="serverAuth">mutual authentication</selectable>
@@ -2631,7 +2627,6 @@ legacy cipher suites. -->
                   and reference to RFC in which each is defined</assignable>, and also supports functionality for <selectables linebreak="yes">
                   <selectable>mutual authentication</selectable>
                   <selectable>session renegotiation</selectable>
-                  <!-- Note: is it ok that we changed this selection to make the SFR parse better if it's chosen -->
                   <selectable>neither mutual authentication nor session renegotiation</selectable>
                 </selectables>.
               </title>
@@ -2679,26 +2674,26 @@ legacy cipher suites. -->
                 <testlist>
                   <test>For each version and each valid cipher suite for the version, as indicated in FCS_TTTS_EXT.1.1, the
                     evaluator shall configure the monitored client to include the version and a list consisting of a single
-                    element specifying the indicated cipher suite in the Client Hello. The evaluator shall follow operationsl guidance
+                    element specifying the indicated cipher suite in the Client Hello. The evaluator shall follow operational guidance
                     to configure the TLS session establishment policy to allow the TSF to negotiate the version and cipher
                     suite for that client. The evaluator shall then initiate a TLS session from the so configured monitored client
                     through the TOE to a requested server and observe that a TLS session between the monitored client and
                     the TSF using the specified version and cipher suite is successful. </test>
                   <test>For each supported version indicated in FCS_TTTS_EXT.1.1, the evaluator shall select a valid cipher
                     suite in FCS_TTTS_EXT.1.1 and configure a monitored client to present the version and a cipher suite list
-                    containing the single cipher suite. The evaluator shall follow operationsl guidance to configure the TLS session
+                    containing the single cipher suite. The evaluator shall follow operational guidance to configure the TLS session
                     establishment policy so that use of the cipher suite is not allowed for the client. The evaluator shall initiate
                     a TLS session from the monitored client through the TOE to a requested server and observe that a TLS
                     session between the monitored client and the TSF is denied. </test>
                   <test>For each supported version other than TLS 1.2 indicated in FCS_TTTS_EXT.1.1, the evaluator shall
                     configure a monitored client to include the version and a cipher suite list consisting of a cipher suite valid
-                    for TLS 1.2 and another valid for the version in its Client Hello. The evaluator shall follow operationsl guidance to
+                    for TLS 1.2 and another valid for the version in its Client Hello. The evaluator shall follow operational guidance to
                     configure the TLS session establishment policy to only allow the client to use TLS 1.2. The evaluator shall
                     initiate a TLS session from the monitored client to a requested server through the TOE and observe that
                     a TLS session between the monitored client and the TSF is not established.</test>
                   <test>For each supported version indicated in FCS_TTTS_EXT.1.1, the evaluator shall configure a
                     monitored client to include the version and a cipher suite list consisting of a single
-                    TLS_NULL_WITH_NULL_NULL cipher suite. The evaluator shall follow operationsl guidance to configure the TLS
+                    TLS_NULL_WITH_NULL_NULL cipher suite. The evaluator shall follow operational guidance to configure the TLS
                     session establishment policy to allow any version and cipher suite for the client. The evaluator shall initiate
                     a TLS session from the monitored client to a requested server through the TOE and observe that the TLS
                     session between the monitored client and the TSF is denied.
@@ -2723,7 +2718,7 @@ legacy cipher suites. -->
             </ext-comp-def-title>
             <note role="application">
               All SSL versions are denied regardless of exception specifications. Any TLS versions
-              not selected in FCS_TTTS_EXT.1.1 should be selected here
+              not selected in FCS_TTTS_EXT.1.1 should be selected here.
             </note>
             <aactivity level="element">
               <TSS>The evaluator shall verify that the TSS contains a description of the denial of SSL versions and TLS versions
@@ -2735,12 +2730,11 @@ legacy cipher suites. -->
               <Tests>For each SSL or TLS version indicated in FCS_TTTS_EXT.1.2, the evaluator shall configure a
                 monitored client to include the version in its Client Hello. The evaluator shall initiate a TLS session from
                 the monitored client to a requested server through the TOE and observe that a TLS session between the
-                monitored client and the TOE is not established.
+                monitored client and the TOE is not established.<h:p/>
               </Tests>
             </aactivity>
           </f-element>
           <f-element id="fcs-ttts-ext-1e3">
-            <!-- Note: come back to this one to make sure it's formatted right -->
             <title>
               The TSF shall perform key establishment for TLS with a monitored client using [<h:i>
                 <h:ul>
@@ -2759,9 +2753,7 @@ legacy cipher suites. -->
                         <selectable>3072 bits</selectable>
                         <selectable>4096 bits</selectable>
                         <selectable>8192 bits</selectable>
-                        <selectable>no other sizes</selectable>
-                      </selectables>
-                      </selectable>
+                        <selectable>no other sizes</selectable></selectables></selectable>
                     <selectable>
                       Diffie-Hellman groups ffdhe2048, <selectables> 
                       <selectable>ffdhe3072</selectable>
@@ -2779,9 +2771,9 @@ legacy cipher suites. -->
                       <selectable>secp384r1</selectable>
                       <selectable>secp521r1</selectable>
                       <selectable><assignable>other curves</assignable></selectable>
-                    </selectables> and no other curves</h:li>
+                    </selectables> and no other curves.</h:li>
                 </h:ul>
-              </h:i>.
+              </h:i>
             </title>
             <ext-comp-def-title>
               <title>The TSF shall perform key establishment for TLS with a monitored client using
@@ -2809,7 +2801,7 @@ legacy cipher suites. -->
                 <testlist>
                   <test>For each of the key parameter selections in FCS_TTTS_EXT.1.3, the evaluator shall configure a
                     monitored client to use a valid supported version and cipher suite combination that supports the key
-                    parameter, and follow operationsl guidance to configure the TSF to use a cipher suite supporting the parameters.
+                    parameter, and follow operational guidance to configure the TSF to use a cipher suite supporting the parameters.
                     The evaluator shall initiate a TLS session from the monitored client to a requested server through the TOE,
                     and observe that a TLS session between the monitored client and the TLS uses the key parameters and is
                     successful.</test>
@@ -2817,7 +2809,7 @@ legacy cipher suites. -->
                     from a client that does not agree with the negotiated cipher suite.
                     <h:p/>
                     For each of the key parameter selections claimed for FCS_TTTS_EXT.1.3, the evaluator shall configure a
-                    monitored client and follow operationsl guidance to configure the TSF to use a cipher suite supporting the
+                    monitored client and follow operational guidance to configure the TSF to use a cipher suite supporting the
                     parameters.
                     <h:p/>
                     For each such configuration, the evaluator shall, in turn, initiate a number of TLS sessions from the
@@ -3030,7 +3022,7 @@ legacy cipher suites. -->
                   </selectables></h:b>-configured CA name.</h:li>
                 <h:li>The signature field and the algorithm in the subjectPublicKeyInfo field
                 shall contain the OID for a signature algorithm specified in
-                FCS_COP.1/SigGen in the NDcPP.</h:li>
+                FCS_COP.1<h:b>/SigGen in the NDcPP</h:b>.</h:li>
                 <h:li>The following extensions are supported:
                   <h:ol type ="a">
                     <h:li>authorityKeyIdentifier</h:li>
@@ -3043,13 +3035,13 @@ legacy cipher suites. -->
                       <selectable>cRLDistributionPoints</selectable>
                       <selectable>authorityInfoAccess</selectable>
                       <selectable>no other extensions</selectable>
-                    </selectables></h:li></h:ol></h:li>
+                    </selectables>.</h:li></h:ol></h:li>
                 <h:li>A subject field containing a null Name (e.g., a sequence of zero relative
                   distinguished names) is accompanied by a populated critical
                   subjectAltName extension.</h:li>
                 <h:li>The authorityKeyIdentifier extension in any certificate issued by the TOE
                   must be populated and must be the same as the subjectKeyIdentifier
-                  extension contained in the TOE’s embedded CA’s signing certificate</h:li>
+                  extension contained in the TOE’s embedded CA’s signing certificate.</h:li>
                 <h:li>Populated keyUsage and extendedKeyUsage fields in the same certificate
                   shall contain consistent values reflecting exclusive TLS server use as
                   follows:
@@ -3076,7 +3068,7 @@ legacy cipher suites. -->
                   <selectable>The subjectKeyIdentifier extension is populated with a value
                     unique for each public key contained in a certificate issued by the TSF</selectable>
                   <selectable>no other constraints</selectable>
-                </selectables></h:li>
+                </selectables>.</h:li>
               </h:ol>
             </title>
             <ext-comp-def-title>
@@ -3110,13 +3102,13 @@ legacy cipher suites. -->
                       <selectable>cRLDistributionPoints</selectable>
                       <selectable>authorityInfoAccess</selectable>
                       <selectable>no other extensions</selectable>
-                    </selectables></h:li></h:ol></h:li>
+                    </selectables>.</h:li></h:ol></h:li>
                 <h:li>A subject field containing a null Name (e.g., a sequence of zero relative
                   distinguished names) is accompanied by a populated critical
                   subjectAltName extension.</h:li>
                 <h:li>The authorityKeyIdentifier extension in any certificate issued by the TOE
                   must be populated and must be the same as the subjectKeyIdentifier
-                  extension contained in the TOE’s embedded CA’s signing certificate</h:li>
+                  extension contained in the TOE’s embedded CA’s signing certificate.</h:li>
                 <h:li>Populated keyUsage and extendedKeyUsage fields in the same certificate
                   shall contain consistent values reflecting exclusive TLS server use as
                   follows:
@@ -3143,7 +3135,7 @@ legacy cipher suites. -->
                   <selectable>The subjectKeyIdentifier extension is populated with a value
                     unique for each public key contained in a certificate issued by the TSF</selectable>
                   <selectable>no other constraints</selectable>
-                </selectables></h:li>
+                </selectables>.</h:li>
               </h:ol>
             </title>
             </ext-comp-def-title>
@@ -3172,8 +3164,7 @@ legacy cipher suites. -->
                   <selectable><assignable><h:b>
                     <selectables>
                       <selectable>Security Administrator</selectable>
-                      <selectable>CA Operations Staff</selectable>
-                    </selectables></h:b>-assigned identifying information
+                      <selectable>CA Operations Staff</selectable></selectables></h:b>-assigned identifying information
                   </assignable></selectable>
                 </selectables> of the CA's signing certificate.</h:li>
                 <h:li><selectables linebreak="yes">
@@ -3181,7 +3172,7 @@ legacy cipher suites. -->
                     signing certificate</selectable>
                   <selectable><assignable>list of rules</assignable></selectable>
                   <selectable>no other rules</selectable>
-                </selectables></h:li>
+                </selectables>.</h:li>
               </h:ul>
             </title>
             <ext-comp-def-title>
@@ -3200,7 +3191,7 @@ legacy cipher suites. -->
                       signing certificate</selectable>
                     <selectable><assignable>list of rules</assignable></selectable>
                     <selectable>no other rules</selectable>
-                  </selectables></h:li>
+                  </selectables>.</h:li>
                 </h:ul>
               </title>
             </ext-comp-def-title>
@@ -3240,7 +3231,7 @@ legacy cipher suites. -->
                         one or more stated policy OIDs</assignable></selectable>
                     <selectable><assignable>list of rules</assignable></selectable>
                     <selectable>no additional rules</selectable>
-                  </selectables>
+                  </selectables>.
                 </h:li>
               </h:ol>
             </title>
@@ -3271,7 +3262,7 @@ legacy cipher suites. -->
                           one or more stated policy OIDs</assignable></selectable>
                       <selectable><assignable>list of rules</assignable></selectable>
                       <selectable>no additional rules</selectable>
-                    </selectables>
+                    </selectables>.
                   </h:li>
                 </h:ol>
               </title>
@@ -3283,7 +3274,7 @@ legacy cipher suites. -->
             <aactivity>
               <TSS>
                 The evaluator shall examine the TSS to ensure it describes the certificate profile function in accordance
-                with FDP_CER_EXT.1.1 The TSS shall describe how certificate profiles are configured and then selected
+                with FDP_CER_EXT.1.1. The TSS shall describe how certificate profiles are configured and then selected
                 to issue certificates in accordance with FDP_CER_EXT.1.2. 
               <h:p/></TSS>
               <Guidance>
@@ -3451,7 +3442,7 @@ legacy cipher suites. -->
                     supported features of the TLS session establishment policy and demonstrate certificates are generated by
                     the TSF only when the inspection operation is authorized.
                     <h:p/>
-                    The evaluator shall follow operationsl guidance to configure a set of rules for the TLS session establishment policy
+                    The evaluator shall follow operational guidance to configure a set of rules for the TLS session establishment policy
                     that exercises the inspection operation, bypass operation, and block operation for a representative
                     sample of supported monitored client requested server abstractions as indicated in FDP_TEP_EXT.1.4.
                     <h:p/>
@@ -3524,7 +3515,7 @@ legacy cipher suites. -->
           </f-element>
         </f-component>
         
-        <ext-comp-def fam-id="FDP_CISR_EXT" title="Certificate Status Information Required">
+        <ext-comp-def fam-id="FDP_CSIR_EXT" title="Certificate Status Information Required">
           <fam-behavior>Components in this family define requirements for the association of certificate status information with
             certificates issued by the TOE.
           </fam-behavior>
@@ -3556,7 +3547,7 @@ legacy cipher suites. -->
               </title>  
             </ext-comp-def-title>
             <note role="application">
-              <!-- Note: come back to appendix reference and fix later -->
+   
               Based on the selection, the ST author must choose the appropriate requirements
               from Appendix B.1 of this PP-Module.
               <h:p/>
@@ -3629,7 +3620,7 @@ legacy cipher suites. -->
                 <selectable>distinct internal inspection processing functional components</selectable>
                 <selectable>internal inspection processing functional components and
                   an interface to external inspection processing environment</selectable>
-              </selectables>
+              </selectables>.
             </title>
             <note role="application">
               This element identifies the policy (TLS plaintext processing) that is applied to
@@ -3865,7 +3856,7 @@ legacy cipher suites. -->
               </selectables> to protect the trusted public keys and certificates (trust store elements) used to
               validate local logon, trusted channel, and external communication to the STIP.</title>
             <note role="application">If “an integrity mechanism” is selected, FCS_CKM_EXT.5 must be included in the
-              ST</note>
+              ST.</note>
             <aactivity>
               <TSS>The evaluator shall examine the TSS to ensure it describes the trusted public keys and certificates
                 implemented, including trust stores that contain root CA certificates used to meet the requirements of
@@ -3911,7 +3902,6 @@ legacy cipher suites. -->
             PP/ST: <h:ul>
               <h:li>Establishment of a TLS inspection session thread.</h:li>
               <h:li>Establishment of an encrypted TLS data flow.</h:li>
-              <h:li>Execution of Block operation.</h:li>
               <h:li>Bypass operation invoked.</h:li>
               <h:li>Block operation invoked.</h:li>
             </h:ul>
@@ -4019,7 +4009,7 @@ legacy cipher suites. -->
                     embedded CA. The requested server certificate shall contain a valid identifier of DNS name type
                     identifying the requested server subject alternate name extension. The monitored client will be
                     configured to send the same DNS name for the requested server in the SNI extension of its Client Hello.
-                    The evaluator shall follow operationsl guidance to configure the TLS session establishment policy to inspect TLS
+                    The evaluator shall follow operational guidance to configure the TLS session establishment policy to inspect TLS
                     sessions between the monitored client and the requested server. The evaluator shall initiate a TLS session
                     between the monitored client and the requested server through the TOE, and observe that the certificate
                     received in the server certificate message at the monitored client is issued by the TOE’s embedded signing
@@ -4027,7 +4017,7 @@ legacy cipher suites. -->
                     requested by the client.</test>
                   <test>(conditional, the TSF supports certificate caching): The evaluator shall follow the operational guidance to
                     configure the TSF to retain generated certificates in cache for a short time. The evaluator shall establish
-                    three monitored clients and a single requested server, and follow operationsl guidance to ensure TLS sessions
+                    three monitored clients and a single requested server, and follow operational guidance to ensure TLS sessions
                     between the monitored clients and the requested server are inspected as in Test 1. The evaluator shall
                     establish a TLS session from two of the monitored clients to the same requested server within the
                     configured cache time, and confirm that the certificates received at each client are identical. The evaluator
@@ -4073,12 +4063,12 @@ legacy cipher suites. -->
               <Tests>The following test is conditional on the TSF supporting a consent to monitor banner for monitored clients:
                 <h:p/>
                 The
-                evaluator shall establish a monitored client and requested server, and follow operationsl guidance to configure
+                evaluator shall establish a monitored client and requested server, and follow operational guidance to configure
                 the TSF to present monitored clients a consent to monitor banner. The evaluators shall follow operational
                 guidance to inspect TLS traffic between the monitored client and requested server, and initiate a TLS
                 session from the monitored client to the requested server through the TOE. The evaluator shall observe
                 that the consent to monitor banner is provided to the client and that no traffic from the client is inspected
-                until consent is provided.
+                until consent is provided.<h:p/>
               </Tests>
             </aactivity>
           </f-element>
@@ -4095,7 +4085,7 @@ legacy cipher suites. -->
                 operation, to include logging of bypassed TLS sessions, is provided.
               <h:p/></Guidance>
               <Tests>The evaluator shall establish a monitored client and a requested server. The evaluator shall follow
-                operationsl guidance to configure the TOE and its TLS session establishment policy so that TLS traffic between
+                operational guidance to configure the TOE and its TLS session establishment policy so that TLS traffic between
                 the monitored client and the requested server is processed via the Bypass Operation and so that bypassed
                 TLS sessions are logged. The evaluator shall initiate a TLS session from the monitored client to the
                 requested server through the TOE. The evaluator shall monitor traffic between the monitored client and
@@ -4130,7 +4120,7 @@ legacy cipher suites. -->
                 configurable features of the block operation are provided.<h:p/></Guidance>
               <Tests>
                 The evaluator shall establish a monitored client and a requested server. The evaluator shall follow
-                operationsl guidance to configure the TOE and its TLS session establishment policy so that TLS sessions between
+                operational guidance to configure the TOE and its TLS session establishment policy so that TLS sessions between
                 the monitored client and the requested server through the TOE are processed by the block operation. The
                 evaluator shall initiate a TLS session from the monitored client to the requested server through the TOE
                 and observe that the TLS session is blocked. The evaluator shall confirm that the monitored client receives
@@ -4146,8 +4136,7 @@ legacy cipher suites. -->
           </fam-behavior>
         </ext-comp-def>
         
-        <!-- Modified by TD0516 -->
-        <!-- Note: TD0516 app notes modified to remove explicit appendix references in favor of SFR names since the Github module formatting will be different -->
+        <!-- Modified by TD0516 -->        
         <!-- Note: come back to make sure this one is ok -->
         <f-component name="SSL/TLS Inspection Proxy Policy" cc-id="fdp_tep_ext.1" id="fdp-tep-ext-1">
           <consistency-rationale>This SFR applies to the enforcement of the TLS session establishment policy
@@ -4236,8 +4225,7 @@ legacy cipher suites. -->
                   <selectable>TLS client certificate message <selectables linebreak="yes">
                     <selectable>Certificate issuer</selectable>
                     <selectable>Certificate subject</selectable>
-                    <selectable>Certificate subject alt name</selectable>
-                  </selectables>
+                    <selectable>Certificate subject alt name</selectable></selectables>
                   </selectable>
                   <selectable><assignable>other attributes</assignable></selectable>
                   <selectable>no other attributes</selectable>
@@ -4359,8 +4347,7 @@ legacy cipher suites. -->
                   <selectable>block</selectable>
                   <selectable>bypass</selectable>
                   <selectable>mutual authentication inspection</selectable>
-                </selectables> operation
-              </selectable>
+                </selectables> operation</selectable>
               <selectable>send an empty certificate list as part of the inspection operation</selectable>
             </selectables> on the session when receiving a 
               TLS certificate request message from the requested server when establishing the TLS in accordance with FCS_TTTC_EXT.1.</title>
@@ -4475,8 +4462,8 @@ legacy cipher suites. -->
               monitored client for a configurable period</h:li>
               <h:li>The TSF shall transition a TLS session thread state from inspect operation
               to block operation, when indicated to do so by the TLS plaintext
-              processing policy</h:li>
-              </h:ul>.
+              processing policy.</h:li>
+              </h:ul>
             </title>
             <ext-comp-def-title>
               <title>
@@ -4511,8 +4498,8 @@ legacy cipher suites. -->
                     monitored client for a configurable period</h:li>
                   <h:li>The TSF shall transition a TLS session thread state from inspect operation
                     to block operation, when indicated to do so by the TLS plaintext
-                    processing policy</h:li>
-                </h:ul>.
+                    processing policy.</h:li>
+                </h:ul>
               </title>
             </ext-comp-def-title>
             <note role="application">
@@ -4577,28 +4564,28 @@ legacy cipher suites. -->
                 FDP_TEP_EXT.1.10 are described.
               <h:p/></TSS>
               <Guidance>
-                <!-- Note: globally change "operationsl guidance documents" or similar to "operational guidance" -->
+                
                 The evaluator shall examine the operational guidance to verify that instructions to configure the
                 TLS session establishment policy are provided.
                 <h:p/>
-                The evaluator shall examine the operationsl guidance documents and verify that they identify all attributes
+                The evaluator shall examine the operational guidance documents and verify that they identify all attributes
                 included in FDP_TEP_EXT.1.2 as being configurable within the TLS session establishment policy, which is
                 that all configurable features of the TLS session establishment policy function are described in the
                 operational guidance.
                 <h:p/>
-                The evaluator shall examine the operationsl guidance documents and verify they indicate each rule can identify
+                The evaluator shall examine the operational guidance documents and verify they indicate each rule can identify
                 the following operations: block, bypass, and inspect. The evaluator shall confirm that instructions for
                 configuring the inspection, bypass, and block operations within rules are included.
                 <h:p/>
-                The evaluator shall examine the operationsl guidance documents and verify they specify each rule indicating
+                The evaluator shall examine the operational guidance documents and verify they specify each rule indicating
                 block or bypass operations can designate whether logging or counting of TLS Client Hello messages
                 invoking the operation is performed.
                 <h:p/>
-                The evaluator shall examine the operationsl guidance documents and verify they provide instructions on
+                The evaluator shall examine the operational guidance documents and verify they provide instructions on
                 configuring the TLS parameter allowances identified in FDP_TEP_EXT.1.5 and those responses to TLS
                 protocol errors identified in FDP_TEP_EXT.1.8.are indicated.
                 <h:p/>
-                The evaluator shall examine the operationsl guidance documents and verify that any instructions required to
+                The evaluator shall examine the operational guidance documents and verify that any instructions required to
                 configure the TLS session establishment policy to meet the requirements in this component are provided.
               <h:p/></Guidance>
               <Tests>
@@ -4626,7 +4613,7 @@ legacy cipher suites. -->
                     inspect logs, certificate repository, certificate received by the monitored client in the Server Hello
                     message, plaintext encrypted by the monitored client, and plaintext decrypted by the requested server to
                     confirm that bypass processing occurred.</test>
-                  <test>The evaluator shall follow operationsl guidance to ensure the TSF is configured to log blocked TLS sessions.
+                  <test>The evaluator shall follow operational guidance to ensure the TSF is configured to log blocked TLS sessions.
                     For each rule of the TLS establishment policy indicating blocking of the TLS session, as indicated in any
                     element of this component, the evaluator shall establish that a monitored client, a requested server, and
                     a server certificate meet the rule. The evaluator shall send a TLS session from the monitored client to the
@@ -4645,14 +4632,14 @@ legacy cipher suites. -->
                   </test>
                   <test>
                     <!-- Note: changed conditional statement to make it more obvious what the trigger is for this test --> 
-                    Test 5 [conditional, both 'mutual authentication inspection' and 'send an empty certificate list as part of the inspection operation' are selected in FDP_TEP_EXT.1.7]:
+                    Test 5 (conditional, both 'mutual authentication inspection' and 'send an empty certificate list as part of the inspection operation' are selected in FDP_TEP_EXT.1.7):
                     The evaluator shall establish a server to send certificate requests in its TLS handshake. 
                     The evaluator shall extablish a monitored client configured to provide a valid client certificate in response to a certificate request. 
-                    The evaluator shall follow operationsl guidance to configure the TLS inspection proxy policy to send an empty certificate list in a certificate message to the server, 
+                    The evaluator shall follow operational guidance to configure the TLS inspection proxy policy to send an empty certificate list in a certificate message to the server, 
                     and initiate a TLS request from a monitored client to the server through the TOE. 
                     The evaluator shall observe network traffic between the TOE and the requested server and confirm that the TOE sends an empty certificate list to the server after receiving the certificate request.
                     <h:p/>
-                    Using the same server, the evaluator shall follow operationsl guidance to configure the TSF to perform mutual authentication inspection with the server, 
+                    Using the same server, the evaluator shall follow operational guidance to configure the TSF to perform mutual authentication inspection with the server, 
                     and initiate a TLS request from the same monitored client ro the same requested server through the TOE. 
                     The evaluator shall observe network traffic between the TOE and the requested server and confirm the TOE sends a certificate message containing a client certificate representing the monitored client.
                   </test>
@@ -4736,7 +4723,7 @@ legacy cipher suites. -->
                 <h:li>The TSF shall validate the extendedKeyUsage field according to the
                   following rules depending on the certificate type and purpose:
                 <h:ul>
-                  <h:li>Server certificates presented in a TLS certificate message for ThruTraffic processing TLS shall have meet one of the following checks:
+                  <h:li>Server certificates presented in a TLS certificate message for Thru-Traffic processing TLS shall have meet one of the following checks:
                   <h:ul>
                     <h:li>There is no extendedKeyUsage field</h:li>
                     <h:li>The extendedKeyUsage field is present and contains the Server
@@ -4745,7 +4732,7 @@ legacy cipher suites. -->
                       purpose (id-…)</h:li>
                   </h:ul>
                   </h:li>
-                  <h:li>Server certificates presented for TLS not associated with the ThruTraffic processing include an extendedKeyUsage field that contains
+                  <h:li>Server certificates presented for TLS not associated with the Thru-Traffic processing include an extendedKeyUsage field that contains
                     the ServerAuthentication purpose (id-kp 1 with OID
                     1.3.6.1.5.5.7.3.1).</h:li>
                   <h:li>Code-signing certificates include the extendedKeyUsage field that
@@ -5095,8 +5082,7 @@ legacy cipher suites. -->
               <selectable>Ability to configure rules for displaying a notification and consent
               message for acknowledgement prior to TLS inspection processing</selectable>
               <selectable>Ability to search the certificate repository</selectable>
-              <selectable>No other capabilities</selectable>
-            </selectables>
+              <selectable>No other capabilities</selectable></selectables>
           </h:i>].
           </title>
           <note role="application">
@@ -5158,9 +5144,9 @@ legacy cipher suites. -->
                 </h:ul>
                   <selectables linebreak="yes">
                     <selectable>No identity is authorized to assume both an Account Manager role
-                      and any of the other roles in FMT_SMR.2.1/STIP,</selectable>
+                      and any of the other roles in FMT_SMR.2.1/STIP</selectable>
                     <selectable>No identity is authorized to assume both an Auditor role and any of
-                      the other roles in FMT_SMR.2.1/STIP,</selectable>
+                      the other roles in FMT_SMR.2.1/STIP</selectable>
                     <selectable>No other conditions</selectable>
                   </selectables></h:i>] are satisifed.
             </title>
@@ -5222,7 +5208,7 @@ legacy cipher suites. -->
               to security as a failure of the TSF itself. Therefore, in addition to describing the
               potential TSF failures and how the TOE preserves a secure state in response, the
               ST author is also expected to use this SFR to express how the TOE is made aware
-              of any environmental failures and how it responds to these
+              of any environmental failures and how it responds to these.
             </note>
             <aactivity>
               <TSS>The evaluator shall examine the TSS to determine that the TOE’s implementation of the fail secure
@@ -5305,7 +5291,7 @@ legacy cipher suites. -->
             <aactivity>
               <TSS>The evaluator shall examine the TSS to ensure it describes how unauthorized use of TSF private and secret
                 keys is prevented for both users and processes. <h:p/></TSS>
-              <Guidance>The evaluator shall examine the operationsl guidance to ensure it contains instructions for configuring the TOE
+              <Guidance>The evaluator shall examine the operational guidance to ensure it contains instructions for configuring the TOE
                 or Operational Environment to prevent unauthorized access to TSF secret and private keys by users or
                 processes.<h:p/></Guidance>
               <Tests>The evaluator shall assume each of the non-Administrator roles supported by the TOE and shall
@@ -5335,7 +5321,7 @@ legacy cipher suites. -->
               <TSS>The evaluator shall examine the TSS to determine that, for each failure or service discontinuity identified
                 in the SFR, it describes how the TOE enters a maintenance mode after a failure and the possible actions
                 that can take place while in that mode. <h:p/></TSS>
-              <Guidance>The evaluator shall examine the operationsl guidance to ensure it contains instructions for restoring the TOE to
+              <Guidance>The evaluator shall examine the operational guidance to ensure it contains instructions for restoring the TOE to
                 a secure state when it enters the maintenance mode, including the steps necessary to perform while in
                 this state.<h:p/></Guidance>
               <Tests>The evaluator shall attempt to cause each documented failure to occur and shall verify that the
@@ -5371,7 +5357,7 @@ legacy cipher suites. -->
 		  <!-- Note: This is formatted differently from how the SD did it because there is no clean way to format what the SD did. -->
       <!-- 
 		  <aactivity>
-		    The evaluator shall perform the following actions in addition to the evaluation activities specified for AVA_VAN.1 in the NDcPP SD: 
+		    The evaluator shall perform the following actions in addition to the evaluation activities specified for AVA_VAN.1 in [ND-SD]: 
 		    <h:ul>
 		      <h:li>For Type 1 (Public Vulnerability-Based) Hypotheses, the evaluator shall also consider search phrases consisting of "TLS" 
 		        n conjunction with each of the supported
@@ -5442,7 +5428,7 @@ legacy cipher suites. -->
                 <selectable>Security Administrators</selectable>
                 <selectable>Auditors</selectable>
               </selectables> with the
-              capability to read all information from the local audit records
+              capability to read all information from the local audit records.
             </title>
           </f-element>
           <f-element id="fau-sar-1e2">
@@ -5451,7 +5437,7 @@ legacy cipher suites. -->
               administrator to interpret the information.
             </title>
             <aactivity>
-              <no-tests>This activity should be accomplished in conjunction with the testing of FAU_GEN.1. Review of each of the
+              <no-tests>This activity should be accomplished in conjunction with the testing of FAU_GEN.1/STIP. Review of each of the
                 generated audit records demonstrates that these records are reviewable.</no-tests>
             </aactivity>
           </f-element>
@@ -5462,13 +5448,21 @@ legacy cipher suites. -->
             identifiers which is not defined in the Base-PP.</consistency-rationale>
           <f-element id="fau-sar-3e1">
             <title>
-              The TSF shall provide the ability to apply searches of local audit data based on <h:b>
+              The TSF shall provide the ability to apply [<h:i>searches</h:i>] of <h:b>local</h:b> audit data based on <h:b>
                 <assignable>object identifier of certificate</assignable> associated with the event</h:b>.
             </title>
-            <note role="application"></note>
+            <note role="application">
+              FAU_SCR_EXT.1 defines the ability of the TOE to search a certificate repository
+              and/or audit trail to find certificates based on certain values of individual fields.
+              The TSF will likely identify certificates using some form of unique identifier that is
+              not immediately identifiable to an auditor. The intent of this SFR along with
+              FAU_SCR_EXT.1 is that the auditor has the ability to obtain a certificate’s unique
+              identifier by searching for other known fields and then using that unique identifier
+              as an input to searching audit data for all activities involving that certificate.
+            </note>
             <!-- Note: not actually sure if this is true, we don't explicitly talk about this SFR's behavior in FAU_GEN.1/STIP EAs -->
             <aactivity>
-              <no-tests>This activity should be accomplished in conjunction with the testing of FAU_GEN.1.</no-tests>
+              <no-tests>This activity should be accomplished in conjunction with the testing of FAU_GEN.1/STIP.</no-tests>
             </aactivity>
           </f-element>
         </f-component>
@@ -5509,9 +5503,8 @@ legacy cipher suites. -->
                 <selectables>
                   <selectable>a Security Administrator configurable number of the most common requested servers</selectable>
                   <selectable>a Security Administrator specified list of servers</selectable>
-                  <selectable><assignable>a Security Administrator configurable rules based on attributes of the certificates used by the server</assignable></selectable>
-                </selectables>
-              </h:b>.
+                  <selectable><assignable>a Security Administrator configurable rules based on attributes of the certificates used by the server</assignable></selectable></selectables>.
+              </h:b>
             </title>
             <ext-comp-def-title>
               <title>
@@ -5535,7 +5528,7 @@ legacy cipher suites. -->
             <aactivity>
               <TSS>The evaluator shall review the TSS to ensure the certificate pinning function is described.
               <h:p/></TSS>
-              <Guidance>The evaluator shall review the operationsl guidance to ensure it contains instructions for any configurable
+              <Guidance>The evaluator shall review the operational guidance to ensure it contains instructions for any configurable
                 aspects of the certificate pinning function.
               <h:p/></Guidance>
               <Tests> The evaluator shall establish a monitored client and requested server with multiple certificates
@@ -5714,9 +5707,7 @@ legacy cipher suites. -->
                 <selectable>
                 <selectables>
                   <selectable>Security Administrator</selectable>
-                  <selectable>CA Operations Staff</selectable>
-                </selectables>
-                </selectable>
+                  <selectable>CA Operations Staff</selectable></selectables></selectable>
                 <selectable><assignable>automated revocation rules</assignable></selectable>
               </selectables>. 
             </title>
@@ -5948,7 +5939,7 @@ legacy cipher suites. -->
       
       <section title="Certificate Enrollment" id="s-b2">
         
-        <ext-comp-def fam-id="FIA_EST_EXT" title="Enrollment over Secure Transport Client Protocol">
+        <ext-comp-def fam-id="FIA_ESTC_EXT" title="Enrollment over Secure Transport Client Protocol">
           <fam-behavior>Components in this family define requirements for the TOE’s use of Enrollment over Secure Transport
             (EST) to obtain certificates from an external CA.
           </fam-behavior>
@@ -5994,10 +5985,7 @@ legacy cipher suites. -->
                 <selectable>implicit Trust Anchor/Trust Store (TA) configured by <h:b>
                   <selectables>
                     <selectable>Security Administrator</selectable>
-                    <selectable>CA Operations Staff</selectable>
-                  </selectables>
-                </h:b>
-                </selectable>
+                    <selectable>CA Operations Staff</selectable></selectables></h:b></selectable>
                 <selectable>an explicit TA populated
                   via a TLS-authenticated EST CA certificate request in accordance with RFC 7030
                   section 4.1.2 and FCS_TLSC_EXT.1</selectable>
@@ -6210,7 +6198,7 @@ legacy cipher suites. -->
               <h:p/></TSS>
               <Guidance>The evaluator shall check the guidance documentation to ensure it contains instructions on configuring
                 the TOE so that the TSF supports inspection of TLS sessions with client authentication. The evaluator shall
-                verify that the operationsl guidance provides instructions on how to configure the TLS session establishment
+                verify that the operational guidance provides instructions on how to configure the TLS session establishment
                 policy to identify requested servers it may support for mutual authentication inspection.<h:p/></Guidance>
               <Tests><h:b>Setup:</h:b> The evaluator shall establish one or more monitored clients and one or more requested servers
                 that are configured to pass TLS sessions through the TOE and configure the TLS session establishment
@@ -6319,7 +6307,7 @@ legacy cipher suites. -->
                 policy described in FDP_TEP_EXT.1.<h:p/></TSS>
               <Guidance>The evaluator shall check the guidance documentation to ensure it contains instructions on configuring
                 the TOE so that the TSF supports TLS with client authentication for monitored clients. The evaluator shall
-                verify that the operationsl guidance provides instructions on how to specify the conditions for when the TSF
+                verify that the operational guidance provides instructions on how to specify the conditions for when the TSF
                 requests client authentication of monitored clients.
               <h:p/></Guidance>
               <Tests>
@@ -6444,7 +6432,7 @@ legacy cipher suites. -->
                   subjectAltName extension.</h:li>
                 <h:li>The authorityKeyIdentifier extension in any certificate issued by the TOE
                   must be populated and must be the same as the subjectKeyIdentifier
-                  extension contained in the TOE’s embedded CA’s signing certificate</h:li>
+                  extension contained in the TOE’s embedded CA’s signing certificate.</h:li>
                 <h:li>Populated keyUsage and extendedKeyUsage fields in the same certificate
                   shall contain consistent values reflecting exclusive TLS server use as
                   follows:
@@ -6555,15 +6543,14 @@ legacy cipher suites. -->
                     <selectables>
                       <selectable>Security Administrator</selectable>
                       <selectable>CA Operations Staff</selectable>
-                    </selectables></h:b>-assigned identifying information
-                  </assignable></selectable>
+                    </selectables></h:b>-assigned identifying information</assignable></selectable>
                 </selectables> of the CA's signing certificate.</h:li>
                 <h:li><selectables linebreak="yes">
                   <selectable>The subject name is limited by name constraints specified in the CA’s
                     signing certificate</selectable>
                   <selectable><assignable>list of rules</assignable></selectable>
                   <selectable>no other rules</selectable>
-                </selectables></h:li>
+                </selectables>.</h:li>
               </h:ul>
             </title>
             <ext-comp-def-title>
@@ -6582,7 +6569,7 @@ legacy cipher suites. -->
                       signing certificate</selectable>
                     <selectable><assignable>list of rules</assignable></selectable>
                     <selectable>no other rules</selectable>
-                  </selectables></h:li>
+                  </selectables>.</h:li>
                 </h:ul>
               </title>
             </ext-comp-def-title>
@@ -6609,7 +6596,7 @@ legacy cipher suites. -->
                     </selectables>
                   </h:b> user.</h:li>
                 <h:li>If the basicConstraints field is configured to be present, it shall be
-                  populated with the value cA=False</h:li>
+                  populated with the value cA=False.</h:li>
                 <h:li>If configured to be present, th epolicy OID and policy mapping fields shall be populated according to 
                   <selectables linebreak="yes">
                     <selectable>a <h:b><selectables>
@@ -6618,7 +6605,7 @@ legacy cipher suites. -->
                       </selectables></h:b> configured mapping from validated client certificate values to
                         one or more stated policy OIDs</selectable>
                     <selectable><assignable>list of rules</assignable></selectable>
-                  </selectables>
+                  </selectables>.
                 </h:li>
               </h:ol>
             </title>
@@ -6642,7 +6629,7 @@ legacy cipher suites. -->
                       <selectable>a <assignable>authorized role(s)</assignable> configured mapping from validated client certificate values to
                         one or more stated policy OIDs</selectable>
                       <selectable><assignable>list of rules</assignable></selectable>
-                    </selectables>
+                    </selectables>.
                   </h:li>
                 </h:ol>
               </title>
@@ -6747,7 +6734,7 @@ legacy cipher suites. -->
           <f-element id="fdp-cer-ext-5e1">
             <title>The TSF shall issue certificates in response to a validated client certificate
               according to the following rules: The issued certificate is in compliance with a
-              current certificate profile defined in accordance with FDP_CER_EXT.5 and
+              current certificate profile defined in accordance with FDP_CER_EXT.4 and
               <h:ul>
                 <h:li>The TLS session establishment policy is configured to allow inspection of
                   TLS sessions with mutual authentication between the monitored client
@@ -6787,8 +6774,6 @@ legacy cipher suites. -->
         </f-component>
         
         <f-component name="Certificate Status Information for Client Certificates" cc-id="fdp_csi_ext.2" id="fdp-csi-ext-2">
-          <!-- Note: FDP_CSI_EXT.2 depends on two selections: mutual auth (TTTC_EXT.1) and TSF-provided status info (FDP_CSIR_EXT.1), unsure if this is the correct way to make multiple triggers work or 
-          if there is such a way at all -->
           <depends on-sel="genStatus"/>
           <depends on-sel="clientAuth"/>
           <consistency-rationale>This SFR applies to generating certificate status information for issued client
@@ -6836,12 +6821,10 @@ legacy cipher suites. -->
                       <h:li>the validation of the received certificate passes and the certificate
                         fields of the validated certificate would result in a different
                         certificate being issued under the current profile in accordance
-                        with FDP_CER_EXT.4</h:li>
-                    </h:ul>
-                    </selectable>
+                        with FDP_CER_EXT.4</h:li></h:ul></selectable>
                     <selectable><assignable>other rules for revocation of issued certificates</assignable></selectable>
                     <selectable>no other rules</selectable>
-                  </selectables>
+                  </selectables>.
                 </h:li>
               </h:ul>
             </title>
@@ -6856,12 +6839,10 @@ legacy cipher suites. -->
                         <h:li>the validation of the received certificate passes and the certificate
                           fields of the validated certificate would result in a different
                           certificate being issued under the current profile in accordance
-                          with FDP_CER_EXT.4</h:li>
-                      </h:ul>
-                      </selectable>
+                          with FDP_CER_EXT.4</h:li></h:ul></selectable>
                       <selectable><assignable>other rules for revocation of issued certificates</assignable></selectable>
                       <selectable>no other rules</selectable>
-                    </selectables>
+                    </selectables>.
                   </h:li>
                 </h:ul>
               </title>
@@ -6996,11 +6977,11 @@ legacy cipher suites. -->
                 The evaluator shall examine the TSS and confirm that the TSF only sends a TSF-generated certificate
                 message and certificate validate message to a requested server matching an exception specification after
                 it verifies that the certificate meets the configured certificate profile associated to a validated client
-                certificate received from the monitored client requesting TLS to the server
+                certificate received from the monitored client requesting TLS to the server.
               <h:p/></TSS>
               <Guidance>The evaluator shall examine operational documentation and verify that instructions to configure the
                 mutual authentication inspection operation is provided.<h:p/></Guidance>
-              <Tests><h:b>Setup:</h:b> The evaluator shall follow operationsl guidance to configure the TSF. The evaluator shall establish a
+              <Tests><h:b>Setup:</h:b> The evaluator shall follow operational guidance to configure the TSF. The evaluator shall establish a
                 monitored client able to initiate a TLS session compliant with FCS_TLSC_EXT.2 and which is issued a
                 certificate compliant with FIA_X509_EXT.1/STIP for client authentication from a trusted CA that is
                 different than the embedded CA of the TOE.
@@ -7014,7 +6995,7 @@ legacy cipher suites. -->
                 the TOE’s embedded CA, and which is valid in accordance with FIA_X509_EXT.1/STIP for server
                 authentication.
                 <h:p/>
-                The evaluator shall follow operationsl guidance to configure the TLS session establishment policy so mutually
+                The evaluator shall follow operational guidance to configure the TLS session establishment policy so mutually
                 authenticated TLS sessions through the TOE between the client and server is allowed and will be
                 inspected.
                 <h:p/>
@@ -7269,7 +7250,7 @@ legacy cipher suites. -->
             <aactivity level="element">
               <TSS>The evaluator shall verify that the TSS describes the mechanisms used to specify when renegotiation
                 occurs. <h:p/></TSS>
-              <Guidance>The evaluator shall check the operationsl guidance documentation to ensure that instructions for any
+              <Guidance>The evaluator shall check the operational guidance documentation to ensure that instructions for any
                 configurable features of the TLS implementation required to meet this requirement are provided.<h:p/></Guidance>
               <Tests>The evaluator shall perform the following tests:<h:p/>
               <testlist>
