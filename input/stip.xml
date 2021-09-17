@@ -1346,6 +1346,7 @@ expected to enforce.<h:p/>
       <con-mod ref="O.AUDIT_PROTECTION">The Base-PP does not define any TOE objectives so PP-Module objectives do not conflict with it.</con-mod>
       <con-mod ref="O.CERTIFICATES">The Base-PP does not define any TOE objectives so PP-Module objectives do not conflict with it.</con-mod>
       <con-mod ref="O.DISPLAY_BANNER">The Base-PP does not define any TOE objectives so PP-Module objectives do not conflict with it.</con-mod>
+      <con-mod ref="O.INTEGRITY_PROTECTION">The Base-PP does not define any TOE objectives so PP-Module objectives do not conflict with it.</con-mod>
       <con-mod ref="O.PERSISTENT_KEY_PROTECTION">The Base-PP does not define any TOE objectives so PP-Module objectives do not conflict with it.</con-mod>
       <con-mod ref="O.PROTECTED_COMMUNICATIONS">The Base-PP does not define any TOE objectives so PP-Module objectives do not conflict with it.</con-mod>
       <con-mod ref="O.RECOVERY">The Base-PP does not define any TOE objectives so PP-Module objectives do not conflict with it.</con-mod>
@@ -1545,7 +1546,7 @@ expected to enforce.<h:p/>
                 <h:tr><h:td rowspan="4">FDP_STIP_EXT.1</h:td><h:td>Establishment of a TLS inspection session thread</h:td><h:td><assignable>TLS session thread attributes</assignable>, 
                   <assignable>client attributes</assignable>, and <assignable>server attributes</assignable> associated with the thread</h:td></h:tr>
                 <h:tr><h:td>Establishment of an encrypted TLS data flow</h:td><h:td><assignable>encrypted TLS data flow attributes</assignable></h:td></h:tr>
-                <h:tr><h:td>Bypass operation invoked</h:td><h:td></h:td><h:td>TLS session thread identifier, identifier(s) of processing element(s) bypassed, reason for bypass</h:td></h:tr>
+                <h:tr><h:td>Bypass operation invoked</h:td><h:td>TLS session thread identifier, identifier(s) of processing element(s) bypassed, reason for bypass</h:td></h:tr>
                 <h:tr><h:td>Block operation invoked</h:td><h:td>TLS session thread identifier, reason for blocking</h:td></h:tr>
                 <h:tr><h:td>FDP_STIP_EXT.2 (selection-based)</h:td><h:td colspan="2">None</h:td></h:tr>
                 <h:tr><h:td>FDP_TEP_EXT.1</h:td><h:td>Mutual authentication authorized</h:td><h:td><assignable>client attributes obtained from valid client certificate</assignable></h:td></h:tr>
@@ -4093,7 +4094,7 @@ legacy cipher suites. -->
                 client handshake messages between the client and the TOE are identical to the client handshake messages
                 between the TOE and the server, and that the TLS server handshake messages between the server and
                 the TOE are identical to the TLS server handshake messages between the TOE and the client. The evaluator
-                shall observe the TOE logs to ensure that the TLS session between the client and server is logged.
+                shall observe the TOE logs to ensure that the TLS session between the client and server is logged.<h:p/>
               </Tests>
             </aactivity>
           </f-element>
