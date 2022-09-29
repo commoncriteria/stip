@@ -296,13 +296,12 @@
         <description> This PP-Module inherits exact conformance as required from the specified Base-PPs and as defined
           in the CC and CEM addenda for Exact Conformance, Selection-Based SFRs, and Optional SFRs (dated
           May 2017).<h:br/><h:br/> 
-          <!-- Note: is this framing ok? We generally do not list the Base-PPs here so if that logic is applied, then this statement is accurate (the only PP-Config right now is ND+STIP). -->
-          No PPs or PP-Modules are allowed to be specified in a PP-Configuration with this PP-Module aside from its supported Base-PP.
-          <!-- 
-          The following PPs and PP-Modules are allowed to be specified in a PP-Configuration with this PP-Module: <h:ul>
-            <h:li>PP-Module for MDM Agents, Version 1.0</h:li>
-          </h:ul> 
-           -->
+          
+          The following PPs and PP-Modules are allowed to be specified in a PP-Configuration with this PP-Module:
+          <h:ul>
+            <h:li>collaborative Protection Profile Module for Stateful Traffic Filter Firewalls, v1.4 + Errata 20200625</h:li>
+          </h:ul>
+
         </description>
       </cclaim>
       <cclaim name="CC Conformance Claims">
@@ -379,6 +378,7 @@ expected to enforce.<h:p/>
               unavailable.
             </rationale>
           </objective-refer>
+          <!-- 
           <objective-refer ref="O.AUDIT_PROTECTION">
             <rationale>
               Audit records are protected from
@@ -386,6 +386,7 @@ expected to enforce.<h:p/>
               unauthorized access.
             </rationale>
           </objective-refer>
+           -->
           <objective-refer ref="O.SYSTEM_MONITORING">
             <rationale>
               Audit records contain the
@@ -573,6 +574,12 @@ expected to enforce.<h:p/>
               improper disclosure.
             </rationale>
           </objective-refer>
+          <objective-refer ref="O.TRAFFIC_MONITORING">
+            <rationale>
+              Enforcement of policies for traffic monitoring
+              ensure that unauthorized data is not subject to transmission through the TOE.
+            </rationale>
+          </objective-refer>
           <objective-refer ref="OE.RESIDUAL_INFORMATION">
             <rationale>
               Sensitive information residing
@@ -655,7 +662,7 @@ expected to enforce.<h:p/>
 			<rationale>This SFR supports the objective by requiring the TSF to disable the execution of auditable events if the audit trail cannot be written to.</rationale>
       </SO>
         
-        <!-- Note: do we consider it a problem that this SO is not mapped to any mandatory Module SFRs -->
+        <!-- 
         <SO name="O.AUDIT_PROTECTION">
           <description>The TOE will protect audit records against unauthorized access, modification, or deletion to ensure
             accountability of user actions.<h:p/>
@@ -667,16 +674,22 @@ expected to enforce.<h:p/>
           <addressed-by>FAU_SAR.1 (optional)</addressed-by>
 			<rationale>This SFR supports the objective by ensuring that stored audit records are protected against unauthorized access. </rationale>
         </SO>
+        -->
         
         <SO name="O.CERTIFICATES">
           <description>The TSF must ensure that certificates, certificate revocation lists, and certificate status information
             are valid.<h:p/>
-            Addressed by: FIA_X509_EXT.1/Rev (from Base-PP), FIA_X509_EXT.3 (from Base-PP), FDP_CER_EXT.1, FDP_CER_EXT.2, FDP_CER_EXT.3, FDP_CSIR_EXT.1, FIA_ENR_EXT.1, FIA_X509_EXT.1/STIP, FIA_X509_EXT.2/STIP,
+            Addressed by: FCS_TLSC_EXT.1 (from Base-PP), FCS_TLSC_EXT.2 (from Base-PP), FIA_X509_EXT.1/Rev (from Base-PP), FIA_X509_EXT.3 (from Base-PP), FDP_CER_EXT.1, FDP_CER_EXT.2, FDP_CER_EXT.3, FDP_CSIR_EXT.1, FIA_ENR_EXT.1, FIA_X509_EXT.1/STIP, FIA_X509_EXT.2/STIP,
             FDP_PIN_EXT.1 (optional), FIA_ESTC_EXT.2 (optional), FDP_CER_EXT.4 (selection-based), 
             FDP_CER_EXT.5 (selection-based), FDP_CRL_EXT.1 (selection-based),
 			FDP_CSI_EXT.1 (selection-based), FDP_CSI_EXT.2 (selection-based), FDP_OCSP_EXT.1 (selection-based), FDP_OCSPS_EXT.1 (selection-based), FIA_ESTC_EXT.1 (selection-based)    
           </description>
-            <addressed-by>FIA_X509_EXT.1/Rev (from Base-PP)</addressed-by>
+          <addressed-by>FCS_TLSC_EXT.1 (from Base-PP)</addressed-by>
+          <rationale>This SFR supports the objective because TLS is a mechanism by which its own certificate data may be obtained from an external CA. </rationale>
+          <addressed-by>FCS_TLSC_EXT.2 (from Base-PP)</addressed-by>
+          <rationale>This SFR supports the objective because mutually-authenticated TLS is a mechanism by which its own certificate 
+            data may be obtained from an external CA. </rationale>
+          <addressed-by>FIA_X509_EXT.1/Rev (from Base-PP)</addressed-by>
             <rationale>This SFR supports the objective by defining the TOE functionality for certificate validation. </rationale>
             <addressed-by>FIA_X509_EXT.3 (from Base-PP)</addressed-by>
             <rationale>This SFR supports the objective by defining the mechanism by which the TOE generates certificate signing requests, which includes validation of the certificate provided in response. </rationale>
@@ -716,14 +729,17 @@ expected to enforce.<h:p/>
             <rationale>This SFR supports the objective by defining requirements for the implementation of EST if the TOE uses this mechanism to obtain TLS certificates for its own use. </rationale>
         </SO>
         
-        <!-- Note: do we consider it a problem that this SO is not mapped to any mandatory Module SFRs -->
+        
         <SO name="O.DISPLAY_BANNER">
           <description>The TOE will display an advisory warning regarding use of the TOE. <h:p/>
-			Addressed by: FTA_TAB.1 (from Base-PP), FTA_TAB.1/TLS (selection-based)
+            Addressed by: FTA_TAB.1 (from Base-PP), FDP_STIP_EXT.1, FTA_TAB.1/TLS (selection-based)
           </description>
 		  
 			<addressed-by>FTA_TAB.1 (from Base-PP)</addressed-by>
 			<rationale>This SFR supports the objective by applying a warning banner to any interface used by an administrator to access the TOE.</rationale>
+          <addressed-by>FDP_STIP_EXT.1</addressed-by>
+          <rationale>This SFR supports the objective by defining the mechanism used to 
+            obtain consent to monitor user communications.</rationale>
           <addressed-by>FTA_TAB.1/TLS (selection-based)</addressed-by>
 			<rationale>This SFR supports the objective by optionally applying a warning banner to a user whose network activity passes through the TOE for decryption and potential inspection.</rationale>
         </SO>
@@ -740,7 +756,7 @@ expected to enforce.<h:p/>
           <rationale>This SFR supports the objective by optionally applying a warning banner to a user whose network activity passes through the TOE for decryption and potential inspection.</rationale>
         </SO>
         
-        <!-- Note: FCS_CKM_EXT.5 added to mapping here as it's relevant to the objective -->
+        
         <SO name="O.PERSISTENT_KEY_PROTECTION">
           <description>
             The TOE will provide appropriate confidentiality and access protection to persistent keys and security
@@ -762,23 +778,18 @@ expected to enforce.<h:p/>
         </SO>
         
         <SO name="O.PROTECTED_COMMUNICATIONS">
-          <!-- Note: FCS_CKM_EXT.5 was originally mapped here but it made more sense to put in O.PERSISTENT_KEY_PROTECTION above -->
           <description>
             The TOE will provide protected communication channels for administrators, other parts of a
             distributed TOE, and authorized IT entities. The TOE will protect data assets when they are being
             transmitted to and from the TOE, including through intervening untrusted components.
             <h:p/>
-            Addressed by: FCS_CKM.4 (from Base-PP), FCS_TLSC_EXT.1 (from Base-PP), FCS_TLSS_EXT.1 (from Base-PP), FTP_ITC.1 (refined from Base-PP), 
-            FCS_COP.1/STIP, FCS_TTTC_EXT.1, FCS_TTTC_EXT.5, FCS_TTTS_EXT.1, FDP_PPP_EXT.1, FDP_PRC_EXT.1, FDP_STIP_EXT.1, FDP_TEP_EXT.1,
+            Addressed by: FCS_CKM.4 (from Base-PP), FTP_ITC.1 (refined from Base-PP), 
+            FCS_COP.1/STIP, FCS_TTTC_EXT.1, FCS_TTTC_EXT.5, FCS_TTTS_EXT.1, FDP_PRC_EXT.1, FDP_STIP_EXT.1, FDP_TEP_EXT.1,
             FCS_TTTC_EXT.3 (selection-based), FCS_TTTC_EXT.4 (selection-based), FCS_TTTS_EXT.3
             (selection-based), FCS_TTTS_EXT.4 (selection-based), FDP_STIP_EXT.2 (selection-based)
           </description>
           <addressed-by>FCS_CKM.4 (from Base-PP)</addressed-by>
           <rationale>This SFR supports the objective by ensuring secret and private key data is disposed of immediately after use to prevent unauthorized disclosure of keys.</rationale>
-          <addressed-by>FCS_TLSC_EXT.1 (from Base-PP)</addressed-by>
-          <rationale>This SFR supports the objective by defining requirements for the TOE's implementation of TLS as a client.</rationale>
-          <addressed-by>FCS_TLSS_EXT.1 (from Base-PP)</addressed-by>
-          <rationale>This SFR supports the objective by defining requirements for the TOE's implementation of TLS as a server.</rationale>
           <addressed-by>FTP_ITC.1 (refined from Base-PP)</addressed-by>
           <rationale>This SFR supports the objective by defining the TOE interfaces that require protected communications as well as the methods of protection applied to these interfaces.</rationale>
           <addressed-by>FCS_COP.1/STIP</addressed-by>
@@ -791,10 +802,7 @@ expected to enforce.<h:p/>
           <addressed-by>FCS_TTTS_EXT.1</addressed-by>
           <rationale>This SFR supports the objective by defining requirements for the TOE's implementation of TLS as a server, specifically in the case where the TOE is establishing a proxy connection between itself and the original monitored 
             TLS client.</rationale>
-          <addressed-by>FDP_PPP_EXT.1</addressed-by>
-          <!-- Note: this SFR seems like it mas more to do with monitoring traffic that is communicated through the TOE, not protected communications specifically. Should we leave as-is, add a new objective to cover this, 
-          or expand the description of O.SYSTEM_MONITORING to cover everything that is monitored and not specifically system activity? -->
-          <rationale>This SFR supports the objective by defining the processing rules that the TOE applies to plaintext traffic once decrypted.</rationale>
+          
           <addressed-by>FDP_PRC_EXT.1</addressed-by>
           <rationale>This SFR supports the objective by defining requirements for the routing of decrypted plaintext traffic.</rationale>
           <addressed-by>FDP_STIP_EXT.1</addressed-by>
@@ -813,7 +821,7 @@ expected to enforce.<h:p/>
           <rationale>This SFR supports the objective by defining the optional capability of the TOE to establish a proxy TLS session in the case where mutual authentication is supported.</rationale>
         </SO>
         
-        <!-- Note: FCS_CKM_EXT.5 was previously mapped here but it does not pertain to recovery so it was removed. -->
+        
         <SO name="O.RECOVERY">
           <description>
             The TOE will have the ability to store and recover to a previous state at the direction of the
@@ -844,7 +852,7 @@ expected to enforce.<h:p/>
             TOE will record in audit records: date and time of action and the entity responsible for the action. The
             TOE will provide the ability to store and review certificate information.
             <h:p/>
-            Addressed by: FAU_STG_EXT.1 (from Base-PP), FAU_GEN.1/STIP, FAU_GCR_EXT.1, FAU_SAR.3
+            Addressed by: FAU_SAR.1 (optional), FAU_STG_EXT.1 (from Base-PP), FAU_GEN.1/STIP, FAU_GCR_EXT.1, FAU_SAR.3
             (optional), FAU_SCR_EXT.1 (selection-based)
           </description>
           <addressed-by>FAU_STG_EXT.1 (from Base-PP)</addressed-by>
@@ -866,9 +874,9 @@ expected to enforce.<h:p/>
             responsibilities are separated across different roles in order to mitigate the impact of improper
             administrative activities or unauthorized administrative access.
             <h:p/>
-            Addressed by: FMT_MOF.1, FMT_SMF.1/STIP, FMT_SMR.2/STIP
+            Addressed by: FMT_MOF.1/STIP, FMT_SMF.1/STIP, FMT_SMR.2/STIP
           </description>
-          <addressed-by>FMT_MOF.1</addressed-by>
+          <addressed-by>FMT_MOF.1/STIP</addressed-by>
           <rationale>This SFR supports the objective by defining the authorized use of the TOE by association between the supported management functions and the roles that are authorized to perform them.</rationale>
           <addressed-by>FMT_SMF.1/STIP</addressed-by>
           <rationale>This SFR supports the objective by defining the TOE's management functions that are specific to STIP functionality.</rationale>
@@ -877,6 +885,19 @@ expected to enforce.<h:p/>
         </SO>
         
         
+        <SO name="O.TRAFFIC_MONITORING">
+          <description>
+            The TOE will provide a mechanism for processing SSL/TLS traffic. This mechanism requires the TOE to enforce a policy to process encrypted traffic, which
+            results in the traffic being allowed, blocked, or decrypted for further inspection. This mechanism also requires the TOE to enforce a policy to process decrypted traffic,
+            which may be inspected for unauthorized content either by the TOE itself or through an interface with an external inspection component.
+            <h:p/>
+            Addressed by: FDP_PPP_EXT.1, FDP_TEP_EXT.1
+          </description>
+          <addressed-by>FDP_PPP_EXT.1</addressed-by>
+          <rationale>This SFR supports the objective by defining the processing rules that the TOE applies to plaintext traffic once decrypted.</rationale>
+          <addressed-by>FDP_TEP_EXT.1</addressed-by>
+          <rationale>This SFR supports the objective by defining the processing rules that the TOE applies to encrypted traffic.</rationale>
+        </SO>
       </SOs>
     </sec:Security_Objectives_for_the_TOE>
     
@@ -992,18 +1013,13 @@ expected to enforce.<h:p/>
       
       <!-- 5.1.1 Modified SFRs -->      
       <modified-sfrs>
-<!--        
-        The SFRs listed in this section are defined in the GPOS PP and relevant to the secure operation of the
-        VPN client. It is necessary for the ST author to complete selections and/or assignments for these SFRs in
-        a specific manner in order to ensure that the functionality provided by the OS is consistent with the
-        functionality required by the VPN client in order for it to conform to this PP-Module.  
--->        
+
         <!-- 5.1.1.1  -->
+        <!--
         <section title="Security Audit (FAU)" id="nd-m-fau">
           <f-component cc-id="fau_stg.1" id="nd-fau-stg-1" name="Protected Audit Trail Storage">
             <consistency-rationale>Other than this SFR becoming mandatory versus optional, there is no modification to this SFR.</consistency-rationale>
-            <!-- Note: is this still how we want to handle Modified SFRs when there is no actual text in the element? This was used previously as a stop-gap and I'm not sure if there is (or is planned to be) something in the schema
-            that allows the text without sticking an SFR element name/number next to it. -->
+
             <f-element id="nd-fau-stg-1e1">
               <title>
                 This PP-Module does not modify this SFR as it is defined in the Base-PP. This SFR is optional in the Base-PP but is mandatory for a TOE that conforms to this PP-Module.
@@ -1016,6 +1032,7 @@ expected to enforce.<h:p/>
           </f-component>
         
         </section>
+        -->
         <!-- 5.1.1.2 -->
         <section title="Cryptographic Support (FCS)" id="nd-m-fcs">
           
@@ -1078,10 +1095,12 @@ expected to enforce.<h:p/>
           
           <!-- FCS_TLSC_EXT.1 -->
           <f-component cc-id="fcs_tlsc_ext.1" id="nd-fcs-tlsc-ext-1" name="TLS Client Protocol Without Mutual Authentication">
-            <consistency-rationale>Other than this SFR becoming mandatory versus selection-based, there is no modification to this SFR.</consistency-rationale>
+            <consistency-rationale>Other than defining an additional selection-based trigger, there is no modification to this SFR.</consistency-rationale>
             <f-element id="nd-fcs-tlsc-ext-1e1">
               <title>
-                This PP-Module does not modify this SFR as it is defined in the Base-PP. This SFR is selection-based in the Base-PP but is mandatory for a TOE that conforms to this PP-Module because of this PP-Module's modifications to FTP_ITC.1.
+                This PP-Module does not modify this SFR as it is defined in the Base-PP. This SFR is selection-based in the Base-PP for its potential use in trusted communications.
+                This PP-Module also defines EST as a supported method of obtaining certificates for the TOE, which may use TLS. 
+                This SFR can therefore also be triggered if the TOE claims FIA_ESTC_EXT.1 and selects a mechanism that makes use of FCS_TLSC_EXT.1.
               </title>
               <aactivity>
                 <no-tests>There is no change to the Base-PP EAs for this SFR when this PP-Module is claimed.</no-tests>
@@ -1089,13 +1108,15 @@ expected to enforce.<h:p/>
             </f-element>
             <audit-event/>
           </f-component>
-          
-          <!-- FCS_TLSS_EXT.1 -->
-          <f-component cc-id="fcs_tlss_ext.1" id="nd-fcs-tlss-ext-1" name="TLS Server Protocol Without Mutual Authentication">
-            <consistency-rationale>Other than this SFR becoming mandatory versus selection-based, there is no modification to this SFR.</consistency-rationale>
-            <f-element id="nd-fcs-tlss-ext-1e1">
+
+          <!-- FCS_TLSC_EXT.2 -->
+          <f-component cc-id="fcs_tlsc_ext.2" id="nd-fcs-tlsc-ext-2" name="TLS Client Support for Mutual Authentication">
+            <consistency-rationale>Other than being defined as selection-based, there is no modification to this SFR.</consistency-rationale>
+            <f-element id="nd-fcs-tlsc-ext-2e1">
               <title>
-                This PP-Module does not modify this SFR as it is defined in the Base-PP. This SFR is selection-based in the Base-PP but is mandatory for a TOE that conforms to this PP-Module because of this PP-Module's modifications to FTP_ITC.1.
+                This PP-Module does not modify this SFR as it is defined in the Base-PP. This SFR is optional in the Base-PP for its potential use in trusted communications.
+                This PP-Module defines EST as a supported method of obtaining certificates, which may use mutually-authenticated TLS. 
+                This SFR is therefore selection-based when the TOE claims this PP-Module, dependent on selection in FIA_ESTC_EXT.1.4. 
               </title>
               <aactivity>
                 <no-tests>There is no change to the Base-PP EAs for this SFR when this PP-Module is claimed.</no-tests>
@@ -1120,14 +1141,17 @@ expected to enforce.<h:p/>
           
           -->
           <f-component cc-id="fia_x509_ext.1" iteration="Rev" id="nd-fia-x509-ext-1" name="X.509 Certificate Validation">
-            <consistency-rationale>Other than this SFR becoming mandatory versus selection-based, there is no modification to this SFR.</consistency-rationale>
+            <consistency-rationale>Other than defining an additional selection-based trigger, there is no modification to this SFR.</consistency-rationale>
             <f-element id="nd-fia-x509-ext-1e1">
               <title>
-                This PP-Module does not modify this SFR as it is defined in the Base-PP. This SFR is selection-based in the Base-PP but is mandatory for a TOE that conforms to this PP-Module because of this PP-Module's modifications to FTP_ITC.1.
+                This PP-Module does not modify this SFR as it is defined in the Base-PP. This SFR is selection-based in the Base-PP for its potential use in trusted communications.
+                This PP-Module also defines PKCS#10 as a supported method of obtaining certificates for the TOE, which requires the TOE to perform validation of the certificate response.
+                This SFR can therefore also be triggered if the TOE claims support for PKCS#10 in FIA_ENR_EXT.1.
               </title>
               <!-- Note: changed up application note to make it more clear and accurate, is this ok -->
               <note role="Application">
-                FIA_X509_EXT.1/STIP defines the TOE's X.509 validation behavior for TLS certificates presented to the TSF as part of TLS proxying. At minimum, FIA_X509_EXT.1/Rev is used by the TOE to validate any certificates loaded onto it. If the TOE
+                FIA_X509_EXT.1/STIP defines the TOE's X.509 validation behavior for TLS certificates presented to the TSF as part of TLS proxying. 
+                FIA_X509_EXT.1/Rev may be used by the TOE to validate certificates loaded onto it. If the TOE
                 has other functions that require the use of X.509 certificates (e.g. code signing for integrity testing or software updates, TLS interfaces used for a purpose other than session proxying such as audit server or authentication server connections), 
                 FIA_X509_EXT.1/Rev applies to those as well.
               </note>
@@ -1137,88 +1161,7 @@ expected to enforce.<h:p/>
             </f-element>
             <audit-event/>
           </f-component>
-          
-          <!-- Note: Not sure how to handle FIA_X509_EXT.2. The fact that we select 'TLS' in FTP_ITC.1.1 means that it should be claimed because it is a selection-based SFR and that is a trigger for it.
-          However, version 1.0 of the Module refines the SFR to include explicit references to a STIP management role (CA Operations Staff). Our general practice is to use iterations to handle such changes because of the case
-          where a PP-Config may be defined one day where two Modules make different modifications to the same Base-PP SFR and so there's no clear guidance on how the ST author handles that. But if we do that here, we make it so that there is no reason
-          to force the inclusion of the Base-PP SFR that the selection requires us to include. Is this something we could cover in the Implicitly Satisfied Requirements section?
-          
-          I've put 'FIA_X509_EXT.2/STIP' as a placeholder in the security objective mapping/rationale and I've kept the original ND version here for now but I'm still not 100% sure that's the correct approach to take. -->
-          
-          <f-component cc-id="fia_x509_ext.2" id="nd-fia-x509-ext-2" name="X.509 Certificate Authentication">
-            <consistency-rationale>The PP-Module partially completes selections in this SFR using the available options to specify minimum required functionality for X.509 authentication based on its use in STIP. The PP-Module
-              also refines the authorized management roles that can perform the function defined in FIA_X509_EXT.2.2.</consistency-rationale>
-            <f-element id="nd-fia-x509-ext-2e1">
-              <title>
-                The TSF shall use X.509v3 certificates as defined by RFC 5280 to support
-                authentication for <h:b>TLS,</h:b>
-                <selectables>
-                  <selectable>DTLS</selectable>
-                  <selectable>HTTPS</selectable>
-                  <selectable>IPsec</selectable>
-                  <selectable>SSH</selectable>
-                  <selectable><h:b>no other protocols</h:b></selectable>
-                </selectables>
-                and <selectables>
-                  <selectable>code signing for system software updates</selectable>
-                  <selectable>code signing for integrity verification</selectable>
-                  <selectable><assignable>other uses</assignable></selectable>
-                  <selectable>no additional uses</selectable>
-                </selectables>.
-              </title>
-            </f-element>
-            <f-element id="nd-fia-x509-ext-2e2">
-              <title>When the TSF cannot establish a connection to determine the <h:b>revocation status</h:b>
-                of a certificate, the TSF shall <selectables>
-                  <selectable>allow the <h:b><selectables>
-                    <selectable>Security Administrator</selectable>
-                    <selectable>CA Operations Staff</selectable>
-                  </selectables></h:b>
-                    to choose whether to <h:b><selectables>
-                      <selectable>accept the certificate</selectable>
-                      <selectable>associate the failed connection event per FDP_TEP_EXT.1.5</selectable>
-                    </selectables></h:b> in these cases</selectable>
-                  <selectable>accept the certificate</selectable>
-                  <selectable>not accept the certificate</selectable>
-                </selectables>.
-              </title>
-            <note role="Application">
-              “TLS” is moved outside the selection in the first element, since the TOE must
-              implement TLS to accomplish the STIP functionality. The application notes for the
-              first element from the Base-PP also apply.
-              <h:p/>
-              It is worth noting that since this SFR applies to all uses of certificates in the TOE, it
-              may be the case that the actions taken in response to a failure to be able to
-              determine revocation status (which is specified in the 2nd element) is handled
-              differently for different connections. If this is the case, the ST author must make it
-              clear which actions are associated with which connections so that the correct
-              evaluation of the functionality can be performed.
-              <h:p/>
-              The second element has three modifications from that in the Base-PP. First, the
-              word “validity” is replaced with “revocation status” for clarity. This is consistent
-              with what is in the application note in the NDcPP, and using “revocation status”
-              more directly indicates what is required.
-              <h:p/>
-              Second, the general notion of “administrator” is replaced with the more refined
-              roles defined in this PP-Module; the ST author should make the appropriate
-              selection.
-              <h:p/>
-              Finally, a selection is added that allows ST author flexibility in addressing the issue
-              of failure to connect to check revocation status in the specific case that the
-              certificates being checked are associated with either a monitored client or a
-              requested server. This selection (“to associate the failed connection event per
-              FDP_TEP_EXT.1.5”), when chosen, indicates that selected administrative role is
-              able to specify a STIP operation (block, bypass, inspect) to be taken in the event
-              that the revocation status can’t be checked. The requirement that the TOE be able
-              to perform this operation when such an event occurs is specified in
-              FDP_TEP_EXT.1.5.
-            </note>
-            <aactivity>
-              <no-tests>There is no change to the Base-PP EAs for this SFR when this PP-Module is claimed.</no-tests>
-              </aactivity>
-            </f-element>
-            <audit-event/>
-          </f-component>
+
           
           <!-- Note: changed up application note to make it more clear and accurate, is this ok -->
           <f-component cc-id="fia_x509_ext.3" id="nd-fia-x509-ext-3" name="X.509 Certificate Requests">
@@ -1263,6 +1206,8 @@ expected to enforce.<h:p/>
                 protection of the channel data from disclosure and detection of modification of the channel
                 data.
               </title>
+              <note role="Application">The TLS functionality used to impliment TLS session proxying is defined in this PP-Module under the FCS_TTTC_EXT and FCS_TTTS_EXT requirements.
+              For other potential TLS uses (e.g. audit server communications), the relevant SFRs from the Base-PP would be used.</note>
             </f-element>
               <f-element id="nd-ftp-itc-1e2">
                 <title>
@@ -1274,8 +1219,10 @@ expected to enforce.<h:p/>
                   <!-- Note: is it ok to do the modification this way, specifically for the asignment? Or do we need to make it a selection between "assignment: list of services" and "no other services"?
                   I'm never sure if 'null' is implied by an assignment prompt or if it needs to be called out separately as an explicit option -->
                   <title>
-                    The TSF shall initiate communication via the trusted channel for <h:b>establishment of TLS proxy connections,</h:b> <assignable>
-                      list of services for which the TSF is able to initiate communications</assignable>.
+                    The TSF shall initiate communication via the trusted channel for <h:b>establishment of TLS proxy connections,</h:b> 
+                    <selectables>
+                      <selectable><assignable>list of other services for which the TSF is able to initiate communications</assignable></selectable>
+                      <selectable>no other services</selectable></selectables>.
                   </title>
                 
               <aactivity>
@@ -1292,9 +1239,7 @@ expected to enforce.<h:p/>
         
       <!-- 5.1.2 Additional SFRs -->
       <additional-sfrs/>
-<!--        This section lists additional SFRs that must be added to the TOE boundary in order to implement the
-        functionality in any PP-Configuration where the GPOS PP is claimed as the Base-PP.
--->
+
       
 	  <!-- 6.1.1 Consistency of TOE Type -->
       <con-toe>If this PP-Module is used to extend the NDcPP, the TOE type for the overall TOE is still a generic network
@@ -1351,6 +1296,7 @@ expected to enforce.<h:p/>
       <con-mod ref="O.RESIDUAL_INFORMATION_CLEARING">The Base-PP does not define any TOE objectives so PP-Module objectives do not conflict with it.</con-mod>
       <con-mod ref="O.SYSTEM_MONITORING">The Base-PP does not define any TOE objectives so PP-Module objectives do not conflict with it.</con-mod>
       <con-mod ref="O.TOE_ADMINISTRATION">The Base-PP does not define any TOE objectives so PP-Module objectives do not conflict with it.</con-mod>
+      <con-mod ref="O.TRAFFIC_MONITORING">The Base-PP does not define any TOE objectives so PP-Module objectives do not conflict with it.</con-mod>
       
       <!-- Note: modified some of these to make the consistency more obvious, is that ok -->
       <con-mod ref="OE.AUDIT">This objective intends for the TOE’s OE to have adequate storage to retain
@@ -1524,7 +1470,7 @@ expected to enforce.<h:p/>
                 <h:tr><h:td>FIA_ESTC_EXT.1 (selection-based)</h:td><h:td>EST requests</h:td><h:td>None</h:td></h:tr>
                 <h:tr><h:td>FIA_ESTC_EXT.2 (objective)</h:td><h:td colspan="2">None</h:td></h:tr>
                 <h:tr><h:td>FIA_X509_EXT.1/STIP</h:td><h:td colspan="2">None</h:td></h:tr>
-                <h:tr><h:td>FMT_MOF.1</h:td><h:td colspan="2">None</h:td></h:tr>
+                <h:tr><h:td>FMT_MOF.1/STIP</h:td><h:td colspan="2">None</h:td></h:tr>
                 <h:tr><h:td>FMT_SMF.1/STIP</h:td><h:td colspan="2">None</h:td></h:tr>
                 <h:tr><h:td>FMT_SMR.2/STIP</h:td><h:td colspan="2">None</h:td></h:tr>
                 <h:tr><h:td>FPT_FLS.1</h:td><h:td>Invocation of failures under this requirement</h:td><h:td>Indication that the TSF has failed with the type of failure that occurred</h:td></h:tr>
@@ -1536,7 +1482,6 @@ expected to enforce.<h:p/>
                   </selectables>
                 </h:td><h:td>Identifier of user or process that attempted access</h:td></h:tr>
                 <h:tr><h:td rowspan="2">FPT_RCV.1</h:td><h:td>The fact that a failure or service discontinuity occurred</h:td><h:td>None</h:td></h:tr>
-                <!-- Note: I'm not clear on what the additional information for this event type is supposed to capture -->
                 <h:tr><h:td>Resumption of regular opartion</h:td><h:td>TSF failure types that are available on recovery</h:td></h:tr>
                 <h:tr><h:td>FTA_TAB.1/TLS (selection-based)</h:td><h:td colspan="2">None</h:td></h:tr>
               </h:table><h:br/>
@@ -1547,12 +1492,17 @@ expected to enforce.<h:p/>
             <aactivity>
               <!-- Note: New EA for iterated SFR, is it ok -->
               <TSS>
-                The evaluator shall examine the TSS to verify that it describes the audit mechanism(s) that the TOE uses to generate audit records for STIP behavior. If any audit mechanisms the TSF uses for this
-                are not used to generate audit records for events defined by FAU_GEN.1 in the Base-PP, the evaluator shall ensure that any STIP-specific audit mechanisms also meet the relevant functional claims from the Base-PP.
+                The evaluator shall examine the TSS to verify that it describes the audit mechanism(s) that the TOE uses to generate audit records for STIP behavior. 
+                <!-- 
+                
+                If any audit mechanisms the TSF uses for this
+                are not used to generate audit records for events defined by FAU_GEN.1 in the Base-PP, the evaluator shall ensure that any STIP-specific audit mechanisms 
+                also meet the relevant functional claims from the Base-PP.
                 <h:p/>
                 For example, FAU_STG_EXT.1 requires all audit records to be transmitted to the OE over a trusted channel. This includes the audit records that are required by FAU_GEN.1/STIP. Therefore, if the TOE has an audit mechanism
                 that is only used for STIP functionality, the evaluator shall ensure that the STIP related audit records meet this requirement, even if the mechanism used to generate these audit records does not apply to any of the auditable
-                events defined in the Base-PP.
+                events defined in the Base-PP. 
+                -->
               <h:p/></TSS>
               <Guidance>
                 The evaluator shall examine the operational guidance to verify that it identifies all security-relevant auditable events claimed in the ST and includes sample records of each event type. If the TOE uses multiple
@@ -1909,7 +1859,7 @@ expected to enforce.<h:p/>
                 <selectable>TLS 1.1 (RFC 4346)</selectable>
                 <selectable>no other TLS versions</selectable>
               </selectables></h:i>] as a client to the requested server that
-              supports the following cipher suites: [<h:i><h:ul>
+              supports only the following cipher suites: [<h:i><h:ul>
                 <h:li>TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 as defined in RFC 5289</h:li>
                 <h:li>TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384 as defined in RFC 5289</h:li>
                 <h:li>TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 as defined in RFC 5289</h:li>
@@ -1970,7 +1920,7 @@ expected to enforce.<h:p/>
             <ext-comp-def-title>
               <title>
                 The TSF shall implement <assignable>TLS versions</assignable> as a client to the requested
-                server that supports the following cipher suites: <assignable>list of cipher suites
+                server that supports only the following cipher suites: <assignable>list of cipher suites
                 and reference to RFC in which each is defined</assignable> and also supports functionality for <selectables linebreak="yes">
                   <selectable>mutual authentication</selectable>
                   <selectable>session renegotiation</selectable>
@@ -2057,7 +2007,7 @@ expected to enforce.<h:p/>
                   </test>
                   <test>
                     The evaluator shall establish a new certificate for a server as configured for Test 2a where the
-                    extendedKeyUsageextended key usage field is present, does not include either the ‘Any’ purpose or
+                    extendedKeyUsage field is present, does not include either the ‘Any’ purpose or
                     ServerAuthentication purpose and which does contain the CodeSigning purpose, and configure the server
                     to present the new certificate in its TLS handshake. The evaluator shall make a request to that server from
                     a monitored client through the TOE and verify that the TLS session between the TSF and the server is
@@ -2408,7 +2358,7 @@ expected to enforce.<h:p/>
           <dependencies>FCS_TTTC_EXT.1 Thru-Traffic TLS Inspection Client Protocol</dependencies>
           <f-element id="fcs-tttc-ext-5e1">
             <title>
-              The TSF shall present the Supported Groups Extension in the Client Hello with the supported groups <h:b>
+              The TSF shall present the Supported Groups Extension in the Client Hello with the supported groups 
                 <selectables linebreak="yes">
                   <selectable>secp256r1</selectable>
                   <selectable>secp384r1</selectable>
@@ -2419,7 +2369,7 @@ expected to enforce.<h:p/>
                   <selectable>ffdhe6144(259)</selectable>
                   <selectable>ffdhe8192(260)</selectable>
                   <selectable><assignable>other supported curves]</assignable></selectable>
-                </selectables></h:b>.
+                </selectables>.
             </title>
             <ext-comp-def-title>
               <title>
@@ -2533,7 +2483,7 @@ legacy cipher suites. -->
                 <selectable>TLS 1.1 (RFC 4346)</selectable>
                 <selectable>no other TLS versions</selectable>
               </selectables></h:i>] as a server to the monitored client that
-              supports the following cipher suites: [<h:i><h:ul>
+              supports only the following cipher suites: [<h:i><h:ul>
                 <h:li>TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 as defined in RFC 5289</h:li>
                 <h:li>TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384 as defined in RFC 5289</h:li>
                 <h:li>TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 as defined in RFC 5289</h:li>
@@ -2583,7 +2533,6 @@ legacy cipher suites. -->
                   <selectable><assignable>other supported cipher suites</assignable></selectable>
                   <selectable>no other cipher suites</selectable>
                 </selectables>
-                <!-- Note: "and no other cipher suites" removed here because it's implied by the previous list, and if "no other cipher suites" is chosen in the selection above it makes the SFR parse badly -->
               </h:i>] and also supports functionality for <selectables linebreak="yes">
                 <selectable id="serverAuth">mutual authentication</selectable>
                 <selectable id="serverRenegotiation">session renegotiation</selectable>
@@ -2594,7 +2543,7 @@ legacy cipher suites. -->
             <ext-comp-def-title>
               <title>
                 The TSF shall implement <assignable>TLS versions</assignable> as a server to the monitored
-                client that supports the following cipher suites: <assignable>list of cipher suites
+                client that supports only the following cipher suites: <assignable>list of cipher suites
                   and reference to RFC in which each is defined</assignable>, and also supports functionality for <selectables linebreak="yes">
                   <selectable>mutual authentication</selectable>
                   <selectable>session renegotiation</selectable>
@@ -3260,7 +3209,7 @@ legacy cipher suites. -->
                   <test>The evaluator shall configure a certificate profile using the available guidance, and establish a
                     server with a certificate that satisfies FDP_CER_EXT.1.2 items a, b, e, f, h, i, j, and k, has valid values in all
                     extensions in item g (a-e), and passes all certificate validation criteria as a TLS server certificate (having
-                    extended key usage field of server authentication) in FIA_X509_EXT.1/Rev. The evaluator shall establish a
+                    extended key usage field of server authentication) in FIA_X509_EXT.1/STIP. The evaluator shall establish a
                     monitored client and request a TLS session to the server through the TOE so that the inspection operation
                     is implemented, and then examine the certificate received at the client from the TOE to ensure it matches
                     the configured certificate profile.</test>
@@ -3836,7 +3785,7 @@ legacy cipher suites. -->
                 implemented, including trust stores that contain root CA certificates used to meet the requirements of
                 this PP. This description shall contain information pertaining to how certificates are loaded into the store,
                 and (if the first selection in this SFR is selected) how the store is protected from unauthorized access in
-                accordance with the permissions established in FMT_SMF.1 and FMT_MOF.1.<h:p/></TSS>
+                accordance with the permissions established in FMT_MOF.1/STIP.<h:p/></TSS>
               <Guidance>The evaluator shall examine the operational guidance to ensure it contains instructions for how to load
                 certificates and public keys into, and remove certificates and public keys from the protected storage or
                 apply (trust) or remove (untrust) the indicated protection mechanism.
@@ -3918,8 +3867,8 @@ legacy cipher suites. -->
               <h:p/></Guidance>
               <Tests>
                 The evaluator shall follow the operational guidance to configure the TSF. The evaluator shall establish two
-                monitored clients (client a, and b) able to initiate a TLS session that is compliant with FCS_TLSC_EXT.1,
-                and two servers (servers 1 and 2) able to establish TLS sessions in accordance with FCS_TLSS_EXT.1, each
+                monitored clients (client a, and b) able to initiate a TLS session that is compliant with FCS_TTTC_EXT.1,
+                and two servers (servers 1 and 2) able to establish TLS sessions in accordance with FCS_TTTS_EXT.1, each
                 of which which has certificate that is valid in accordance with FIA_X509_EXT.1/STIP, and which is issued
                 by a CA, different than the TOE’s embedded CA, that is trusted by the TOE. If the TSF supports TLS
                 resumption, the evaluator shall configure server 1 to support TLS resumption using a mechanism (tickets
@@ -4571,8 +4520,8 @@ legacy cipher suites. -->
                 tests, establishing any additional configuration requirements as indicated in each.
                 <testlist>
                   <test>For each rule of the TLS establishment policy indicating inspection operation processing, the
-                    evaluator shall ensure the monitored client is configured to meet the requirements for FCS_TLSC_EXT.1,
-                    the requested server is configured to meet the requirements for FCS_TLSS_EXT.1, and the server
+                    evaluator shall ensure the monitored client is configured to meet the requirements for FCS_TTTC_EXT.1,
+                    the requested server is configured to meet the requirements for FCS_TTTS_EXT.1, and the server
                     certificate is valid according to FIA_X509_EXT.1/STIP. The evaluator shall configure the TSF so the rule
                     applies to the monitored client and requested server. The evaluator shall establish a TLS session from the
                     monitored client to the requested server through the TOE. The evaluator shall then observe the TSF audit
@@ -4690,9 +4639,7 @@ legacy cipher suites. -->
                     RFC 6960</selectable>
                   <selectable>a Certificate Revocation List (CRL) as specified in RFC 5280
                     Section 6.3</selectable>
-                  <!-- Note: our understanding is that this RFC is now deprecated and we should use RFC 8603 Section 7 instead. Should we change this (or add a new option for it) and if so, does that require us to add/change the EAs at all? -->
-                  <selectable>Certificate Revocation List (CRL) as specified in RFC 5759
-                    Section 5</selectable>
+                  <selectable>Certificate Revocation List (CRL) as specified in RFC 8603</selectable>
                 </selectables>.</h:li>
                 <h:li>The TSF shall validate the extendedKeyUsage field according to the
                   following rules depending on the certificate type and purpose:
@@ -4887,6 +4834,64 @@ legacy cipher suites. -->
           </f-element>
         </f-component>
         
+        
+        
+        <f-component cc-id="fia_x509_ext.2" iteration="STIP" id="fia-x509-ext-2-stip" name="X.509 Certificate Authentication (STIP)">
+          <consistency-rationale>The PP-Module iterates this SFR from its definition in the Base-PP to
+            specify minimum required functionality for X.509 authentication based on its use in STIP. The PP-Module
+            also refines the authorized roles that can perform the related management function.</consistency-rationale>
+          <f-element id="nd-fia-x509-ext-2e1">
+            <title>
+              The TSF shall use X.509v3 certificates as defined by RFC 5280 to support
+              authentication for [<h:i>TLS</h:i>] and [<h:i>no additional uses</h:i>]. 
+            </title>
+          </f-element>
+          <f-element id="nd-fia-x509-ext-2e2">
+            <title>When the TSF cannot establish a connection to determine the <h:b>revocation status</h:b>
+              of a certificate, the TSF shall <selectables>
+                <selectable>allow the <h:b><selectables>
+                  <selectable>Security Administrator</selectable>
+                  <selectable>CA Operations Staff</selectable>
+                </selectables></h:b>
+                  to choose whether to <h:b><selectables>
+                    <selectable>accept the certificate</selectable>
+                    <selectable>associate the failed connection event per FDP_TEP_EXT.1.5</selectable>
+                  </selectables></h:b> in these cases</selectable>
+                <selectable>accept the certificate</selectable>
+                <selectable>not accept the certificate</selectable>
+              </selectables>.
+            </title>
+            <note role="Application">
+              This SFR is iterated from its definition in the Base-PP to define the implementation of this function specifically with respect to STIP functionality.
+              The Base-PP version of the SFR is used to define this function in the context of Base-PP functionality 
+              (e.g. non-STIP trusted channels, code signing for software updates).  
+              <h:p/>
+              The second element has three modifications from that in the Base-PP. First, the
+              word “validity” is replaced with “revocation status” for clarity. This is consistent
+              with what is in the application note in the NDcPP, and using “revocation status”
+              more directly indicates what is required.
+              <h:p/>
+              Second, the general notion of “administrator” is replaced with the more refined
+              roles defined in this PP-Module; the ST author should make the appropriate
+              selection.
+              <h:p/>
+              Finally, a selection is added that allows ST author flexibility in addressing the issue
+              of failure to connect to check revocation status in the specific case that the
+              certificates being checked are associated with either a monitored client or a
+              requested server. This selection (“to associate the failed connection event per
+              FDP_TEP_EXT.1.5”), when chosen, indicates that selected administrative role is
+              able to specify a STIP operation (block, bypass, inspect) to be taken in the event
+              that the revocation status can’t be checked. The requirement that the TOE be able
+              to perform this operation when such an event occurs is specified in
+              FDP_TEP_EXT.1.5.
+            </note>
+            <aactivity>
+              <no-tests>This SFR is evaluated per the EAs for FIA_X509_EXT.2 defined in the Base-PP.</no-tests>
+            </aactivity>
+          </f-element>
+          <audit-event/>
+        </f-component>
+        
       </section>  <!-- FIA -->
 
 	<!-- 5.2.5 Security Management (FMT)  -->
@@ -4896,7 +4901,7 @@ legacy cipher suites. -->
         the relevant management functions from the NDcPP also apply to any management interfaces used specifically to meet the requirements of this PP-Module.
         
         <!-- Note: should we iterate this to make it more clear that this relates to STIP -->
-      <f-component name="Management of Functions Behavior" cc-id="fmt_mof.1" id="fmt-mof-1">
+      <f-component name="Management of Functions Behavior" cc-id="fmt_mof.1" id="fmt-mof-1" iteration="stip">
         <consistency-rationale>This SFR applies to the restriction of management functions to certain roles
           which are not defined in the Base-PP which only requires management
           functionality to be performed by a security administrator.</consistency-rationale>
@@ -4918,7 +4923,7 @@ legacy cipher suites. -->
               <h:tr><h:td>Ability to manage user accounts</h:td><h:td>C</h:td><h:td>-</h:td><h:td>CM</h:td><h:td>-</h:td></h:tr>
               <h:tr><h:td>Ability to manage remote audit mechanism</h:td><h:td>M</h:td><h:td>CM</h:td><h:td>-</h:td><h:td>-</h:td></h:tr>
               <h:tr><h:td>Ability to perform on-demand integrity tests</h:td><h:td>O</h:td><h:td>O</h:td><h:td>O</h:td><h:td>O</h:td></h:tr>
-              <h:tr><h:td>Ability to import and remove X.509v3 certificates into/from the Trust Anchor database</h:td><h:td>C</h:td><h:td>-</h:td><h:td>-</h:td><h:td>CM</h:td></h:tr>
+              <h:tr><h:td>Ability to import and remove X.509v3 certificates used for STIP into or from the Trust Anchor database</h:td><h:td>C</h:td><h:td>-</h:td><h:td>-</h:td><h:td>CM</h:td></h:tr>
               <h:tr><h:td>Ability to configure identifying information for the TOE's embedded CA</h:td><h:td>C</h:td><h:td>-</h:td><h:td>-</h:td><h:td>CM</h:td></h:tr>
               <h:tr><h:td>Ability to configure a maximum certificate validity duration</h:td><h:td>C</h:td><h:td>-</h:td><h:td>-</h:td><h:td>CM</h:td></h:tr>
               <h:tr><h:td>Ability to manage inspection policy</h:td><h:td>O</h:td><h:td>-</h:td><h:td>-</h:td><h:td>O</h:td></h:tr>
@@ -5023,7 +5028,7 @@ legacy cipher suites. -->
             <!-- Note: This is already covered in the Base-PP by "Ability to manage the TOE's trust store..." is it ok that we have a very similar one in the STIP iteration? 
             Alternative would be we refine FMT_SMF.1 to force the selection in Modified SFRs but then we go back to the "a second Module may modify the SFR in a contradictory manner" issue that required 
             us to iterate this SFR in the first place -->
-            <h:li>Ability to import and remove X.509v3 certificates into/from the Trust
+            <h:li>Ability to import and remove X.509v3 certificates used for STIP into or from the Trust
             Anchor Database</h:li>
             <h:li>Ability to configure identifying information for the TOE’s embedded CA</h:li>
             <h:li>Ability to configure a maximum certificate validity duration</h:li>
@@ -5125,16 +5130,16 @@ legacy cipher suites. -->
                   </selectables></h:i>] are satisifed.
             </title>
           <note role="application">
-            <!-- Note: we may want to iterate FMT_MOF.1 for STIP (Base-PP doesn't have an un-iterated FMT_MOF.1 but having the Module's version be un-iterated may imply to the reader that
+            
             this SFR was originally from the Base-PP -->
             This PP-Module refines the SFR defined in the Base-PP to include additional
-            administrative roles. As defined in FMT_MOF.1, the TSF is expected to provide
+            administrative roles. As defined in FMT_MOF.1/STIP, the TSF is expected to provide
             different privileges to the given roles.
             <h:p/>
             If the TSF supports an Auditor and/or Account Manager role, it is expected that
             the relevant selections above will be made. It is the intent of this PP-Module that
             if either or both of these roles are provided, their critical functionality is isolated
-            from any other roles (see FMT_MOF.1).
+            from any other roles (see FMT_MOF.1/STIP).
           </note>
           <!-- Note: new EAs because SFR wasn't previously iterated -->
           <aactivity>
@@ -5147,7 +5152,7 @@ legacy cipher suites. -->
               For each supported management interface, the evaluator shall follow the operational guidance to associate user accounts with the management roles that are supported on those interfaces. If there are any restrictions
               on the assignment of management roles, such as the inability to assign two mutually exclusive roles to the same user, the evaluator shall attempt to violate these restrictions to verify that they are enforced.
               <h:p/>
-              Testing of the actual functional limitations of the assigned management roles is addressed by FMT_MOF.1.
+              Testing of the actual functional limitations of the assigned management roles is addressed by FMT_MOF.1/STIP.
             </Tests>
           </aactivity>
         </f-element>
@@ -5257,8 +5262,8 @@ legacy cipher suites. -->
               processes are unauthorized. When an interface allows both authorized and
               unauthorized access to a key (for example, certificate signing functions with
               access to the embedded CA’s private signing key are authorized only when
-              <!-- Note: something here needs to change, "belonging to a requested," doesn't make sense (a noun is missing maybe?) but I'm not sure what it's actually supposed to say -->
-              certificate to be signed corresponds to a valid certificate belonging to a requested,
+              
+              certificate to be signed corresponds to a valid certificate belonging to a requested server,
               and is unauthorized at any other time), evidence of protection includes logging of
               accesses via the common interface, as indicated in Table 2 for FAU_GEN.1. 
             </note>
@@ -5310,6 +5315,7 @@ legacy cipher suites. -->
     </man-sfrs>
 
     <mod-sars>
+      
      <!-- 5.3 TOE Security Assurance Requirements -->
 <!--	<section title="TOE Security Assurance Requirements" id="s-sar">  -->
 		  As a PP-Module of the NDcPP, this PP-Module does not define any additional assurance requirements
@@ -5318,33 +5324,31 @@ legacy cipher suites. -->
 		  been implemented correctly by the TOE. However, in some cases it may be necessary to perform
 		  additional assurance activities in order to satisfy the SARs due to unique capabilities or limitations of the
 		  TOE that is specified by this PP-Module. Where applicable, these evaluation activities are described below.
+		
 			
-			
-			<!-- Note: what is the syntax for describing specific SARs and defining EAs for them? <subsection> tag used to work in e.g. MDF but does not seem to be working with the current transforms. And since that isn't working, <aactivity> underneath it
-			doesn't either. -->
-      <!-- 
-		  <subsection id="ava" title="Class AVA: Vulnerability Analysis"> Special attention to vulnerabilities related to outdated TLS versions and cipher suites required to process
+      
+		  <section id="ava" title="Class AVA: Vulnerability Analysis"> 
+		    <h:p>
+		    Special attention to vulnerabilities related to outdated TLS versions and cipher suites required to process
 		    traffic between monitored clients and requested servers should be paid. Additionally, vulnerabilities
 		    related to the embedded CA functionality within this technology have significant consequences for both
-		    the TOE and the monitored clients the TOE is intended to protect and should be thoroughly researched.</subsection> -->
-		  
-		  <!-- Note: This is formatted differently from how the SD did it because there is no clean way to format what the SD did. -->
-      <!-- 
-		  <aactivity>
+		    the TOE and the monitored clients the TOE is intended to protect and should be thoroughly researched. 
+		    </h:p>
+		     
 		    The evaluator shall perform the following actions in addition to the evaluation activities specified for AVA_VAN.1 in [ND-SD]: 
 		    <h:ul>
 		      <h:li>For Type 1 (Public Vulnerability-Based) Hypotheses, the evaluator shall also consider search phrases consisting of "TLS" 
-		        n conjunction with each of the supported
+		        in conjunction with each of the supported
 		        specific cipher suite components (e.g. “TLS TDES,” “TLS CBC,” “TLS_SHA1”…) and with each supported
-		        version (e.g. “TLS 1.0,” “TLS 1.2,”…) be added as search criteria. Search criteria shall also include all names
+		        version (e.g. “TLS 1.0,” “TLS 1.2,”…) in the search criteria. Search criteria shall also include all names
 		        used to represent this technology (e.g., “SSL inspection,” “TLS inspection proxy,” “middle box,” “Deep
 		        inspection Firewall,”…).</h:li>
-		        -->
-		      <!-- Note: Modified the change to Type 2 to make it more clear, is this ok? -->
-      <!-- 
+		        
+		      
+       
 		      <h:li>For Type 2 (iTC-Source) Hypotheses, it is noted that any flaws that are specific to this PP-Module will be submitted to the NIAP TC for SSL/TLS Inspection Proxy, 
 		      and that any flaws that are considered general to the technology type will be added to those that should be considered via NIAP Technical Decisions.</h:li>
-		      <h:li>The evaluator shall consider the following additional flaw hypotheses based on the TOE's inclusion of deprecated TLS versions and cipher suites that use obsolete algorithms:
+		      <h:li>The evaluator shall also consider the following additional flaw hypotheses based on the TOE's inclusion of deprecated TLS versions and cipher suites that use obsolete algorithms:
 		      <h:ul>
 		        <h:li>Bleichenbacher type side-channel based padding Oracle flaw (CVE-2018-16868 and equivalent): this flaw is typically mitigated by randomizing computations associated with key material.</h:li>
 		        <h:li>Bleichenbacher RSA padding Oracle flaw (CVE-2017-17428 and equivalent): this flaw is typically mitigated by ensuring consistency of error alerts for various events
@@ -5357,10 +5361,10 @@ legacy cipher suites. -->
 		      </h:li>
 		    </h:ul><h:p/>
 		    If any sections of the vulnerability analysis are not discussed here, this PP-Module does not change how they are evaluated
-		  </aactivity>
-		  -->
+		  
+		  </section>
 		
-<!--	</section> -->
+
     </mod-sars> 
 	  
 	<!-- Appendix A: Optional Requirements -->
@@ -5385,9 +5389,6 @@ legacy cipher suites. -->
     <!-- Note: is it ok to organize these as they were done in STIP 1.0 or should they be broken down by functional class (the order is actually the same either way) -->
     <opt-sfrs>
       <section title="Persistent Local Audit Storage" id="opt-fau">
-        <!-- This statement makes FAU_STG.1 out to be optional, but it wasn't flagged as optional in O.AUDIT_PROTECTION mapping (which also would not have any mandatory SFRs mapped to it if FAU_STG.1 remains optional. 
-        Should FAU_STG.1 continue to be optional (which means the SFRs in this appendix would also stay optional) or should these be mandated? And if they're not mandated, how do we handle O.AUDIT_PROTECTION (e.g. eliminate it
-        as a stand-alone objective and roll the mapped SFRs into O.SYSTEM_MONITORING instead -->
         The SFRs in this section are optional. They should be claimed if the TOE provides local audit storage (i.e.,
         if FAU_STG.1 is claimed in the base NDcPP) and that local audit storage is intended to provide a persistent,
         searchable record of security events within the TOE, either as a backup or replacement of an external
@@ -5434,9 +5435,26 @@ legacy cipher suites. -->
               identifier by searching for other known fields and then using that unique identifier
               as an input to searching audit data for all activities involving that certificate.
             </note>
-            <!-- Note: not actually sure if this is true, we don't explicitly talk about this SFR's behavior in FAU_GEN.1/STIP EAs -->
+            
             <aactivity>
-              <no-tests>This activity should be accomplished in conjunction with the testing of FAU_GEN.1/STIP.</no-tests>
+              <TSS>
+                <h:p>
+              The evaluator shall ensure that the TSS describes the TOE's ability to allow its local audit storage to be searched for audit records associated with a particular
+              certificate.
+              The evaluator shall also ensure that the TSS states the unique certificate object identifier used for this. 
+                </h:p>
+              </TSS>
+              <Guidance>
+                <h:p>
+                  The evaluator shall ensure that the operational guidance describes how to search local audit data for records matching a given certificate identifier.
+                </h:p>
+              </Guidance>
+              <Tests>
+                <h:p>
+                  The evaluator shall follow the operational guidance to search local audit data for records matching a given certificate identifier and verify that 
+                  the expected results are returned.
+                </h:p>
+              </Tests>
             </aactivity>
           </f-element>
         </f-component>
@@ -5496,7 +5514,7 @@ legacy cipher suites. -->
             </ext-comp-def-title>
             <note role="application">
               This requirement should be claimed if implemented by the TOE. If claimed,
-              additional FMT_MOF.1 and audit events associated with the function must be
+              additional management functions and audit events associated with the function must be
               claimed.
             </note>
             <aactivity>
@@ -6630,7 +6648,7 @@ legacy cipher suites. -->
                   <test>The evaluator shall configure a certificate profile using the available guidance, and establish a
                     server with a certificate that satisfies FDP_CER_EXT.4.2 items a, b, e, f, h, j, and k, has valid values in all
                     extensions in item g (g.a-g.f), and passes all certificate validation criteria as a TLS server certificate (having
-                    extended key usage field of server authentication) in FIA_X509_EXT.1/Rev. The evaluator shall establish a
+                    extended key usage field of server authentication) in FIA_X509_EXT.1/STIP. The evaluator shall establish a
                     monitored client and request a TLS session to the server through the TOE so that the mutual
                     authentication inspection operation is implemented, and then examine the certificate received at the
                     server from the TOE to ensure it matches the configured certificate profile.
@@ -7398,19 +7416,20 @@ legacy cipher suites. -->
 	This information benefits systems engineering activities which call for inclusion of particular security
 	controls. Evaluation against the PP-Module provides evidence that these controls are present and have
 	been evaluated.
--->
+
 	
-	<!-- Note: come back to when we know whether there are any of these (believe all dependencies were met in 1.0 but that could change) -->
+	
 	<h:b><ctr ctr-type="Table" pre="Table " id="imp-sat-reqs-table">: Implicitly Satisfied Requirements</ctr></h:b>
     <h:table>	
 		<h:tr class="header"><h:td>Requirement</h:td><h:td>Rationale for Satisfaction</h:td></h:tr>
 	<h:tr>
-	<h:td><h:b>Placeholder</h:b></h:td>
+	<h:td><h:b>FCS_TLSC_EXT.1</h:b></h:td>
 	<h:td>
 	  	Placeholder
 	</h:td>
 	</h:tr>
     </h:table>
+    -->
   </appendix>	
 	
 <!-- Appendix E: Entropy Documentation and Assessment -->
