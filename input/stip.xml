@@ -1129,17 +1129,7 @@ expected to enforce.<h:p/>
         
         <!-- 5.1.1.3  -->
         <section title="Identification and Authentication (FIA)" id="nd-m-fia">
-          <!-- Note: Not sure how we want to handle FIA_X509_EXT.1/Rev. The app note for it says that FIA_X509_EXT.1/STIP is used for the TLS connections between the TOE and monitored clients/requested servers. That means FIA_X509_EXT.1/Rev
-            is only used for the Base-PP interfaces that may require certificates. 
-            
-            Right now we *have* to claim this SFR because it is selection-based when FTP_ITC.1 claims TLS, and it's currently refined to do so.
-            
-            Is the argument for having this be required that the TOE has to verify its own CA certificate when that is loaded onto the TOE so this SFR is what governs that behavior? That seems like the only non-STIP use of X.509 that the TOE 
-            would actually be required to have. That would technically allow the SFR to be claimed which wouldn't break the FTP_ITC.1 dependency, but it is a little bit awkward because the dependency says "the TOE needs this because it supports TLS"
-            but the reality in this Module is that the TOE's TLS capability has its own iteration of FIA_X509_EXT.1 for that, and FIA_X509_EXT.1/Rev is being claimed for "the TOE needs this because it supports having a certificate loaded onto it"
-            which is obviously a different reason from the intended trigger. Is this something we could cover in the Implicitly Satisfied Requirements section?
           
-          -->
           <f-component cc-id="fia_x509_ext.1" iteration="Rev" id="nd-fia-x509-ext-1" name="X.509 Certificate Validation">
             <consistency-rationale>Other than defining an additional selection-based trigger, there is no modification to this SFR.</consistency-rationale>
             <f-element id="nd-fia-x509-ext-1e1">
@@ -1327,6 +1317,14 @@ expected to enforce.<h:p/>
 	    </section>
 -->
 
+      <sec:Auditable_Events_for_Mandatory_SFRs>
+        <h:p>
+
+        </h:p>
+        <audit-table table="mandatory" id="t-audit-mandatory"/>
+        
+      </sec:Auditable_Events_for_Mandatory_SFRs>
+
 	  <!-- 5.2.1 Security Audit (FAU) -->
       <section title="Security Audit (FAU)" id="m-fau">
         
@@ -1373,11 +1371,9 @@ expected to enforce.<h:p/>
               the certificate is stored in the certificate repository.</Tests>
           </aactivity>
         </f-element>
+          <audit-event/>
       </f-component>
         
-        <!-- Is FAU_GEN.1/STIP ok as-is or should it be changed in some manner, e.g. different app note, breaking up of audit event table references by section like the schema is able to handle.
-        I didn't do it that way because I thought referencing the individual tables would make the assignment/app note more complicated than just making one table and telling the ST author to include 
-        all the ones that correspond to SFRs the TOE claims -->
         <f-component name="Audit Data Generation (STIP)" cc-id="fau_gen.1" iteration="STIP" id="fau-gen-1">
           <consistency-rationale>This SFR adds new auditable events for the TOE that relate to the functionality that is introduced by the PP-Module.</consistency-rationale>
           <f-element id="fau-gen-1e1-stip">
@@ -1386,7 +1382,8 @@ expected to enforce.<h:p/>
               auditable events: <h:ol type="a">
                 <h:li>Start-up and shutdown of the audit functions</h:li>
                 <h:li>All auditable events for the [<h:i>not specified</h:i>] level of audit; and</h:li>
-                <h:li>[<h:i>auditable events defined in Auditable Events table</h:i>].</h:li>
+                <h:li>[<h:i>auditable events defined in Auditable Events for Mandatory Requirements table, </h:i></h:li>
+                <h:li><h:i>applicable auditable events defined in Auditable Events for Selection-based Requirements table</h:i>].</h:li>
               </h:ol>
             </title>
             <note role="application">
@@ -1403,6 +1400,8 @@ expected to enforce.<h:p/>
                   applicable), and the outcome (success or failure) of the event; and </h:li>
                 <h:li>For each audit event type, based on the auditable event
                   definitions of the functional components included in the PP/ST,
+                  <h:li>[<h:i>additional information defined in Auditable Events for Mandatory Requirements table, </h:i></h:li>
+                  <h:li><h:i>additional information defined in applicable auditable events in Auditable Events for Selection-based Requirements table</h:i>].</h:li>
                 [<h:i>additional information defined in Auditable Events table for each auditable event, where applicable</h:i>].</h:li>
               </h:ol>
               
@@ -1412,7 +1411,7 @@ expected to enforce.<h:p/>
                 <h:tr><h:td>FAU_SCR_EXT.1 (selection-based)</h:td><h:td colspan="2">None</h:td></h:tr>
                 <h:tr><h:td>FAU_SAR.1 (optional)</h:td><h:td colspan="2">None</h:td></h:tr>
                 <h:tr><h:td>FAU_SAR.3 (optional)</h:td><h:td colspan="2">None</h:td></h:tr>
-                <h:tr><h:td>FAU_STG.4 (optional)</h:td><h:td colspan="2">None</h:td></h:tr>
+                <h:tr><h:td>FAU_STG.4 </h:td><h:td colspan="2">None</h:td></h:tr>
                 <h:tr><h:td>FCS_CKM_EXT.5 (selection-based)</h:td><h:td colspan="2">None</h:td></h:tr>
                 <h:tr><h:td>FCS_STG_EXT.1</h:td><h:td colspan="2">None</h:td></h:tr>
                 <h:tr><h:td>FCS_TTTC_EXT.1</h:td><h:td>Establishment of TLS session</h:td><h:td>TLS session parameters</h:td></h:tr>
@@ -1582,7 +1581,7 @@ expected to enforce.<h:p/>
         
       </section>
       
-      <!-- 5.2.2 Cryptographic Support (FCS) -->
+      <!-- Cryptographic Support (FCS) -->
       <section title="Cryptographic Support (FCS)" id="m-fcs">
 
         <f-component name="Cryptographic Operation (Data Encryption/Decryption in Support of STIP)" cc-id="fcs_cop.1" iteration="STIP" id="fcs-cop-1-stip">
@@ -1779,6 +1778,7 @@ expected to enforce.<h:p/>
               </Tests>
             </aactivity>
           </f-element>
+          <audit-event/>
         </f-component>
         
         <ext-comp-def fam-id="FCS_STG_EXT" title="Cryptographic Key Storage">
@@ -1811,6 +1811,7 @@ expected to enforce.<h:p/>
               <Tests>There are no test EAs for this component.</Tests>
             </aactivity>
           </f-element>
+          <audit-event/>
         </f-component>
         
         <ext-comp-def fam-id="FCS_TTTC_EXT" title="Thru-Traffic TLS Inspection Client Protocol">
@@ -1986,9 +1987,8 @@ expected to enforce.<h:p/>
                 <testlist>
                   <test>For each version and cipher suite combination supported, as indicated in FCS_TTTC_EXT.1.1, the
                     evaluator shall configure a server requested by a monitored client to negotiate the version and cipher
-                    suite, and issue the server a certificate from the trusted CA containing a subjectAltName (SAN) extension
-                    containing the expected DNS name of the server, and which is valid in accordance with
-                    FIA_X509_EXT.1/Rev. The evaluator shall then initiate a TLS session from a monitored client through the
+                    suite, and issue the server a valid certificate from the trusted CA containing a subjectAltName (SAN) extension
+                    containing the expected DNS name of the server. The evaluator shall then initiate a TLS session from a monitored client through the
                     TOE to the requested server, as indicated in the SNI extension of the Client Hello, and observe that the
                     TLS session between the TOE and the requested server cipher suites is successful. Additionally, the
                     evaluator shall verify that the Client Hello sent from the TSF to the requested server contains the full,
@@ -2189,9 +2189,13 @@ expected to enforce.<h:p/>
             </aactivity>
           </f-element>
           <f-element id="fcs-tttc-ext-1e3">
-            <!-- Note: how to handle this SFR text depends on how we handle FIA_X509_EXT.2.2 (e.g. are we making a special iteration just for STIP or relying on the Base-PP one as we did here) -->
+            
             <title>The TSF shall validate the certificate presented by the server and terminate the
-              connection if the certificate is invalid, except as allowed by FIA_X509_EXT.2.2.</title>
+              connection if the certificate is invalid, except as allowed by FIA_X509_EXT.2.2<h:b>/STIP</h:b>.</title>
+            <ext-comp-def-title>
+              <title>The TSF shall validate the certificate presented by the server and terminate the
+                connection if the certificate is invalid, except as allowed by FIA_X509_EXT.2.2.</title>
+            </ext-comp-def-title>
             <note role="application">
               Validity is determined by the identifier verification, certificate path, the expiration
               date, processing of critical extensions, and the revocation status in accordance
@@ -2208,9 +2212,7 @@ expected to enforce.<h:p/>
               <TSS>
                 The evaluator shall ensure that the TSS describes the TSF’s behavior for certificate validation results,
                 including any dependencies on the configured TLS session establishment policy for establishing a TLS
-                session when revocation information is not available, as indicated in the selection for FIA_X509_EXT.2.2.
-                <!-- Note: FIA_X509_EXT.2.2 reference may need to change to be iterated, depending on how other questions about that SFR are resolved 
-                Not going to comment this everywhere, this is a global note for all references to FIA_X509_EXT.2 -->
+                session when revocation information is not available, as indicated in the selection for FIA_X509_EXT.2.2/STIP.
               <h:p/></TSS>
               <Guidance>
                 If the TSS indicates that the TLS session establishment policy is used to determine the TSF’s behaviour for
@@ -2248,7 +2250,7 @@ expected to enforce.<h:p/>
                     subordinate CA is included in the certificate chain provided by the requested server and ensure the
                     revocation information is not available to the TSF. The evaluator shall confirm that the default behavior
                     for revocation information not available is performed by the TSF. If this behavior is configurable (the first
-                    item is claimed in the first selection for FIA_X509_EXT.2.2), the evaluator shall in turn follow guidance 
+                    item is claimed in the first selection for FIA_X509_EXT.2.2/STIP), the evaluator shall in turn follow guidance 
                     documentation to configure the TSF for each response, and initiate the TLS session from the monitored
                     client to demonstrate the TSF performs the configured behavior.
                   </test>
@@ -2269,7 +2271,7 @@ expected to enforce.<h:p/>
                     subordinate CA is available, but revocation information from the trusted CA is not available to the TSF.
                     The evaluator shall confirm that the default behavior for revocation information not available is
                     performed by the TSF. If this behavior is configurable (the first item is claimed in the selection for
-                    FIA_X509_EXT.2.2), the evaluator shall, in turn, follow guidance documentation to configure the TSF for each
+                    FIA_X509_EXT.2.2/STIP), the evaluator shall, in turn, follow guidance documentation to configure the TSF for each
                     response, and initiate the TLS session from the monitored client to demonstrate the TSF performs the
                     configured behavior. </test>
                   <test>The evaluator shall issue a valid certificate from the trusted CA for the requested server that
@@ -2345,6 +2347,10 @@ expected to enforce.<h:p/>
               </Tests>
             </aactivity>
           </f-element>
+          <audit-event>
+            <audit-event-descr>Establishment of TLS session</audit-event-descr>
+            <audit-event-info>TLS session parameters</audit-event-info>
+          </audit-event>
         </f-component>
         
         <f-component name="Thru-Traffic TLS Inspection Client Support for Supported Groups Extension" cc-id="fcs_tttc_ext.5" id="fcs-tttc-ext-5">
@@ -3206,10 +3212,10 @@ legacy cipher suites. -->
               <h:p/></Guidance>
               <Tests>The evaluator shall perform the following tests:
                 <testlist>
-                  <test>The evaluator shall configure a certificate profile using the available guidance, and establish a
+                  <test>The evaluator shall configure a certificate profile using the available guidance and establish a
                     server with a certificate that satisfies FDP_CER_EXT.1.2 items a, b, e, f, h, i, j, and k, has valid values in all
-                    extensions in item g (a-e), and passes all certificate validation criteria as a TLS server certificate (having
-                    extended key usage field of server authentication) in FIA_X509_EXT.1/STIP. The evaluator shall establish a
+                    extensions in item g (a-e), and is a valid TLS server certificate (having
+                    extendedKeyUsage field of server authentication). The evaluator shall establish a
                     monitored client and request a TLS session to the server through the TOE so that the inspection operation
                     is implemented, and then examine the certificate received at the client from the TOE to ensure it matches
                     the configured certificate profile.</test>
@@ -3867,9 +3873,8 @@ legacy cipher suites. -->
               <h:p/></Guidance>
               <Tests>
                 The evaluator shall follow the operational guidance to configure the TSF. The evaluator shall establish two
-                monitored clients (client a, and b) able to initiate a TLS session that is compliant with FCS_TTTC_EXT.1,
-                and two servers (servers 1 and 2) able to establish TLS sessions in accordance with FCS_TTTS_EXT.1, each
-                of which which has certificate that is valid in accordance with FIA_X509_EXT.1/STIP, and which is issued
+                monitored clients (client a and b) each able to initiate a TLS session
+                and two servers (servers 1 and 2) each able to establish TLS sessions and having valid server certificates, issued
                 by a CA, different than the TOE’s embedded CA, that is trusted by the TOE. If the TSF supports TLS
                 resumption, the evaluator shall configure server 1 to support TLS resumption using a mechanism (tickets
                 or session number) supported by the TSF, and configure server 2 to refuse TLS resumption and instead
@@ -4244,7 +4249,7 @@ legacy cipher suites. -->
               <h:p/>
               The first item is chosen if the TOE supports multiple responses to a client certificate request message from a requested server; FDP_TEP_EXT.1.7 and its Application Note have additional details.
               <h:p/>
-              The second item is chosen if FIA_X509_EXT.2 indicates a privileged user may
+              The second item is chosen if FIA_X509_EXT.2/STIP indicates a privileged user may
               indicate their choice on whether to accept a requested server certificate for which
               revocation information is not available using allowances. See also
               FDP_TEP_EXT.1.8.
@@ -4520,9 +4525,9 @@ legacy cipher suites. -->
                 tests, establishing any additional configuration requirements as indicated in each.
                 <testlist>
                   <test>For each rule of the TLS establishment policy indicating inspection operation processing, the
-                    evaluator shall ensure the monitored client is configured to meet the requirements for FCS_TTTC_EXT.1,
-                    the requested server is configured to meet the requirements for FCS_TTTS_EXT.1, and the server
-                    certificate is valid according to FIA_X509_EXT.1/STIP. The evaluator shall configure the TSF so the rule
+                    evaluator shall ensure the monitored client  and requested server are configured to communicate 
+                    through the TOE and that the server
+                    certificate is valid. The evaluator shall configure the TSF so the rule
                     applies to the monitored client and requested server. The evaluator shall establish a TLS session from the
                     monitored client to the requested server through the TOE. The evaluator shall then observe the TSF audit
                     record, certificate repository, TLS Server Hello data received at the client, plaintext encrypted at the client,
@@ -4901,7 +4906,7 @@ legacy cipher suites. -->
         the relevant management functions from the NDcPP also apply to any management interfaces used specifically to meet the requirements of this PP-Module.
         
         <!-- Note: should we iterate this to make it more clear that this relates to STIP -->
-      <f-component name="Management of Functions Behavior" cc-id="fmt_mof.1" id="fmt-mof-1" iteration="stip">
+      <f-component name="Management of Functions Behavior" cc-id="fmt_mof.1" id="fmt-mof-1" iteration="STIP">
         <consistency-rationale>This SFR applies to the restriction of management functions to certain roles
           which are not defined in the Base-PP which only requires management
           functionality to be performed by a security administrator.</consistency-rationale>
@@ -7124,6 +7129,7 @@ legacy cipher suites. -->
               </Tests>
             </aactivity>
           </f-element>
+          <audit-event/>
         </f-component>
         
         <ext-comp-def fam-id="FCS_CKM_EXT" title="Cryptographic Key Management">
@@ -7408,24 +7414,28 @@ legacy cipher suites. -->
 <!-- Appendix D: Implicity Satisfied Requirements -->
 <appendix title="Implicitly Satisfied Requirements" id="satisfiedreqs">
 	<!-- Boilerplate goes here -->
-<!--	This appendix lists requirements that should be considered satisfied by products successfully evaluated
+<h:p>
+This appendix lists requirements that should be considered satisfied by products successfully evaluated
 	against this PP. However, these requirements are not featured explicitly as SFRs and should not be
 	included in the ST. They are not included as standalone SFRs because it would increase the time, cost,
 	and complexity of evaluation. This approach is permitted by [CC] Part 1, 8.2 Dependencies between
-	components.<h:p/>
+	components.
+</h:p>
+<h:p>
 	This information benefits systems engineering activities which call for inclusion of particular security
 	controls. Evaluation against the PP-Module provides evidence that these controls are present and have
 	been evaluated.
-
+</h:p>
 	
 	
 	<h:b><ctr ctr-type="Table" pre="Table " id="imp-sat-reqs-table">: Implicitly Satisfied Requirements</ctr></h:b>
     <h:table>	
 		<h:tr class="header"><h:td>Requirement</h:td><h:td>Rationale for Satisfaction</h:td></h:tr>
 	<h:tr>
-	<h:td><h:b>FCS_TLSC_EXT.1</h:b></h:td>
+	<h:td><h:b>FPT_STM.1 - Reliable Time Stamps</h:b></h:td>
 	<h:td>
-	  	Placeholder
+	  FAU_GEN.1/STIP has a dependency on FPT_STM.1 for applying accurate timestamps to audit records. 
+	  The extended SFR FPT_STM_EXT.1 that is defined in the Base-PP provides equivalent functionality to FPT_STM.1 and therefore satisfies this dependency.
 	</h:td>
 	</h:tr>
     </h:table>
