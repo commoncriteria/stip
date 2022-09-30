@@ -2048,10 +2048,9 @@ expected to enforce.<h:p/>
                 authority’s certificate in appropriate trust anchors within the TSF to validate the issued certificates.
                 Additional configuration instructions for the monitored client, the requested server or the server’s
                 certificate are indicated in each of the tests: 
-                <!-- Note: is it ok that the tests are numbered differently from how they're done in 1.0? The <testlist> construct doesn't allow for arbitrary test numbering so I can't go 
-                1, 2a, 2b, 3, 4, 5 like the old SD does. This may end up applying to other SFRs too but this is the first instance of it encountered so the comment won't be repeated each time. -->
+
                 <testlist>
-                  <test>For each version and cipher suite combination supported, as indicated in FCS_TTTC_EXT.1.1, the
+                  <test id="tttc-ciphers">For each version and cipher suite combination supported, as indicated in FCS_TTTC_EXT.1.1, the
                     evaluator shall configure a server requested by a monitored client to negotiate the version and cipher
                     suite, and issue the server a valid certificate from the trusted CA containing a subjectAltName (SAN) extension
                     containing the expected DNS name of the server. The evaluator shall then initiate a TLS session from a monitored client through the
@@ -2060,19 +2059,19 @@ expected to enforce.<h:p/>
                     evaluator shall verify that the Client Hello sent from the TSF to the requested server contains the full,
                     ordered list of cipher suites supported for the selected version in accordance with FCS_TTTC_EXT.1.4.
                   </test>
-                  <test>
+                  <test id="tttc-eku">
                     The evaluator shall choose a supported version and cipher suite combination. For each
                     extendedKeyUsage condition for server certificates that allows the TLS session to be completed, as
                     indicated in FIA_X509_EXT.1.1/STIP, the evaluator shall configure a requested server to negotiate the
                     version and cipher suite combination and issue the requested server a new certificate from the trusted
                     CA that has the indicated extendedKeyUsage condition, and is otherwise identical to the certificate used
-                    for the similarly configured server from Test 1. The evaluator shall configure the server to present the new
+                    for the similarly configured server from <xref to="tttc-ciphers"/>. The evaluator shall configure the server to present the new
                     certificate in its TLS handshake. The evaluator shall then make a TLS request in turn from a monitored
                     client to each of the reconfigured servers through the TOE, and observe that the TLS session from the TOE
                     to the requested server is established.
                   </test>
                   <test>
-                    The evaluator shall establish a new certificate for a server as configured for Test 2a where the
+                    The evaluator shall establish a new certificate for a server as configured for <xref to="tttc-eku"/> where the
                     extendedKeyUsage field is present, does not include either the ‘Any’ purpose or
                     ServerAuthentication purpose and which does contain the CodeSigning purpose, and configure the server
                     to present the new certificate in its TLS handshake. The evaluator shall make a request to that server from
@@ -2121,28 +2120,31 @@ expected to enforce.<h:p/>
                     version and cipher suite, as indicated, and use a valid certificate from the trusted CA, but send TLS
                     messages as indicated and otherwise respond as a valid TLS server. For each in turn, the evaluator shall
                     initiate a TLS connection between a monitored client and the requested server through the TOE and
-                    observe the indicated behavior of the TOE on receiving the server message: <h:ul>
-                      <h:li>Test 6.1: Configure the requested server to send an undefined TLS version (for example, 1.5
-                        represented by the two bytes 03 06) and verify that the TSF rejects the connection.</h:li>
-                      <h:li>Test 6.2: Configure the requested server to send a Server Hello with the TLS version set to
-                      SSL 3.0 (represented by the two bytes 03 00) and verify that the TSF rejects the connection.</h:li>
-                      <h:li>Test 6.3: Configure the requested server to use a DHE cipher suite and configure the
+                    observe the indicated behavior of the TOE on receiving the server message: 
+                    
+                    <testlist>
+                      <test> Configure the requested server to send an undefined TLS version (for example, 1.5
+                        represented by the two bytes 03 06) and verify that the TSF rejects the connection.</test>
+                      <test>  Configure the requested server to send a Server Hello with the TLS version set to
+                        SSL 3.0 (represented by the two bytes 03 00) and verify that the TSF rejects the connection.</test>
+                      <test>  Configure the requested server to use a DHE cipher suite and configure the
                       requested server to send a Server Hello message with at least one byte in the server’s nonce 
                       in the Server Hello handshake message modified from the expected response, and verify
                       that the TSF rejects the connection. Repeat this test using a requested server configured to
-                      use an ECDHE cipher suite and observe that the TSF rejects the connection.</h:li>
-                      <h:li>Test 6.4: Configure the requested server to respond to a Client Hello with a cipher suite that
+                      use an ECDHE cipher suite and observe that the TSF rejects the connection.</test>
+                      <test>  Configure the requested server to respond to a Client Hello with a cipher suite that
                       is not supported by the TSF, and therefore not present in the Client Hello received by the
-                      server. The evaluator shall verify that the TSF rejects the connection.</h:li>
-                      <h:li>Test 6.5: Using requested servers configured to use a cipher suite using DHE, and send a
+                      server. The evaluator shall verify that the TSF rejects the connection.</test>
+                      <test>  Using requested servers configured to use a cipher suite using DHE, and send a
                       KeyExchange handshake message with an invalid signature (e.g., by modifying the signature
                       block in the expected KeyExchange handshake message), and verify that the TSF rejects the
                       connection. Repeat this test with a requested server configured to use a cipher suite using
-                      ECDHE and verify that the TSF rejects the connection.</h:li>
-                      <h:li>Test 6.6: Configure the requested server to respond with an invalid Server Finished message
+                      ECDHE and verify that the TSF rejects the connection.</test>
+                      <test>Configure the requested server to respond with an invalid Server Finished message
                       (e.g., by modifying a byte in the expected Server Finished handshake message) and verify
-                      that the TSF rejects the connection.</h:li>
-                    </h:ul>
+                      that the TSF rejects the connection.</test>
+                    </testlist>
+                    
                   </test>
                 </testlist>
               </Tests>
@@ -2183,7 +2185,7 @@ expected to enforce.<h:p/>
               <Guidance>The evaluator shall ensure that the guidance contains instructions on establishing reference identifiers if
                 supported through an administrative interface.<h:p/></Guidance>
               <Tests>
-                Using the setup for FCS_TTTC_EXT.1.1, the evaluator shall perform the following tests. Note that Test 1 of
+                Using the setup for FCS_TTTC_EXT.1.1, the evaluator shall perform the following tests. Note that <xref to="tttc-ciphers"/> of
                 FCS_TTTC_EXT.1.1 confirms the TSF properly validates the reference ID of a certificate containing a DNS
                 name in the subjectAltName matching the SNI contained in the Client Hello of a monitored client, and is
                 not repeated. The remaining tests cover support for other name forms and negative testing.
@@ -2195,7 +2197,7 @@ expected to enforce.<h:p/>
                     client to the requested server through the TOE using an SNI extension in the Client Hello that does not
                     match the name in the certificate. The evaluator shall ensure the TOE does not succeed in establishing a
                     TLS connection to the requested server.</test>
-                  <test>(conditional, the TSF supports additional reference identifiers not used in FCS_TTTC_EXT.1.1 test 1): 
+                  <test>(conditional, the TSF supports additional reference identifiers not used in FCS_TTTC_EXT.1.1 <xref to="tttc-ciphers"/>): 
                     For each additional reference identifier described in the TSS, the evaluator shall establish a
                     monitored client and requested server that causes the TSF to establish a reference identifier of the
                     indicated type. The evaluator shall issue a new certificate for the requested server from the trusted CA
@@ -2226,29 +2228,30 @@ expected to enforce.<h:p/>
                     reference identifiers. For each certificate identifier presented and for each reference identifier specified,
                     the evaluator shall initiate a TLS session between the monitored client and requested server through the
                     TSF, causing the TSF to attempt to match the presented identifier to the established reference identifier
-                    and observe the indicated result: <h:ul>
-                      <h:li>Test 4.1: (conditional, the TSF supports wildcards): The evaluator shall use a server certificate
+                    and observe the indicated result: 
+                    <testlist>
+                      <test> (conditional, the TSF supports wildcards): The evaluator shall use a server certificate
                       containing a wildcard that is not in the left-most label of the presented identifier (e.g.,
-                      foo.*.example.com) and verify that the connection fails.</h:li>
-                      <h:li>Test 4.2: (conditional, the TSF supports wildcards): The evaluator shall use a server certificate
+                      foo.*.example.com) and verify that the connection fails.</test>
+                      <test> (conditional, the TSF supports wildcards): The evaluator shall use a server certificate
                       containing a wildcard in the left-most label but not preceding the public suffix (e.g.,
                       *.example.com). The evaluator shall cause the reference identifier to have a single left-most
                       label (e.g., foo.example.com) and verify that the connection succeeds. The evaluator shall
                       cause the reference identifier to be without a left-most label as in the certificate (e.g.,
                       example.com) and verify that the connection fails. The evaluator shall cause the reference
                       identifier to have two left-most labels (e.g., bar.foo.example.com) and verify that the
-                      connection fails.</h:li>
-                      <h:li>Test 4.3: (conditional, the TSF supports wildcards): The evaluator shall use a server certificate
+                      connection fails.</test>
+                      <test> (conditional, the TSF supports wildcards): The evaluator shall use a server certificate
                       containing a wildcard in the left-most label immediately preceding the public suffix (e.g.,
                       *.com). The evaluator shall cause the reference identifier to have a single left-most label
                       (e.g., foo.com) and verify that the connection fails. The evaluator shall cause the reference
                       identifier to have two left-most labels (e.g., bar.foo.com) and verify that the connection
-                      fails.</h:li>
-                      <h:li>Test 4.4: (conditional, the TSF does not support wildcards): The evaluator shall use a server
+                      fails.</test>
+                      <test> (conditional, the TSF does not support wildcards): The evaluator shall use a server
                       certificate containing a wildcard in the left-most label (e.g., *.example.com). The evaluator
                       shall cause the reference identifier to have a single left-most label (e.g., foo.example.com)
-                      and verify that the connection fails.</h:li>
-                    </h:ul>
+                      and verify that the connection fails.</test>
+                    </testlist>
                   </test>
                 </testlist>
               </Tests>
@@ -2286,7 +2289,7 @@ expected to enforce.<h:p/>
                 available, the evaluator shall validate that the operational guidance includes instructions to configure the
                 allowances to allow or not allow such connections.
               <h:p/></Guidance>
-              <Tests>Using the setup for test 1 of FCS_TTTC_EXT.1.1, the evaluator shall establish one or more trusted
+              <Tests>Using the setup for <xref to="tttc-ciphers"/> of FCS_TTTC_EXT.1.1, the evaluator shall establish one or more trusted
                 subordinate CAs by issuing them valid CA certificates from the trusted CA. The evaluator shall establish a
                 certificate status capability for both the trusted subordinate CAsand the trusted CA that uses a method
                 supported by the TSF. The evaluator shall also establish an untrusted CA to use a self-signed CA certificate
@@ -2812,26 +2815,26 @@ legacy cipher suites. -->
                   <h:ol type="a">
                     <h:li>For a cipher suite that uses RSA for key transport, the evaluator shall, in turn, perform each
                       of the following: <h:ol type="i">
-                        <h:li>In the first instance of test 2.a, the evaluator shall send a KeyExchange message of RSA
+                        <h:li>First, send a KeyExchange message of RSA
                           type with the EncryptedPreMasterSecret field consisting of a randomly generated value
                           of size equal to the size of the EncryptedPreMasterSecret expected in the key parameter.
                           The evaluator shall observe that the TSF sends a fatal TLS alert message and note the
                           specific alert type received agrees with the TSS description of error messages.</h:li>
-                        <h:li>In the second instance of test 2.a, the evaluator shall send a KeyExchange message of
+                        <h:li>Second, send a KeyExchange message of
                           RSA type with the EncryptedPreMasterSecret field consisting of a randomly generated
                           value of size 1024 bits. The evaluator shall observe that the TSF sends a fatal TLS alert
                           message.</h:li>
-                        <h:li>In the third instance of test 2.a, the evaluator shall send the TSF a KeyExchange message
+                        <h:li>Third, send the TSF a KeyExchange message
                           of DHE type containing a randomly generated ClientDiffieHellmanPublic value of size
-                          2048 bits, and observe that the TSF sends a fatal TLS alert message and notes whether
-                          the error message is different than that received test 2.a.i.</h:li>
-                        <h:li>in the fourth instance of test 2.a, the evaluator shall send the TSF a KeyExchange
+                          2048 bits. The evaluator shall observe that the TSF sends a fatal TLS alert message and shall note whether
+                          the error message is different than that received when a randomly generated value was used in the EncryptedPreMasterSecret field.</h:li>
+                        <h:li>Fourth, send the TSF a KeyExchange
                           message of ECDH type, containing a random point on a curve supported by the TSF, in a
-                          EC point format supported by the TSF. The evaluator shall observe that the TSF sends a
-                          fatal TLS alert message and notes whether the error message is different than that
-                          received in test 2.a.i.</h:li>
+                          EC point format supported by the TSF. The evaluator shall observe that the TSF sends a fatal TLS alert message and shall note whether
+                          the error message is different than that received when a randomly generated value was used in the EncryptedPreMasterSecret field.</h:li>
                       </h:ol><h:p/>
-                      If the alert messages in 2.a.iii and 2.a.iv are identical to that received in 2.a.i, the evaluator shall attempt
+                      If the alert messages in the third and fourth case above are identical to that received in the first case,
+                      the evaluator shall attempt
                       to verify that the errors are a result of the unexpected KeyExchange message, and not just due to an
                       invalid finished message. It might be necessary to configure additional (debug) logs to be generated by
                       the TSF or examine detailed behavior of the TSF to distinguish unexpected KeyExchange messages from
@@ -2840,30 +2843,29 @@ legacy cipher suites. -->
                     <h:li>
                       For a cipher suite that uses ephemeral DH key establishment:
                       <h:ol type="i">
-                        <h:li>In the first instance of test 2.b, the evaluator shall modify a byte in the
+                        <h:li>First, the evaluator shall modify a byte in the
                           ClientDiffieHellmanPublic value produced by the client, send the modified KeyExchange
                           message to the TSF, and observe that the TSF sends a fatal TLS alert message and note
                           that the specific error message agrees with the TSS description of error messages.</h:li>
-                        <h:li>In the second instance of test 2.b, the evaluator shall ensure the TSF is not configured to
+                        <h:li>Second, the evaluator shall ensure the TSF is not configured to
                           request client authentication. The evaluator shall send a KeyExchange message
-                          consisting of a null value, specifying an implicit Client DiffieHellman Public key. The
-                          evaluator shall send the modified KeyExchange message to the TSF, and observe that
-                          the TSF sends a fatal TLS alert message and notes whether the error message is different
-                          than that received in test 2.b.i.
+                          consisting of a null value, specifying an implicit Client Diffie-Hellman Public key. 
+                          The evaluator shall send the modified KeyExchange message to the TOE, observe that the TSF sends a fatal TLS alert message, and note whether
+                          the error message is different than that received when the KeyExchange message included the modified ClientDiffieHellmanPublic value.
                         </h:li>
-                        <h:li> In the third instance of test 2.b, the evaluator shall send the TSF a KeyExchange message
+                        <h:li>Third, the evaluator shall send the TSF a KeyExchange message
                           of RSA type, containing a randomly generated EncryptedPreMasterSecret value of size
                           2048 bits. The evaluator shall observe that the TSF sends a fatal TLS alert message and
-                          notes whether the error message is different than that received in test 2.b.i.</h:li>
-                        <h:li>(conditional, the TSF supports client authentication): In the fourth instance of test 2.b, the
+                          notes whether the error message is different than that received when the KeyExchange message included the modified ClientDiffieHellmanPublic value.</h:li>
+                        <h:li>(conditional, the TSF supports client authentication): Fourth, the
                           evaluator shall configure the TSF to request client authentication. After the TSF sends
                           the client certificate request message, the evaluator shall send the TOE a valid client
                           certificate message followed by a KeyExchange message of ECDH type that contains a
                           random point on a curve supported by the TSF in an ECpoint format supported by the
-                          TSF. The evaluator shall observe that the TSF sends a fatal TLS alert message and notes
-                          whether the error message is different than that received in test 2.b.i.</h:li>
+                          TSF. The evaluator shall observe that the TSF sends a fatal TLS alert message and
+                          notes whether the error message is different than that received when the KeyExchange message included the modified ClientDiffieHellmanPublic value.</h:li>
                       </h:ol><h:p/>
-                      If the error messages in 2.b.ii, 2.b.iii or 2.b.iv are identical to that provided in 2.b.i, the evaluator shall
+                      If the error messages in any of the latter three cases are identical to that provided in the first case, the evaluator shall
                       attempt to verify that the errors are a result of the unexpected KeyExchange message, and not just due
                       to an invalid finished message. It might be necessary to configure additional (debug) logs to be generated
                       by the TSF or examine detailed behavior of the TSF to distinguish unexpected KeyExchange messages from
@@ -2871,30 +2873,34 @@ legacy cipher suites. -->
                     </h:li>
                     <h:li>
                       If the cipher suite uses ephemeral ECDH key establishment: <h:ol type="i">
-                        <h:li>. In the first instance of test 2.c, the evaluator shall replace the EC point in the
+                        <h:li>First, the evaluator shall replace the EC point in the
                           KeyExchange message produced by the client with a random point on the curve
                           specified by the TSF’s Server key exchange message, using the same EC point format
                           used in the client’s expected KeyExchangeMessage. The evaluator shall observe that the
                           TSF sends a fatal TLS alert message and the specific alert message agrees with the error
                           message description in the TSS.</h:li>
-                        <h:li>In the second instance of test 2.c, the evaluator shall ensure the TSF is not configured to
+                        <h:li>Second, the evaluator shall ensure the TSF is not configured to
                           request client authentication, and send the TSF a KeyExchange message consisting of
                           the null value, indicating an implicit client Elliptic Curve Diffie Hellman Public key. The
                           evaluator shall observe that the TSF sends a fatal TLS alert message and notes whether
-                          the error message is different than that received in test 2.c.i.</h:li>
-                        <h:li>In the third instance of test 2.c, the evaluator shall send the TSF a KeyExchange message
+                          the error message is different than that received when the EC point in the KeyExchange message is replaced
+                          with a random point on the curve.</h:li>
+                        <h:li>Third, the evaluator shall send the TSF a KeyExchange message
                           of RSA type with a randomly generated 2048-bit value used for the
-                          EncryptedPreMasterSecret value. The evaluator shall observer that the TSF sends a fatal
-                          TLS alert message and notes whether the error message is different than that received
-                          in test 2.c.i.</h:li>
-                        <h:li>In the fourth instance of test 2.c, the evaluator shall send the TSF a KeyExchange
+                          EncryptedPreMasterSecret value. The
+                          evaluator shall observe that the TSF sends a fatal TLS alert message and notes whether
+                          the error message is different than that received when the EC point in the KeyExchange message is replaced
+                          with a random point on the curve. 
+                          </h:li>
+                        <h:li>Fourth, the evaluator shall send the TSF a KeyExchange
                           message of type DH with a randomly generated 2048-bit value for the
-                          ClientDiffieHellman value in place of the ephemeral public key. The evaluator shall
-                          observe that the TSF sends a fatal TLS alert message and notes whether the error
-                          message is different than that received in test 2.c.i.
+                          ClientDiffieHellman value in place of the ephemeral public key. The
+                          evaluator shall observe that the TSF sends a fatal TLS alert message and notes whether
+                          the error message is different than that received when the EC point in the KeyExchange message is replaced
+                          with a random point on the curve.
                         </h:li>
                       </h:ol><h:p/>
-                      If the error messages received in 2.c.ii, 2.c.iii, or 2.c.iv are identical to that received in 2.c.i, the evaluator
+                      If the error messages in any of the latter three cases are identical to that provided in the first case, the evaluator
                       shall attempt to verify that the errors are a result of the unexpected KeyExchange message, and not just
                       due to an invalid finished message. It might be necessary to configure additional (debug) logs to be
                       generated by the TSF or examine detailed behavior of the TSF to distinguish unexpected KeyExchange
@@ -2912,7 +2918,7 @@ legacy cipher suites. -->
                     </h:li>
                   </h:ol>
                   </test>
-                  <test>
+                  <test id="ttts-invalid-rsa-kex">
                     The intent of this test is to ensure the TSF, when negotiating cipher suites using RSA key transport,
                     responds to invalid RSA KeyExchange messages consistently in order to resist a well-known class of chosen
                     ciphertext attacks against RSA key transport mechanisms, which are especially problematic in TLS 1.0. 
@@ -2924,14 +2930,15 @@ legacy cipher suites. -->
                     the monitored client and requested server and to allow the version and cipher suite for the client and
                     server, and note this initial configuration for subsequent sub-tests:
                     <h:p/>
-                    <h:b>Test 3, part a:</h:b> The evaluator shall send a Client Hello from the monitored client to the requested server
+                    <testlist> 
+                    <test> The evaluator shall send a Client Hello from the monitored client to the requested server
                     and observe that the Server Hello from the TSF selects TLS 1.0 and the desired cipher suite in its Server
                     Hello message. The evaluator shall note the size and formatting of pre-master secret input to the client’s
                     KeyExchange message, continue the handshake from the client, and confirm that the TSF successfully
-                    establishes a TLS connection with the client.
+                    establishes a TLS connection with the client.</test>
                     <h:p/>
-                    <h:b>Test 3, part b:</h:b> The evaluator shall terminate the TLS sessions and restore the TSF, monitored client and
-                    requested server to the initial configuration for Test 3 above. The evaluator shall compute the following
+                    <test> The evaluator shall terminate the TLS sessions and restore the TSF, monitored client and
+                      requested server to the initial configuration for <xref to="ttts-invalid-rsa-kex"/> above. The evaluator shall compute the following
                     KeyExchange based on encrypting the following tailored messages with the server’s public key, using a
                     random value, ran, of size equal to that of the correctly computed pre-master secret, but having a
                     different value, and properly formatted padding, pad(), of length determined so that the message is of
@@ -2948,10 +2955,11 @@ legacy cipher suites. -->
                       message to the TSF as part of a complete TLS handshake with the server, and observe the TLS error alert
                       response provided by the TSF. Between each iteration, the evaluator shall terminate any residual TLS
                       sessions, reset any cache, and restore the configuration of the monitored client, requested server, and
-                      TOE to its initial configuration for Test 3.
+                      TOE to its initial configuration for <xref to="ttts-invalid-rsa-kex"/>.</test>
                       <h:p/>
-                      <h:b>Test 3, part c:</h:b> The evaluator shall observe that each error alert response provided by the TSF for the
-                      iterations in part b match the description in the TSS and is identical for each message M1 through M5.
+                      <test> The evaluator shall observe that each error alert response provided by the TSF for the
+                      iterations in part b match the description in the TSS and is identical for each message M1 through M5.</test>
+                    </testlist>
                   </test>
                 </testlist>
               </Tests>
@@ -3283,19 +3291,19 @@ legacy cipher suites. -->
               <h:p/></Guidance>
               <Tests>The evaluator shall perform the following tests:
                 <testlist>
-                  <test>The evaluator shall configure a certificate profile using the available guidance and establish a
+                  <test id="valid-server-profile-cert">The evaluator shall configure a certificate profile using the available guidance and establish a
                     server with a certificate that satisfies FDP_CER_EXT.1.2 items a, b, e, f, h, i, j, and k, has valid values in all
                     extensions in item g (a-e), and is a valid TLS server certificate (having
                     extendedKeyUsage field of server authentication). The evaluator shall establish a
                     monitored client and request a TLS session to the server through the TOE so that the inspection operation
                     is implemented, and then examine the certificate received at the client from the TOE to ensure it matches
                     the configured certificate profile.</test>
-                  <test>The evaluator shall specifically examine the certificate generated in Test 1 and compare it to both
+                  <test>The evaluator shall specifically examine the certificate generated in <xref to="valid-server-profile-cert"/> and compare it to both
                     the embedded CA’s certificate and the requested server’s certificate to ensure that it satisfies all field
                     constraints in FDP_CER_EXT.1.2, FDP_CER_EXT.1.3, and FDP_CER_EXT.1.4 as configured in the certificate
                     profile.</test>
                   <test>The evaluator shall conduct the following tests by establishing a server with certificate identical to
-                    that used in Test 1, except for the differences described as follows (each in turn). The evaluator shall make
+                    that used in <xref to="valid-server-profile-cert"/>, except for the differences described as follows (each in turn). The evaluator shall make
                     any configuration changes to the TOE as indicated, establish a monitored client, and submit a TLS request
                     for the server through the TOE so that the inspection operation is performed, and observe the certificate
                     received at the monitored client has the indicated features: 
@@ -3456,7 +3464,7 @@ legacy cipher suites. -->
                     operational guidance. The evaluator shall create a certificate request and submit it to the TOE. The
                     evaluator shall access the TOE using the defined interface and verify that the submitted request is
                     rejected.</test>
-                  <test>
+                  <test id="issue-cert-inspected-traffic">
                     The intent of this test is to exercise a representative set of SSL/TLS inspection proxy rules for the
                     supported features of the TLS session establishment policy and demonstrate certificates are generated by
                     the TSF only when the inspection operation is authorized.
@@ -3520,7 +3528,7 @@ legacy cipher suites. -->
                   </test>
                   <test>(conditional, the TSF supports caching of issued certificates): The evaluator shall
                     configure the TSF to retain certificates in the cache, and initiate a TLS session from a monitored client to
-                    a requested server as in Test 2 where the monitored client requested server combination matches a rule
+                    a requested server as in <xref to="issue-cert-inspected-traffic"/> where the monitored client requested server combination matches a rule
                     associated with the inspection operation without allowance violations. The evaluator shall confirm that
                     the certificate issued by the TOE’s embedded CA is contained in the certificate repository. The evaluator
                     shall then establish a second monitored client for which the second monitored client and same requested
@@ -3994,27 +4002,27 @@ legacy cipher suites. -->
                 of the client-server combinations will be inspected. The evaluator shall use appropriate tools to monitor
                 the traffic between the clients and the TOE, and between the TOE and the server to observe the TLS
                 handshake messages. If the TSF supports TLS session resumption, the evaluator shall clear any TLS session
-                state that might be retained by the TSF and configure the TSF to use session resumption. Note that tests
-                1 and 2 have additional instructions if TLS resumption is supported, but apply regardless of TLS resumption
-                support. Test 3 should only be performed if TLS resumption is supported.
+                state that might be retained by the TSF and configure the TSF to use session resumption. Note that the 
+                first two tests have additional instructions if TLS resumption is supported, but apply regardless of TLS resumption
+                support. The third test should only be performed if TLS resumption is supported.
                 The evaluator shall perform the following tests, in order: <h:p/>
                 <testlist>
-                  <test>The evaluator shall initiate a TLS session from client ‘a’ to server 1, and initiate a TLS session from
+                  <test id="stip-unique-client-sessions">The evaluator shall initiate a TLS session from client ‘a’ to server 1, and initiate a TLS session from
                     client ‘b’ to server 2. The evaluator shall observe the traffic between the TOE and the servers the data
                     decrypted at the servers to verify that the TLS sessions are distinct. The evaluator shall also observe the
                     traffic between the clients and the TOE and observe that the TLS sessions are distinct. The evaluator shall
                     note and retain the TLS session information for the remaining tests and ensure that the sessions are not
-                    terminated during Test 2.
+                    terminated during <xref to="stip-unique-server-sessions"/>.
                   </test>
-                  <test>The evaluator shall retain the state of the TOE from Test 1. If TLS resumption is supported, the
+                  <test id="stip-unique-server-sessions">The evaluator shall retain the state of the TOE from <xref to="stip-unique-client-sessions"/>. If TLS resumption is supported, the
                     evaluator shall ensure the TLS state in server 1 is retained. The evaluator shall initiate a TLS session from
                     client ‘b’ to server 1 through the TOE. The evaluator shall observe the traffic between the TOE and server
                     1, and data received at server 1 to confirm the TLS session thread between client ‘b’ and server 1 is
                     different than the TLS session between the TOE and server 1 associated to the TLS session thread between
-                    client ‘a’ and server 1 established in Test 1. The evaluator shall observe that the TLS session between client
+                    client ‘a’ and server 1 established in <xref to="stip-unique-client-sessions"/>. The evaluator shall observe that the TLS session between client
                     ‘b’ and the TOE associated to the TLS session thread between client ‘b’ and server 1 is different than the
                     TLS session between client ‘b’ and the TOE associated to the TLS session thread between client b and
-                    server 2 established in test 1. The evaluator shall terminate the TLS sessions from client ‘b’ to the TOE and
+                    server 2 established in <xref to="stip-unique-client-sessions"/>. The evaluator shall terminate the TLS sessions from client ‘b’ to the TOE and
                     observe that both TLS sessions associated to the TLS session threads, one to server 1 and the other to
                     server 2, are terminated.</test>
                   <test>(conditional, the TSF supports session resumption): The evaluator shall initiate a TLS session resumption
@@ -4043,7 +4051,7 @@ legacy cipher suites. -->
               <Tests>
                 The evaluator shall perform the following tests: <h:p/>
                 <testlist>
-                  <test>The evaluator shall configure and establish a monitored client and a requested server, and ensure
+                  <test id="stip-toe-issues-server-cert">The evaluator shall configure and establish a monitored client and a requested server, and ensure
                     the requested server has a certificate issued by a CA trusted by the TSF, but different than the TOE’s
                     embedded CA. The requested server certificate shall contain a valid identifier of DNS name type
                     identifying the requested server subject alternate name extension. The monitored client will be
@@ -4057,7 +4065,7 @@ legacy cipher suites. -->
                   <test>(conditional, the TSF supports certificate caching): The evaluator shall follow the operational guidance to
                     configure the TSF to retain generated certificates in cache for a short time. The evaluator shall establish
                     three monitored clients and a single requested server, and follow operational guidance to ensure TLS sessions
-                    between the monitored clients and the requested server are inspected as in Test 1. The evaluator shall
+                    between the monitored clients and the requested server are inspected as in <xref to="stip-toe-issues-server-cert"/>. The evaluator shall
                     establish a TLS session from two of the monitored clients to the same requested server within the
                     configured cache time, and confirm that the certificates received at each client are identical. The evaluator
                     shall wait until the cache time has expired, and then initiate a TLS connection from the third monitored
@@ -4689,7 +4697,7 @@ legacy cipher suites. -->
                   </test>
                   <test>
                     <!-- Note: changed conditional statement to make it more obvious what the trigger is for this test --> 
-                    Test 5 (conditional, both 'mutual authentication inspection' and 'send an empty certificate list as part of the inspection operation' are selected in FDP_TEP_EXT.1.7):
+                    (conditional, both 'mutual authentication inspection' and 'send an empty certificate list as part of the inspection operation' are selected in FDP_TEP_EXT.1.7):
                     The evaluator shall establish a server to send certificate requests in its TLS handshake. 
                     The evaluator shall extablish a monitored client configured to provide a valid client certificate in response to a certificate request. 
                     The evaluator shall follow operational guidance to configure the TLS inspection proxy policy to send an empty certificate list in a certificate message to the server, 
@@ -4898,17 +4906,17 @@ legacy cipher suites. -->
                 tested with each of FCS_TTTC_EXT.1 and FCS_TTTS_EXT.3.
                 <!-- Note: another case of re-numbering tests because testlist requires them to be sequential -->
                 <testlist>
-                  <test> The evaluator shall present the TOE with a valid chain of certificates (terminating in a trusted CA
+                  <test id="valid-cert-chain"> The evaluator shall present the TOE with a valid chain of certificates (terminating in a trusted CA
                     certificate) as needed to validate the leaf certificate to be used in the function, and shall use this chain to
-                    demonstrate the function succeeds. Test 1a shall be designed so that the chain can be broken in Test 2
+                    demonstrate the function succeeds. This test shall be designed so that the chain can be broken in <xref to="broken-cert-chain"/>
                     by either being able to remove the trust anchor from the TOEs trust store or by setting up the trust store
                     in a way that at least one intermediate CA certificate needs to be provided together with the leaf
                     certificate from outside the TOE, to complete the chain (e.g. by storing only the root CA certificate in the
                     trust store).
                   </test>
-                  <test>The evaluator shall then ‘break’ the chain used in Test 1a by either removing the trust anchor in
+                  <test id="broken-cert-chain">The evaluator shall then ‘break’ the chain used in <xref to="valid-cert-chain"/> by either removing the trust anchor in
                     the TOE's trust store used to terminate the chain, or by removing one of the intermediate CA certificates
-                    (provided together with the leaf certificate in Test 1) to complete the chain. The evaluator shall show
+                    (provided together with the leaf certificate in <xref to="valid-cert-chain"/>) to complete the chain. The evaluator shall show
                     that an attempt to validate this broken chain fails.
                   </test>
                   <test>The evaluator shall demonstrate that validating an expired certificate results in the function failing.
@@ -6162,17 +6170,17 @@ legacy cipher suites. -->
               <h:p/></Guidance>
               <Tests>The evaluator shall perform the following tests:<h:p/>
               <testlist>
-                <test>The evaluator shall establish an external CA and EST server, and configure the TOE as indicated in
+                <test id="authorized-est">The evaluator shall establish an external CA and EST server, and configure the TOE as indicated in
                   the operational guidance to authorize the EST server for EST services using the external CA. The evaluator shall examine
                   the TOE logs and TA databases using available interfaces to ensure the EST server and external CA’s
                   certificates are authorized for EST services.
                 </test>
                 <test>For each authentication method specified in FIA_ESTC_EXT.1.4, the evaluator shall generate one
                   or more certificate enrollment requests using the authentication method to obtain TOE required
-                  certificates from the authorized CA via the EST server established in Test 1. In accordance with guidance
+                  certificates from the authorized CA via the EST server established in <xref to="authorized-est"/>. In accordance with guidance
                   documentation, the evaluator shall obtain a sufficient number of certificates in aggregate to allow the
                   TOE to issue certificates to requested servers. </test>
-                <test>The evaluator shall establish a server with a valid certificate and a monitored client. The evaluator
+                <test id="give-est-to-client">The evaluator shall establish a server with a valid certificate and a monitored client. The evaluator
                   shall configure the TOE so that a TLS session between the monitored client and established through the
                   TOE results in the inspection operation being implemented. The evaluators shall establish a TLS session
                   between the monitored client and the established server through the TOE and observe that the certificate
@@ -6180,13 +6188,13 @@ legacy cipher suites. -->
                   embedded CA’s certificate issued by the external CA. </test>
                 <test>The evaluator shall generate a re-enrollment request and submit it to the authorized EST server in
                   accordance with FIA_ESTC_EXT.1 to update the TOE’s embedded CA’s signing certificate. The evaluator
-                  shall clear any cache, revoke the original CA certificate, and repeat Test 3, observing that the updated
+                  shall clear any cache, revoke the original CA certificate, and repeat <xref to="give-est-to-client"/>, observing that the updated
                   certificate for the embedded CA is included in the certificate chain returned to the monitored client.
                 </test>
                 <test>The evaluator shall establish a second EST server configured to authorize the TOE’s EST client but
                   which is not authorized by the client to provide EST services. The evaluator shall generate an enrollment
                   request for the TOE’s embedded CA signing certificate, and submit it to the second EST server. The
-                  evaluator shall clear any cache and repeat Test 3, observing that the certificate returned by the second
+                  evaluator shall clear any cache and repeat <xref to="give-est-to-client"/>, observing that the certificate returned by the second
                   EST server is not contained in the certificate chain returned to the monitored client.</test>
               </testlist>
               </Tests>
@@ -6778,7 +6786,7 @@ legacy cipher suites. -->
               <Tests>
                 The evaluator shall perform the following tests:<h:p/>
                 <testlist>
-                  <test>The evaluator shall configure a certificate profile using the available guidance, and establish a
+                  <test id="valid-client-profile-cert">The evaluator shall configure a certificate profile using the available guidance, and establish a
                     server with a certificate that satisfies FDP_CER_EXT.4.2 items a, b, e, f, h, j, and k, has valid values in all
                     extensions in item g (g.a-g.f), and passes all certificate validation criteria as a TLS server certificate (having
                     extended key usage field of server authentication) in FIA_X509_EXT.1/STIP. The evaluator shall establish a
@@ -6786,12 +6794,12 @@ legacy cipher suites. -->
                     authentication inspection operation is implemented, and then examine the certificate received at the
                     server from the TOE to ensure it matches the configured certificate profile.
                   </test>
-                  <test>The evaluator shall specifically examine the certificate generated in Test 1 and compare it to both
+                  <test>The evaluator shall specifically examine the certificate generated in <xref to="valid-client-profile-cert"/> and compare it to both
                     the embedded CA’s certificate and the monitored client’s certificate to ensure that it satisfies all field
                     constraints in FDP_CER_EXT.4.2, FDP_CER_EXT.4.3, and FDP_CER_EXT.4.4 as configured in the certificate
                     profile.</test>
                   <test>The evaluator shall conduct the following tests by establishing a monitored client with certificate
-                    identical to that used in Test 1, except for the differences described as follows (each in turn). The evaluator
+                    identical to that used in <xref to="valid-client-profile-cert"/>, except for the differences described as follows (each in turn). The evaluator
                     shall make any configuration changes to the TOE as indicated, establish a monitored client and submit a
                     TLS request for a requested server requiring mutual authentication through the TOE so that the mutual
                     authentication inspection operation is performed, and observe the certificate received at the requested
@@ -7119,7 +7127,7 @@ legacy cipher suites. -->
                 certificate compliant with FIA_X509_EXT.1/STIP for client authentication from a trusted CA that is
                 different than the embedded CA of the TOE.
                 <h:p/>
-                The evaluator shall ensure the validity of the client’s certificate is short enough to accommodate Test 3
+                The evaluator shall ensure the validity of the client’s certificate is short enough to accommodate <xref to="issue-new-client-cert"/>
                 below. The evaluator shall establish a server able to establish TLS sessions in accordance with
                 FCS_TLSS_EXT.2 and configured to support mutual authentication of the client and which is configured to
                 trust the TOE’s embedded CA.
@@ -7151,7 +7159,7 @@ legacy cipher suites. -->
                       private key. The evaluator shall examine the certificate repository of the TOE to confirm that the
                       certificate observed in the certificate message is present in the repository.
                     </test>
-                    <test>Adjusting the time of the TSF if necessary so that the initial certificate issued to the client is expired,
+                    <test id="issue-new-client-cert">Adjusting the time of the TSF if necessary so that the initial certificate issued to the client is expired,
                       the evaluator shall establish a new certificate for the client, using the same subject but using a validity
                       period that is valid in the current time setting. The evaluator shall initiate a TLS session between the client
                       and the server requiring mutual authentication through the TOE and observe that a TLS session containing
