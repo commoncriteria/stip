@@ -15,7 +15,7 @@
     <ReferenceTable>
       <PPVersion>1.1</PPVersion>
       <PPAuthor>National Information Assurance Partnership</PPAuthor>
-      <PPPubDate>2021-09-10</PPPubDate>
+      <PPPubDate>2022-09-30</PPPubDate>
       <Keywords>STIP</Keywords>
     </ReferenceTable>
   </PPReference>
@@ -23,7 +23,7 @@
   <RevisionHistory>
     <entry>
       <version>1.1</version>
-      <date>2021-09-10</date>
+      <date>2022-09-30</date>
       <subject>Updates to reflect Github conversion, compatibility with CPP_ND_V2.2E, and Technical Decisions applied to version 1.0</subject>
     </entry>
   </RevisionHistory>
@@ -874,14 +874,15 @@ expected to enforce.<h:p/>
             responsibilities are separated across different roles in order to mitigate the impact of improper
             administrative activities or unauthorized administrative access.
             <h:p/>
-            Addressed by: FMT_MOF.1/STIP, FMT_SMF.1/STIP, FMT_SMR.2/STIP
+            Addressed by: FMT_SMR.2 (from Base-PP), FMT_MOF.1/STIP, FMT_SMF.1/STIP
           </description>
+          <addressed-by>FDP_SMR.2 (from Base-PP)</addressed-by>
+          <rationale>This SFR supports the objective by defining additional management roles that the TOE may support that are specific to STIP functionality.</rationale>
           <addressed-by>FMT_MOF.1/STIP</addressed-by>
           <rationale>This SFR supports the objective by defining the authorized use of the TOE by association between the supported management functions and the roles that are authorized to perform them.</rationale>
           <addressed-by>FMT_SMF.1/STIP</addressed-by>
           <rationale>This SFR supports the objective by defining the TOE's management functions that are specific to STIP functionality.</rationale>
-          <addressed-by>FDP_SMR.2/STIP</addressed-by>
-          <rationale>This SFR supports the objective by defining additional management roles that the TOE may support that are specific to STIP functionality.</rationale>
+          
         </SO>
         
         
@@ -1033,7 +1034,7 @@ expected to enforce.<h:p/>
         
         </section>
         -->
-        <!-- 5.1.1.2 -->
+ 
         <section title="Cryptographic Support (FCS)" id="nd-m-fcs">
           
           
@@ -1172,7 +1173,82 @@ expected to enforce.<h:p/>
         </section>
         
         
-        <!-- 5.1.1.4  -->
+        <section title="Security Management (FMT)" id="nd-m-fmt">
+        <f-component name="Restrictions on Security Roles" cc-id="fmt_smr.2" id="fmt-smr-2">
+          <consistency-rationale>This SFR defines additional management roles that the TOE may define to enforce role separation, which is a security enhancement on the Base-PP's requirement that only
+            one management role is necessary.</consistency-rationale>
+          <f-element id="fmt-2e1-stip">
+            <title>
+              The TSF shall maintain the roles: [<h:i>
+                <h:ul>
+                  <h:li>Security Administrator <h:b>,</h:b></h:li>
+                </h:ul><h:b>
+                <selectables linebreak="yes">
+                  <selectable>Auditor</selectable>
+                  <selectable>CA Operations Staff</selectable>
+                  <selectable>Account Manager</selectable>
+                  <selectable>no other roles</selectable>
+                </selectables></h:b></h:i>].
+            </title>
+            <note role="application">This SFR is refined from the Base-PP to allow for the ability for the STIP functionality to be 
+              distributed across multiple administrative roles. If the TOE does not enforce role separation, the ST author selects "no other roles" to indicate that STIP functionality is managed
+              by the same Security Administrator role specified in the Base-PP.
+              <h:p/>
+              As is the case in the Base-PP, the TOE does not need its roles to have the same
+              names as those defined in this SFR. It is expected that the ST will
+              define the administrative roles and privileges defined by the TSF and map them to
+              the roles listed in this PP-Module.
+              <h:p/>
+              If “ability to configure local audit storage behavior” is selected in FMT_SMF.1/STIP, the
+              ‘Auditor’ role must be selected here; role separation is required for audit storage
+              functionality. </note>
+          </f-element>
+          <f-element id="fmt-2e2-stip">
+            <title>The TSF shall be able to associate users with roles.</title>
+          </f-element>
+          <f-element id="fmt-2e3-stip">
+            <title>
+              The TSF shall ensure that the conditions [<h:i>
+                <h:ul>
+                  <h:li>All roles shall be able to administer the TOE locally,</h:li>
+                  <h:li>All roles shall be able to administer the TOE remotely,</h:li>
+                </h:ul>
+                <h:b>
+                <selectables linebreak="yes">
+                  <selectable>No identity is authorized to assume both an Account Manager role
+                    and any of the other roles in FMT_SMR.2.1</selectable>
+                  <selectable>No identity is authorized to assume both an Auditor role and any of
+                    the other roles in FMT_SMR.2.1</selectable>
+                  <selectable>No other conditions</selectable>
+                </selectables></h:b></h:i>] are satisifed.
+            </title>
+            <note role="application">
+              This PP-Module refines the SFR defined in the Base-PP to include additional
+              administrative roles. As defined in FMT_MOF.1/STIP, the TSF is expected to provide
+              different privileges to the given roles.
+              <h:p/>
+              If the TSF supports an Auditor and/or Account Manager role, it is expected that
+              the relevant selections above will be made. It is the intent of this PP-Module that
+              if either or both of these roles are provided, their critical functionality is isolated
+              from any other roles (see FMT_MOF.1/STIP).
+            </note>
+            <aactivity>
+              <TSS>The evaluator shall examine the TSS to verify that it identifies the management roles that the TOE maintains as well as any restrictions or limitations on the assignment of these roles 
+                (e.g. whether multiple roles can be assumed by the same user or if certain roles are mutually exclusive).<h:p/>
+                If the TOE supports multiple management roles, the evaluator shall verify that any differences in role enforcement between interfaces are discussed. For example, a TOE may have a local console that uses a separate administrative
+                account from a remote GUI, such that any user who is authorized to use the local console is a Security Administrator, while the remote GUI maintains its own separate role structure.<h:p/></TSS>
+              <Guidance>The evaluator shall examine the operational guidance to verify that it includes guidance on how to associate users with management roles. <h:p/></Guidance>
+              <Tests>
+                For each supported management interface, the evaluator shall follow the operational guidance to associate user accounts with the management roles that are supported on those interfaces. If there are any restrictions
+                on the assignment of management roles, such as the inability to assign two mutually exclusive roles to the same user, the evaluator shall attempt to violate these restrictions to verify that they are enforced.
+                <h:p/>
+                Testing of the actual functional limitations of the assigned management roles is addressed by FMT_MOF.1/STIP.
+              </Tests>
+            </aactivity>
+          </f-element>
+        </f-component>
+        </section>
+        
         <section title="Trusted Path/Channels (FTP)" id="nd-m-ftp">
           <f-component cc-id="ftp_itc.1" id="nd-ftp-itc-1" name="Inter-TSF Trusted Channel">
             <consistency-rationale>The PP-Module partially completes selections and assignments in this SFR using the available options to specify external interfaces and trusted channels that all STIP products must support at minimum.</consistency-rationale>
@@ -1314,7 +1390,7 @@ expected to enforce.<h:p/>
         
       </sec:Auditable_Events_for_Mandatory_SFRs>
 
-	  <!-- 5.2.1 Security Audit (FAU) -->
+	  <!-- Security Audit (FAU) -->
       <section title="Security Audit (FAU)" id="m-fau">
         
         <ext-comp-def fam-id="FAU_GCR_EXT" title="Generation of Certificate Repository">
@@ -1460,7 +1536,6 @@ expected to enforce.<h:p/>
                 <h:tr><h:td>FIA_X509_EXT.1/STIP</h:td><h:td colspan="2">None</h:td></h:tr>
                 <h:tr><h:td>FMT_MOF.1/STIP</h:td><h:td colspan="2">None</h:td></h:tr>
                 <h:tr><h:td>FMT_SMF.1/STIP</h:td><h:td colspan="2">None</h:td></h:tr>
-                <h:tr><h:td>FMT_SMR.2/STIP</h:td><h:td colspan="2">None</h:td></h:tr>
                 <h:tr><h:td>FPT_FLS.1</h:td><h:td>Invocation of failures under this requirement</h:td><h:td>Indication that the TSF has failed with the type of failure that occurred</h:td></h:tr>
                 <h:tr><h:td>FPT_KST_EXT.1</h:td><h:td colspan="2">None</h:td></h:tr>
                 <h:tr><h:td>FPT_KST_EXT.2</h:td><h:td>
@@ -1566,6 +1641,7 @@ expected to enforce.<h:p/>
               </Tests>
             </aactivity>
           </f-element>
+          <audit-event/>
         </f-component>
         
       </section>
@@ -1596,7 +1672,7 @@ expected to enforce.<h:p/>
                 <selectable>no other standards</selectable>
               </selectables></h:i>].
             </title>
-            <note role="application">This requirement, in conjunction with FCS_COP.1/DataEncryption from the BasePP, is used to support FCS_TTTC_EXT.1 and FCS_TTTS_EXT.1. Note that
+            <note role="application">This requirement, in conjunction with FCS_COP.1/DataEncryption from the Base-PP, is used to support FCS_TTTC_EXT.1 and FCS_TTTS_EXT.1. Note that
               FCS_TTTC_EXT.1 and FCS_TTTS_EXT.1 may necessitate certain selections.</note>
             <aactivity>
               <TSS>
@@ -2430,6 +2506,7 @@ expected to enforce.<h:p/>
                 </testlist></Tests>
             </aactivity>
           </f-element>
+          <audit-event/>
         </f-component>
 
         <ext-comp-def fam-id="FCS_TTTS_EXT" title="Thru-Traffic TLS Inspection Server Protocol">
@@ -2879,11 +2956,15 @@ legacy cipher suites. -->
               </Tests>
             </aactivity>
           </f-element>
+          <audit-event>
+            <audit-event-descr>Establishment of TLS session</audit-event-descr>
+            <audit-event-info>TLS session parameters</audit-event-info>
+          </audit-event>
         </f-component>       
         
       </section>  <!-- FCS -->
 
-	  <!-- 5.2.3 User Data Protection -->
+	  <!-- User Data Protection -->
       <section title="User Data Protection (FDP)" id="m-fdp">
 
         <ext-comp-def fam-id="FDP_CER_EXT" title="Certificate Usage">
@@ -3259,6 +3340,7 @@ legacy cipher suites. -->
               </Tests>
             </aactivity>
             </f-element>
+          <audit-event/>
         </f-component>
         
         <f-component name="Certificate Request Matching of Server Certificates" cc-id="fdp_cer_ext.2" id="fdp-cer-ext-2">
@@ -3304,6 +3386,24 @@ legacy cipher suites. -->
               </Tests>
             </aactivity>
           </f-element>
+          <audit-event>
+            <audit-event-descr>Linking of issued certificate to validated certificate</audit-event-descr>
+            <audit-event-info>
+              <h:p>
+                Success: 
+                <selectables>
+                  <selectable>issued certificate value</selectable>
+                  <selectable>issued certificate object identifier</selectable>
+                </selectables>, <selectables>
+                  <selectable>validated certificate value</selectable>
+                  <selectable>validated certificate object identifier</selectable>
+                </selectables>
+              </h:p>
+              <h:p>
+                Failure: reason for failure
+              </h:p>
+            </audit-event-info>
+          </audit-event>
         </f-component>
     
         <f-component name="Certificate Issuance Rules for Server Certificates" cc-id="fdp_cer_ext.3" id="fdp-cer-ext-3">
@@ -3431,6 +3531,16 @@ legacy cipher suites. -->
               </Tests>
             </aactivity>
           </f-element>
+          <audit-event>
+            <audit-event-descr>Certificate generation</audit-event-descr>
+            <audit-event-info>
+                Success: 
+                <selectables>
+                  <selectable>certificate value</selectable>
+                  <selectable>certificate object identifier</selectable>
+                </selectables>
+            </audit-event-info>
+          </audit-event>
         </f-component>
         
         <ext-comp-def fam-id="FDP_CSIR_EXT" title="Certificate Status Information Required">
@@ -3502,6 +3612,7 @@ legacy cipher suites. -->
               </Tests>
             </aactivity>
           </f-element>
+          <audit-event/>
         </f-component>
         
         <ext-comp-def fam-id="FDP_PPP_EXT" title="Plaintext Processing Policy">
@@ -3659,6 +3770,10 @@ legacy cipher suites. -->
               </testlist></Tests>
             </aactivity>
           </f-element>
+          <audit-event>
+            <audit-event-descr>Configuration changes to the plaintext processing policy</audit-event-descr>
+            <audit-event-info>N/A</audit-event-info>
+          </audit-event>
         </f-component>
         
         <ext-comp-def fam-id="FDP_PRC_EXT" title="Plaintext Routing Control">
@@ -3720,6 +3835,10 @@ legacy cipher suites. -->
               </Tests>
             </aactivity>
           </f-element>
+          <audit-event>
+            <audit-event-descr>Plaintext routed to inspection processing functional component</audit-event-descr>
+            <audit-event-info>TLS session thread identifier, <assignable>processing element identifier</assignable></audit-event-info>
+          </audit-event>
         </f-component>
         
         <f-component name="Subset Residual Information Protection" cc-id="fdp_rip.1" id="fdp-rip-1">
@@ -3749,6 +3868,7 @@ legacy cipher suites. -->
               <Tests>There are no test EAs for this component.</Tests>
             </aactivity>
           </f-element>
+          <audit-event/>
         </f-component>
         
         <ext-comp-def fam-id="FDP_STG_EXT" title="User Data Storage">
@@ -3793,6 +3913,7 @@ legacy cipher suites. -->
               </Tests>
             </aactivity>
           </f-element>
+          <audit-event/>
         </f-component>
         
         <ext-comp-def fam-id="FDP_STIP_EXT" title="SSL/TLS Inspection Proxy Functions">
@@ -4045,6 +4166,26 @@ legacy cipher suites. -->
               </Tests>
             </aactivity>
           </f-element>
+          <audit-event>
+            <audit-event-descr>Establishment of a TLS inspection session thread</audit-event-descr>
+            <audit-event-info>
+              <assignable>TLS session thread attributes</assignable>,
+              <assignable>client attributes</assignable>, and
+              <assignable>server attributes</assignable> associated with the thread
+            </audit-event-info>
+          </audit-event>
+          <audit-event>
+            <audit-event-descr>Establishment of an encrypted TLS data flow</audit-event-descr>
+            <audit-event-info><assignable>Encrypted TLS data flow attributes</assignable></audit-event-info>
+          </audit-event>
+          <audit-event>
+            <audit-event-descr>Bypass operation invoked</audit-event-descr>
+            <audit-event-info>TLS session thread identifier, identifier(s) of processing element(s) bypassed, reason for bypass</audit-event-info>
+          </audit-event>
+          <audit-event>
+            <audit-event-descr>Block operation invoked</audit-event-descr>
+            <audit-event-info>TLS session thread identifier, reason for blocking</audit-event-info>
+          </audit-event>
         </f-component>
         
         
@@ -4054,7 +4195,6 @@ legacy cipher suites. -->
         </ext-comp-def>
         
         <!-- Modified by TD0516 -->        
-        <!-- Note: come back to make sure this one is ok -->
         <f-component name="SSL/TLS Inspection Proxy Policy" cc-id="fdp_tep_ext.1" id="fdp-tep-ext-1">
           <consistency-rationale>This SFR applies to the enforcement of the TLS session establishment policy
             which is not defined by the Base-PP.</consistency-rationale>
@@ -4366,7 +4506,6 @@ legacy cipher suites. -->
                   <selectable>terminate the TLS session thread and provide a 
                     <selectables>
                       <selectable>TLS error message</selectable>
-                      <!-- Note: changed this selection item to make it parse better, is this ok? -->
                       <selectable><assignable>method of notification</assignable> to the monitored client associated with the TLS session thread</selectable>
                     </selectables>
                   </selectable>
@@ -4564,13 +4703,17 @@ legacy cipher suites. -->
               </Tests>
             </aactivity>
           </f-element>
+          <audit-event>
+            <audit-event-descr>Mutual authentication authorized</audit-event-descr>
+            <audit-event-info><assignable>client attributes obtained from the validated client certificate</assignable></audit-event-info>
+          </audit-event>
         </f-component>
         
     
       </section>  <!-- FDP -->
       
       
-      <!-- 5.2.4 Identification and Authentication (FIA) -->
+      <!-- Identification and Authentication (FIA) -->
       <section title="Identification and Authentication (FIA)" id="m-fia">
         
         <ext-comp-def fam-id="FIA_ENR_EXT" title="Certificate Enrollment">
@@ -4613,6 +4756,7 @@ legacy cipher suites. -->
               <Tests>Testing for this SFR is addressed through evaluation of FIA_X509_EXT.3 or FIA_ESTC_EXT.1, depending on the selections made in FIA_ENR_EXT.1.1.</Tests>
             </aactivity>
           </f-element>
+          <audit-event/>
         </f-component>  
         
         <f-component name="X.509 Certificate Validation (STIP)" cc-id="fia_x509_ext.1" iteration="STIP" id="fia-x509-ext-1-stip">
@@ -4826,6 +4970,7 @@ legacy cipher suites. -->
               </Tests>
             </aactivity>
           </f-element>
+          <audit-event/>
         </f-component>
         
         
@@ -4888,7 +5033,7 @@ legacy cipher suites. -->
         
       </section>  <!-- FIA -->
 
-	<!-- 5.2.5 Security Management (FMT)  -->
+	<!-- Security Management (FMT)  -->
     <section title="Security Management (FMT)" id="m-fmt">
         The TOE is not required to maintain a management interface for STIP functions that is separate from the
         management functions that the NDcPP requires. If some or all STIP functions are managed separately, 
@@ -4994,7 +5139,6 @@ legacy cipher suites. -->
             implemented.
           </note>
           <aactivity>
-            <!-- Note: original EA said "across all iterations", believe *interfaces* was meant here. -->
             <TSS>The evaluator shall examine the TSS to ensure it identifies the restrictions consistent with this
               requirement. For every claimed management function across all interfaces, the TSS must specify how the restriction is
               achieved and by whom. <h:p/></TSS>
@@ -5009,6 +5153,7 @@ legacy cipher suites. -->
             if the TOE has multiple interfaces that can be used to perform management functions.</Tests>
           </aactivity>
         </f-element>
+        <audit-event/>
       </f-component>
 	
       <f-component name="Specification of Management Functions" cc-id="fmt_smf.1" iteration="STIP" id="fmt-smf-1-stip">
@@ -5074,87 +5219,13 @@ legacy cipher suites. -->
             </Tests>
           </aactivity>
         </f-element>
+        <audit-event/>
       </f-component>
       
-      <f-component name="Restrictions on Security Roles" cc-id="fmt_smr.2" iteration="STIP" id="fmt-smr-2-stip">
-        <consistency-rationale>This SFR defines additional management roles that the TOE may define to enforce role separation, which is a security enhancement on the Base-PP's requirement that only
-        one management role is necessary.</consistency-rationale>
-        <f-element id="fmt-2e1-stip">
-          <title>
-            The TSF shall maintain the roles: [<h:i>
-            <h:ul>
-              <h:li>Security Administrator,</h:li>
-            </h:ul>
-            <selectables linebreak="yes">
-              <selectable>Auditor</selectable>
-              <selectable>CA Operations Staff</selectable>
-              <selectable>Account Manager</selectable>
-              <selectable>no other roles</selectable>
-            </selectables></h:i>].
-          </title>
-          <note role="application">This SFR is an iterated version of the FMT_SMR.2 SFR for the Base-PP. The purpose of this iteration is that the STIP functionality may be 
-            distributed across multiple administrative roles. If the TOE does not enforce role separation, the ST author selects "no other roles" to indicate that STIP functionality is managed
-            by the same Security Administrator role specified in the Base-PP.
-            <h:p/>
-            As is the case in the Base-PP, the TOE does not need its roles to have the same
-            names as those defined in this SFR. It is expected that the ST will
-            define the administrative roles and privileges defined by the TSF and map them to
-            the roles listed in this PP-Module.
-            <h:p/>
-            If “ability to configure local audit storage behavior” is selected in FMT_SMF.1/STIP, the
-            ‘Auditor’ role must be selected here; role separation is required for audit storage
-            functionality. </note>
-        </f-element>
-        <f-element id="fmt-2e2-stip">
-          <title>The TSF shall be able to associate users with roles.</title>
-        </f-element>
-        <f-element id="fmt-2e3-stip">
-            <title>
-              The TSF shall ensure that the conditions [<h:i>
-                <h:ul>
-                  <h:li>All roles shall be able to administer the TOE locally,</h:li>
-                  <h:li>All roles shall be able to administer the TOE remotely,</h:li>
-                </h:ul>
-                  <selectables linebreak="yes">
-                    <selectable>No identity is authorized to assume both an Account Manager role
-                      and any of the other roles in FMT_SMR.2.1/STIP</selectable>
-                    <selectable>No identity is authorized to assume both an Auditor role and any of
-                      the other roles in FMT_SMR.2.1/STIP</selectable>
-                    <selectable>No other conditions</selectable>
-                  </selectables></h:i>] are satisifed.
-            </title>
-          <note role="application">
-            
-            this SFR was originally from the Base-PP -->
-            This PP-Module refines the SFR defined in the Base-PP to include additional
-            administrative roles. As defined in FMT_MOF.1/STIP, the TSF is expected to provide
-            different privileges to the given roles.
-            <h:p/>
-            If the TSF supports an Auditor and/or Account Manager role, it is expected that
-            the relevant selections above will be made. It is the intent of this PP-Module that
-            if either or both of these roles are provided, their critical functionality is isolated
-            from any other roles (see FMT_MOF.1/STIP).
-          </note>
-          <!-- Note: new EAs because SFR wasn't previously iterated -->
-          <aactivity>
-            <TSS>The evaluator shall examine the TSS to verify that it identifies the management roles that the TOE maintains as well as any restrictions or limitations on the assignment of these roles 
-            (e.g. whether multiple roles can be assumed by the same user or if certain roles are mutually exclusive).<h:p/>
-            If the TOE supports multiple management roles, the evaluator shall verify that any differences in role enforcement between interfaces are discussed. For example, a TOE may have a local console that uses a separate administrative
-            account from a remote GUI, such that any user who is authorized to use the local console is a Security Administrator, while the remote GUI maintains its own separate role structure.<h:p/></TSS>
-            <Guidance>The evaluator shall examine the operational guidance to verify that it includes guidance on how to associate users with management roles. <h:p/></Guidance>
-            <Tests>
-              For each supported management interface, the evaluator shall follow the operational guidance to associate user accounts with the management roles that are supported on those interfaces. If there are any restrictions
-              on the assignment of management roles, such as the inability to assign two mutually exclusive roles to the same user, the evaluator shall attempt to violate these restrictions to verify that they are enforced.
-              <h:p/>
-              Testing of the actual functional limitations of the assigned management roles is addressed by FMT_MOF.1/STIP.
-            </Tests>
-          </aactivity>
-        </f-element>
-      </f-component>
 
       </section>  <!-- FMT -->
 
-	  <!-- 5.2.6 Protection of the TSF (FPT) -->
+	  <!-- Protection of the TSF (FPT) -->
       <section title="Protection of the TSF (FPT)" id="m-fpt">
 	 
         <f-component name="Failure with Preservation of Secure State" cc-id="fpt_fls.1" id="fpt-fls-1">
@@ -5198,6 +5269,10 @@ legacy cipher suites. -->
               </Tests>
             </aactivity>
           </f-element>
+          <audit-event>
+            <audit-event-descr>Indication of failures under this requirement</audit-event-descr>
+            <audit-event-info>Indication that the TSF has failed with the type of failure that occurred</audit-event-info>
+          </audit-event>
         </f-component>
         
         
@@ -5228,6 +5303,7 @@ legacy cipher suites. -->
                 prevents the export of all keys listed in the TSS.</Tests>
             </aactivity>
           </f-element>
+          <audit-event/>
         </f-component>
         
         <f-component name="TSF Key Protection" cc-id="fpt_kst_ext.2" id="fpt-kst-ext-2">
@@ -5272,6 +5348,14 @@ legacy cipher suites. -->
                 attempts fail.</Tests>
             </aactivity>
           </f-element>
+          <audit-event>
+            <audit-event-descr>All attempts to use the TOE's embedded CA's private signing key and 
+            <selectables>
+              <selectable><assignable>other secret and private keys</assignable></selectable>
+              <selectable>no other secret and private keys</selectable>
+            </selectables></audit-event-descr>
+            <audit-event-info>Identifier of user or process that attempted access</audit-event-info>
+          </audit-event>
         </f-component>
         
         <f-component name="Manual Trusted Recovery" cc-id="fpt_rcv.1" id="fpt-rcv-1">
@@ -5303,6 +5387,14 @@ legacy cipher suites. -->
                 performed in conjunction with FPT_FLS.1.</Tests>
             </aactivity>
           </f-element>
+          <audit-event>
+            <audit-event-descr>The fact that a failure or service discontinuity occurred</audit-event-descr>
+            <audit-event-info>N/A</audit-event-info>
+          </audit-event>
+          <audit-event>
+            <audit-event-descr>Resumption of regular operation</audit-event-descr>
+            <audit-event-info>TSF failure types that are available on recovery</audit-event-info>
+          </audit-event>
         </f-component>
    
       </section>   <!-- FPT -->
@@ -5548,9 +5640,9 @@ legacy cipher suites. -->
 	  
     <sel-sfrs>
       
-	    <section id="sb-audit-table" title="Auditable Events for Selection-Based SFRs">
+	    <section id="sb-audit-table" title="Auditable Events for Selection-based SFRs">
         	<audit-table table="sel-based" id="sel-based-audit-events">
-  	     		<h:br/><h:b><ctr ctr-type="Table" pre="Table " id="atref-sel-based">: Auditable Events for Selection-Based SFRs</ctr></h:b>
+  	     		<h:br/><h:b><ctr ctr-type="Table" pre="Table " id="atref-sel-based">: Auditable Events for Selection-based Requirements</ctr></h:b>
 	  	</audit-table>
 	    </section> 
       
@@ -5657,6 +5749,10 @@ legacy cipher suites. -->
               </Tests>
             </aactivity>
           </f-element>
+          <audit-event>
+            <audit-event-descr>Failure to generate CRL</audit-event-descr>
+            <audit-event-info>N/A</audit-event-info>
+          </audit-event>
         </f-component>
         
         <ext-comp-def fam-id="FDP_CSI_EXT" title="Certificate Status Information">
@@ -5785,6 +5881,7 @@ legacy cipher suites. -->
               </Tests>
             </aactivity>
           </f-element>
+        <audit-event/>
         </f-component>
         
         <ext-comp-def fam-id="FDP_OCSP_EXT" title="Online Certificate Status Protocol">
@@ -5877,6 +5974,10 @@ legacy cipher suites. -->
               </Tests>
             </aactivity>
           </f-element>
+          <audit-event>
+            <audit-event-descr>Failure to generate certificate status information</audit-event-descr>
+            <audit-event-info>N/A</audit-event-info>
+          </audit-event>
         </f-component>
         
         <ext-comp-def fam-id="FDP_OCSPS_EXT" title="Online Certificate Status Protocol Stapling">
@@ -5928,6 +6029,10 @@ legacy cipher suites. -->
                 FDP_OCSPS_EXT.1.2 is claimed are covered under the evaluation activities for FDP_OCSP_EXT.1.</no-tests>
             </aactivity>
           </f-element>
+          <audit-event>
+            <audit-event-descr>Failure to include certificate status information in TLS handshake message</audit-event-descr>
+            <audit-event-info>N/A</audit-event-info>
+          </audit-event>
         </f-component>
         
       </section>
@@ -6086,6 +6191,10 @@ legacy cipher suites. -->
               </Tests>
             </aactivity>
           </f-element>
+          <audit-event>
+            <audit-event-descr>EST requests</audit-event-descr>
+            <audit-event-info>N/A</audit-event-info>
+          </audit-event>
         </f-component>
         
       </section>
@@ -6125,6 +6234,7 @@ legacy cipher suites. -->
                 verify that the notice and consent message is displayed.</Tests>
             </aactivity>
           </f-element>
+          <audit-event/>
         </f-component>
         
       </section>
@@ -6247,6 +6357,17 @@ legacy cipher suites. -->
               </Tests>
             </aactivity>
           </f-element>
+          <audit-event>
+            <audit-event-descr>Mutual authentication authorized</audit-event-descr>
+            <audit-event-info><selectables>
+              <selectable>client certificate value</selectable>
+              <selectable>client certificate object identifier</selectable>
+            </selectables></audit-event-info>
+          </audit-event>
+          <audit-event>
+            <audit-event-descr>Mutual authentication not authorized</audit-event-descr>
+            <audit-event-info>N/A</audit-event-info>
+          </audit-event>
         </f-component>
         
         <f-component name="Thru-Traffic TLS Inspection Server Protocol with Mutual Authentication of Monitored Clients" cc-id="fcs_ttts_ext.3" id="fcs-ttts-ext-3">
@@ -6357,6 +6478,14 @@ legacy cipher suites. -->
               </Tests>
             </aactivity>
           </f-element>
+          <audit-event>
+            <audit-event-descr>Mutual authentication required and valid client certificate received</audit-event-descr>
+            <audit-event-info>Client certificate</audit-event-info>
+          </audit-event>
+          <audit-event>
+            <audit-event-descr>Mutual authentication not authorized</audit-event-descr>
+            <audit-event-info>N/A</audit-event-info>
+          </audit-event>
         </f-component>
         
         <!-- Note: come back to this one to make sure it looks ok -->
@@ -6708,6 +6837,7 @@ legacy cipher suites. -->
               </Tests>
             </aactivity>
           </f-element>
+          <audit-event/>
         </f-component>
         
         <f-component name="Certificate Issuance Rules for Client Certificates" cc-id="fdp_cer_ext.5" id="fdp-cer-ext-5">
@@ -6766,6 +6896,13 @@ legacy cipher suites. -->
               <Tests>The evaluator shall generate certificates that originate external to the TOE and verify that they are rejected.</Tests>
             </aactivity>
           </f-element>
+          <audit-event>
+            <audit-event-descr>Certificate generation</audit-event-descr>
+            <audit-event-info>Success: <selectables>
+              <selectable>certificate value</selectable>
+              <selectable>certificate object identifier</selectable>
+            </selectables></audit-event-info>
+          </audit-event>
         </f-component>
         
         <f-component name="Certificate Status Information for Client Certificates" cc-id="fdp_csi_ext.2" id="fdp-csi-ext-2">
@@ -6797,8 +6934,7 @@ legacy cipher suites. -->
           <f-element id="fdp-csi-ext-2e1">
             <title>The TSF shall generate certificate status information for issued client certificates whose format complies with
               <selectables>
-                <!-- Is X.509v2 correct or should it be v3? -->
-                <selectable>ITU-T Recommendation X.509v2 CRL</selectable>
+                <selectable>ITU-T Recommendation X.509 CRL</selectable>
                 <selectable>the OCSP standard as defined by RFC 6960</selectable>
               </selectables>.</title>
           </f-element>
@@ -6908,6 +7044,7 @@ legacy cipher suites. -->
               </Tests>
             </aactivity>
           </f-element>
+          <audit-event/>
         </f-component>
 
         <f-component name="Mutual Authentication Inspection Operation" cc-id="fdp_stip_ext.2" id="fdp-stip-ext-2">
@@ -7031,12 +7168,13 @@ legacy cipher suites. -->
               </Tests>
             </aactivity>
           </f-element>
+          <audit-event/>
         </f-component>
       
       </section>
       
       
-      <section title="Other Selection-Based SFRs" id="s-b5">
+      <section title="Other Selection-based SFRs" id="s-b5">
         
         <ext-comp-def fam-id="FAU_SCR_EXT" title="Certificate Repository Review">
           <fam-behavior>Components in this family define requirements for searching the contents of a certificate repository.
@@ -7303,6 +7441,7 @@ legacy cipher suites. -->
               </Tests>
             </aactivity>
           </f-element>
+          <audit-event/>
         </f-component>
         
         <f-component name="STIP Server-Side Support for Renegotiation" cc-id="fcs_ttts_ext.4" id="fcs-ttts-ext-4">
@@ -7347,6 +7486,7 @@ legacy cipher suites. -->
               </Tests>
             </aactivity>
           </f-element>
+        <audit-event/>
         </f-component>
         
       </section>
@@ -7356,12 +7496,12 @@ legacy cipher suites. -->
 
 	<!-- Appendix A.2: Objective Requirements -->
     <obj-sfrs>
-<!-- 
+
    	    <section id="sob-audit-table" title="Auditable Events for Objective SFRs">
-        	<audit-table table="objective">
-  	     		<h:br/><h:b><ctr ctr-type="Table" pre="Table " id="atref-objective">: Auditable Events for Objective SFRs</ctr></h:b>
+   	      <audit-table table="objective" id="objective-audit-events">
+  	     		<h:br/><h:b><ctr ctr-type="Table" pre="Table " id="atref-obj">: Auditable Events for Objective SFRs</ctr></h:b>
 	  	</audit-table>
-	    </section> -->
+	    </section>
       
       <section title="Identification and Authentication (FIA)" id="obj-fia">
         
@@ -7399,6 +7539,7 @@ legacy cipher suites. -->
                 it matches the TLS-unique value established under the TLS session.</Tests>
             </aactivity>
           </f-element>
+          <audit-event/>
         </f-component>
         
       </section>  
