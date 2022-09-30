@@ -1469,7 +1469,7 @@ expected to enforce.<h:p/>
                   <h:li><h:i>additional information defined in applicable auditable events in Auditable Events for Selection-based Requirements table</h:i>].</h:li>
                 [<h:i>additional information defined in Auditable Events table for each auditable event, where applicable</h:i>].</h:li>
               </h:ol>
-              
+              <!-- 
               <h:table>
                 <h:tr class="header"><h:td>Requirement</h:td><h:td>Auditable Events</h:td><h:td>Additional Audit Record Contents</h:td></h:tr>
                 <h:tr><h:td>FAU_GCR_EXT.1</h:td><h:td colspan="2">None</h:td></h:tr>
@@ -1549,6 +1549,7 @@ expected to enforce.<h:p/>
                 <h:tr><h:td>FTA_TAB.1/TLS (selection-based)</h:td><h:td colspan="2">None</h:td></h:tr>
               </h:table><h:br/>
               <h:b><ctr ctr-type="Table" id="manaudit">: Auditable Events</ctr></h:b>
+              -->
             </title>
             <note role="application">The ST author only needs to include the auditable events that correspond to the SFRs claimed in the ST.
               The TOE is not required to generate auditable events for selection-based or optional SFRs that it does not claim.</note>
@@ -1624,16 +1625,16 @@ expected to enforce.<h:p/>
                 The evaluator shall perform the following tests. The tests are conditional on where the audit data are
                 being stored.
                 <h:p/>
-                Test 1 demonstrates the capability of the TOE to react to an indication that the repository is full; this is
+                <xref to="fau-stg-4-local"/> demonstrates the capability of the TOE to react to an indication that the repository is full; this is
                 always applicable if the audit data are stored locally. If the TOE has a means to detect that a remote audit
-                repository is full, then this test will be run for those types of TOEs as well. Test 2 is only executed in cases
+                repository is full, then this test will be run for those types of TOEs as well. <xref to="fau-stg-4-remote"/> is only executed in cases
                 where an external repository is supported, and tests the ability of the TOE to detect when the connection
                 to the repository becomes unavailable:
                 <testlist>
-                  <test>(conditional, the audit trail is local to the TOE) The evaluator shall cause the audit trail to become full, verify that the TSF
+                  <test id="fau-stg-4-local">(conditional, the audit trail is local to the TOE) The evaluator shall cause the audit trail to become full, verify that the TSF
                     behaves as documented in the TSS, and verify that a privileged user can perform the
                     documented remedial steps.</test>
-                  <test>(conditional, the audit trail is stored in the Operational Environment) The evaluator shall cause the audit trail to become unavailable, verify that
+                  <test id="fau-stg-4-remote">(conditional, the audit trail is stored in the Operational Environment) The evaluator shall cause the audit trail to become unavailable, verify that
                     the TSF behaves as documented in the TSS, and verify that a privileged user can perform the
                     documented remedial steps.
                   </test>
