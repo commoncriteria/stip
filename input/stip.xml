@@ -1305,23 +1305,12 @@ expected to enforce.<h:p/>
 
 	<!-- 5.2 TOE Security Functional Requirements -->
     <man-sfrs>
-<!--		The following section describes the SFRs that must be satisfied by any TOE that claims conformance to
-		this PP-Module. These SFRs must be claimed regardless of which PP-Configuration is used to define the TOE.
--->
-	    <!-- This section does not appear in the manually generated v2.3 doc for some reason -->
-      <!--
- 	    <section id="ss-audit-table" title="Auditable Events for Mandatory SFRs">
-        	<audit-table table="mandatory">
-  	     		<h:br/><h:b><ctr ctr-type="Table" pre="Table " id="atref-mandatory">: Auditable Events for Mandatory SFRs</ctr></h:b>
-	  	</audit-table>
-	    </section>
--->
 
       <sec:Auditable_Events_for_Mandatory_SFRs>
         <h:p>
 
         </h:p>
-        <audit-table table="mandatory" id="t-audit-mandatory"/>
+        <audit-table table="mandatory" id="mandatory-audit-events"/>
         
       </sec:Auditable_Events_for_Mandatory_SFRs>
 
@@ -5393,6 +5382,12 @@ legacy cipher suites. -->
 	  <!-- A.1: Strictly Optional Requirements -->
     <!-- Note: is it ok to organize these as they were done in STIP 1.0 or should they be broken down by functional class (the order is actually the same either way) -->
     <opt-sfrs>
+      <section id="opt-audit-table" title="Auditable Events for Optional SFRs">
+        <audit-table table="optional" id="optional-audit-events">
+          <h:br/><h:b><ctr ctr-type="Table" pre="Table " id="atref-opt">: Auditable Events for Optional SFRs</ctr></h:b>
+        </audit-table>
+      </section> 
+      
       <section title="Persistent Local Audit Storage" id="opt-fau">
         The SFRs in this section are optional. They should be claimed if the TOE provides local audit storage (i.e.,
         if FAU_STG.1 is claimed in the base NDcPP) and that local audit storage is intended to provide a persistent,
@@ -5421,6 +5416,7 @@ legacy cipher suites. -->
                 generated audit records demonstrates that these records are reviewable.</no-tests>
             </aactivity>
           </f-element>
+          <audit-event/>
         </f-component>
         
         <f-component name="Selectable Audit Review" cc-id="fau_sar.3" id="fau-sar-3">
@@ -5462,6 +5458,7 @@ legacy cipher suites. -->
               </Tests>
             </aactivity>
           </f-element>
+          <audit-event/>
         </f-component>
         
       </section>
@@ -5538,6 +5535,7 @@ legacy cipher suites. -->
                 a second request from the monitored client, and observe that the pinning alert response is observed.</Tests>
             </aactivity>
           </f-element>
+          <audit-event/>
         </f-component>
       </section>
     </opt-sfrs>
@@ -5549,12 +5547,12 @@ legacy cipher suites. -->
 		made, then additional requirements below will need to be included.  -->
 	  
     <sel-sfrs>
-      <!-- 
-	    <section id="sb-audit-table" title="Auditable Events for Selection-based SFRs">
-        	<audit-table table="sel-based">
-  	     		<h:br/><h:b><ctr ctr-type="Table" pre="Table " id="atref-sel-based">: Auditable Events for Selection-based SFRs</ctr></h:b>
+      
+	    <section id="sb-audit-table" title="Auditable Events for Selection-Based SFRs">
+        	<audit-table table="sel-based" id="sel-based-audit-events">
+  	     		<h:br/><h:b><ctr ctr-type="Table" pre="Table " id="atref-sel-based">: Auditable Events for Selection-Based SFRs</ctr></h:b>
 	  	</audit-table>
-	    </section> -->
+	    </section> 
       
       <!-- Note: STIP 1.0 has the sel-based requirements organized by category rather than the usual functional class grouping. Is it ok to keep this as-is (as we've done here) 
         or should it be changed to match how PPs/Modules are more typically done? -->
