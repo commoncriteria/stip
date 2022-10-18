@@ -5,7 +5,8 @@
 	type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
 
 <Module boilerplate="yes" 
-	target-product="SSL/TLS Inspection Proxy" 
+	target-product="SSL/TLS Inspection Proxy"
+	target-products="SSL/TLS Inspection Proxies" 
 	name="SSL/TLS Inspection Proxy" 
 	xmlns="https://niap-ccevs.org/cc/v1" 
 	xmlns:sec="https://niap-ccevs.org/cc/v1/section"
@@ -222,20 +223,23 @@
     <!-- 1.4 Use Cases -->
     <!-- note: this section formatted a little different from its depiction in 1.0 because of schema constraints -->
     <sec:Use_Cases>
+      <h:p>
       Requirements in this PP-Module are designed to address the security problem in the following use cases.
       The description of these use cases provide instructions for how the TOE and its OE should be made to
       support the functionality required by this PP-Module.
-      
-      <h:p/>
+      </h:p><h:p>
       This PP-Module permits the inspection of mutually-authenticated TLS sessions between monitored clients
       and requested servers via exception processing. However, as a best practice, it is recommended instead
       that this behavior be handled as part of the TLS Inspection Bypass and/or TLS Session Blocking
       functionality. If the TOE provides inspection processing for mutually authenticated traffic, the ST must
       claim these optional SFRs.
-      <h:p/>
+      </h:p><h:p>
       This PP-Module does not specify routing policies for non-TLS traffic and exception processing should not
-      be used to address functionality otherwise included in the collaborative Protection Profile for Stateful
+      be used to address functionality otherwise included in the collaborative Protection Profile Module for Stateful
       Traffic Filter Firewalls.
+      </h:p><h:p>
+        The TOE functions as a TLS forward proxy for the following operations:
+      </h:p>
       
       <usecases>
         <usecase id="usecase1" title="Inspection Operation">
@@ -434,11 +438,13 @@ expected to enforce.<h:p/>
         </threat>
 
         <threat name="T.CREDENTIALS">
-          <description> In addition to device credentials used in protected communications, the device maintains a trusted
-            certification authority signing key. Any disclosure or unauthorized manipulation of the signing key can
-            result in unintended certificates, signed executable, or signed data that would be trusted by
-            monitored clients. Any modification of the signing key can result in denial of service to inspection
-            capabilities, or to the monitored clients.
+          <description> 
+            In addition to device credentials used in protected communications, 
+            the device maintains a trusted certification authority signing key. 
+            A malicious user or flawed TOE implementation may cause the disclosure or unauthorized manipulation of the signing key 
+            which can result in unintended certificates, signed executables, 
+            or signed data that would be trusted by monitored clients. 
+            Any modification of the signing key can result in denial of service to inspection capabilities, or to the monitored clients.
           </description>
           <objective-refer ref="O.CERTIFICATES">
             <rationale>
@@ -493,6 +499,11 @@ expected to enforce.<h:p/>
               improper disclosure.
             </rationale>
           </objective-refer>
+            <objective-refer ref="OE.TRUSTED_ADMIN">
+              <rationale>
+                Granting TOE access only to trusted administrators mitigates the threat of careless or malicious manipulation of the TSF.
+              </rationale>
+            </objective-refer>
         </threat>
         
         <threat name="T.DEVICE_FAILURE">
@@ -533,7 +544,8 @@ expected to enforce.<h:p/>
         
         <threat name="T.UNAUTHORIZED_DISCLOSURE">
           <description>In addition to general threats to network devices, the TOE controls access to sensitive data that is
-            intended by the monitored client to be encrypted. 
+            intended by the monitored client to be encrypted. A malicious user or flawed TOE implementation could cause data to be transmitted 
+            in cleartext for which a user has a reasonable expectation of confidentiality.
           </description>
           <objective-refer ref="O.PROTECTED_COMMUNICATIONS">
             <rationale>
@@ -580,6 +592,7 @@ expected to enforce.<h:p/>
               ensure that unauthorized data is not subject to transmission through the TOE.
             </rationale>
           </objective-refer>
+          <!-- 
           <objective-refer ref="OE.RESIDUAL_INFORMATION">
             <rationale>
               Sensitive information residing
@@ -587,7 +600,7 @@ expected to enforce.<h:p/>
               environment, such as keys and
               decrypted data, are unavailable.
             </rationale>
-          </objective-refer>
+          </objective-refer> -->
         </threat>
         
       </threats>
@@ -609,7 +622,7 @@ expected to enforce.<h:p/>
       A.TRUSTED_ADMINISTRATOR is still operative, but the functional claims of this PP-Module offer a limited ability to protect against malicious administrators, which is not within the scope of the original assumption.
       <h:p/>
       A.RESIDUAL_INFORMATION is still operative, but the residual information is expanded to include information relevant to STIP operation (e.g. decrypted SSL/TLS payload, ephemeral keys).
-      
+      <h:br/><h:br/>
       <assumptions/>
     </sec:Assumptions>
     
@@ -622,7 +635,9 @@ expected to enforce.<h:p/>
 		  <OSP name="P.AUTHORIZATION_TO_INSPECT">
 		    <description>
 		      The authority to inspect client traffic may be limited by law, regulation, or policies based on the
-		      monitored client, requested server, or nature of the traffic.
+		      monitored client, requested server, or nature of the traffic. 
+		      The TOE may be required to additionally provide a consent to monitor notice for users whose traffic is inspected by the device, 
+		      if the monitored client might not provide such a banner.
 		    </description>
 		    <objective-refer ref="O.DISPLAY_BANNER">
 		      <rationale>The TOEs advisory warning includes
@@ -634,7 +649,7 @@ expected to enforce.<h:p/>
 		        protected, alleviating concerns
 		        about inspection.</rationale>
 		    </objective-refer>
-		    <objective-refer ref="O.TOE_ADMINISTARTION">
+		    <objective-refer ref="O.TOE_ADMINISTRATION">
 		      <rationale>Administrator roles provide
 		        separation of activities and ensure
 		        inspection is authorized and
@@ -747,13 +762,13 @@ expected to enforce.<h:p/>
         <SO name="O.INTEGRITY_PROTECTION">
           <description>The TOE will provide appropriate integrity protection for TSF data and software and any user data
             stored by the TOE.<h:p/>
-            Addressed by: FTA_TST_EXT.1 (from Base-PP), FPT_FLS.1
+            Addressed by: FPT_FLS.1
           </description>
           
-          <addressed-by>FTA_TAB.1 (from Base-PP</addressed-by>
-          <rationale>This SFR supports the objective by applying a warning banner to any interface used by an administrator to access the TOE.</rationale>
-          <addressed-by>FTA_TAB.1/TLS (selection-based)</addressed-by>
-          <rationale>This SFR supports the objective by optionally applying a warning banner to a user whose network activity passes through the TOE for decryption and potential inspection.</rationale>
+          
+          <addressed-by>FPT_FLS.1</addressed-by>
+          <rationale>This SFR supports the objective by requiring the TSF to take some action to preserve a 
+            secure state in the response to a loss of integrity or other potential failure.</rationale>
         </SO>
         
         
@@ -783,13 +798,17 @@ expected to enforce.<h:p/>
             distributed TOE, and authorized IT entities. The TOE will protect data assets when they are being
             transmitted to and from the TOE, including through intervening untrusted components.
             <h:p/>
-            Addressed by: FCS_CKM.4 (from Base-PP), FTP_ITC.1 (refined from Base-PP), 
+            Addressed by: FCS_CKM.4 (from Base-PP), FCS_TLSC_EXT.1 (from Base-PP), FCS_TLSC_EXT.2 (from Base-PP), FTP_ITC.1 (refined from Base-PP), 
             FCS_COP.1/STIP, FCS_TTTC_EXT.1, FCS_TTTC_EXT.5, FCS_TTTS_EXT.1, FDP_PRC_EXT.1, FDP_STIP_EXT.1, FDP_TEP_EXT.1,
             FCS_TTTC_EXT.3 (selection-based), FCS_TTTC_EXT.4 (selection-based), FCS_TTTS_EXT.3
             (selection-based), FCS_TTTS_EXT.4 (selection-based), FDP_STIP_EXT.2 (selection-based)
           </description>
           <addressed-by>FCS_CKM.4 (from Base-PP)</addressed-by>
           <rationale>This SFR supports the objective by ensuring secret and private key data is disposed of immediately after use to prevent unauthorized disclosure of keys.</rationale>
+          <addressed-by>FCS_TLSC_EXT.1 (from Base-PP)</addressed-by>
+          <rationale></rationale>
+          <addressed-by>FCS_TLSC_EXT.2 (from Base-PP</addressed-by>
+          <rationale></rationale>
           <addressed-by>FTP_ITC.1 (refined from Base-PP)</addressed-by>
           <rationale>This SFR supports the objective by defining the TOE interfaces that require protected communications as well as the methods of protection applied to these interfaces.</rationale>
           <addressed-by>FCS_COP.1/STIP</addressed-by>
@@ -905,18 +924,25 @@ expected to enforce.<h:p/>
     <!-- 4.2 Security Objectives for the Operational Environment -->
     <section title="Security Objectives for the Operational Environment" id="SecurityObjectivesTOEorEnvironment">
       <!-- Note: updated this section to be more in line with how these are done now. We don't want to use refinements on OE objectives because then multiple simultaneous PP-Module claims could cause mutually exclusive changes. -->
+      <!-- 
+      <h:p>
       The Operational Environment of the TOE implements technical and procedural measures to assist the
       TOE in correctly providing its security functionality (which is defined by the security objectives for the
       TOE). This section defines the security objectives that are to be addressed by the IT domain or by nontechnical or procedural means. As indicated above, if requirements supporting an objective on the TOE
       (in the previous table) are implemented in whole or in part by the platform, the ST should indicate this
       by an entry in this table with that objective.
-      <h:p/>
+      </h:p>
+      -->
+      <h:p>
       All security objectives for the operational environment of the Base-PP also apply to this PP-Module.
-      <h:p/>
+      </h:p><h:p>
       OE.NO_THRU_TRAFFIC_PROTECTION is still operative, but only for the interfaces in the TOE that are defined by the Base-PP and not the PP-Module.
-      <h:p/>
+      </h:p><h:p>
       OE.RESIDUAL_INFORMATION is still operative, but the residual information is expanded to include information relevant to STIP operation (e.g. decrypted SSL/TLS payload, ephemeral keys).
-
+      </h:p><h:p>
+      OE.TRUSTED_ADMIN is still operative, but this PP-Module also allows for the enforcement of administrative role separation, which can be used to limit the impact of
+      malicious use of the TOE.
+      </h:p>
       <SOEs>
         <SOE name="OE.AUDIT">
           <description>The operational environment includes an audit server with adequate storage to retain the audit
@@ -1135,9 +1161,9 @@ expected to enforce.<h:p/>
             <consistency-rationale>Other than defining an additional selection-based trigger, there is no modification to this SFR.</consistency-rationale>
             <f-element id="nd-fia-x509-ext-1e1">
               <title>
-                This PP-Module does not modify this SFR as it is defined in the Base-PP. This SFR is selection-based in the Base-PP for its potential use in trusted communications.
-                This PP-Module also defines PKCS#10 as a supported method of obtaining certificates for the TOE, which requires the TOE to perform validation of the certificate response.
-                This SFR can therefore also be triggered if the TOE claims support for PKCS#10 in FIA_ENR_EXT.1.
+                This SFR is selection-based in the Base-PP but is mandatory when this PP-Module is claimed. FIA_ENR_EXT.1 requires this PP-Module to generate certificate requests
+                using either PKCS#10 or Enrollment over Secure Transport (EST). If PKCS#10 is claimed, the TSF must be able to apply this SFR to the certificate repsonse signed
+                by an external CA. If EST is claimed, the TSF must be able to apply this SFR to the X.509 certificate presented by an EST server.
               </title>
               <!-- Note: changed up application note to make it more clear and accurate, is this ok -->
               <note role="Application">
@@ -1264,6 +1290,7 @@ expected to enforce.<h:p/>
                 to provide a trusted communication channel between itself and authorized IT
                 entities supporting the following capabilities: audit server, <h:b>TLS session proxying</h:b>, <selectables>
                   <selectable>authentication server</selectable>
+                  <selectable><h:b>Enrollment over Secure Transport</h:b></selectable>
                   <selectable><assignable>other capabilities</assignable></selectable>
                   <selectable>no other capabilities</selectable>
                 </selectables> 
@@ -1272,8 +1299,9 @@ expected to enforce.<h:p/>
                 protection of the channel data from disclosure and detection of modification of the channel
                 data.
               </title>
-              <note role="Application">The TLS functionality used to impliment TLS session proxying is defined in this PP-Module under the FCS_TTTC_EXT and FCS_TTTS_EXT requirements.
-              For other potential TLS uses (e.g. audit server communications), the relevant SFRs from the Base-PP would be used.</note>
+              <note role="Application">The TLS functionality used to implement TLS session proxying is defined in this PP-Module under the FCS_TTTC_EXT and FCS_TTTS_EXT requirements.
+              For other potential TLS uses (e.g. audit server communications), the relevant SFRs from the Base-PP would be used. Support for EST is also added
+              since the selection-based SFR FIA_ESTC_EXT.1 requires the implementation of TLE client communications if claimed.</note>
             </f-element>
               <f-element id="nd-ftp-itc-1e2">
                 <title>
@@ -1594,8 +1622,9 @@ expected to enforce.<h:p/>
           <dependencies></dependencies>
           <f-element id="fau-stg-4e1">
             <title>
-              The TSF shall [<h:i>prevent audited events, except those taken by the <h:b><assignable>
-                Security Administrator, Auditor</assignable></h:b></h:i>] and <assignable>other actions to be taken in
+              The TSF shall [<h:i>prevent audited events, except those taken by the <h:b><selectables>
+                <selectable>Security Administrator</selectable>
+                <selectable>Auditor</selectable></selectables></h:b></h:i>] and <assignable>other actions to be taken in
                   case of audit storage failure</assignable> if the audit trail <h:b>cannot be written to</h:b>.
             </title>
             <note role="application">
@@ -4357,12 +4386,12 @@ legacy cipher suites. -->
                 <selectable>no other abstractions</selectable>
               </selectables> with the
               allowed TLS version or versions, TLS cipher suites (including TLS key exchange
-              algorithms and key sizes), the supported groups per FCS_TTTC_EXT.5.1, and <h:b><selectables>
+              algorithms and key sizes), the supported groups per FCS_TTTC_EXT.5.1, and <selectables>
                 <selectable>mutual authentication block-bypass</selectable>
                 <selectable>requested server certificate revocation status unavailable</selectable>
                 <selectable>critical extension in a certificate unrecognized</selectable>
                 <selectable>nothing else</selectable>
-              </selectables></h:b> that shall be used when performing the SSL/TLS Inspection Proxy
+              </selectables> that shall be used when performing the SSL/TLS Inspection Proxy
               operations.</title>
             <ext-comp-def-title>
               <title>The TSF shall be able to associate a monitored client, requested server, and
@@ -4512,7 +4541,7 @@ legacy cipher suites. -->
               a TLS encrypted data flow established via a bypass operation</h:li>
               <h:li>The TSF shall terminate a TLS session thread if it receives a fatal TLS error
               message from the monitored client</h:li>
-              <h:li>The TSF shall attempt to <h:b>
+              <h:li>The TSF shall attempt to 
                 <selectables>
                   <selectable>resume the session</selectable>
                   <selectable>renegotiate the session</selectable>
@@ -4523,7 +4552,7 @@ legacy cipher suites. -->
                     </selectables>
                   </selectable>
                 </selectables>
-              </h:b> if it receives a fatal TLS error
+               if it receives a fatal TLS error
               message on the TLS session to the requested server</h:li>
               <h:li>The TSF shall terminate a TLS session thread established via the inspect
               operation, and terminate a TLS encrypted data flow established by the
@@ -6572,6 +6601,7 @@ legacy cipher suites. -->
                 <h:li>A subject field containing a null Name (e.g., a sequence of zero relative
                   distinguished names) is accompanied by a populated critical
                   subjectAltName extension.</h:li>
+                <h:li>The subjectKeyIdentifier extension is populated with a value unique for each public key contained in a certificate issued by the TSF. </h:li>
                 <h:li>The authorityKeyIdentifier extension in any certificate issued by the TOE
                   must be populated and must be the same as the subjectKeyIdentifier
                   extension contained in the TOE’s embedded CA’s signing certificate.</h:li>
@@ -6633,9 +6663,10 @@ legacy cipher suites. -->
                   <h:li>A subject field containing a null Name (e.g., a sequence of zero relative
                     distinguished names) is accompanied by a populated critical
                     subjectAltName extension.</h:li>
+                  <h:li>The subjectKeyIdentifier extension is populated with a value unique for each public key contained in a certificate issued by the TSF. </h:li>
                   <h:li>The authorityKeyIdentifier extension in any certificate issued by the TOE
                     must be populated and must be the same as the subjectKeyIdentifier
-                    extension contained in the TOE’s embedded CA’s signing certificate</h:li>
+                    extension contained in the TOE’s embedded CA’s signing certificate.</h:li>
                   <h:li>Populated keyUsage and extendedKeyUsage fields in the same certificate
                     shall contain consistent values reflecting exclusive TLS server use as
                     follows:
@@ -7570,6 +7601,7 @@ legacy cipher suites. -->
 <!-- Appendix D: Implicity Satisfied Requirements -->
 <appendix title="Implicitly Satisfied Requirements" id="satisfiedreqs">
 	<!-- Boilerplate goes here -->
+  <!-- 
 <h:p>
 This appendix lists requirements that should be considered satisfied by products successfully evaluated
 	against this PP. However, these requirements are not featured explicitly as SFRs and should not be
@@ -7582,7 +7614,7 @@ This appendix lists requirements that should be considered satisfied by products
 	controls. Evaluation against the PP-Module provides evidence that these controls are present and have
 	been evaluated.
 </h:p>
-	
+	-->
 	
 	<h:b><ctr ctr-type="Table" pre="Table " id="imp-sat-reqs-table">: Implicitly Satisfied Requirements</ctr></h:b>
     <h:table>	
@@ -7595,7 +7627,6 @@ This appendix lists requirements that should be considered satisfied by products
 	</h:td>
 	</h:tr>
     </h:table>
-    -->
   </appendix>	
 	
 <!-- Appendix E: Entropy Documentation and Assessment -->
