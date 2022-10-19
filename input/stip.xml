@@ -1299,9 +1299,12 @@ expected to enforce.<h:p/>
                 protection of the channel data from disclosure and detection of modification of the channel
                 data.
               </title>
-              <note role="Application">The TLS functionality used to implement TLS session proxying is defined in this PP-Module under the FCS_TTTC_EXT and FCS_TTTS_EXT requirements.
-              For other potential TLS uses (e.g. audit server communications), the relevant SFRs from the Base-PP would be used. Support for EST is also added
-              since the selection-based SFR FIA_ESTC_EXT.1 requires the implementation of TLE client communications if claimed.</note>
+              <note role="Application">
+                This SFR is modified from its definition in the Base-PP by specifying that a conformant TOE will always implement TLS trusted channels at minimum, due
+                to the Module's required functionality for SSL/TLS session proxying. EST is also specified as a selectable use of TLS because 
+                this interface is defined in the PP-Module as selection-based functionality.
+                The TLS functionality used to implement SSL/TLS session proxying is defined in this PP-Module under the FCS_TTTC_EXT and FCS_TTTS_EXT requirements.
+              For other potential TLS uses (e.g. EST, audit server communications), the relevant SFRs from the Base-PP would be used.</note>
             </f-element>
               <f-element id="nd-ftp-itc-1e2">
                 <title>
@@ -1956,7 +1959,7 @@ expected to enforce.<h:p/>
             <title>
               The TSF shall implement [<h:i>TLS 1.2 (RFC 5246), TLS 1.0 (RFC 2246), and <selectables>
                 <selectable>TLS 1.1 (RFC 4346)</selectable>
-                <selectable>no other TLS versions</selectable>
+                <selectable>no other SSL or TLS versions</selectable>
               </selectables></h:i>] as a client to the requested server that
               supports only the following cipher suites: [<h:i><h:ul>
                 <h:li>TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 as defined in RFC 5289</h:li>
@@ -2589,7 +2592,7 @@ legacy cipher suites. -->
             <title>
               The TSF shall implement [<h:i>TLS 1.2 (RFC 5246), TLS 1.0 (RFC 2246), and <selectables>
                 <selectable>TLS 1.1 (RFC 4346)</selectable>
-                <selectable>no other TLS versions</selectable>
+                <selectable>no other SSL or TLS versions</selectable>
               </selectables></h:i>] as a server to the monitored client that
               supports only the following cipher suites: [<h:i><h:ul>
                 <h:li>TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 as defined in RFC 5289</h:li>
@@ -3797,8 +3800,10 @@ legacy cipher suites. -->
               or implicitly via the use of time-out mechanisms. 
             </note>
             <aactivity>
-              <TSS>The evaluator shall examine the TSS to validate that internal routing functions or controls associated with
-                the Plaintext Processing Policy are described.<h:p/></TSS>
+              <TSS><h:p>The evaluator shall examine the TSS to validate that internal routing functions or controls associated with
+                the Plaintext Processing Policy are described.</h:p><h:p>
+                The evaluator shall examine the TSS to ensure that all events that initiate a transition to the block operation based on internal routing function
+                indicators are described.</h:p></TSS>
               <Guidance>The evaluator shall inspect the operational guidance documents and ensure that instructions for any
                 configurable features of the Plaintext Processing Policy function are provided.<h:p/></Guidance>
               <Tests>The evaluator shall perform the following tests:
@@ -7310,7 +7315,7 @@ legacy cipher suites. -->
                 all certificates matching the search criteria are returned, that all returned certificates match the criteria,
                 and that the object identifier for each matched item is returned. The evaluator shall confirm that the
                 object identifier returned matches the audit events associated with generation of the certificates in
-                accordance with FAU_GEN.1.
+                accordance with FAU_GEN.1/STIP.
               </Tests>
             </aactivity>
           </f-element>
