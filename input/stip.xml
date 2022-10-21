@@ -806,9 +806,9 @@ expected to enforce.<h:p/>
           <addressed-by>FCS_CKM.4 (from Base-PP)</addressed-by>
           <rationale>This SFR supports the objective by ensuring secret and private key data is disposed of immediately after use to prevent unauthorized disclosure of keys.</rationale>
           <addressed-by>FCS_TLSC_EXT.1 (from Base-PP)</addressed-by>
-          <rationale></rationale>
+          <rationale>This SFR supports the objective by defining the TLS trusted channel used for EST if the TOE supports that functionality.</rationale>
           <addressed-by>FCS_TLSC_EXT.2 (from Base-PP</addressed-by>
-          <rationale></rationale>
+          <rationale>This SFR supports the objective by defining support for mutually-authenticated TLS, which the TOE may optionally support for EST.</rationale>
           <addressed-by>FTP_ITC.1 (refined from Base-PP)</addressed-by>
           <rationale>This SFR supports the objective by defining the TOE interfaces that require protected communications as well as the methods of protection applied to these interfaces.</rationale>
           <addressed-by>FCS_COP.1/STIP</addressed-by>
@@ -1158,7 +1158,8 @@ expected to enforce.<h:p/>
         <section title="Identification and Authentication (FIA)" id="nd-m-fia">
           
           <f-component cc-id="fia_x509_ext.1" iteration="Rev" id="nd-fia-x509-ext-1" name="X.509 Certificate Validation">
-            <consistency-rationale>Other than defining an additional selection-based trigger, there is no modification to this SFR.</consistency-rationale>
+            <consistency-rationale>There is no modification to this SFR, but it is mandatory for a TOE that conforms to this PP-Module because
+              the certificate enrollment process always requires the TSF to validate a presented certificate.</consistency-rationale>
             <f-element id="nd-fia-x509-ext-1e1">
               <title>
                 This SFR is selection-based in the Base-PP but is mandatory when this PP-Module is claimed. FIA_ENR_EXT.1 requires this PP-Module to generate certificate requests
