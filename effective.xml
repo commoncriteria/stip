@@ -6065,7 +6065,7 @@ legacy cipher suites. -->
               status is provided via OCSP stapling contained within TLS Server certificate status
               message(s).</note>
             <aactivity>
-              <no-tests>For any selection, evaluation activities are included in the TSS, guidance portions, and Tests <xref to="unrevoked-cert"/> and <xref to="revoked-cert"/> within
+              <no-tests>For any selection, evaluation activities are included in the TSS, guidance portions, and <xref to="unrevoked-cert"/> and <xref to="revoked-cert"/> within
                 the Test portion of the evaluation activities in FDP_CSI_EXT.1. Additional activities if the first option of
                 FDP_OCSPS_EXT.1.2 is claimed are covered under the evaluation activities for FDP_OCSP_EXT.1.</no-tests>
             </aactivity>
