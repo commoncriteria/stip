@@ -893,15 +893,14 @@ expected to enforce.<h:p/>
             responsibilities are separated across different roles in order to mitigate the impact of improper
             administrative activities or unauthorized administrative access.
             <h:p/>
-            Addressed by: FMT_SMR.2 (from Base-PP), FMT_MOF.1/STIP, FMT_SMF.1/STIP
+            Addressed by: FMT_MOF.1/STIP, FMT_SMF.1/STIP, FMT_SMR.2/STIP
           </description>
-          <addressed-by>FDP_SMR.2 (from Base-PP)</addressed-by>
-          <rationale>This SFR supports the objective by defining additional management roles that the TOE may support that are specific to STIP functionality.</rationale>
           <addressed-by>FMT_MOF.1/STIP</addressed-by>
           <rationale>This SFR supports the objective by defining the authorized use of the TOE by association between the supported management functions and the roles that are authorized to perform them.</rationale>
           <addressed-by>FMT_SMF.1/STIP</addressed-by>
           <rationale>This SFR supports the objective by defining the TOE's management functions that are specific to STIP functionality.</rationale>
-          
+          <addressed-by>FDP_SMR.2/STIP</addressed-by>
+          <rationale>This SFR supports the objective by defining additional management roles that the TOE may support that are specific to STIP functionality.</rationale>
         </SO>
         
         
@@ -1199,82 +1198,6 @@ expected to enforce.<h:p/>
           
         </section>
         
-        
-        <section title="Security Management (FMT)" id="nd-m-fmt">
-        <f-component name="Restrictions on Security Roles" cc-id="fmt_smr.2" id="fmt-smr-2">
-          <consistency-rationale>This SFR defines additional management roles that the TOE may define to enforce role separation, which is a security enhancement on the Base-PP's requirement that only
-            one management role is necessary.</consistency-rationale>
-          <f-element id="fmt-2e1-stip">
-            <title>
-              The TSF shall maintain the roles: [<h:i>
-                <h:ul>
-                  <h:li>Security Administrator <h:b>,</h:b></h:li>
-                </h:ul><h:b>
-                <selectables linebreak="yes">
-                  <selectable>Auditor</selectable>
-                  <selectable>CA Operations Staff</selectable>
-                  <selectable>Account Manager</selectable>
-                  <selectable>no other roles</selectable>
-                </selectables></h:b></h:i>].
-            </title>
-            <note role="application">This SFR is refined from the Base-PP to allow for the ability for the STIP functionality to be 
-              distributed across multiple administrative roles. If the TOE does not enforce role separation, the ST author selects "no other roles" to indicate that STIP functionality is managed
-              by the same Security Administrator role specified in the Base-PP.
-              <h:p/>
-              As is the case in the Base-PP, the TOE does not need its roles to have the same
-              names as those defined in this SFR. It is expected that the ST will
-              define the administrative roles and privileges defined by the TSF and map them to
-              the roles listed in this PP-Module.
-              <h:p/>
-              If “ability to configure local audit storage behavior” is selected in FMT_SMF.1/STIP, the
-              ‘Auditor’ role must be selected here; role separation is required for audit storage
-              functionality. </note>
-          </f-element>
-          <f-element id="fmt-2e2-stip">
-            <title>The TSF shall be able to associate users with roles.</title>
-          </f-element>
-          <f-element id="fmt-2e3-stip">
-            <title>
-              The TSF shall ensure that the conditions [<h:i>
-                <h:ul>
-                  <h:li>All roles shall be able to administer the TOE locally,</h:li>
-                  <h:li>All roles shall be able to administer the TOE remotely,</h:li>
-                </h:ul>
-                <h:b>
-                <selectables linebreak="yes">
-                  <selectable>No identity is authorized to assume both an Account Manager role
-                    and any of the other roles in FMT_SMR.2.1</selectable>
-                  <selectable>No identity is authorized to assume both an Auditor role and any of
-                    the other roles in FMT_SMR.2.1</selectable>
-                  <selectable>No other conditions</selectable>
-                </selectables></h:b></h:i>] are satisifed.
-            </title>
-            <note role="application">
-              This PP-Module refines the SFR defined in the Base-PP to include additional
-              administrative roles. As defined in FMT_MOF.1/STIP, the TSF is expected to provide
-              different privileges to the given roles.
-              <h:p/>
-              If the TSF supports an Auditor and/or Account Manager role, it is expected that
-              the relevant selections above will be made. It is the intent of this PP-Module that
-              if either or both of these roles are provided, their critical functionality is isolated
-              from any other roles (see FMT_MOF.1/STIP).
-            </note>
-            <aactivity>
-              <TSS>The evaluator shall examine the TSS to verify that it identifies the management roles that the TOE maintains as well as any restrictions or limitations on the assignment of these roles 
-                (e.g. whether multiple roles can be assumed by the same user or if certain roles are mutually exclusive).<h:p/>
-                If the TOE supports multiple management roles, the evaluator shall verify that any differences in role enforcement between interfaces are discussed. For example, a TOE may have a local console that uses a separate administrative
-                account from a remote GUI, such that any user who is authorized to use the local console is a Security Administrator, while the remote GUI maintains its own separate role structure.<h:p/></TSS>
-              <Guidance>The evaluator shall examine the operational guidance to verify that it includes guidance on how to associate users with management roles. <h:p/></Guidance>
-              <Tests>
-                For each supported management interface, the evaluator shall follow the operational guidance to associate user accounts with the management roles that are supported on those interfaces. If there are any restrictions
-                on the assignment of management roles, such as the inability to assign two mutually exclusive roles to the same user, the evaluator shall attempt to violate these restrictions to verify that they are enforced.
-                <h:p/>
-                Testing of the actual functional limitations of the assigned management roles is addressed by FMT_MOF.1/STIP.
-              </Tests>
-            </aactivity>
-          </f-element>
-        </f-component>
-        </section>
         
         <section title="Trusted Path/Channels (FTP)" id="nd-m-ftp">
           <f-component cc-id="ftp_itc.1" id="nd-ftp-itc-1" name="Inter-TSF Trusted Channel">
@@ -5097,28 +5020,28 @@ legacy cipher suites. -->
           <title>
             The TSF shall restrict the ability to [<h:i>modify the behaviour of</h:i>] the functions
             <assignable>functions defined in the Management Functions and Privileges table
-              that are claimed in FMT_SMF.1.1 and FMT_SMF.1.1/STIP</assignable> to <assignable>roles defined in the
+              that are claimed in FMT_SMF.1.1/STIP</assignable> to <assignable>roles defined in the
             Management Functions and Privileges table</assignable>.
             <h:p/>
-            <!-- Note: Was not sure if exact reproduction of Module 1.0 table was possible using management-function-set tags so recreated table manually, is this ok -->
             <h:table>
               <h:tr class="header"><h:td>Management Function</h:td><h:td>Security Administrator</h:td><h:td>Auditor</h:td><h:td>Account Manager</h:td><h:td>CA Operations Staff</h:td></h:tr>
-              <h:tr><h:td colspan="5">Base-PP Mandatory Management Functions (FMT_SMF.1 and FMT_SMF.1/STIP)</h:td></h:tr>
-              <h:tr><h:td>Ability to administer the TOE locally and remotely</h:td><h:td>M</h:td><h:td>CM</h:td><h:td>CM</h:td><h:td>CM</h:td></h:tr>
-              <h:tr><h:td>Ability to configure the access banner</h:td><h:td>M</h:td><h:td>-</h:td><h:td>O</h:td><h:td>O</h:td></h:tr>
-              <h:tr><h:td>Ability to update the TOE and to verify the updates</h:td><h:td>M</h:td><h:td>-</h:td><h:td>O</h:td><h:td>O</h:td></h:tr>
-              <h:tr><h:td>Ability to configure the authentication failure parameters for FIA_AFL.1</h:td><h:td>M</h:td><h:td>-</h:td><h:td>O</h:td><h:td>O</h:td></h:tr>
+             
+              <h:tr><h:td colspan="5">Base-PP Mandatory Management Functions (FMT_SMF.1/STIP)</h:td></h:tr>
+              
+              <!-- <h:tr><h:td>Ability to administer the TOE locally and remotely</h:td><h:td>M</h:td><h:td>CM</h:td><h:td>CM</h:td><h:td>CM</h:td></h:tr> -->
+              <!-- <h:tr><h:td>Ability to configure the access banner</h:td><h:td>M</h:td><h:td>-</h:td><h:td>O</h:td><h:td>O</h:td></h:tr> -->
+              <!-- <h:tr><h:td>Ability to update the TOE and to verify the updates</h:td><h:td>M</h:td><h:td>-</h:td><h:td>O</h:td><h:td>O</h:td></h:tr> -->
+              <!-- <h:tr><h:td>Ability to configure the authentication failure parameters for FIA_AFL.1</h:td><h:td>M</h:td><h:td>-</h:td><h:td>O</h:td><h:td>O</h:td></h:tr> -->
               <h:tr><h:td>Ability to manage user accounts</h:td><h:td>C</h:td><h:td>-</h:td><h:td>CM</h:td><h:td>-</h:td></h:tr>
               <h:tr><h:td>Ability to manage remote audit mechanism</h:td><h:td>M</h:td><h:td>CM</h:td><h:td>-</h:td><h:td>-</h:td></h:tr>
               <h:tr><h:td>Ability to perform on-demand integrity tests</h:td><h:td>O</h:td><h:td>O</h:td><h:td>O</h:td><h:td>O</h:td></h:tr>
-              <h:tr><h:td>Ability to import and remove X.509v3 certificates used for STIP into or from the Trust Anchor database</h:td><h:td>C</h:td><h:td>-</h:td><h:td>-</h:td><h:td>CM</h:td></h:tr>
+              <h:tr><h:td>Ability to import and remove X.509v3 certificates used for STIP into or from the Trust Anchor database</h:td><h:td>C</h:td><h:td>-</h:td><h:td>-</h:td><h:td>CM</h:td></h:tr> 
               <h:tr><h:td>Ability to configure identifying information for the TOE's embedded CA</h:td><h:td>C</h:td><h:td>-</h:td><h:td>-</h:td><h:td>CM</h:td></h:tr>
               <h:tr><h:td>Ability to configure a maximum certificate validity duration</h:td><h:td>C</h:td><h:td>-</h:td><h:td>-</h:td><h:td>CM</h:td></h:tr>
               <h:tr><h:td>Ability to manage inspection policy</h:td><h:td>O</h:td><h:td>-</h:td><h:td>-</h:td><h:td>O</h:td></h:tr>
               <h:tr><h:td>Ability to configure inspection processing details</h:td><h:td>O</h:td><h:td>-</h:td><h:td>-</h:td><h:td>O</h:td></h:tr>
-              <h:tr><h:td colspan="5">Base-PP Selectable Management Functions (FMT_SMF.1 and FMT_SMF.1/STIP)</h:td></h:tr>
-              <h:tr><h:td>Ability to start and stop services</h:td><h:td>O</h:td><h:td>-</h:td><h:td>-</h:td><h:td>O</h:td></h:tr>
-              <h:tr><h:td>Ability to configure local audit behavior</h:td><h:td>O</h:td><h:td>O</h:td><h:td>-</h:td><h:td>-</h:td></h:tr>
+              <h:tr><h:td colspan="5">Base-PP Selectable Management Functions (FMT_SMF.1/STIP)</h:td></h:tr>
+              <!-- <h:tr><h:td>Ability to start and stop services</h:td><h:td>O</h:td><h:td>-</h:td><h:td>-</h:td><h:td>O</h:td></h:tr>
               <h:tr><h:td>Ability to modify the behavior of the transmission of audit data to an external IT entity, the handling of audit data, the audit functionality when Local Audit Storage Space is full</h:td>
                 <h:td>M</h:td><h:td>CM</h:td><h:td>-</h:td><h:td>-</h:td></h:tr>
               <h:tr><h:td>Ability to search local audit</h:td><h:td>C</h:td><h:td>CM</h:td><h:td>-</h:td><h:td>-</h:td></h:tr>
@@ -5135,7 +5058,8 @@ legacy cipher suites. -->
               <h:tr><h:td>Ability to configure NTP</h:td><h:td>M</h:td><h:td>-</h:td><h:td>-</h:td><h:td>-</h:td></h:tr>
               <h:tr><h:td>Ability to configure the reference identifier for the peer</h:td><h:td>M</h:td><h:td>-</h:td><h:td>-</h:td><h:td>O</h:td></h:tr>
               <h:tr><h:td>Ability to manage the TOE's trust store and designate X.509v3 certificates as trust anchors</h:td><h:td>M</h:td><h:td>-</h:td><h:td>-</h:td><h:td>CM</h:td></h:tr>
-              <h:tr><h:td>Ability to import X.509v3 certificates to the TOE's trust store</h:td><h:td>M</h:td><h:td>-</h:td><h:td>-</h:td><h:td>CM</h:td></h:tr>
+              <h:tr><h:td>Ability to import X.509v3 certificates to the TOE's trust store</h:td><h:td>M</h:td><h:td>-</h:td><h:td>-</h:td><h:td>CM</h:td></h:tr> -->
+              <h:tr><h:td>Ability to configure local audit behavior</h:td><h:td>O</h:td><h:td>O</h:td><h:td>-</h:td><h:td>-</h:td></h:tr>
               <h:tr><h:td>Ability to configure and manage certificate profiles</h:td><h:td>C</h:td><h:td>-</h:td><h:td>-</h:td><h:td>CM</h:td></h:tr>
               <h:tr><h:td>Ability to revoke issued certificates</h:td><h:td>C</h:td><h:td>-</h:td><h:td>-</h:td><h:td>CM</h:td></h:tr>
               <h:tr><h:td>Ability to configure certificate status services</h:td><h:td>C</h:td><h:td>-</h:td><h:td>-</h:td><h:td>CM</h:td></h:tr>
@@ -5272,6 +5196,91 @@ legacy cipher suites. -->
         <audit-event/>
       </f-component>
       
+      <f-component name="Restrictions on Security Roles" cc-id="fmt_smr.2" id="fmt-smr-2" iteration="STIP">
+        <consistency-rationale>This SFR defines additional management roles that the TOE may define to enforce role separation for STIP functionality.
+          It does not apply to Base-PP management functionality, which is managed by the Security Administrator defined in FMT_SMR.2 in the Base-PP.</consistency-rationale>
+        <f-element id="fmt-2e1-stip">
+          <title>
+            The TSF shall maintain the roles: [<h:i>
+              <h:ul>
+                <h:li>Security Administrator,</h:li>
+              </h:ul></h:i>
+                <selectables linebreak="yes">
+                  <selectable>Auditor</selectable>
+                  <selectable>CA Operations Staff</selectable>
+                  <selectable>Account Manager</selectable>
+                  <selectable>no other roles</selectable></selectables>].
+          </title>
+          <note role="application">
+            <h:p>
+            This SFR is iterated from the Base-PP to allow for the ability for the STIP functionality to be 
+            distributed across multiple administrative roles. If the TOE does not enforce role separation, the ST author selects "no other roles" 
+            to indicate that STIP functionality is managed
+            by the same Security Administrator role specified in the Base-PP.
+            </h:p><h:p>
+            As is the case in the Base-PP, the TOE does not need its roles to have the same
+            names as those defined in this SFR. It is expected that the ST will
+            define the administrative roles and privileges defined by the TSF and map them to
+            the roles listed in this PP-Module.
+            </h:p><h:p>
+            If “ability to configure local audit storage behavior” is selected in FMT_SMF.1/STIP, the
+            ‘Auditor’ role must be selected here; role separation is required for audit storage
+            functionality. 
+          </h:p>
+          </note>
+        </f-element>
+        <f-element id="fmt-2e2-stip">
+          <title>The TSF shall be able to associate users with roles.</title>
+        </f-element>
+        <f-element id="fmt-2e3-stip">
+          <title>
+            The TSF shall ensure that the conditions [<h:i>
+              <h:ul>
+                <h:li>All roles shall be able to administer the TOE locally,</h:li>
+                <h:li>All roles shall be able to administer the TOE remotely,</h:li>
+              </h:ul>
+                <selectables linebreak="yes">
+                  <selectable>No identity is authorized to assume both an Account Manager role
+                    and any of the other roles in FMT_SMR.2.1/STIP</selectable>
+                  <selectable>No identity is authorized to assume both an Auditor role and any of
+                    the other roles in FMT_SMR.2.1/STIP</selectable>
+                  <selectable>No other conditions</selectable>
+                </selectables></h:i>] are satisifed.
+          </title>
+          <note role="application">
+            <h:p>
+            This PP-Module iterates the SFR defined in the Base-PP to include additional
+            administrative roles. As defined in FMT_MOF.1/STIP, the TSF may provide
+            different privileges to the given roles.
+            </h:p><h:p>
+            If the TSF supports an Auditor and/or Account Manager role, it is expected that
+            the relevant selections above will be made. It is the intent of this PP-Module that
+            if either or both of these roles are provided, their critical functionality is isolated
+            from any other roles (see FMT_MOF.1/STIP).
+            </h:p>
+          </note>
+          <aactivity>
+            <TSS>
+            <h:p>
+              The evaluator shall examine the TSS to verify that it identifies the management roles that the TOE maintains as well as any restrictions or limitations on the assignment of these roles 
+              (e.g. whether multiple roles can be assumed by the same user or if certain roles are mutually exclusive).<h:p/>
+              If the TOE supports multiple management roles, the evaluator shall verify that any differences in role enforcement between interfaces are discussed. For example, a TOE may have a local console that uses a separate administrative
+              account from a remote GUI, such that any user who is authorized to use the local console is a Security Administrator, while the remote GUI maintains its own separate role structure.
+            </h:p></TSS>
+            <Guidance>
+              <h:p>
+              The evaluator shall examine the operational guidance to verify that it includes guidance on how to associate users with management roles.
+              </h:p></Guidance>
+            <Tests>
+              <h:p>For each supported management interface, the evaluator shall follow the operational guidance to associate user accounts with the management roles that are supported on those interfaces. If there are any restrictions
+              on the assignment of management roles, such as the inability to assign two mutually exclusive roles to the same user, the evaluator shall attempt to violate these restrictions to verify that they are enforced.
+              </h:p><h:p>
+              Testing of the actual functional limitations of the assigned management roles is addressed by FMT_MOF.1/STIP.
+              </h:p>
+            </Tests>
+          </aactivity>
+        </f-element>
+      </f-component>
 
       </section>  <!-- FMT -->
 
