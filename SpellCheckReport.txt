@@ -39,6 +39,7 @@ output/stip-release-linkable.html: M5
 output/stip-release-linkable.html: NSIT
 output/stip-release-linkable.html: OIDs
 output/stip-release-linkable.html: PINs
+output/stip-release-linkable.html: RC4
 output/stip-release-linkable.html: SCSV
 output/stip-release-linkable.html: SNI
 output/stip-release-linkable.html: SP300
@@ -53,7 +54,6 @@ output/stip-release-linkable.html: TDES
 output/stip-release-linkable.html: TLSversion
 output/stip-release-linkable.html: V2
 output/stip-release-linkable.html: XAML
-output/stip-release-linkable.html: abbility
 output/stip-release-linkable.html: acknowledgement
 output/stip-release-linkable.html: aren
 output/stip-release-linkable.html: authorityInfoAccess
@@ -66,10 +66,10 @@ output/stip-release-linkable.html: cA
 output/stip-release-linkable.html: cRLDistributionPoints
 output/stip-release-linkable.html: cRLSign
 output/stip-release-linkable.html: certificatePolicy
+output/stip-release-linkable.html: cleartext
 output/stip-release-linkable.html: clientAuth
 output/stip-release-linkable.html: containsthe
 output/stip-release-linkable.html: deallocation
-output/stip-release-linkable.html: echecking
 output/stip-release-linkable.html: endentity
 output/stip-release-linkable.html: ensuresthat
 output/stip-release-linkable.html: epolicy
@@ -86,6 +86,7 @@ output/stip-release-linkable.html: keyAgreement
 output/stip-release-linkable.html: keyCertSign
 output/stip-release-linkable.html: keyEncipherment
 output/stip-release-linkable.html: lifecycle
+output/stip-release-linkable.html: misrouting
 output/stip-release-linkable.html: nextUpdate
 output/stip-release-linkable.html: notAfter
 output/stip-release-linkable.html: notBefore
@@ -130,6 +131,7 @@ output/stip-release.html: Github
 output/stip-release.html: KERBEROS
 output/stip-release.html: OIDs
 output/stip-release.html: PINs
+output/stip-release.html: RC4
 output/stip-release.html: SCSV
 output/stip-release.html: SNI
 output/stip-release.html: SP800
@@ -141,7 +143,6 @@ output/stip-release.html: SubjectAlternateName
 output/stip-release.html: TDES
 output/stip-release.html: V2
 output/stip-release.html: XAML
-output/stip-release.html: abbility
 output/stip-release.html: acknowledgement
 output/stip-release.html: any’
 output/stip-release.html: authorityInfoAccess
@@ -154,9 +155,9 @@ output/stip-release.html: bypass’
 output/stip-release.html: cA
 output/stip-release.html: cRLDistributionPoints
 output/stip-release.html: certificatePolicy
+output/stip-release.html: cleartext
 output/stip-release.html: clientAuth
 output/stip-release.html: deallocation
-output/stip-release.html: echecking
 output/stip-release.html: ensuresthat
 output/stip-release.html: epolicy
 output/stip-release.html: ffdhe2048
@@ -172,6 +173,7 @@ output/stip-release.html: keyAgreement
 output/stip-release.html: keyEncipherment
 output/stip-release.html: lifecycle
 output/stip-release.html: message’
+output/stip-release.html: misrouting
 output/stip-release.html: nextUpdate
 output/stip-release.html: notAfter
 output/stip-release.html: notBefore
@@ -318,6 +320,7 @@ output/stip.html: M5
 output/stip.html: NSIT
 output/stip.html: OIDs
 output/stip.html: PINs
+output/stip.html: RC4
 output/stip.html: SCSV
 output/stip.html: SNI
 output/stip.html: SP300
@@ -332,7 +335,6 @@ output/stip.html: TDES
 output/stip.html: TLSversion
 output/stip.html: V2
 output/stip.html: XAML
-output/stip.html: abbility
 output/stip.html: acknowledgement
 output/stip.html: any’
 output/stip.html: authorityInfoAccess
@@ -350,10 +352,10 @@ output/stip.html: cA
 output/stip.html: cRLDistributionPoints
 output/stip.html: cRLSign
 output/stip.html: certificatePolicy
+output/stip.html: cleartext
 output/stip.html: clientAuth
 output/stip.html: containsthe
 output/stip.html: deallocation
-output/stip.html: echecking
 output/stip.html: endentity
 output/stip.html: ensuresthat
 output/stip.html: epolicy
@@ -373,6 +375,7 @@ output/stip.html: keyCertSign
 output/stip.html: keyEncipherment
 output/stip.html: lifecycle
 output/stip.html: message’
+output/stip.html: misrouting
 output/stip.html: nextUpdate
 output/stip.html: notAfter
 output/stip.html: notBefore

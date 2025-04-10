@@ -630,19 +630,20 @@ function showTarget(id){
 
           }
     </style></head><body onLoad="init()"><h1 class="title" style="page-break-before:auto;">PP-Module for SSL/TLS Inspection Proxy</h1><noscript><h1 style="text-align:center; border-style: dashed; border-width: medium; border-color: red;">This page is best viewed with JavaScript enabled!</h1></noscript><div class="center"><img src="images/niaplogo.png" alt="NIAP Logo"></img><br/>
-      Version: 1.1<br/>2022-11-17<br/><b>National Information Assurance Partnership</b><br/></div><h2 style="page-break-before:always;">Revision History</h2><table><tr class="header"><th>Version</th><th>Date</th><th>Comment</th></tr><tr><td>1.1</td><td>2022-11-17</td><td>Updates to reflect Github conversion, compatibility with CPP_ND_V2.2E, and Technical Decisions applied to version 1.0</td></tr>
+      Version: 1.2<br/>2025-04-25<br/><b>National Information Assurance Partnership</b><br/></div><h2 style="page-break-before:always;">Revision History</h2><table><tr class="header"><th>Version</th><th>Date</th><th>Comment</th></tr><tr><td>1.2</td><td>2025-04-25</td><td>Incorporate NIAP Technical Decisions, Update to <abbr class="dyn-abbr"><a href="#abbr_CC">CC</a></abbr>:2022</td></tr>
+<tr><td>1.1</td><td>2022-11-17</td><td>Updates to reflect Github conversion, compatibility with CPP_ND_V2.2E, and Technical Decisions applied to version 1.0</td></tr>
 <tr><td>1.0</td><td>2019-08-23</td><td>Update release</td></tr>
-</table><h2>Contents</h2><div class="toc" id="toc"><a href="#Introduction" style="text-indent:0px">1<span>Introduction</span></a><a href="#Overview" style="text-indent:10px">1.1<span>Overview</span></a><a href="#glossary" style="text-indent:10px">1.2<span>Terms</span></a><a href="#cc-terms" style="text-indent:20px">1.2.1<span>Common Criteria Terms</span></a><a href="#tech-terms" style="text-indent:20px">1.2.2<span>Technical Terms</span></a><a href="#Compliant_Targets_of_Evaluation" style="text-indent:10px">1.3<span>Compliant Targets of Evaluation</span></a><a href="#TOE_Boundary" style="text-indent:20px">1.3.1<span>TOE Boundary</span></a><a href="#Use_Cases" style="text-indent:10px">1.4<span>Use Cases</span></a><a href="#ConformanceClaims" style="text-indent:0px">2<span>Conformance Claims</span></a><a href="#Security_Objectives" style="text-indent:0px">3<span>Security Objectives</span></a><a href="#Security_Objectives_for_the_TOE" style="text-indent:10px">3.1<span>Security Objectives for the TOE</span></a><a href="#SecurityObjectivesTOEorEnvironment" style="text-indent:10px">3.2<span>Security Objectives for the Operational Environment</span></a><a href="#SOR" style="text-indent:10px">3.3<span>Security Objectives Rationale</span></a><a href="#Security_Requirements" style="text-indent:0px">4<span>Security Requirements</span></a><a href="#secreq-ND" style="text-indent:10px">4.1<span>Collaborative 
+</table><h2>Contents</h2><div class="toc" id="toc"><a href="#Introduction" style="text-indent:0px">1<span>Introduction</span></a><a href="#Overview" style="text-indent:10px">1.1<span>Overview</span></a><a href="#glossary" style="text-indent:10px">1.2<span>Terms</span></a><a href="#cc-terms" style="text-indent:20px">1.2.1<span>Common Criteria Terms</span></a><a href="#tech-terms" style="text-indent:20px">1.2.2<span>Technical Terms</span></a><a href="#Compliant_Targets_of_Evaluation" style="text-indent:10px">1.3<span>Compliant Targets of Evaluation</span></a><a href="#TOE_Boundary" style="text-indent:20px">1.3.1<span>TOE Boundary</span></a><a href="#Use_Cases" style="text-indent:10px">1.4<span>Use Cases</span></a><a href="#ConformanceClaims" style="text-indent:0px">2<span>Conformance Claims</span></a><a href="#Security_Problem_Definition" style="text-indent:0px">3<span>Security Problem Definition</span></a><a href="#threats" style="text-indent:10px">3.1<span>Threats</span></a><a href="#Assumptions" style="text-indent:10px">3.2<span>Assumptions</span></a><a href="#Organizational_Security_Policies" style="text-indent:10px">3.3<span>Organizational Security Policies</span></a><a href="#Security_Objectives" style="text-indent:0px">4<span>Security Objectives</span></a><a href="#Security_Objectives_for_the_TOE" style="text-indent:10px">4.1<span>Security Objectives for the TOE</span></a><a href="#SecurityObjectivesTOEorEnvironment" style="text-indent:10px">4.2<span>Security Objectives for the Operational Environment</span></a><a href="#SOR" style="text-indent:10px">4.3<span>Security Objectives Rationale</span></a><a href="#Security_Requirements" style="text-indent:0px">5<span>Security Requirements</span></a><a href="#secreq-ND" style="text-indent:10px">5.1<span>Collaborative 
     Protection Profile for Network Devices
        Security Functional Requirements Direction
-    </span></a><a href="#modsfr-ND" style="text-indent:20px">4.1.1<span> Modified SFRs </span></a><a href="#nd-m-fcs" style="text-indent:30px">4.1.1.1<span>Cryptographic Support (FCS)</span></a><a href="#nd-m-fia" style="text-indent:30px">4.1.1.2<span>Identification and Authentication (FIA)</span></a><a href="#nd-m-ftp" style="text-indent:30px">4.1.1.3<span>Trusted Path/Channels (FTP)</span></a><a href="#man-sfrs" style="text-indent:10px">4.2<span>TOE Security Functional Requirements</span></a><a href="#Auditable_Events_for_Mandatory_SFRs" style="text-indent:20px">4.2.1<span>Auditable Events for Mandatory SFRs</span></a><a href="#m-fau" style="text-indent:20px">4.2.2<span>Security Audit (FAU)</span></a><a href="#m-fcs" style="text-indent:20px">4.2.3<span>Cryptographic Support (FCS)</span></a><a href="#m-fdp" style="text-indent:20px">4.2.4<span>User Data Protection (FDP)</span></a><a href="#m-fia" style="text-indent:20px">4.2.5<span>Identification and Authentication (FIA)</span></a><a href="#m-fmt" style="text-indent:20px">4.2.6<span>Security Management (FMT)</span></a><a href="#m-fpt" style="text-indent:20px">4.2.7<span>Protection of the TSF (FPT)</span></a><a href="#obj-req-map" style="text-indent:10px">4.3<span>TOE Security Functional Requirements Rationale</span></a><a href="#mod-sars" style="text-indent:10px">4.4<span>TOE Security Assurance Requirements</span></a><a href="#mod-conrat" style="text-indent:0px">5<span>Consistency Rationale</span></a><a href="#conrat-ND" style="text-indent:10px">5.1<span>Collaborative 
-    Protection Profile for Network Devices</span></a><a href="#contoe-ND" style="text-indent:20px">5.1.1<span>
+    </span></a><a href="#modsfr-ND" style="text-indent:20px">5.1.1<span> Modified SFRs </span></a><a href="#nd-m-fcs" style="text-indent:30px">5.1.1.1<span>Cryptographic Support (FCS)</span></a><a href="#nd-m-fia" style="text-indent:30px">5.1.1.2<span>Identification and Authentication (FIA)</span></a><a href="#nd-m-ftp" style="text-indent:30px">5.1.1.3<span>Trusted Path/Channels (FTP)</span></a><a href="#man-sfrs" style="text-indent:10px">5.2<span>TOE Security Functional Requirements</span></a><a href="#Auditable_Events_for_Mandatory_SFRs" style="text-indent:20px">5.2.1<span>Auditable Events for Mandatory SFRs</span></a><a href="#m-fau" style="text-indent:20px">5.2.2<span>Security Audit (FAU)</span></a><a href="#m-fcs" style="text-indent:20px">5.2.3<span>Cryptographic Support (FCS)</span></a><a href="#m-fdp" style="text-indent:20px">5.2.4<span>User Data Protection (FDP)</span></a><a href="#m-fia" style="text-indent:20px">5.2.5<span>Identification and Authentication (FIA)</span></a><a href="#m-fmt" style="text-indent:20px">5.2.6<span>Security Management (FMT)</span></a><a href="#m-fpt" style="text-indent:20px">5.2.7<span>Protection of the TSF (FPT)</span></a><a href="#obj-req-map" style="text-indent:10px">5.3<span>TOE Security Functional Requirements Rationale</span></a><a href="#mod-sars" style="text-indent:10px">5.4<span>TOE Security Assurance Requirements</span></a><a href="#mod-conrat" style="text-indent:0px">6<span>Consistency Rationale</span></a><a href="#conrat-ND" style="text-indent:10px">6.1<span>Collaborative 
+    Protection Profile for Network Devices</span></a><a href="#contoe-ND" style="text-indent:20px">6.1.1<span>
 	Consistency of TOE Type
-      </span></a><a href="#consecprob-ND" style="text-indent:20px">5.1.2<span>
+      </span></a><a href="#consecprob-ND" style="text-indent:20px">6.1.2<span>
 	Consistency of Security Problem Definition
-      </span></a><a href="#conobj-ND" style="text-indent:20px">5.1.3<span>
-			Consistency of Objectives
-		</span></a><a href="#conreq-ND" style="text-indent:20px">5.1.4<span>
+      </span></a><a href="#conobj-ND" style="text-indent:20px">6.1.3<span>
+			Consistency of OE Objectives
+		</span></a><a href="#conreq-ND" style="text-indent:20px">6.1.4<span>
 	Consistency of Requirements
       </span></a><a href="#opt-sfrs" style="text-indent:0px">Appendix A - <span>Optional SFRs</span></a><a href="#opt-sfrs" style="text-indent:10px">A.1<span>Strictly Optional Requirements
     </span></a><a href="#opt-audit-table" style="text-indent:20px">A.1.1<span>Auditable Events for Optional SFRs</span></a><a href="#opt-fau" style="text-indent:20px">A.1.2<span>Persistent Local Audit Storage</span></a><a href="#opt-fdp" style="text-indent:20px">A.1.3<span>Certificate Pinning</span></a><a href="#obj-sfrs" style="text-indent:10px">A.2<span>Objective Requirements
@@ -907,37 +908,135 @@ The following sections list Common Criteria and technology terms used in this do
   <h1 class="indexable" data-level="1" id="ConformanceClaims">2 Conformance Claims</h1>
     
     
+    <dl><dt>Conformance Statement</dt><p></p><dd>An <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> must claim exact conformance 
+		 to this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>.</dd><p></p><dd>The evaluation methods used for evaluating the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> are a combination of the workunits 
+			defined in <a href="#bibCEM">[CEM]</a> as well as the Evaluation Activities for ensuring that individual <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> 
+			and <abbr class="dyn-abbr"><a href="#abbr_SAR">SARs</a></abbr> have a sufficient level of supporting evidence in the Security Target and guidance 
+			documentation and have been sufficiently tested by the laboratory as part of completing 
+			ATE_IND.1. Any functional packages this <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> claims similarly contain their own Evaluation 
+			Activities that are used in this same manner.
+			</dd><dt>CC Conformance Claims</dt><p></p><dd>This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> is conformant to 
+			Part 2 (extended) 
+			
+			
+			and Part 3 (conformant)
+			
+				of Common Criteria <abbr class="dyn-abbr"><a href="#abbr_CC">CC</a></abbr>:2022, Revision 1.
+			</dd><dt>PP Claim</dt><p></p><dd>
+					This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does not claim conformance to 
+					any Protection Profile.
+				</dd><p></p><dd>The following <abbr class="dyn-abbr"><a href="#abbr_PP">PPs</a></abbr> and <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>-Modules are allowed to be specified in a 
+					<abbr class="dyn-abbr"><a href="#abbr_PP-Configuration">PP-Configuration</a></abbr> with this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>:
+					<ul><li>collaborative <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> for Stateful Traffic Filter Firewalls, v1.4 + Errata, 20200625</li></ul></dd><dt>Package Claim</dt><p></p><dd>This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> is not conformant to any 
+						Functional or Assurance Packages.</dd></dl>
+  <h1 class="indexable" data-level="1" id="Security_Problem_Definition">3 Security Problem Definition</h1>
+    The security problem is described in terms of the threats that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is expected to address,
+assumptions about its operational environment, and any organizational security policies that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is
+expected to enforce.<p></p>
+    A <abbr class="dyn-abbr"><a href="#abbr_STIP">STIP</a></abbr> is a network device that embeds limited <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> functionality to support the
+    replacement of end-to-end TLS sessions with TLS session threads, making the underlying plaintext
+    available to additional network security functionality. As such, it exposes data within the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> boundary,
+    and to external processes, which would normally be encrypted. It manages a <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> signing key that is trusted
+    by the monitored clients to issue TLS server certificates representing the requested servers for which
+    inspection is authorized.
+    <p></p>
+    The proper installation and configuration of the VPN client is critical to its correct operation such that
+    proper handling of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> by an administrator is also addressed.<p></p>
+    Note that as a <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>, all threats, assumptions, and OSPs defined in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> will also apply to a
+    <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> unless otherwise specified, depending on which of the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PPs</a></abbr> it extends. The Security Functional
+    Requirements defined in this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> will mitigate the threats that are defined in the <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> but
+    may also mitigate some threats defined in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PPs</a></abbr> in more comprehensive detail due to the
+    specific capabilities provided by a VPN client.
     
+    
+    <h2 class="indexable" data-level="2" id="threats">3.1 Threats</h2>
+      The following threats defined in this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> extend the threats defined by the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>.
+      <dl><dt class="threat defined" id="T.UNTRUSTED_COMMUNICATION">T.UNTRUSTED_COMMUNICATION</dt><dd><span class="description">Untrusted intermediate systems have access to provide unauthorized communications to the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>, or
+            to manipulate authorized TLS messages in an attempt to compromise the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>, the monitored clients,
+            or the requested servers. Within this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>, the focus is on an adversary that controls or exploits
+            a requested server that may attempt to cause the device to inappropriately bypass inspection.
+            <p></p>
+            Use of weak cryptography can allow adversary access to plaintext intended by the monitored clients
+            to be encrypted. Such access could disclose user passwords that facilitate additional activities against
+            users of monitored clients. Within this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>, the focus is on the use of weak cryptography and
+            adversary attempts to degrade the cryptographic operations within the TLS protocol.
+            <p></p>
+            External network security devices may communicate with the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to apply security services to the
+            exposed plaintext. An adversary may attempt to gain access the plaintext via misrouting of traffic or
+            manipulate the traffic in such a way as to cause unauthorized exposure, denial of service, or
+            corruption of the underlying plaintext. </span></dd><dt class="threat defined" id="T.AUDIT">T.AUDIT</dt><dd><span class="description"> Certificates issued by the device are trusted by monitored clients, and are required for analysis if
+            traffic processed by the device causes the client to fail or become compromised. Unknown activity
+            related to the issuance and use of certificates can allow an adversary to mask client exploits through
+            or via the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>, especially if the device fails before the incident can be understood. Unknown activity
+            associated to routing configurations, communications with the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>, as well as the decision to bypass
+            inspection of traffic can allow an adversary to mask attempts to access monitored clients. </span></dd><dt class="threat defined" id="T.UNAUTHORIZED_USERS">T.UNAUTHORIZED_USERS</dt><dd><span class="description">In addition to managing administrative credentials, authorized users may have role restrictions to limit
+            their access to the device’s certification authority functionality. In addition to the threat of disclosure
+            or modification of authorized user credentials to users without authorized access to the device, a user
+            with limited access might attempt to extend their access by gaining access to other user’s credentials.
+          </span></dd><dt class="threat defined" id="T.CREDENTIALS">T.CREDENTIALS</dt><dd><span class="description"> 
+            In addition to device credentials used in protected communications, 
+            the device maintains a trusted certification authority signing key. 
+            A malicious user or flawed <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> implementation may cause the disclosure or unauthorized manipulation of the signing key 
+            which can result in unintended certificates, signed executables, 
+            or signed data that would be trusted by monitored clients. 
+            Any modification of the signing key can result in denial of service to inspection capabilities, or to the monitored clients.
+          </span></dd><dt class="threat defined" id="T.SERVICES">T.SERVICES</dt><dd><span class="description">Manipulation of the device can result in issued certificates being used for unauthorized purposes or
+            abuse of inspection services. An authorized user (AU) (or adversary able to gain access to AU
+            credentials) can access or misuse device services, or disclose sensitive or security critical data.
+          </span></dd><dt class="threat defined" id="T.DEVICE_FAILURE">T.DEVICE_FAILURE</dt><dd><span class="description">Failure of the certification authority component can result in unauthorized or improperly constrained
+            certificates, or the inability to properly manage the validity of issued certificates. Failure of routing
+            traffic to inspection processing (internal or external) can result in unauthorized disclosure or
+            modification of traffic, or denial of service to monitored clients.
+          </span></dd><dt class="threat defined" id="T.UNAUTHORIZED_DISCLOSURE">T.UNAUTHORIZED_DISCLOSURE</dt><dd><span class="description">In addition to general threats to network devices, the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> controls access to sensitive data that is
+            intended by the monitored client to be encrypted. A malicious user or flawed <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> implementation could cause data to be transmitted 
+            in cleartext for which a user has a reasonable expectation of confidentiality.
+          </span></dd><dt class="threat defined" id="T.INAPPROPRIATE_ACCESS">T.INAPPROPRIATE_ACCESS</dt><dd><span class="description">Decryption services applied to traffic between monitored clients and unintended servers can violate
+            privacy laws, or disclose unauthorized traffic to inspection processes. Certification authority signature
+            applied to unauthorized data could facilitate adversary exploits of monitored clients.
+          </span></dd></dl>
+    
+    
+    
+    <h2 class="indexable" data-level="2" id="Assumptions">3.2 Assumptions</h2>
       
-        <span class="description"> This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> inherits exact conformance as required from the specified <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PPs</a></abbr> and as defined
-          in the <abbr class="dyn-abbr"><a href="#abbr_CC">CC</a></abbr> and <abbr class="dyn-abbr"><a href="#abbr_CEM">CEM</a></abbr> addenda for Exact Conformance, Selection-Based <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr>, and Optional <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> (dated
-          May 2017).<br/><br/> 
-          
-          The following <abbr class="dyn-abbr"><a href="#abbr_PP">PPs</a></abbr> and <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>-Modules are allowed to be specified in a <abbr class="dyn-abbr"><a href="#abbr_PP-Configuration">PP-Configuration</a></abbr> with this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>:
-          <ul>
-            <li>collaborative Protection Profile Module for Stateful Traffic Filter Firewalls, v1.4 + Errata 20200625</li>
-          </ul>
+      
+      These assumptions are made on the Operational Environment in order to be able to ensure that the security functionality specified in the <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> can be provided by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>. 
+      If the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is placed in an Operational Environment that does not meet these assumptions, the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> may no longer be able to provide all of its security functionality.
+      <p></p>
+      All assumptions for the operational environment of the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> also apply to this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>.
+      <p></p>
+      A.LIMITED_FUNCTIONALITY is still operative, but the assumed functionality of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> includes the behavior needed to satisfy the functional claims of this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>.
+      <p></p>
+      A.NO_THRU_TRAFFIC_PROTECTION is still operative, but only for the interfaces in the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> that are defined by the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> and not the <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>.
+      <p></p>
+      A.TRUSTED_ADMINISTRATOR is still operative, but the functional claims of this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> offer a limited ability to protect against malicious administrators, which is not within the scope of the original assumption.
+      <p></p>
+      A.RESIDUAL_INFORMATION is still operative, but the residual information is expanded to include information relevant to <abbr class="dyn-abbr"><a href="#abbr_STIP">STIP</a></abbr> operation (e.g. decrypted <abbr class="dyn-abbr"><a href="#abbr_SSL/TLS">SSL/TLS</a></abbr> payload, ephemeral keys).
+      <br/><br/>
+      
+      This document does not define any additional assumptions.
+    
+    
+    
+    
+	<h2 class="indexable" data-level="2" id="Organizational_Security_Policies">3.3 Organizational Security Policies</h2><p>An organization deploying the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is
+      expected to satisfy the organizational security policy listed below in addition to all
+      organizational security policies defined by the claimed <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>. </p>
 
-        </span>
-      
-      
-        <span class="description">
-          This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> is conformant to Parts 2 (extended) and 3 (conformant) of Common Criteria Version
-          3.1, Revision 5 [<abbr class="dyn-abbr"><a href="#abbr_CC">CC</a></abbr>].
-        </span>
-      
-      
-        <span class="description">This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does not claim conformance to any Protection Profile.</span>
-      
-      
-        <span class="description">This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does not claim conformance to any packages.</span>
-      
+	  
+	  
+		<dl><dt class="OSP defined" id="P.AUTHORIZATION_TO_INSPECT">P.AUTHORIZATION_TO_INSPECT</dt><dd><span class="description">
+		      The authority to inspect client traffic may be limited by law, regulation, or policies based on the
+		      monitored client, requested server, or nature of the traffic. 
+		      The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> may be required to additionally provide a consent to monitor notice for users whose traffic is inspected by the device, 
+		      if the monitored client might not provide such a banner.
+		    </span></dd></dl>
     
-  <h1 class="indexable" data-level="1" id="Security_Objectives">3 Security Objectives</h1>  
+  <h1 class="indexable" data-level="1" id="Security_Objectives">4 Security Objectives</h1>  
 
     
     
-    <h2 class="indexable" data-level="2" id="Security_Objectives_for_the_TOE">3.1 Security Objectives for the TOE</h2>
+    <h2 class="indexable" data-level="2" id="Security_Objectives_for_the_TOE">4.1 Security Objectives for the TOE</h2>
       <dl><dt class="SO defined" id="O.AUDIT_LOSS_RESPONSE">O.AUDIT_LOSS_RESPONSE</dt><dd><span class="description">The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> will respond to possible loss of audit records when an audit trail cannot be written to by
             restricting auditable events.<p></p>
 			      Addressed by: <a href="#FAU_STG.4">FAU_STG.4</a>
@@ -1000,7 +1099,7 @@ The following sections list Common Criteria and technology terms used in this do
     
     
     
-    <h2 class="indexable" data-level="2" id="SecurityObjectivesTOEorEnvironment">3.2 Security Objectives for the Operational Environment</h2>
+    <h2 class="indexable" data-level="2" id="SecurityObjectivesTOEorEnvironment">4.2 Security Objectives for the Operational Environment</h2>
 The <abbr class="dyn-abbr"><a href="#abbr_OE">OE</a></abbr> of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> implements technical and procedural measures to assist the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> in correctly providing its security functionality (which is defined by the security objectives for the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>).
 The security objectives for the <abbr class="dyn-abbr"><a href="#abbr_OE">OE</a></abbr> consist of a set of statements describing the goals that the <abbr class="dyn-abbr"><a href="#abbr_OE">OE</a></abbr> should achieve.
 This section defines the security objectives that are to be addressed by the IT domain or by non-technical or procedural means.
@@ -1049,11 +1148,11 @@ The assumptions identified in Section 3 are incorporated as security objectives 
     
     
     
-    <h2 id="SOR" class="indexable,h2" data-level="2">3.3 Security Objectives Rationale</h2>   
-		This section describes how the assumptions, threats, and organizational 
-		security policies map to the security objectives.
-	<table><caption><span class="ctr" data-myid="t-sec-obj-rat" data-counter-type="ct-Table" id="t-sec-obj-rat">Table <span class="counter">1</span></span>: Security Objectives Rationale</caption><tr class="header"><td>Threat, Assumption, or OSP</td><td>Security Objectives</td><td>Rationale</td></tr><tr class="major-row"><td rowspan="1">T.UNTRUSTED_​COMMUNICATION</td><td><a href="#O.PROTECTED_COMMUNICATIONS">O.PROTECTED_​COMMUNICATIONS</a></td><td>Data traversing the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is subject to authenticity and integrity verification.
-            </td></tr><tr class="major-row"><td rowspan="5">T.AUDIT</td><td><a href="#O.AUDIT_LOSS_RESPONSE">O.AUDIT_​LOSS_​RESPONSE</a></td><td>
+    <h2 id="SOR" class="indexable,h2" data-level="2">4.3 Security Objectives Rationale</h2>   
+		This section describes how the assumptions and organizational 
+		security policies map to operational environment security objectives.
+	<table><caption><span class="ctr" data-myid="t-sec-obj-rat" data-counter-type="ct-Table" id="t-sec-obj-rat">Table <span class="counter">1</span></span>: Security Objectives Rationale</caption><tr class="header"><td>Assumption or OSP</td><td>Security Objectives</td><td>Rationale</td></tr><tr class="major-row"><td rowspan="1"><a href="#T.UNTRUSTED_COMMUNICATION">T.UNTRUSTED_​COMMUNICATION</a></td><td><a href="#O.PROTECTED_COMMUNICATIONS">O.PROTECTED_​COMMUNICATIONS</a></td><td>Data traversing the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is subject to authenticity and integrity verification.
+            </td></tr><tr class="major-row"><td rowspan="5"><a href="#T.AUDIT">T.AUDIT</a></td><td><a href="#O.AUDIT_LOSS_RESPONSE">O.AUDIT_​LOSS_​RESPONSE</a></td><td>
               The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> provides mechanisms to
               deal with audit trails being
               unavailable.
@@ -1075,10 +1174,10 @@ The assumptions identified in Section 3 are incorporated as security objectives 
               certificate related events provides
               confidence in certificate validity and
               proper use.
-            </td></tr><tr class="major-row"><td rowspan="1">T.UNAUTHORIZED_​USERS</td><td><a href="#O.TOE_ADMINISTRATION">O.TOE_​ADMINISTRATION</a></td><td>Use of role separation and
+            </td></tr><tr class="major-row"><td rowspan="1"><a href="#T.UNAUTHORIZED_USERS">T.UNAUTHORIZED_​USERS</a></td><td><a href="#O.TOE_ADMINISTRATION">O.TOE_​ADMINISTRATION</a></td><td>Use of role separation and
               authentication mechanisms ensure
               that only authorized users can
-              access the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>.</td></tr><tr class="major-row"><td rowspan="3">T.CREDENTIALS</td><td><a href="#O.CERTIFICATES">O.CERTIFICATES</a></td><td>
+              access the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>.</td></tr><tr class="major-row"><td rowspan="3"><a href="#T.CREDENTIALS">T.CREDENTIALS</a></td><td><a href="#O.CERTIFICATES">O.CERTIFICATES</a></td><td>
               The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> tracks certificates,
               certificate revocation lists, and
               certificate status information used
@@ -1092,7 +1191,7 @@ The assumptions identified in Section 3 are incorporated as security objectives 
               certificates issued by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is
               provided, making verification
               straightforward.
-            </td></tr><tr class="major-row"><td rowspan="4">T.SERVICES</td><td><a href="#O.CERTIFICATES">O.CERTIFICATES</a></td><td>
+            </td></tr><tr class="major-row"><td rowspan="4"><a href="#T.SERVICES">T.SERVICES</a></td><td><a href="#O.CERTIFICATES">O.CERTIFICATES</a></td><td>
               The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> verifies certificates,
               certificate revocation lists, and
               certificate status information prior
@@ -1108,7 +1207,7 @@ The assumptions identified in Section 3 are incorporated as security objectives 
               improper disclosure.
             </td></tr><tr><td><abbr class="dyn-abbr"><a href="#abbr_OE">OE</a></abbr>.TRUSTED_​ADMIN</td><td>
                 Granting <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> access only to trusted administrators mitigates the threat of careless or malicious manipulation of the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>.
-              </td></tr><tr class="major-row"><td rowspan="4">T.DEVICE_​FAILURE</td><td><a href="#O.CERTIFICATES">O.CERTIFICATES</a></td><td>
+              </td></tr><tr class="major-row"><td rowspan="4"><a href="#T.DEVICE_FAILURE">T.DEVICE_​FAILURE</a></td><td><a href="#O.CERTIFICATES">O.CERTIFICATES</a></td><td>
               The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> verifies certificates,
               certificate revocation lists, and
               certificate status information are
@@ -1124,7 +1223,7 @@ The assumptions identified in Section 3 are incorporated as security objectives 
               Administrators have the ability to
               restore the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to a previous
               (known-good) state.
-            </td></tr><tr class="major-row"><td rowspan="2">T.UNAUTHORIZED_​DISCLOSURE</td><td><a href="#O.PROTECTED_COMMUNICATIONS">O.PROTECTED_​COMMUNICATIONS</a></td><td>
+            </td></tr><tr class="major-row"><td rowspan="2"><a href="#T.UNAUTHORIZED_DISCLOSURE">T.UNAUTHORIZED_​DISCLOSURE</a></td><td><a href="#O.PROTECTED_COMMUNICATIONS">O.PROTECTED_​COMMUNICATIONS</a></td><td>
               Data traversing the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is subject to
               authenticity, confidentiality, and
               integrity verification.
@@ -1134,7 +1233,7 @@ The assumptions identified in Section 3 are incorporated as security objectives 
               mitigates the risk of misuse and
               ensures the device is properly
               managed.
-            </td></tr><tr class="major-row"><td rowspan="3">T.INAPPROPRIATE_​ACCESS</td><td><a href="#O.RESIDUAL_INFORMATION_CLEARING">O.RESIDUAL_​INFORMATION_​CLEARING</a></td><td>
+            </td></tr><tr class="major-row"><td rowspan="3"><a href="#T.INAPPROPRIATE_ACCESS">T.INAPPROPRIATE_​ACCESS</a></td><td><a href="#O.RESIDUAL_INFORMATION_CLEARING">O.RESIDUAL_​INFORMATION_​CLEARING</a></td><td>
               The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>’s lack of residual data
               retention ensures that
               unauthorized access to information
@@ -1147,7 +1246,7 @@ The assumptions identified in Section 3 are incorporated as security objectives 
             </td></tr><tr><td><a href="#O.TRAFFIC_MONITORING">O.TRAFFIC_​MONITORING</a></td><td>
               Enforcement of policies for traffic monitoring
               ensure that unauthorized data is not subject to transmission through the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>.
-            </td></tr><tr class="major-row"><td rowspan="3">P.AUTHORIZATION_​TO_​INSPECT</td><td><a href="#O.DISPLAY_BANNER">O.DISPLAY_​BANNER</a></td><td>The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOEs</a></abbr> advisory warning includes
+            </td></tr><tr class="major-row"><td rowspan="3"><a href="#P.AUTHORIZATION_TO_INSPECT">P.AUTHORIZATION_​TO_​INSPECT</a></td><td><a href="#O.DISPLAY_BANNER">O.DISPLAY_​BANNER</a></td><td>The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOEs</a></abbr> advisory warning includes
 		        consent to monitor.</td></tr><tr><td><a href="#O.PROTECTED_COMMUNICATIONS">O.PROTECTED_​COMMUNICATIONS</a></td><td>The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> ensures that data
 		        traversing the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> boundary is
 		        protected, alleviating concerns
@@ -1156,7 +1255,7 @@ The assumptions identified in Section 3 are incorporated as security objectives 
 		        inspection is authorized and
 		        performed properly.</td></tr></table>
     
-  <h1 id="Security_Requirements" class="indexable" data-level="1">4 Security Requirements</h1>
+  <h1 id="Security_Requirements" class="indexable" data-level="1">5 Security Requirements</h1>
       This chapter describes the security requirements which have to be fulfilled by the product under evaluation.
      Those requirements comprise functional components from Part 2 and assurance components from Part 3 of 
        <a href="#bibCC">[CC]</a>.
@@ -1180,7 +1279,7 @@ The assumptions identified in Section 3 are incorporated as security objectives 
             suggesting the purpose of the operation, e.g. "/EXAMPLE1."
        </li>
      </ul>
-   <h2 id="secreq-ND" class="indexable" data-level="2">4.1 Collaborative 
+   <h2 id="secreq-ND" class="indexable" data-level="2">5.1 Collaborative 
     Protection Profile for Network Devices
        Security Functional Requirements Direction
     </h2> 
@@ -1188,7 +1287,7 @@ The assumptions identified in Section 3 are incorporated as security objectives 
 			security functions implemented by the network device as a whole and evaluated against the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>.
 			In this case, the following sections describe any modifications that the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author must make to the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr>
 			defined in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> in addition to what is mandated by section 5.2.
-		<h3 id="modsfr-ND" class="indexable" data-level="3">4.1.1  Modified SFRs </h3>
+		<h3 id="modsfr-ND" class="indexable" data-level="3">5.1.1  Modified SFRs </h3>
 
 		The <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> listed in this section are defined in the NDcPP and 
 		relevant to the secure operation of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>.
@@ -1197,7 +1296,7 @@ The assumptions identified in Section 3 are incorporated as security objectives 
         
         
  
-        <h4 id="nd-m-fcs" class="indexable" data-level="4">4.1.1.1 Cryptographic Support (FCS)</h4>
+        <h4 id="nd-m-fcs" class="indexable" data-level="4">5.1.1.1 Cryptographic Support (FCS)</h4>
           
           
           <div class="comp" id="FCS_CKM.4"><h4>FCS_CKM.4 Cryptographic Key Destruction</h4>
@@ -1267,7 +1366,7 @@ The assumptions identified in Section 3 are incorporated as security objectives 
         
         
         
-        <h4 id="nd-m-fia" class="indexable" data-level="4">4.1.1.2 Identification and Authentication (FIA)</h4>
+        <h4 id="nd-m-fia" class="indexable" data-level="4">5.1.1.2 Identification and Authentication (FIA)</h4>
           
           <div class="comp" id="FIA_X509_EXT.1/Rev"><h4>FIA_X509_EXT.1/Rev X.509 Certificate Validation</h4>
             
@@ -1305,7 +1404,7 @@ The assumptions identified in Section 3 are incorporated as security objectives 
         
         
         
-        <h4 id="nd-m-ftp" class="indexable" data-level="4">4.1.1.3 Trusted Path/Channels (FTP)</h4>
+        <h4 id="nd-m-ftp" class="indexable" data-level="4">5.1.1.3 Trusted Path/Channels (FTP)</h4>
           <div class="comp" id="FTP_ITC.1"><h4>FTP_ITC.1 Inter-TSF Trusted Channel</h4>
             
             <div class="element"><div class="reqid" id="FTP_ITC.1.1"><a href="#FTP_ITC.1.1" class="abbr">FTP_ITC.1.1</a></div><div class="reqdesc">
@@ -1340,12 +1439,12 @@ The assumptions identified in Section 3 are incorporated as security objectives 
               </div></div></div>
           
         
-      <h2 id="man-sfrs" class="indexable" data-level="2">4.2 TOE Security Functional Requirements</h2>
+      <h2 id="man-sfrs" class="indexable" data-level="2">5.2 TOE Security Functional Requirements</h2>
 	The following section describes the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> that must be satisfied by any <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> that claims conformance to this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>.
 	These <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> must be claimed regardless of which <abbr class="dyn-abbr"><a href="#abbr_PP-Configuration">PP-Configuration</a></abbr> is used to define the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>.
         
 
-      <h3 class="indexable" data-level="3" id="Auditable_Events_for_Mandatory_SFRs">4.2.1 Auditable Events for Mandatory SFRs</h3>
+      <h3 class="indexable" data-level="3" id="Auditable_Events_for_Mandatory_SFRs">5.2.1 Auditable Events for Mandatory SFRs</h3>
         <p>
 
         </p>
@@ -1377,7 +1476,7 @@ The assumptions identified in Section 3 are incorporated as security objectives 
       
 
 	  
-      <h3 id="m-fau" class="indexable" data-level="3">4.2.2 Security Audit (FAU)</h3>
+      <h3 id="m-fau" class="indexable" data-level="3">5.2.2 Security Audit (FAU)</h3>
         
         
         
@@ -1528,7 +1627,7 @@ The assumptions identified in Section 3 are incorporated as security objectives 
       
       
       
-      <h3 id="m-fcs" class="indexable" data-level="3">4.2.3 Cryptographic Support (FCS)</h3>
+      <h3 id="m-fcs" class="indexable" data-level="3">5.2.3 Cryptographic Support (FCS)</h3>
 
         <div class="comp" id="FCS_COP.1/STIP"><h4>FCS_COP.1/STIP Cryptographic Operation (Data Encryption/Decryption in Support of STIP)</h4>
           
@@ -1806,15 +1905,21 @@ The assumptions identified in Section 3 are incorporated as security objectives 
     </span><span class="note">TLS version 1.2 and 1.0 must be supported; support for TLS version 1.1 is optional,
               and should be chosen if the <abbr class="dyn-abbr"><a href="#abbr_STIP">STIP</a></abbr> supports it. The list of cipher suites to support is
               mandatory but includes some selections in order to support legacy servers that
-              may be required by the monitored clients; additional cipher suites can be included
-              in the assignment. The order of the cipher suites above should be maintained in
+              may be required by the monitored clients; additional cipher suites that have not been publicly designated as weak 
+              and that do not have appropriate mitigations that ensure a secure implementation may be added
+              in the assignment. In particular, 'null,' 'export,' 'anon,' ciphersuites or cipher suites including RC4, MD5, DES_CBC 
+              or IDEA should not be included. It is expected that any weaknesses associated with supported ciphersuites included in 
+              the assignment be accompanied by references to mitigating implementation guidance enforced by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>.
+              <p></p>
+              The order of the cipher suites above should be maintained in
               the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>; <a href="#FCS_TTTC_EXT.1.4">FCS_TTTC_EXT.1.4</a> indicates that the cipher suites are presented in order
               of preference in the Client Hello sent to the requested server, and that preference
-              is defined as the order in the above <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>.
+              is defined as the order in the above <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>. In particular, any additional ciphersuites included in the assignment should be 
+              in preference order, and included in the client hello message as lower preference than the required ciphersuites.
               <p></p>
               The above list (as instantiated in the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>) limits the cipher suites that may be
               proposed by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to the requested server. Behavior if the requested server
-              responds with a cipher suite that is not in the list is defined in <a href="#FDP_TEP_EXT.1.8">FDP_TEP_EXT.1.8</a>.
+              responds with a cipher suite that is not offered as defined in <a href="#FDP_TEP_EXT.1.8">FDP_TEP_EXT.1.8</a>.
               <p></p>
               The selection should indicate if mutual authentication and/or session
               renegotiation is supported. These selections must be the same for both
@@ -2378,8 +2483,11 @@ The assumptions identified in Section 3 are incorporated as security objectives 
     </span><span class="note">TLS version 1.2 and 1.0 must be supported; support for TLS version 1.1 is optional,
               and should be chosen if the <abbr class="dyn-abbr"><a href="#abbr_STIP">STIP</a></abbr> supports it. The list of cipher suites to support is
               mandatory but includes some selections in order to support legacy clients that
-              may be required by the organization; additional cipher suites can be included in
-              the assignment.
+              may be required by the organization; additional cipher suites that have not been publicly designated as weak 
+              and that do not have appropriate mitigations that ensure a secure implementation may be added in the assignment. 
+              In particular, 'null,' 'export,' 'anon,' ciphersuites or cipher suites including RC4, MD5, DES_CBC, or IDEA should 
+              not be included. It is expected that any weaknesses in the list be accompanied by references to mitigating implementation 
+              guidance enforced by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>.
               <p></p>
               The above list (as instantiated in the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>) limits the cipher suites that may be
               specified by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> when responding to the monitored client.
@@ -2685,7 +2793,7 @@ The assumptions identified in Section 3 are incorporated as security objectives 
         
 
 	  
-      <h3 id="m-fdp" class="indexable" data-level="3">4.2.4 User Data Protection (FDP)</h3>
+      <h3 id="m-fdp" class="indexable" data-level="3">5.2.4 User Data Protection (FDP)</h3>
 
         
 
@@ -3910,7 +4018,7 @@ The assumptions identified in Section 3 are incorporated as security objectives 
       
       
       
-      <h3 id="m-fia" class="indexable" data-level="3">4.2.5 Identification and Authentication (FIA)</h3>
+      <h3 id="m-fia" class="indexable" data-level="3">5.2.5 Identification and Authentication (FIA)</h3>
         
         
         
@@ -4199,7 +4307,7 @@ The assumptions identified in Section 3 are incorporated as security objectives 
         
 
 	
-    <h3 id="m-fmt" class="indexable" data-level="3">4.2.6 Security Management (FMT)</h3>
+    <h3 id="m-fmt" class="indexable" data-level="3">5.2.6 Security Management (FMT)</h3>
         The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is not required to maintain a management interface for <abbr class="dyn-abbr"><a href="#abbr_STIP">STIP</a></abbr> functions that is separate from the
         management functions that the NDcPP requires. If some or all <abbr class="dyn-abbr"><a href="#abbr_STIP">STIP</a></abbr> functions are managed separately, 
         the relevant management functions from the NDcPP also apply to any management interfaces used specifically to meet the requirements of this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>.
@@ -4421,7 +4529,7 @@ The assumptions identified in Section 3 are incorporated as security objectives 
         
 
 	  
-      <h3 id="m-fpt" class="indexable" data-level="3">4.2.7 Protection of the TSF (FPT)</h3>
+      <h3 id="m-fpt" class="indexable" data-level="3">5.2.7 Protection of the TSF (FPT)</h3>
 	 
         <div class="comp" id="FPT_FLS.1"><h4>FPT_FLS.1 Failure with Preservation of Secure State</h4>
           
@@ -4553,107 +4661,41 @@ The assumptions identified in Section 3 are incorporated as security objectives 
                 performed in conjunction with <a href="#FPT_FLS.1">FPT_FLS.1</a>.</div></div></div></div></div>
    
          
-    <h2 id="obj-req-map" class="indexable" data-level="2">4.3 TOE Security Functional Requirements Rationale</h2><p>The following rationale provides justification for each security objective for the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>, 
-    showing that the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> are suitable to meet and achieve the security objectives:<br/><table><caption><span class="ctr" data-myid="t-obj_map" data-counter-type="ct-Table" id="t-obj_map">Table <span class="counter">3</span></span>: <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> Rationale</caption><tr><th>Objective</th><th>Addressed by</th><th>Rationale</th></tr><tr class="major-row"><td rowspan="1"><a href="#O.AUDIT_LOSS_RESPONSE">O.AUDIT_​LOSS_​RESPONSE</a><br/></td><td><a href="#FAU_STG.4">FAU_STG.4</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> supports the objective by requiring the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> to disable the execution of auditable events if the audit trail cannot be written to.</td></tr>
-<tr class="major-row"><td rowspan="21"><a href="#O.CERTIFICATES">O.CERTIFICATES</a><br/></td><td><a href="#FCS_TLSC_EXT.1">FCS_TLSC_EXT.1</a> (from <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>)</td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> supports the objective because TLS is a mechanism by which its own certificate data may be obtained from an external <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>. </td></tr>
-<tr><td><a href="#FCS_TLSC_EXT.2">FCS_TLSC_EXT.2</a> (from <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>)</td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> supports the objective because mutually-authenticated TLS is a mechanism by which its own certificate 
-            data may be obtained from an external <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>. </td></tr>
-<tr><td><a href="#FIA_X509_EXT.1/Rev">FIA_X509_EXT.1/Rev</a> (from <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>)</td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> supports the objective by defining the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> functionality for certificate validation. </td></tr>
-<tr><td><a href="#FIA_X509_EXT.3">FIA_X509_EXT.3</a> (from <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>)</td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> supports the objective by defining the mechanism by which the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> generates certificate signing requests, which includes validation of the certificate provided in response. </td></tr>
-<tr><td><a href="#FDP_CER_EXT.1">FDP_CER_EXT.1</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> supports the objective by defining the rules the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> must use to generate and issue proxy TLS server certificates from its internal <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>. </td></tr>
-<tr><td><a href="#FDP_CER_EXT.2">FDP_CER_EXT.2</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> supports the objective by requiring the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to link the certificates presented for TLS connectivity with the certificates it issues from its internal <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>. </td></tr>
-<tr><td><a href="#FDP_CER_EXT.3">FDP_CER_EXT.3</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> supports the objective by defining the rules for the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>'s issuing of proxy TLS server certificates. </td></tr>
-<tr><td><a href="#FDP_CSIR_EXT.1">FDP_CSIR_EXT.1</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> supports the objective by defining how the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> can ensure the use of fresh certificates.</td></tr>
-<tr><td><a href="#FIA_ENR_EXT.1">FIA_ENR_EXT.1</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> supports the objective by defining the mechanism by which the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> requests a certificate for its own embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>'s signing key. </td></tr>
-<tr><td><a href="#FIA_X509_EXT.1/STIP">FIA_X509_EXT.1/STIP</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> supports the objective by defining the certificate validation rules that must be followed for certificates that are used for proxy TLS connections. </td></tr>
-<tr><td><a href="#FIA_X509_EXT.2/STIP">FIA_X509_EXT.2/STIP</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> supports the objective by defining the certificate authentication behavior for <abbr class="dyn-abbr"><a href="#abbr_STIP">STIP</a></abbr> connections. </td></tr>
-<tr><td><a href="#FDP_PIN_EXT.1">FDP_PIN_EXT.1</a> (optional)</td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> supports the objective by defining the optional implementation of certificate pinning. </td></tr>
-<tr><td><a href="#FIA_ESTC_EXT.2">FIA_ESTC_EXT.2</a> (optional)</td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> supports the objective by defining requirements for the composition of EST requests if the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> supports EST. </td></tr>
-<tr><td><a href="#FDP_CER_EXT.4">FDP_CER_EXT.4</a> (selection-based)</td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> supports the objective by defining the rules the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> must use to generate and issue proxy TLS client certificates from its internal <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> if mutual authentication is supported. </td></tr>
-<tr><td><a href="#FDP_CER_EXT.5">FDP_CER_EXT.5</a> (selection-based)</td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> supports the objective by defining the rules for the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>'s issuing of proxy TLS client certificates if mutual authentication is supported. </td></tr>
-<tr><td><a href="#FDP_CRL_EXT.1">FDP_CRL_EXT.1</a> (selection-based)</td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> supports the objective by defining rules for the generation of CRLs if the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> uses this as the mechanism to ensure the freshness of its issued certificates. </td></tr>
-<tr><td><a href="#FDP_CSI_EXT.1">FDP_CSI_EXT.1</a> (selection-based)</td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> supports the objective by defining the revocation echecking method supported by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> for the proxy TLS server certificates it issues, if revocation is how the freshness of its issued certificates is assured. </td></tr>
-<tr><td><a href="#FDP_CSI_EXT.2">FDP_CSI_EXT.2</a> (selection-based)</td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> supports the objective by defining the revocation echecking method supported by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> for the proxy TLS client certificates it issues, if mutual authentication is supported and revocation is how the freshness of its issued certificates is assured. </td></tr>
-<tr><td><a href="#FDP_OCSP_EXT.1">FDP_OCSP_EXT.1</a> (selection-based)</td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> supports the objective by defining rules for the generation of OCSP responses if the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> uses this as the mechanism to ensure the freshness of its issued certificates. </td></tr>
-<tr><td><a href="#FDP_OCSPS_EXT.1">FDP_OCSPS_EXT.1</a> (selection-based)</td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> supports the objective by defining rules for the implementation of OCSP stapling if the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> supports this functionality. </td></tr>
-<tr><td><a href="#FIA_ESTC_EXT.1">FIA_ESTC_EXT.1</a> (selection-based)</td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> supports the objective by defining requirements for the implementation of EST if the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> uses this mechanism to obtain TLS certificates for its own use. </td></tr>
-<tr class="major-row"><td rowspan="3"><a href="#O.DISPLAY_BANNER">O.DISPLAY_​BANNER</a><br/></td><td>FTA_TAB.1 (from <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>)</td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> supports the objective by applying a warning banner to any interface used by an administrator to access the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>.</td></tr>
-<tr><td><a href="#FDP_STIP_EXT.1">FDP_STIP_EXT.1</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> supports the objective by defining the mechanism used to 
-            obtain consent to monitor user communications.</td></tr>
-<tr><td><a href="#FTA_TAB.1/TLS">FTA_TAB.1/TLS</a> (selection-based)</td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> supports the objective by optionally applying a warning banner to a user whose network activity passes through the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> for decryption and potential inspection.</td></tr>
-<tr class="major-row"><td rowspan="1"><a href="#O.INTEGRITY_PROTECTION">O.INTEGRITY_​PROTECTION</a><br/></td><td><a href="#FPT_FLS.1">FPT_FLS.1</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> supports the objective by requiring the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> to take some action to preserve a 
-            secure state in the response to a loss of integrity or other potential failure.</td></tr>
-<tr class="major-row"><td rowspan="5"><a href="#O.PERSISTENT_KEY_PROTECTION">O.PERSISTENT_​KEY_​PROTECTION</a><br/></td><td><a href="#FCS_STG_EXT.1">FCS_STG_EXT.1</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> supports the objective by requiring the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to implement hardware-based protection for stored keys.</td></tr>
-<tr><td><a href="#FDP_STG_EXT.1">FDP_STG_EXT.1</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> supports the objective by defining the mechanism used to protect public key data from unauthorized modification.</td></tr>
-<tr><td><a href="#FPT_KST_EXT.1">FPT_KST_EXT.1</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> supports the objective by requiring the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> to enforce the prevention of plaintext key export.</td></tr>
-<tr><td><a href="#FPT_KST_EXT.2">FPT_KST_EXT.2</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> supports the objective by preventing the unauthorized use of secret and private keys.</td></tr>
-<tr><td><a href="#FCS_CKM_EXT.5">FCS_CKM_EXT.5</a> (selection-based)</td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> supports the objective by defining the integrity mechanism used to guarantee the integrity of public key data.</td></tr>
-<tr class="major-row"><td rowspan="16"><a href="#O.PROTECTED_COMMUNICATIONS">O.PROTECTED_​COMMUNICATIONS</a><br/></td><td><a href="#FCS_CKM.4">FCS_CKM.4</a> (from <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>)</td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> supports the objective by ensuring secret and private key data is disposed of immediately after use to prevent unauthorized disclosure of keys.</td></tr>
-<tr><td><a href="#FCS_TLSC_EXT.1">FCS_TLSC_EXT.1</a> (from <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>)</td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> supports the objective by defining the TLS trusted channel used for EST if the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> supports that functionality.</td></tr>
-<tr><td><a href="#FCS_TLSC_EXT.2">FCS_TLSC_EXT.2</a> (from <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> supports the objective by defining support for mutually-authenticated TLS, which the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> may optionally support for EST.</td></tr>
-<tr><td><a href="#FTP_ITC.1">FTP_ITC.1</a> (refined from <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>)</td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> supports the objective by defining the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> interfaces that require protected communications as well as the methods of protection applied to these interfaces.</td></tr>
-<tr><td><a href="#FCS_COP.1/STIP">FCS_COP.1/STIP</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> supports the objective by defining cryptographic algorithms the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> must support for decryption and re-encryption of proxy TLS traffic.</td></tr>
-<tr><td><a href="#FCS_TTTC_EXT.1">FCS_TTTC_EXT.1</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> supports the objective by defining requirements for the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>'s implementation of TLS as a client, specifically in the case where the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is establishing a proxy connection between itself and the original requested 
-          TLS server.</td></tr>
-<tr><td><a href="#FCS_TTTC_EXT.5">FCS_TTTC_EXT.5</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> supports the objective by defining the Supported Groups used by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>'s proxy TLS client interface.</td></tr>
-<tr><td><a href="#FCS_TTTS_EXT.1">FCS_TTTS_EXT.1</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> supports the objective by defining requirements for the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>'s implementation of TLS as a server, specifically in the case where the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is establishing a proxy connection between itself and the original monitored 
-            TLS client.</td></tr>
-<tr><td><a href="#FDP_PRC_EXT.1">FDP_PRC_EXT.1</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> supports the objective by defining requirements for the routing of decrypted plaintext traffic.</td></tr>
-<tr><td><a href="#FDP_STIP_EXT.1">FDP_STIP_EXT.1</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> supports the objective by defining the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>'s ability to establish proxy TLS sessions between a monitored client and a requested server and to apply appropriate rules to the handling of the decrypted traffic.</td></tr>
-<tr><td><a href="#FDP_TEP_EXT.1">FDP_TEP_EXT.1</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> supports the objective by defining the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>'s abbility to enforce filtering rules on TLS traffic passing through the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>.</td></tr>
-<tr><td><a href="#FCS_TTTC_EXT.3">FCS_TTTC_EXT.3</a> (selection-based)</td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> supports the objective by defining optional support for TLS mutual authentication that is applied to the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>'s proxy TLS client interface.</td></tr>
-<tr><td><a href="#FCS_TTTC_EXT.4">FCS_TTTC_EXT.4</a> (selection-based)</td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> supports the objective by defining optional support for TLS session renegotiation that is applied to the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>'s proxy TLS client interface.</td></tr>
-<tr><td><a href="#FCS_TTTS_EXT.3">FCS_TTTS_EXT.3</a> (selection-based)</td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> supports the objective by defining optional support for TLS mutual authentication that is applied to the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>'s proxy TLS server interface.</td></tr>
-<tr><td><a href="#FCS_TTTS_EXT.4">FCS_TTTS_EXT.4</a> (selection-based)</td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> supports the objective by defining optional support for TLS session renegotiation that is applied to the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>'s proxy TLS server interface.</td></tr>
-<tr><td><a href="#FDP_STIP_EXT.2">FDP_STIP_EXT.2</a> (selection-based)</td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> supports the objective by defining the optional capability of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to establish a proxy TLS session in the case where mutual authentication is supported.</td></tr>
-<tr class="major-row"><td rowspan="2"><a href="#O.RECOVERY">O.RECOVERY</a><br/></td><td><a href="#FPT_FLS.1">FPT_FLS.1</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> supports the objective by requiring the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> to preserve a secure state when certain failures occur.</td></tr>
-<tr><td><a href="#FPT_RCV.1">FPT_RCV.1</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> supports the objective by requiring the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> to support a maintenance mode of operation that is entered when certain failures occur.</td></tr>
-<tr class="major-row"><td rowspan="1"><a href="#O.RESIDUAL_INFORMATION_CLEARING">O.RESIDUAL_​INFORMATION_​CLEARING</a><br/></td><td><a href="#FDP_RIP.1">FDP_RIP.1</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> supports the objective by defining the residual data that is cleared from <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> memory and when the clearing occurs.</td></tr>
-<tr class="major-row"><td rowspan="5"><a href="#O.SYSTEM_MONITORING">O.SYSTEM_​MONITORING</a><br/></td><td>FAU_STG_EXT.1 (from <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>)</td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> supports the objective by defining a mechanism for the secure storage of audit data in the <abbr class="dyn-abbr"><a href="#abbr_OE">OE</a></abbr>.</td></tr>
-<tr><td><a href="#FAU_GEN.1/STIP">FAU_GEN.1/STIP</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> supports the objective by defining the auditable events specific to <abbr class="dyn-abbr"><a href="#abbr_STIP">STIP</a></abbr> functionality that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> must generate.</td></tr>
-<tr><td><a href="#FAU_GCR_EXT.1">FAU_GCR_EXT.1</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> supports the objective by defining the mechanism the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> uses to store certificate data.</td></tr>
-<tr><td><a href="#FAU_SAR.3">FAU_SAR.3</a> (optional)</td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> supports the objective by optionally defining the functionality to search audit records for events associated with a particular certificate.</td></tr>
-<tr><td><a href="#FAU_SCR_EXT.1">FAU_SCR_EXT.1</a> (selection-based)</td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> supports the objective by requiring the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to implement a search function for certificate storage if the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> implements its own certificate store (as opposed to relying on environmental storage).</td></tr>
-<tr class="major-row"><td rowspan="3"><a href="#O.TOE_ADMINISTRATION">O.TOE_​ADMINISTRATION</a><br/></td><td><a href="#FMT_MOF.1/STIP">FMT_MOF.1/STIP</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> supports the objective by defining the authorized use of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> by association between the supported management functions and the roles that are authorized to perform them.</td></tr>
-<tr><td><a href="#FMT_SMF.1/STIP">FMT_SMF.1/STIP</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> supports the objective by defining the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>'s management functions that are specific to <abbr class="dyn-abbr"><a href="#abbr_STIP">STIP</a></abbr> functionality.</td></tr>
-<tr><td>FDP_SMR.2/<abbr class="dyn-abbr"><a href="#abbr_STIP">STIP</a></abbr></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> supports the objective by defining additional management roles that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> may support that are specific to <abbr class="dyn-abbr"><a href="#abbr_STIP">STIP</a></abbr> functionality.</td></tr>
-<tr class="major-row"><td rowspan="2"><a href="#O.TRAFFIC_MONITORING">O.TRAFFIC_​MONITORING</a><br/></td><td><a href="#FDP_PPP_EXT.1">FDP_PPP_EXT.1</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> supports the objective by defining the processing rules that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> applies to plaintext traffic once decrypted.</td></tr>
-<tr><td><a href="#FDP_TEP_EXT.1">FDP_TEP_EXT.1</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> supports the objective by defining the processing rules that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> applies to encrypted traffic.</td></tr>
-</table></p><h2 id="mod-sars" class="indexable" data-level="2">4.4 TOE Security Assurance Requirements</h2>
+    <h2 id="obj-req-map" class="indexable" data-level="2">5.3 TOE Security Functional Requirements Rationale</h2><p>The following rationale provides justification for each <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> for the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>, 
+    showing that the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> are suitable to address the specified threats:<br/><table><caption><span class="ctr" data-myid="t-obj_map" data-counter-type="ct-Table" id="t-obj_map">Table <span class="counter">3</span></span>: <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> Rationale</caption><tr><th>Threat</th><th>Addressed by</th><th>Rationale</th></tr></table></p><h2 id="mod-sars" class="indexable" data-level="2">5.4 TOE Security Assurance Requirements</h2>
 			This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does not define any Security Assurance requirements. The <abbr class="dyn-abbr"><a href="#abbr_SAR">SARs</a></abbr> from the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> must be satisfied.
-	      <h1 id="mod-conrat" class="indexable" data-level="1">5 Consistency Rationale</h1><h2 id="conrat-ND" class="indexable" data-level="2">5.1 Collaborative 
-    Protection Profile for Network Devices</h2><h3 id="contoe-ND" class="indexable" data-level="3">5.1.1 
+	      <h1 id="mod-conrat" class="indexable" data-level="1">6 Consistency Rationale</h1><h2 id="conrat-ND" class="indexable" data-level="2">6.1 Collaborative 
+    Protection Profile for Network Devices</h2><h3 id="contoe-ND" class="indexable" data-level="3">6.1.1 
 	Consistency of TOE Type
       </h3>If this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> is used to extend the NDcPP, the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> type for the overall <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is still a generic network
         device. However, one of the functions of the device must be the ability for it to act as an <abbr class="dyn-abbr"><a href="#abbr_SSL/TLS">SSL/TLS</a></abbr> Inspection
-        Proxy. The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> boundary is simply extended to include that functionality. <h3 id="consecprob-ND" class="indexable" data-level="3">5.1.2 
+        Proxy. The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> boundary is simply extended to include that functionality. <h3 id="consecprob-ND" class="indexable" data-level="3">6.1.2 
 	Consistency of Security Problem Definition
       </h3>The threats, assumptions, and OSPs defined by this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> (see sections 3.1 through 3.3) supplement those
 		defined in the NDcPP as follows:<table><caption><span class="ctr" data-myid="t-con-sec-prob-def" data-counter-type="ct-Table" id="t-con-sec-prob-def">Table <span class="counter">4</span></span>: Consistency of Security Problem Definition (NDcPP base)
-		</caption><tr><th><abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> Threat, Assumption, OSP</th><th>Consistency Rationale</th></tr><tr><td>T.UNTRUSTED_COMMUNICATION</td><td>The threat of untrusted communication can provide unauthorized access
+		</caption><tr><th><abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> Threat, Assumption, OSP</th><th>Consistency Rationale</th></tr><tr><td><a href="#T.UNTRUSTED_COMMUNICATION">T.UNTRUSTED_COMMUNICATION</a></td><td>The threat of untrusted communication can provide unauthorized access
         to unintended resources if using weak cryptography or use untrusted
         intermediate systems. This can be mitigated either by protocols defined in
-        this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> or in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>.</td></tr><tr><td>T.AUDIT</td><td>Auditing poses a threat if certain activities aren’t logged, like the issuance
+        this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> or in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>.</td></tr><tr><td><a href="#T.AUDIT">T.AUDIT</a></td><td>Auditing poses a threat if certain activities aren’t logged, like the issuance
         of certificates. This threat can be mitigated if proper configurations are in
         place to prevent the compromise of audit data defined in this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>
-        or the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>.</td></tr><tr><td>T.UNAUTHORIZED_USERS</td><td>The threat of unauthorized users attempting to gain access to other users’
+        or the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>.</td></tr><tr><td><a href="#T.UNAUTHORIZED_USERS">T.UNAUTHORIZED_USERS</a></td><td>The threat of unauthorized users attempting to gain access to other users’
         credentials can be addressed by placing protections for logged-in users
         and only allow privileged user access methods defined in this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>
-        or in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>.</td></tr><tr><td>T.CREDENTIALS</td><td>Beyond the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>, the threat of manipulation of the <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> signing key can
-        be mitigated by providing access protection to persistent keys.</td></tr><tr><td>T.SERVICES</td><td>The threat of misuse or manipulation of services is not defined in the
-        <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>, but it is consistent with the general threat of unauthorized manipulation of the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>.</td></tr><tr><td>T.DEVICE_FAILURE</td><td>The failure of the certificate authority or routing traffic to inspection poses
-        a threat not defined in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>.</td></tr><tr><td>T.UNAUTHORIZED_DISCLOSURE</td><td>The <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> does not include the threat of unauthorized disclosure to
-        sensitive data that is only intended for the monitored client because this is an interface that the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> cannot assume all conformant <abbr class="dyn-abbr"><a href="#abbr_TOE">TOEs</a></abbr> have.</td></tr><tr><td>T.INAPPROPRIATE_ACCESS</td><td>The threat of inappropriate access to unintended servers could disclose
+        or in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>.</td></tr><tr><td><a href="#T.CREDENTIALS">T.CREDENTIALS</a></td><td>Beyond the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>, the threat of manipulation of the <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> signing key can
+        be mitigated by providing access protection to persistent keys.</td></tr><tr><td><a href="#T.SERVICES">T.SERVICES</a></td><td>The threat of misuse or manipulation of services is not defined in the
+        <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>, but it is consistent with the general threat of unauthorized manipulation of the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>.</td></tr><tr><td><a href="#T.DEVICE_FAILURE">T.DEVICE_FAILURE</a></td><td>The failure of the certificate authority or routing traffic to inspection poses
+        a threat not defined in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>.</td></tr><tr><td><a href="#T.UNAUTHORIZED_DISCLOSURE">T.UNAUTHORIZED_DISCLOSURE</a></td><td>The <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> does not include the threat of unauthorized disclosure to
+        sensitive data that is only intended for the monitored client because this is an interface that the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> cannot assume all conformant <abbr class="dyn-abbr"><a href="#abbr_TOE">TOEs</a></abbr> have.</td></tr><tr><td><a href="#T.INAPPROPRIATE_ACCESS">T.INAPPROPRIATE_ACCESS</a></td><td>The threat of inappropriate access to unintended servers could disclose
         unauthorized traffic to inspection processes which is not defined in the
-        <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> because a generic network device does not necessarily have a traffic inspection functionality.</td></tr><tr><td>P.AUTHORIZATION_TO_INSPECT</td><td>The <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> cannot define the interactions that an end user will have with a generic device because it may vary depending on the specific device type. This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> defines a policy
-      that is specific to the use case of a <abbr class="dyn-abbr"><a href="#abbr_STIP">STIP</a></abbr> device.</td></tr></table><h3 id="conobj-ND" class="indexable" data-level="3">5.1.3 
-			Consistency of Objectives
-		</h3><p><table><caption><span class="ctr" data-myid="t-con-objs" data-counter-type="ct-Table" id="t-con-objs">Table <span class="counter">5</span></span>: Consistency of Objectives (NDcPP base)
-				</caption><tr><th><abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> Objective</th><th>Consistency Rationale</th></tr><tr><td><a href="#O.AUDIT_LOSS_RESPONSE">O.AUDIT_LOSS_RESPONSE</a></td><td>The <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> does not define any <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> objectives so <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> objectives do not conflict with it.</td></tr><tr><td><a href="#O.CERTIFICATES">O.CERTIFICATES</a></td><td>The <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> does not define any <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> objectives so <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> objectives do not conflict with it.</td></tr><tr><td><a href="#O.DISPLAY_BANNER">O.DISPLAY_BANNER</a></td><td>The <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> does not define any <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> objectives so <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> objectives do not conflict with it.</td></tr><tr><td><a href="#O.INTEGRITY_PROTECTION">O.INTEGRITY_PROTECTION</a></td><td>The <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> does not define any <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> objectives so <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> objectives do not conflict with it.</td></tr><tr><td><a href="#O.PERSISTENT_KEY_PROTECTION">O.PERSISTENT_KEY_PROTECTION</a></td><td>The <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> does not define any <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> objectives so <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> objectives do not conflict with it.</td></tr><tr><td><a href="#O.PROTECTED_COMMUNICATIONS">O.PROTECTED_COMMUNICATIONS</a></td><td>The <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> does not define any <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> objectives so <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> objectives do not conflict with it.</td></tr><tr><td><a href="#O.RECOVERY">O.RECOVERY</a></td><td>The <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> does not define any <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> objectives so <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> objectives do not conflict with it.</td></tr><tr><td><a href="#O.RESIDUAL_INFORMATION_CLEARING">O.RESIDUAL_INFORMATION_CLEARING</a></td><td>The <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> does not define any <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> objectives so <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> objectives do not conflict with it.</td></tr><tr><td><a href="#O.SYSTEM_MONITORING">O.SYSTEM_MONITORING</a></td><td>The <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> does not define any <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> objectives so <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> objectives do not conflict with it.</td></tr><tr><td><a href="#O.TOE_ADMINISTRATION">O.TOE_ADMINISTRATION</a></td><td>The <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> does not define any <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> objectives so <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> objectives do not conflict with it.</td></tr><tr><td><a href="#O.TRAFFIC_MONITORING">O.TRAFFIC_MONITORING</a></td><td>The <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> does not define any <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> objectives so <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> objectives do not conflict with it.</td></tr></table></p><p><table><caption><span class="ctr" data-myid="t-con-oe-objs" data-counter-type="ct-Table" id="t-con-oe-objs">Table <span class="counter">6</span></span>: Consistency of <abbr class="dyn-abbr"><a href="#abbr_OE">OE</a></abbr> Objectives (NDcPP base)
+        <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> because a generic network device does not necessarily have a traffic inspection functionality.</td></tr><tr><td><a href="#P.AUTHORIZATION_TO_INSPECT">P.AUTHORIZATION_TO_INSPECT</a></td><td>The <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> cannot define the interactions that an end user will have with a generic device because it may vary depending on the specific device type. This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> defines a policy
+      that is specific to the use case of a <abbr class="dyn-abbr"><a href="#abbr_STIP">STIP</a></abbr> device.</td></tr></table><h3 id="conobj-ND" class="indexable" data-level="3">6.1.3 
+			Consistency of OE Objectives
+		</h3><p><table><caption><span class="ctr" data-myid="t-con-oe-objs" data-counter-type="ct-Table" id="t-con-oe-objs">Table <span class="counter">5</span></span>: Consistency of <abbr class="dyn-abbr"><a href="#abbr_OE">OE</a></abbr> Objectives (NDcPP base)
 		</caption><tr><th><abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> <abbr class="dyn-abbr"><a href="#abbr_OE">OE</a></abbr> Objective</th><th>Consistency Rationale</th></tr><tr><td><a href="#OE.AUDIT">OE.AUDIT</a></td><td>This objective intends for the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>’s <abbr class="dyn-abbr"><a href="#abbr_OE">OE</a></abbr> to have adequate storage to retain
         the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>'s audit records. This objective is not defined in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> but can be assumed to be consistent with the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> because FAU_STG_EXT.1 requires transmission of audit data to an 
       environmental audit server, which means that there should be some assurance of the security of that server.</td></tr><tr><td><a href="#OE.CERT_REPOSITORY">OE.CERT_REPOSITORY</a></td><td>This objective intends for the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>’s <abbr class="dyn-abbr"><a href="#abbr_OE">OE</a></abbr> to provide a certificate repository. This is not defined in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> because not all network devices will necessarily need to interface with a certificate repository.</td></tr><tr><td><a href="#OE.CERT_REPOSITORY_SEARCH">OE.CERT_REPOSITORY_SEARCH</a></td><td>This objective intends for the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>’s <abbr class="dyn-abbr"><a href="#abbr_OE">OE</a></abbr> which will provide a certificate
-        repository to also have the capability to search within the repository. This is not defined in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> because not all network devices will necessarily need to interface with a certificate repository.</td></tr></table></p><h3 id="conreq-ND" class="indexable" data-level="3">5.1.4 
+        repository to also have the capability to search within the repository. This is not defined in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> because not all network devices will necessarily need to interface with a certificate repository.</td></tr></table></p><h3 id="conreq-ND" class="indexable" data-level="3">6.1.4 
 	Consistency of Requirements
       </h3>
       This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> identifies several <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> from the
@@ -4670,7 +4712,7 @@ The assumptions identified in Section 3 are incorporated as security objectives 
           The rationale for why this does not conflict with the claims
       defined by the
       NDcPP are as follows:
-      <table><caption><span class="ctr" data-myid="t-con-reqs" data-counter-type="ct-Table" id="t-con-reqs">Table <span class="counter">7</span></span>: Consistency of Requirements (NDcPP base)
+      <table><caption><span class="ctr" data-myid="t-con-reqs" data-counter-type="ct-Table" id="t-con-reqs">Table <span class="counter">6</span></span>: Consistency of Requirements (NDcPP base)
 		</caption><tr><th><abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> Requirement</th><th>Consistency Rationale</th></tr><tr><th colspan="2"> Modified <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr></th></tr><tr><td><a href="#FCS_CKM.4">FCS_CKM.4</a></td><td>The <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author is instructed to include security critical parameters and when
               key destruction is required.</td></tr><tr><td><a href="#FCS_TLSC_EXT.1">FCS_TLSC_EXT.1</a></td><td>Other than defining an additional selection-based trigger, there is no modification to this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>.</td></tr><tr><td><a href="#FCS_TLSC_EXT.2">FCS_TLSC_EXT.2</a></td><td>Other than being defined as selection-based, there is no modification to this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>.</td></tr><tr><td><a href="#FIA_X509_EXT.1/Rev">FIA_X509_EXT.1/Rev</a></td><td>There is no modification to this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>, but it is mandatory for a <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> that conforms to this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> because
               the certificate enrollment process always requires the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> to validate a presented certificate.</td></tr><tr><td><a href="#FIA_X509_EXT.3">FIA_X509_EXT.3</a></td><td>There is no change to this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>. Only its trigger for inclusion is changed because this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> introduces an alternate method of obtaining a certificate for the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>.</td></tr><tr><td><a href="#FTP_ITC.1">FTP_ITC.1</a></td><td>The <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> partially completes selections and assignments in this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> using the available options to specify external interfaces and trusted channels that all <abbr class="dyn-abbr"><a href="#abbr_STIP">STIP</a></abbr> products must support at minimum.</td></tr><tr><th colspan="2"> Additional <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr></th></tr><tr><td colspan="2" style="text-align:center">
@@ -4736,7 +4778,7 @@ The assumptions identified in Section 3 are incorporated as security objectives 
             (server-side).</td></tr></tr></table><h1 id="opt-sfrs" class="indexable" data-level="A">Appendix A -  Optional SFRs</h1><h2 id="opt-sfrs" class="indexable" data-level="2">A.1 Strictly Optional Requirements
     </h2>
       <h3 class="indexable" data-level="3" id="opt-audit-table">A.1.1 Auditable Events for Optional SFRs</h3>
-        <table class="sort_kids_" border="1"><caption data-sortkey="#0"><span class="ctr" data-myid="optional-audit-events" data-counter-type="ct-Table" id="optional-audit-events">Table <span class="counter">8</span></span>: Auditable Events for Strictly Optional Requirements</caption><tr data-sortkey="#1"><th>Requirement</th><th>Auditable Events</th><th>Additional Audit Record Contents</th></tr><tr data-sortkey="FAU_SAR.1"><td rowspan="2"><a href="#FAU_SAR.1">FAU_SAR.1</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FAU_SAR.1#"><td></td></tr><tr data-sortkey="FAU_SAR.1.1"><td>No events specified</td><td>N/A</td></tr><tr data-sortkey="FAU_SAR.3"><td rowspan="2"><a href="#FAU_SAR.3">FAU_SAR.3</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FAU_SAR.3#"><td></td></tr><tr data-sortkey="FAU_SAR.3.1"><td>No events specified</td><td>N/A</td></tr><tr data-sortkey="FDP_PIN_EXT.1"><td rowspan="2"><a href="#FDP_PIN_EXT.1">FDP_PIN_EXT.1</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FDP_PIN_EXT.1#"><td></td></tr><tr data-sortkey="FDP_PIN_EXT.1.1"><td>No events specified</td><td>N/A</td></tr></table>
+        <table class="sort_kids_" border="1"><caption data-sortkey="#0"><span class="ctr" data-myid="optional-audit-events" data-counter-type="ct-Table" id="optional-audit-events">Table <span class="counter">7</span></span>: Auditable Events for Strictly Optional Requirements</caption><tr data-sortkey="#1"><th>Requirement</th><th>Auditable Events</th><th>Additional Audit Record Contents</th></tr><tr data-sortkey="FAU_SAR.1"><td rowspan="2"><a href="#FAU_SAR.1">FAU_SAR.1</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FAU_SAR.1#"><td></td></tr><tr data-sortkey="FAU_SAR.1.1"><td>No events specified</td><td>N/A</td></tr><tr data-sortkey="FAU_SAR.3"><td rowspan="2"><a href="#FAU_SAR.3">FAU_SAR.3</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FAU_SAR.3#"><td></td></tr><tr data-sortkey="FAU_SAR.3.1"><td>No events specified</td><td>N/A</td></tr><tr data-sortkey="FDP_PIN_EXT.1"><td rowspan="2"><a href="#FDP_PIN_EXT.1">FDP_PIN_EXT.1</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FDP_PIN_EXT.1#"><td></td></tr><tr data-sortkey="FDP_PIN_EXT.1.1"><td>No events specified</td><td>N/A</td></tr></table>
        
       
       <h3 id="opt-fau" class="indexable" data-level="3">A.1.2 Persistent Local Audit Storage</h3>
@@ -4850,7 +4892,7 @@ The assumptions identified in Section 3 are incorporated as security objectives 
     </h2>
 
    	    <h3 class="indexable" data-level="3" id="sob-audit-table">A.2.1 Auditable Events for Objective SFRs</h3>
-   	      <table class="sort_kids_" border="1"><caption data-sortkey="#0"><span class="ctr" data-myid="objective-audit-events" data-counter-type="ct-Table" id="objective-audit-events">Table <span class="counter">9</span></span>: Auditable Events for Objective Requirements</caption><tr data-sortkey="#1"><th>Requirement</th><th>Auditable Events</th><th>Additional Audit Record Contents</th></tr><tr data-sortkey="FIA_ESTC_EXT.2"><td rowspan="2"><a href="#FIA_ESTC_EXT.2">FIA_ESTC_EXT.2</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FIA_ESTC_EXT.2#"><td></td></tr><tr data-sortkey="FIA_ESTC_EXT.2.1"><td>No events specified</td><td>N/A</td></tr></table>
+   	      <table class="sort_kids_" border="1"><caption data-sortkey="#0"><span class="ctr" data-myid="objective-audit-events" data-counter-type="ct-Table" id="objective-audit-events">Table <span class="counter">8</span></span>: Auditable Events for Objective Requirements</caption><tr data-sortkey="#1"><th>Requirement</th><th>Auditable Events</th><th>Additional Audit Record Contents</th></tr><tr data-sortkey="FIA_ESTC_EXT.2"><td rowspan="2"><a href="#FIA_ESTC_EXT.2">FIA_ESTC_EXT.2</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FIA_ESTC_EXT.2#"><td></td></tr><tr data-sortkey="FIA_ESTC_EXT.2.1"><td>No events specified</td><td>N/A</td></tr></table>
 	    
       
       <h3 id="obj-fia" class="indexable" data-level="3">A.2.2 Identification and Authentication (FIA)</h3>
@@ -4895,7 +4937,7 @@ The assumptions identified in Section 3 are incorporated as security objectives 
     </h1>
       
 	    <h2 class="indexable" data-level="2" id="sb-audit-table">B.1 Auditable Events for Selection-based SFRs</h2>
-        	<table class="sort_kids_" border="1"><caption data-sortkey="#0"><span class="ctr" data-myid="sel-based-audit-events" data-counter-type="ct-Table" id="sel-based-audit-events">Table <span class="counter">10</span></span>: Auditable Events for Selection-based Requirements</caption><tr data-sortkey="#1"><th>Requirement</th><th>Auditable Events</th><th>Additional Audit Record Contents</th></tr><tr data-sortkey="FAU_SCR_EXT.1"><td rowspan="2"><a href="#FAU_SCR_EXT.1">FAU_SCR_EXT.1</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FAU_SCR_EXT.1#"><td></td></tr><tr data-sortkey="FAU_SCR_EXT.1.1"><td>No events specified</td><td>N/A</td></tr><tr data-sortkey="FCS_TTTC_EXT.3"><td rowspan="3"><a href="#FCS_TTTC_EXT.3">FCS_TTTC_EXT.3</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FCS_TTTC_EXT.3#"><td></td></tr><tr data-sortkey="FCS_TTTC_EXT.3.7"><td>Mutual authentication authorized</td><td>[<b>selection</b>: <span class="selectable-content" id="_s_310">client certificate value</span>, <span class="selectable-content" id="_s_311">client certificate object identifier</span>]</td></tr><tr data-sortkey="FCS_TTTC_EXT.3.8"><td>Mutual authentication not authorized</td><td>N/A</td></tr><tr data-sortkey="FCS_TTTC_EXT.4"><td rowspan="2"><a href="#FCS_TTTC_EXT.4">FCS_TTTC_EXT.4</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FCS_TTTC_EXT.4#"><td></td></tr><tr data-sortkey="FCS_TTTC_EXT.4.1"><td>No events specified</td><td>N/A</td></tr><tr data-sortkey="FCS_TTTS_EXT.3"><td rowspan="3"><a href="#FCS_TTTS_EXT.3">FCS_TTTS_EXT.3</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FCS_TTTS_EXT.3#"><td></td></tr><tr data-sortkey="FCS_TTTS_EXT.3.10"><td>Mutual authentication required and valid client certificate received</td><td>Client certificate</td></tr><tr data-sortkey="FCS_TTTS_EXT.3.11"><td>Mutual authentication not authorized</td><td>N/A</td></tr><tr data-sortkey="FCS_TTTS_EXT.4"><td rowspan="2"><a href="#FCS_TTTS_EXT.4">FCS_TTTS_EXT.4</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FCS_TTTS_EXT.4#"><td></td></tr><tr data-sortkey="FCS_TTTS_EXT.4.1"><td>No events specified</td><td>N/A</td></tr><tr data-sortkey="FDP_CER_EXT.4"><td rowspan="2"><a href="#FDP_CER_EXT.4">FDP_CER_EXT.4</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FDP_CER_EXT.4#"><td></td></tr><tr data-sortkey="FDP_CER_EXT.4.1"><td>No events specified</td><td>N/A</td></tr><tr data-sortkey="FDP_CER_EXT.5"><td rowspan="2"><a href="#FDP_CER_EXT.5">FDP_CER_EXT.5</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FDP_CER_EXT.5#"><td></td></tr><tr data-sortkey="FDP_CER_EXT.5.8"><td>Certificate generation</td><td>Success: [<b>selection</b>: <span class="selectable-content" id="_s_349">certificate value</span>, <span class="selectable-content" id="_s_350">certificate object identifier</span>]</td></tr><tr data-sortkey="FDP_CRL_EXT.1"><td rowspan="2"><a href="#FDP_CRL_EXT.1">FDP_CRL_EXT.1</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FDP_CRL_EXT.1#"><td></td></tr><tr data-sortkey="FDP_CRL_EXT.1.7"><td>Failure to generate CRL</td><td>N/A</td></tr><tr data-sortkey="FDP_CSI_EXT.1"><td rowspan="2"><a href="#FDP_CSI_EXT.1">FDP_CSI_EXT.1</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FDP_CSI_EXT.1#"><td></td></tr><tr data-sortkey="FDP_CSI_EXT.1.1"><td>No events specified</td><td>N/A</td></tr><tr data-sortkey="FDP_CSI_EXT.2"><td rowspan="2"><a href="#FDP_CSI_EXT.2">FDP_CSI_EXT.2</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FDP_CSI_EXT.2#"><td></td></tr><tr data-sortkey="FDP_CSI_EXT.2.1"><td>No events specified</td><td>N/A</td></tr><tr data-sortkey="FDP_OCSPS_EXT.1"><td rowspan="2"><a href="#FDP_OCSPS_EXT.1">FDP_OCSPS_EXT.1</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FDP_OCSPS_EXT.1#"><td></td></tr><tr data-sortkey="FDP_OCSPS_EXT.1.8"><td>Failure to include certificate status information in TLS handshake message</td><td>N/A</td></tr><tr data-sortkey="FDP_OCSP_EXT.1"><td rowspan="2"><a href="#FDP_OCSP_EXT.1">FDP_OCSP_EXT.1</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FDP_OCSP_EXT.1#"><td></td></tr><tr data-sortkey="FDP_OCSP_EXT.1.7"><td>Failure to generate certificate status information</td><td>N/A</td></tr><tr data-sortkey="FDP_STIP_EXT.2"><td rowspan="2"><a href="#FDP_STIP_EXT.2">FDP_STIP_EXT.2</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FDP_STIP_EXT.2#"><td></td></tr><tr data-sortkey="FDP_STIP_EXT.2.1"><td>No events specified</td><td>N/A</td></tr><tr data-sortkey="FIA_ESTC_EXT.1"><td rowspan="2"><a href="#FIA_ESTC_EXT.1">FIA_ESTC_EXT.1</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FIA_ESTC_EXT.1#"><td></td></tr><tr data-sortkey="FIA_ESTC_EXT.1.11"><td>EST requests</td><td>N/A</td></tr><tr data-sortkey="FTA_TAB.1/TLS"><td rowspan="2"><a href="#FTA_TAB.1/TLS">FTA_TAB.1/TLS</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FTA_TAB.1/TLS#"><td></td></tr><tr data-sortkey="FTA_TAB.1/TLS.1"><td>No events specified</td><td>N/A</td></tr></table>
+        	<table class="sort_kids_" border="1"><caption data-sortkey="#0"><span class="ctr" data-myid="sel-based-audit-events" data-counter-type="ct-Table" id="sel-based-audit-events">Table <span class="counter">9</span></span>: Auditable Events for Selection-based Requirements</caption><tr data-sortkey="#1"><th>Requirement</th><th>Auditable Events</th><th>Additional Audit Record Contents</th></tr><tr data-sortkey="FAU_SCR_EXT.1"><td rowspan="2"><a href="#FAU_SCR_EXT.1">FAU_SCR_EXT.1</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FAU_SCR_EXT.1#"><td></td></tr><tr data-sortkey="FAU_SCR_EXT.1.1"><td>No events specified</td><td>N/A</td></tr><tr data-sortkey="FCS_TTTC_EXT.3"><td rowspan="3"><a href="#FCS_TTTC_EXT.3">FCS_TTTC_EXT.3</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FCS_TTTC_EXT.3#"><td></td></tr><tr data-sortkey="FCS_TTTC_EXT.3.7"><td>Mutual authentication authorized</td><td>[<b>selection</b>: <span class="selectable-content" id="_s_310">client certificate value</span>, <span class="selectable-content" id="_s_311">client certificate object identifier</span>]</td></tr><tr data-sortkey="FCS_TTTC_EXT.3.8"><td>Mutual authentication not authorized</td><td>N/A</td></tr><tr data-sortkey="FCS_TTTC_EXT.4"><td rowspan="2"><a href="#FCS_TTTC_EXT.4">FCS_TTTC_EXT.4</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FCS_TTTC_EXT.4#"><td></td></tr><tr data-sortkey="FCS_TTTC_EXT.4.1"><td>No events specified</td><td>N/A</td></tr><tr data-sortkey="FCS_TTTS_EXT.3"><td rowspan="3"><a href="#FCS_TTTS_EXT.3">FCS_TTTS_EXT.3</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FCS_TTTS_EXT.3#"><td></td></tr><tr data-sortkey="FCS_TTTS_EXT.3.10"><td>Mutual authentication required and valid client certificate received</td><td>Client certificate</td></tr><tr data-sortkey="FCS_TTTS_EXT.3.11"><td>Mutual authentication not authorized</td><td>N/A</td></tr><tr data-sortkey="FCS_TTTS_EXT.4"><td rowspan="2"><a href="#FCS_TTTS_EXT.4">FCS_TTTS_EXT.4</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FCS_TTTS_EXT.4#"><td></td></tr><tr data-sortkey="FCS_TTTS_EXT.4.1"><td>No events specified</td><td>N/A</td></tr><tr data-sortkey="FDP_CER_EXT.4"><td rowspan="2"><a href="#FDP_CER_EXT.4">FDP_CER_EXT.4</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FDP_CER_EXT.4#"><td></td></tr><tr data-sortkey="FDP_CER_EXT.4.1"><td>No events specified</td><td>N/A</td></tr><tr data-sortkey="FDP_CER_EXT.5"><td rowspan="2"><a href="#FDP_CER_EXT.5">FDP_CER_EXT.5</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FDP_CER_EXT.5#"><td></td></tr><tr data-sortkey="FDP_CER_EXT.5.8"><td>Certificate generation</td><td>Success: [<b>selection</b>: <span class="selectable-content" id="_s_349">certificate value</span>, <span class="selectable-content" id="_s_350">certificate object identifier</span>]</td></tr><tr data-sortkey="FDP_CRL_EXT.1"><td rowspan="2"><a href="#FDP_CRL_EXT.1">FDP_CRL_EXT.1</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FDP_CRL_EXT.1#"><td></td></tr><tr data-sortkey="FDP_CRL_EXT.1.7"><td>Failure to generate CRL</td><td>N/A</td></tr><tr data-sortkey="FDP_CSI_EXT.1"><td rowspan="2"><a href="#FDP_CSI_EXT.1">FDP_CSI_EXT.1</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FDP_CSI_EXT.1#"><td></td></tr><tr data-sortkey="FDP_CSI_EXT.1.1"><td>No events specified</td><td>N/A</td></tr><tr data-sortkey="FDP_CSI_EXT.2"><td rowspan="2"><a href="#FDP_CSI_EXT.2">FDP_CSI_EXT.2</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FDP_CSI_EXT.2#"><td></td></tr><tr data-sortkey="FDP_CSI_EXT.2.1"><td>No events specified</td><td>N/A</td></tr><tr data-sortkey="FDP_OCSPS_EXT.1"><td rowspan="2"><a href="#FDP_OCSPS_EXT.1">FDP_OCSPS_EXT.1</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FDP_OCSPS_EXT.1#"><td></td></tr><tr data-sortkey="FDP_OCSPS_EXT.1.8"><td>Failure to include certificate status information in TLS handshake message</td><td>N/A</td></tr><tr data-sortkey="FDP_OCSP_EXT.1"><td rowspan="2"><a href="#FDP_OCSP_EXT.1">FDP_OCSP_EXT.1</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FDP_OCSP_EXT.1#"><td></td></tr><tr data-sortkey="FDP_OCSP_EXT.1.7"><td>Failure to generate certificate status information</td><td>N/A</td></tr><tr data-sortkey="FDP_STIP_EXT.2"><td rowspan="2"><a href="#FDP_STIP_EXT.2">FDP_STIP_EXT.2</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FDP_STIP_EXT.2#"><td></td></tr><tr data-sortkey="FDP_STIP_EXT.2.1"><td>No events specified</td><td>N/A</td></tr><tr data-sortkey="FIA_ESTC_EXT.1"><td rowspan="2"><a href="#FIA_ESTC_EXT.1">FIA_ESTC_EXT.1</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FIA_ESTC_EXT.1#"><td></td></tr><tr data-sortkey="FIA_ESTC_EXT.1.11"><td>EST requests</td><td>N/A</td></tr><tr data-sortkey="FTA_TAB.1/TLS"><td rowspan="2"><a href="#FTA_TAB.1/TLS">FTA_TAB.1/TLS</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FTA_TAB.1/TLS#"><td></td></tr><tr data-sortkey="FTA_TAB.1/TLS.1"><td>No events specified</td><td>N/A</td></tr></table>
 	     
       
       
@@ -6234,7 +6276,7 @@ The assumptions identified in Section 3 are incorporated as security objectives 
 
 	All extended components specified in the <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> are listed in this table:
 
-<table class="sort_kids_"><caption data-sortkey="#0"><b><span class="ctr" data-myid="" data-counter-type="ct-Table" id="">Table <span class="counter">11</span></span>: Extended Component Definitions</b></caption><tr data-sortkey="#1"><th>Functional Class</th><th>Functional Components</th></tr><tr data-sortkey="Certificate Enrollment"><td>Certificate Enrollment</td><td>FIA_ESTC_EXT Enrollment over Secure Transport Client Protocol<br/></td></tr><tr data-sortkey="Certificate Pinning"><td>Certificate Pinning</td><td>FDP_PIN_EXT Certificate Pinning<br/></td></tr><tr data-sortkey="Certificate Status Information"><td>Certificate Status Information</td><td>FDP_CRL_EXT Certificate Revocation List<br/>FDP_CSI_EXT Certificate Status Information<br/>FDP_OCSPS_EXT Online Certificate Status Protocol Stapling<br/>FDP_OCSP_EXT Online Certificate Status Protocol<br/></td></tr><tr data-sortkey="Cryptographic Support (FCS)"><td>Cryptographic Support (FCS)</td><td>FCS_STG_EXT Cryptographic Key Storage<br/>FCS_TTTC_EXT Thru-Traffic TLS Inspection Client Protocol<br/>FCS_TTTS_EXT Thru-Traffic TLS Inspection Server Protocol<br/></td></tr><tr data-sortkey="Identification and Authentication (FIA)"><td>Identification and Authentication (FIA)</td><td>FIA_ENR_EXT Certificate Enrollment<br/></td></tr><tr data-sortkey="Other Selection-based SFRs"><td>Other Selection-based <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr></td><td>FAU_SCR_EXT Certificate Repository Review<br/>FCS_CKM_EXT Cryptographic Key Management<br/></td></tr><tr data-sortkey="Protection of the TSF (FPT)"><td>Protection of the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> (FPT)</td><td>FPT_KST_EXT Key Storage<br/></td></tr><tr data-sortkey="Security Audit (FAU)"><td>Security Audit (FAU)</td><td>FAU_GCR_EXT Generation of Certificate Repository<br/></td></tr><tr data-sortkey="User Data Protection (FDP)"><td>User Data Protection (FDP)</td><td>FDP_CER_EXT Certificate Usage<br/>FDP_CSIR_EXT Certificate Status Information Required<br/>FDP_PPP_EXT Plaintext Processing Policy<br/>FDP_PRC_EXT Plaintext Routing Control<br/>FDP_STG_EXT User Data Storage<br/>FDP_STIP_EXT <abbr class="dyn-abbr"><a href="#abbr_SSL/TLS">SSL/TLS</a></abbr> Inspection Proxy Functions<br/>FDP_TEP_EXT TLS Establishment Policy<br/></td></tr></table><h2 id="ext-comp-defs-bg" class="indexable" data-level="2">C.2 Extended Component Definitions</h2><span class="sort_kids_"><span data-sortkey="Certificate Enrollment"><h3 id="ext-comp-" class="indexable" data-level="3">C.2.1 Certificate Enrollment</h3>This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> defines the following extended components as part of the
+<table class="sort_kids_"><caption data-sortkey="#0"><b><span class="ctr" data-myid="" data-counter-type="ct-Table" id="">Table <span class="counter">10</span></span>: Extended Component Definitions</b></caption><tr data-sortkey="#1"><th>Functional Class</th><th>Functional Components</th></tr><tr data-sortkey="Certificate Enrollment"><td>Certificate Enrollment</td><td>FIA_ESTC_EXT Enrollment over Secure Transport Client Protocol<br/></td></tr><tr data-sortkey="Certificate Pinning"><td>Certificate Pinning</td><td>FDP_PIN_EXT Certificate Pinning<br/></td></tr><tr data-sortkey="Certificate Status Information"><td>Certificate Status Information</td><td>FDP_CRL_EXT Certificate Revocation List<br/>FDP_CSI_EXT Certificate Status Information<br/>FDP_OCSPS_EXT Online Certificate Status Protocol Stapling<br/>FDP_OCSP_EXT Online Certificate Status Protocol<br/></td></tr><tr data-sortkey="Cryptographic Support (FCS)"><td>Cryptographic Support (FCS)</td><td>FCS_STG_EXT Cryptographic Key Storage<br/>FCS_TTTC_EXT Thru-Traffic TLS Inspection Client Protocol<br/>FCS_TTTS_EXT Thru-Traffic TLS Inspection Server Protocol<br/></td></tr><tr data-sortkey="Identification and Authentication (FIA)"><td>Identification and Authentication (FIA)</td><td>FIA_ENR_EXT Certificate Enrollment<br/></td></tr><tr data-sortkey="Other Selection-based SFRs"><td>Other Selection-based <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr></td><td>FAU_SCR_EXT Certificate Repository Review<br/>FCS_CKM_EXT Cryptographic Key Management<br/></td></tr><tr data-sortkey="Protection of the TSF (FPT)"><td>Protection of the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> (FPT)</td><td>FPT_KST_EXT Key Storage<br/></td></tr><tr data-sortkey="Security Audit (FAU)"><td>Security Audit (FAU)</td><td>FAU_GCR_EXT Generation of Certificate Repository<br/></td></tr><tr data-sortkey="User Data Protection (FDP)"><td>User Data Protection (FDP)</td><td>FDP_CER_EXT Certificate Usage<br/>FDP_CSIR_EXT Certificate Status Information Required<br/>FDP_PPP_EXT Plaintext Processing Policy<br/>FDP_PRC_EXT Plaintext Routing Control<br/>FDP_STG_EXT User Data Storage<br/>FDP_STIP_EXT <abbr class="dyn-abbr"><a href="#abbr_SSL/TLS">SSL/TLS</a></abbr> Inspection Proxy Functions<br/>FDP_TEP_EXT TLS Establishment Policy<br/></td></tr></table><h2 id="ext-comp-defs-bg" class="indexable" data-level="2">C.2 Extended Component Definitions</h2><span class="sort_kids_"><span data-sortkey="Certificate Enrollment"><h3 id="ext-comp-" class="indexable" data-level="3">C.2.1 Certificate Enrollment</h3>This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> defines the following extended components as part of the
 	  class originally defined by <abbr class="dyn-abbr"><a href="#abbr_CC">CC</a></abbr> Part 2:
 	<h3 id="ext-comp-FIA_ESTC_EXT" class="indexable" data-level="4">C.2.1.1 FIA_ESTC_EXT Enrollment over Secure Transport Client Protocol</h3><div style="margin-left: 1em;"><h4>Family Behavior</h4><div>Components in this family define requirements for the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>’s use of Enrollment over Secure Transport
             (EST) to obtain certificates from an external <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>.
@@ -7165,13 +7207,13 @@ The assumptions identified in Section 3 are incorporated as security objectives 
 			successfully evaluated against this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>. These requirements are not featured
 			explicitly as <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> and should not be included in the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>. They are not included as 
 			standalone <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> because it would increase the time, cost, and complexity of evaluation.
-			This approach is permitted by <a href="#bibCC">[CC]</a> Part 1, 8.2 Dependencies between components.</p><p>This information benefits systems engineering activities which call for inclusion of particular
+			This approach is permitted by <a href="#bibCC">[CC]</a> Part 1, 8.3 Dependencies between components.</p><p>This information benefits systems engineering activities which call for inclusion of particular
 			security controls. Evaluation against the <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> provides evidence that these controls are present 
 			and have been evaluated.</p>
 	
   
 	
-	<b><span class="ctr" data-myid="imp-sat-reqs-table" data-counter-type="ct-Table" id="imp-sat-reqs-table">Table  <span class="counter">12</span>: Implicitly Satisfied Requirements</span></b>
+	<b><span class="ctr" data-myid="imp-sat-reqs-table" data-counter-type="ct-Table" id="imp-sat-reqs-table">Table  <span class="counter">11</span>: Implicitly Satisfied Requirements</span></b>
     <table>	
 		<tr class="header"><td>Requirement</td><td>Rationale for Satisfaction</td></tr>
 	<tr>
@@ -7188,7 +7230,7 @@ The assumptions identified in Section 3 are incorporated as security objectives 
 	beyond the requirements outlined in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>. As with other <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> requirements, the only
 	additional requirement is that the entropy documentation also applies to the specific <abbr class="dyn-abbr"><a href="#abbr_STIP">STIP</a></abbr>
 	capabilities of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> in addition to the functionality required by the claimed <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>.		 
- <h1 id="acronyms" class="indexable" data-level="A">Appendix F -  Acronyms</h1><table><caption><span class="ctr" data-myid="t-acronyms" data-counter-type="ct-Table" id="t-acronyms">Table <span class="counter">13</span></span>: Acronyms
+ <h1 id="acronyms" class="indexable" data-level="A">Appendix F -  Acronyms</h1><table><caption><span class="ctr" data-myid="t-acronyms" data-counter-type="ct-Table" id="t-acronyms">Table <span class="counter">12</span></span>: Acronyms
 		</caption><tr class="header"><th>Acronym</th><th>Meaning</th></tr><tr><td><span class="term" id="abbr_Base-PP" data-plural="Base-PPs"><abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr></span></td><td><span id="long_abbr_Base-PP">Base Protection Profile</span></td></tr>
 <tr><td><span class="term" id="abbr_CA"><abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr></span></td><td><span id="long_abbr_CA">Certificate Authority</span></td></tr>
 <tr><td><span class="term" id="abbr_CC"><abbr class="dyn-abbr"><a href="#abbr_CC">CC</a></abbr></span></td><td><span id="long_abbr_CC">Common Criteria</span></td></tr>
@@ -7212,16 +7254,20 @@ The assumptions identified in Section 3 are incorporated as security objectives 
 <tr><td><span class="term" id="abbr_TSFI" data-plural="TSFIs"><abbr class="dyn-abbr"><a href="#abbr_TSFI">TSFI</a></abbr></span></td><td><span id="long_abbr_TSFI"><abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> Interface</span></td></tr>
 <tr><td><span class="term" id="abbr_TSS"><abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr></span></td><td><span id="long_abbr_TSS"><abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> Summary Specification</span></td></tr>
 <tr><td><span class="term" id="abbr_URL"><abbr class="dyn-abbr"><a href="#abbr_URL">URL</a></abbr></span></td><td><span id="long_abbr_URL">Uniform Resource Locator</span></td></tr>
-</table><h1 id="appendix-bibliography" class="indexable" data-level="A">Appendix G -  Bibliography</h1><table><caption><span class="ctr" data-myid="t-biblio" data-counter-type="ct-Table" id="t-biblio">Table <span class="counter">14</span></span>: Bibliography</caption><tr class="header"><th>Identifier</th><th>Title</th></tr><tr><td><span id="bibCC">[<abbr class="dyn-abbr"><a href="#abbr_CC">CC</a></abbr>]</span></td><td><span class="description">Common Criteria for Information Technology Security Evaluation - <ul>
-            <li><a href="http://www.commoncriteriaportal.org/files/ccfiles/CCPART1V3.1R5.pdf">Part
-                1: Introduction and General Model</a>, CCMB-2017-04-001, Version 3.1 Revision 5,
-              April 2017.</li>
-            <li><a href="http://www.commoncriteriaportal.org/files/ccfiles/CCPART2V3.1R5.pdf">Part
-                2: Security Functional Components</a>, CCMB-2017-04-002, Version 3.1 Revision 5,
-              April 2017.</li>
-            <li><a href="http://www.commoncriteriaportal.org/files/ccfiles/CCPART3V3.1R5.pdf">Part
-                3: Security Assurance Components</a>, CCMB-2017-04-003, Version 3.1 Revision 5,
-              April 2017.</li>
+</table><h1 id="appendix-bibliography" class="indexable" data-level="A">Appendix G -  Bibliography</h1><table><caption><span class="ctr" data-myid="t-biblio" data-counter-type="ct-Table" id="t-biblio">Table <span class="counter">13</span></span>: Bibliography</caption><tr class="header"><th>Identifier</th><th>Title</th></tr><tr><td><span id="bibCC">[<abbr class="dyn-abbr"><a href="#abbr_CC">CC</a></abbr>]</span></td><td><span class="description">Common Criteria for Information Technology Security Evaluation - <ul>
+            <li><a href="https://www.commoncriteriaportal.org/files/ccfiles/CC2022PART1R1.pdf">Part 1: 
+				Introduction and general model</a>, CCMB-2022-11-001, <abbr class="dyn-abbr"><a href="#abbr_CC">CC</a></abbr>:2022, Revision 1, November 2022.</li>
+            <li><a href="http://www.commoncriteriaportal.org/files/ccfiles/CC2022PART2R1.pdf">Part 2: 
+				Security functional requirements</a>, CCMB-2022-11-002, <abbr class="dyn-abbr"><a href="#abbr_CC">CC</a></abbr>:2022, Revision 1, November 2022.</li>
+            <li><a href="http://www.commoncriteriaportal.org/files/ccfiles/CC2022PART3R1.pdf">Part 3: 
+                Security assurance requirements</a>, CCMB-2022-11-003, <abbr class="dyn-abbr"><a href="#abbr_CC">CC</a></abbr>:2022, Revision 1, November 2022.</li>
+            <li><a href="http://www.commoncriteriaportal.org/files/ccfiles/CC2022PART4R1.pdf">Part 4: 
+                Framework for the specification of evaluation methods and activities</a>, CCMB-2022-11-004, <abbr class="dyn-abbr"><a href="#abbr_CC">CC</a></abbr>:2022, Revision 1, November 2022.</li>
+            <li><a href="http://www.commoncriteriaportal.org/files/ccfiles/CC2022PART5R1.pdf">Part 5: 
+                 Pre-defined packages of security requirements</a>, CCMB-2022-11-005, <abbr class="dyn-abbr"><a href="#abbr_CC">CC</a></abbr>:2022, Revision 1, November 2022.</li>
+          </ul></span></td></tr><tr><td><span id="bibCEM">[<abbr class="dyn-abbr"><a href="#abbr_CEM">CEM</a></abbr>]</span></td><td><span class="description">Common Methodology for Information Technology Security Evaluation - <ul>
+            <li><a href="http://www.commoncriteriaportal.org/files/ccfiles/CEM2022R1.pdf">
+                 Evaluation methodology</a>, CCMB-2022-11-006, <abbr class="dyn-abbr"><a href="#abbr_CC">CC</a></abbr>:2022, Revision 1, November 2022.</li>
           </ul></span></td></tr><tr><td><span id="bibNDSD">[ND-SD]</span></td><td><span class="description">
         <a href="https://www.niap-ccevs.org/Profile/Info.cfm?PPID=447&amp;id=447/">
           Supporting Document - Mandatory Technical Document - Evaluation Activities for Network Device cPP</a>, Version 2.2, December 2019
