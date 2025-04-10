@@ -16,7 +16,7 @@
       <subject>Updates to reflect Github conversion, compatibility with CPP_ND_V2.2E, and Technical Decisions applied to version 1.0</subject>
     </entry>
   </RevisionHistory>
-  <RevisionHistory>
+  <release-notes><h:h3>TDs Applied</h:h3></release-notes><RevisionHistory>
     <entry>
       <version>1.0</version>
       <date>2019-08-23</date>
