@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <?xsl-stylesheet type="text/xsl" href="../transforms/module/module2html.xsl"?>
 
-<?xml-model href="https://github.com/commoncriteria/transforms/raw/master/schemas/CCModule.rng" 
+<?xml-model href="../transforms/schemas/CCModule.rng" 
 	type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
 
 <Module boilerplate="yes" 
@@ -14,14 +14,19 @@
 	
   <PPReference>
     <ReferenceTable>
-      <PPVersion>1.1</PPVersion>
+      <PPVersion>1.2</PPVersion>
       <PPAuthor>National Information Assurance Partnership</PPAuthor>
-      <PPPubDate>2022-11-17</PPPubDate>
+      <PPPubDate>2025-04-25</PPPubDate>
       <Keywords>STIP</Keywords>
     </ReferenceTable>
   </PPReference>
   
   <RevisionHistory>
+    <entry>
+      <version>1.2</version>
+      <date>2025-04-25</date>
+      <subject>Incorporate NIAP Technical Decisions, Update to CC:2022</subject>
+    </entry>
     <entry>
       <version>1.1</version>
       <date>2022-11-17</date>
@@ -295,36 +300,20 @@
   <section title="Conformance Claims" id="ConformanceClaims">
     
     <!-- 2.1 CC Conformance -->
-    <cclaims>
-      <cclaim name="Conformance Statement">
-        <description> This PP-Module inherits exact conformance as required from the specified Base-PPs and as defined
-          in the CC and CEM addenda for Exact Conformance, Selection-Based SFRs, and Optional SFRs (dated
-          May 2017).<h:br/><h:br/> 
-          
-          The following PPs and PP-Modules are allowed to be specified in a PP-Configuration with this PP-Module:
-          <h:ul>
-            <h:li>collaborative Protection Profile Module for Stateful Traffic Filter Firewalls, v1.4 + Errata 20200625</h:li>
-          </h:ul>
-
-        </description>
-      </cclaim>
-      <cclaim name="CC Conformance Claims">
-        <description>
-          This PP-Module is conformant to Parts 2 (extended) and 3 (conformant) of Common Criteria Version
-          3.1, Revision 5 [CC].
-        </description>
-      </cclaim>
-      <cclaim name="PP Claim">
-        <description>This PP-Module does not claim conformance to any Protection Profile.</description>
-      </cclaim>
-      <cclaim name="Package Claim">
-        <description>This PP-Module does not claim conformance to any packages.</description>
-      </cclaim>
-    </cclaims>
+    <CClaimsInfo cc-version="cc-2022r1" cc-approach="direct-rationale">
+      <cc-st-conf>exact</cc-st-conf>
+      <cc-pt2-conf>extended</cc-pt2-conf>
+      <cc-pt3-conf>conformant</cc-pt3-conf>
+      <cc-pp-conf/>
+      <cc-pp-config-with>
+        <Mod-cc-ref>collaborative PP-Module for Stateful Traffic Filter Firewalls, v1.4 + Errata, 20200625</Mod-cc-ref>
+      </cc-pp-config-with>
+      <cc-pkg-claim/>
+    </CClaimsInfo>
   </section>
     
   <!-- Security Problem Description -->
-  <sec:Security_Problem_Description>
+  <sec:Security_Problem_Definition>
     The security problem is described in terms of the threats that the TOE is expected to address,
 assumptions about its operational environment, and any organizational security policies that the TOE is
 expected to enforce.<h:p/>
@@ -658,7 +647,7 @@ expected to enforce.<h:p/>
 		  </OSP>
 		  		</OSPs>
     </sec:Organizational_Security_Policies>
-  </sec:Security_Problem_Description>
+  </sec:Security_Problem_Definition>
     
   <!-- 4. Security Objectives --> 
   <sec:Security_Objectives>  
@@ -1957,15 +1946,21 @@ expected to enforce.<h:p/>
             <note role="application">TLS version 1.2 and 1.0 must be supported; support for TLS version 1.1 is optional,
               and should be chosen if the STIP supports it. The list of cipher suites to support is
               mandatory but includes some selections in order to support legacy servers that
-              may be required by the monitored clients; additional cipher suites can be included
-              in the assignment. The order of the cipher suites above should be maintained in
+              may be required by the monitored clients; additional cipher suites that have not been publicly designated as weak 
+              and that do not have appropriate mitigations that ensure a secure implementation may be added
+              in the assignment. In particular, 'null,' 'export,' 'anon,' ciphersuites or cipher suites including RC4, MD5, DES_CBC 
+              or IDEA should not be included. It is expected that any weaknesses associated with supported ciphersuites included in 
+              the assignment be accompanied by references to mitigating implementation guidance enforced by the TOE.
+              <h:p/>
+              The order of the cipher suites above should be maintained in
               the ST; FCS_TTTC_EXT.1.4 indicates that the cipher suites are presented in order
               of preference in the Client Hello sent to the requested server, and that preference
-              is defined as the order in the above SFR.
+              is defined as the order in the above SFR. In particular, any additional ciphersuites included in the assignment should be 
+              in preference order, and included in the client hello message as lower preference than the required ciphersuites.
               <h:p/>
               The above list (as instantiated in the ST) limits the cipher suites that may be
               proposed by the TOE to the requested server. Behavior if the requested server
-              responds with a cipher suite that is not in the list is defined in FDP_TEP_EXT.1.8.
+              responds with a cipher suite that is not offered as defined in FDP_TEP_EXT.1.8.
               <h:p/>
               The selection should indicate if mutual authentication and/or session
               renegotiation is supported. These selections must be the same for both
@@ -2589,8 +2584,11 @@ legacy cipher suites. -->
             <note role="application">TLS version 1.2 and 1.0 must be supported; support for TLS version 1.1 is optional,
               and should be chosen if the STIP supports it. The list of cipher suites to support is
               mandatory but includes some selections in order to support legacy clients that
-              may be required by the organization; additional cipher suites can be included in
-              the assignment.
+              may be required by the organization; additional cipher suites that have not been publicly designated as weak 
+              and that do not have appropriate mitigations that ensure a secure implementation may be added in the assignment. 
+              In particular, 'null,' 'export,' 'anon,' ciphersuites or cipher suites including RC4, MD5, DES_CBC, or IDEA should 
+              not be included. It is expected that any weaknesses in the list be accompanied by references to mitigating implementation 
+              guidance enforced by the TOE.
               <h:p/>
               The above list (as instantiated in the ST) limits the cipher suites that may be
               specified by the TOE when responding to the monitored client.
@@ -7676,8 +7674,3 @@ This appendix lists requirements that should be considered satisfied by products
 	<!-- Appendix G: Acronyms -->
 <!--	<acronyms/>   -->
 </Module>
-
-
-
-
-
