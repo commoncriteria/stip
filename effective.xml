@@ -39,7 +39,7 @@
       products. This PP-Module is intended for use with the following Base-PPs:
 
       <h:ul>
-        <h:li>collaborative Protection Profile for Network Devices (NDcPP or CPP_ND_V2.2E), Version 2.2E</h:li>
+        <h:li>collaborative Protection Profile for Network Devices (NDcPP or CPP_ND_V3.0E), Version 3.0E</h:li>
       </h:ul>
       
       This Base-PP is valid because a STIP is a specific type of network appliance that is able to function as an authorized man-in-the-middle for TLS connections.
@@ -1003,8 +1003,8 @@ expected to enforce.<h:p/>
     written. 
     
     <!-- 5.1 NDcPP Security Functional Requirements Direction -->
-    <base-pp id="ND" version="2.2e" name="Network Device" product="Network Device" short="ND" plural="Network Devices">
-      <url>https://www.niap-ccevs.org/profile/Info.cfm?PPID=447&amp;id=447</url>
+    <base-pp id="ND" version="3.0e" name="Network Device" product="Network Device" short="ND" plural="Network Devices">
+      <url>https://www.niap-ccevs.org/protectionprofiles/482</url>
       <cPP/>
       
 		<sec-func-req-dir> 
@@ -1039,197 +1039,115 @@ expected to enforce.<h:p/>
  
         <section title="Cryptographic Support (FCS)" id="nd-m-fcs">
           
-          
-          <f-component cc-id="fcs_ckm.4" id="nd-fcs-ckm-4" name="Cryptographic Key Destruction">
+          <base-sfr-spec cc-id="fcs_ckm.6" id="nd-mod-fcs-ckm-6" title="Cryptographic Key Destruction">
             <consistency-rationale>The ST author is instructed to include security critical parameters and when
               key destruction is required.</consistency-rationale>
-            <f-element id="nd-fcs-ckm-4e1">
-              <title>
-                The TSF shall destroy all cryptographic keys <h:b>and critical security parameters,
-                  when no longer required</h:b> in accordance with the specified cryptographic key
-                destruction method
-                <selectables linebreak="yes">
-                <selectable>
-                  For plaintext keys in volatile storage, the destruction shall be executed by a 
-                  <selectables linebreak="yes">
-                    <selectable>Single overwrite consisting of 
-                      <selectables linebreak="yes">
-                      <selectable>a pseudo-random pattern using the TSF's RBG</selectable>
-                      <selectable>zeroes</selectable>
-                      <selectable>ones</selectable>
-                      <selectable>a new value of the key</selectable>
-                      <selectable><assignable>a static or dynamic value that does not contain any CSP</assignable></selectable></selectables></selectable>
-                    <selectable>Destruction of reference to the key directly followed by a request for garbage collection</selectable></selectables></selectable>
-                <selectable>
-                  For plaintext keys in non-volatile storage, the destruction shall be executed the invocation of an interface provided by a part of the TSF that 
-                  <selectables linebreak="yes">
-                    <selectable>Logically addresses the storage location of the key and performs a <selectables><selectable>single</selectable><selectable><assignable>number of passes</assignable>-pass</selectable></selectables>
-                    overwrite consisting of <selectables linebreak="yes">
-                      <selectable>a pseudo-random pattern using the TSF's RBG</selectable>
-                      <selectable>zeroes</selectable>
-                      <selectable>ones</selectable>
-                      <selectable>a new value of the key</selectable>
-                      <selectable><assignable>a static or dynamic value that does not contain any CSP</assignable></selectable></selectables></selectable>
-                    <selectable>Instructs a part of the TSF to destroy the abstraction that represents the key</selectable>
-                  </selectables>
-                </selectable>
-                </selectables>
-                that meets the following: [<h:i>no standard</h:i>].
-              </title>
-              <note role="application">
-                This SFR is refined from its definition in the Base-PP through the inclusion of
-                security critical parameters and clarifies when destruction is required; a STIP
-                device includes persistent keys, including the embedded CA’s signing private key
-                that should not be destroyed until they are no longer needed. Security critical
-                parameters includes security related information (e.g., secret and private
-                cryptographic keys, authentication data such as passwords and PINs) appearing
-                in plaintext or otherwise unprotected form and whose disclosure or modification
-                can compromise the security of a CA or the security of the information protected
-                by the CA or the security of the information protected by the CA.
-              </note>
-              <aactivity>
-                <no-tests>This SFR is refined in this PP-Module to include requirementsfor destruction of security critical parameters
-                  as well as keys. The EA for the Base-PP are extended to include security critical
-                  parameters whenever keys are indicated.</no-tests>
-              </aactivity>
-            </f-element>
-            <audit-event/>
-          </f-component>
-          
-          <!-- FCS_TLSC_EXT.1 -->
-          <f-component cc-id="fcs_tlsc_ext.1" id="nd-fcs-tlsc-ext-1" name="TLS Client Protocol Without Mutual Authentication">
+            <description><h:p>This SFR is modified from its definition in the Base-PP to include security critical parameters as an item to be destroyed.</h:p>
+              <h:p>The text of the requirement is replaced with: </h:p>
+              <h:p><h:b>FCS_CKM.6.1: </h:b>The TSF shall destroy [<h:i>all cryptographic keys <h:b>and security parameters</h:b></h:i>] when 
+                [<h:i>no longer needed</h:i>].</h:p>
+              <h:p><h:b>FCS_CKM.6.2: </h:b>The TSF shall destroy cryptographic keys and keying material specified by FCS_CKM.6.1 in accordance with a specified cryptographic 
+                key destruction method: [<h:b>selection: </h:b><h:i>
+                <h:ul>
+                  <h:li>For plaintext keys in volatile storage, the destruction hall be executed by a [<h:b>selection: </h:b>
+                    <h:ul>
+                      <h:li>Single overwrite consisting of [<h:b>selection: </h:b>
+                        <h:ul>
+                          <h:li>a pseudo-random pattern using the TSF's RBG</h:li>
+                          <h:li>zeroes</h:li>
+                          <h:li>ones</h:li>
+                          <h:li>a new value of the key</h:li>
+                          <h:li>[<h:b>assignment: </h:b>a static or dynamic value that does not contain any CSP]</h:li>
+                        ]</h:ul></h:li>
+                        <h:li>Destruction of reference to the key directly followed by a request for garbage collection</h:li>
+                        </h:ul>
+                      </h:li>
+                      <h:li>For plaintext keys in non-volatile storage, the destruction shall be executed by the invocation of an interface provided by the 
+                        TSF that [<h:b>selection: </h:b>
+                        <h:ul>
+                          <h:li>Locically addresses the storage location of the key and performs a [<h:b>selection: </h:b>single, [<h:b>assignment: </h:b> number of passes]-pass] overwrite 
+                            consisting of [<h:b>selection: </h:b>
+                            <h:ul>
+                              <h:li>a pseudo-random pattern using the TSF's RBG</h:li>
+                              <h:li>zeroes</h:li>
+                              <h:li>ones</h:li>
+                              <h:li>a new value of the key</h:li>
+                              <h:li>[<h:b>assignment: </h:b>a static or dynamic value that does not contain any CSP]</h:li>
+                            </h:ul>
+                          ]</h:li>
+                          <h:li>Instructs a part of the TSF to destroy the abstraction that represents the key</h:li>
+                        </h:ul>]
+                      </h:li>
+                ]</h:ul></h:i>] that meets the following: [<h:i>no standard</h:i>].
+              </h:p>
+              <h:p><h:b>Application Note: </h:b>This SFR is refined from its definition in the Base-PP through the inclusion of security critical parameters and clarifies when destruction 
+              is required; a STIP device includes persistent keys, including the embedded CA’s signing private key that should not be destroyed until they are no longer needed. Security 
+              critical parameters includes security related information (e.g., secret and private cryptographic keys, authentication data such as passwords and PINs) appearing in plaintext 
+              or otherwise unprotected form and whose disclosure or modification can compromise the security of a CA or the security of the information protected by the CA or the security 
+              of the information protected by the CA.</h:p></description>
+              <!-- NDcPP is not in XML so no change can be modeled -->
+              <no-change/>
+            
+          </base-sfr-spec>
+          <base-sfr-spec cc-id="fcs_tlsc_ext.1" id="nd-mod-fcs-tlsc-ext-1" title="TLS Client Protocol without Mutual Authentication">
             <consistency-rationale>Other than defining an additional selection-based trigger, there is no modification to this SFR.</consistency-rationale>
-            <f-element id="nd-fcs-tlsc-ext-1e1">
-              <title>
-                This PP-Module does not modify this SFR as it is defined in the Base-PP. This SFR is selection-based in the Base-PP for its potential use in trusted communications.
-                This PP-Module also defines EST as a supported method of obtaining certificates for the TOE, which may use TLS. 
-                This SFR can therefore also be triggered if the TOE claims FIA_ESTC_EXT.1 and selects a mechanism that makes use of FCS_TLSC_EXT.1.
-              </title>
-              <aactivity>
-                <no-tests>There is no change to the Base-PP EAs for this SFR when this PP-Module is claimed.</no-tests>
-              </aactivity>
-            </f-element>
-            <audit-event/>
-          </f-component>
-
-          <!-- FCS_TLSC_EXT.2 -->
-          <f-component cc-id="fcs_tlsc_ext.2" id="nd-fcs-tlsc-ext-2" name="TLS Client Support for Mutual Authentication">
+            <description>This PP-Module does not modify this SFR as it is defined in the Base-PP. This SFR is selection-based in the Base-PP for its potential use in trusted communications.
+              This PP-Module also defines EST as a supported method of obtaining certificates for the TOE, which may use TLS. 
+              This SFR can therefore also be triggered if the TOE claims FIA_ESTC_EXT.1 and selects a mechanism that makes use of FCS_TLSC_EXT.1.</description>
+             
+              <no-change/>
+          </base-sfr-spec>
+          <base-sfr-spec cc-id="fcs_tlsc_ext.2" title="TLS Client Support for Mutual Authentication" id="nd-mod-fcs-tlsc-ext-2">
             <consistency-rationale>Other than being defined as selection-based, there is no modification to this SFR.</consistency-rationale>
-            <f-element id="nd-fcs-tlsc-ext-2e1">
-              <title>
-                This PP-Module does not modify this SFR as it is defined in the Base-PP. This SFR is optional in the Base-PP for its potential use in trusted communications.
-                This PP-Module defines EST as a supported method of obtaining certificates, which may use mutually-authenticated TLS. 
-                This SFR is therefore selection-based when the TOE claims this PP-Module, dependent on selection in FIA_ESTC_EXT.1.4. 
-              </title>
-              <aactivity>
-                <no-tests>There is no change to the Base-PP EAs for this SFR when this PP-Module is claimed.</no-tests>
-              </aactivity>
-            </f-element>
-            <audit-event/>
-          </f-component>
+            <description>This PP-Module does not modify this SFR as it is defined in the Base-PP. This SFR is optional in the Base-PP for its potential use in trusted communications.
+              This PP-Module defines EST as a supported method of obtaining certificates, which may use mutually-authenticated TLS. 
+              This SFR is therefore selection-based when the TOE claims this PP-Module, dependent on selection in FIA_ESTC_EXT.1.4. </description>
+              <no-change/>
+          </base-sfr-spec>
 
         </section>
         
         <!-- 5.1.1.3  -->
         <section title="Identification and Authentication (FIA)" id="nd-m-fia">
-          
-          <f-component cc-id="fia_x509_ext.1" iteration="Rev" id="nd-fia-x509-ext-1" name="X.509 Certificate Validation">
+          <base-sfr-spec cc-id="fia_x509_ext.1" title="X.509 Certificate Validation" id="nd-mod-fia-x509-ext-1">
             <consistency-rationale>There is no modification to this SFR, but it is mandatory for a TOE that conforms to this PP-Module because
-              the certificate enrollment process always requires the TSF to validate a presented certificate.</consistency-rationale>
-            <f-element id="nd-fia-x509-ext-1e1">
-              <title>
-                This SFR is selection-based in the Base-PP but is mandatory when this PP-Module is claimed. FIA_ENR_EXT.1 requires this PP-Module to generate certificate requests
-                using either PKCS#10 or Enrollment over Secure Transport (EST). If PKCS#10 is claimed, the TSF must be able to apply this SFR to the certificate repsonse signed
-                by an external CA. If EST is claimed, the TSF must be able to apply this SFR to the X.509 certificate presented by an EST server.
-              </title>
-              <!-- Note: changed up application note to make it more clear and accurate, is this ok -->
-              <note role="Application">
-                FIA_X509_EXT.1/STIP defines the TOE's X.509 validation behavior for TLS certificates presented to the TSF as part of TLS proxying. 
-                FIA_X509_EXT.1/Rev may be used by the TOE to validate certificates loaded onto it. If the TOE
-                has other functions that require the use of X.509 certificates (e.g. code signing for integrity testing or software updates, TLS interfaces used for a purpose other than session proxying such as audit server or authentication server connections), 
-                FIA_X509_EXT.1/Rev applies to those as well.
-              </note>
-              <aactivity>
-                <no-tests>There is no change to the Base-PP EAs for this SFR when this PP-Module is claimed.</no-tests>
-              </aactivity>
-            </f-element>
-            <audit-event/>
-          </f-component>
-
-          
-          <!-- Note: changed up application note to make it more clear and accurate, is this ok -->
-          <f-component cc-id="fia_x509_ext.3" id="nd-fia-x509-ext-3" name="X.509 Certificate Requests">
+              the certificate enrollment process always requires the TSF to validate a presented certificate.</consistency-rationale> 
+            <description> This SFR is selection-based in the <h:a href="https://www.niap-ccevs.org/protectionprofiles/511">Functional Package for X.509, version 1.0</h:a> but 
+              is mandatory when this PP-Module is claimed. FIA_ENR_EXT.1 requires this PP-Module to generate certificate requests
+              using either PKCS#10 or Enrollment over Secure Transport (EST). If PKCS#10 is claimed, the TSF must be able to apply this SFR to the certificate repsonse signed
+              by an external CA. If EST is claimed, the TSF must be able to apply this SFR to the X.509 certificate presented by an EST server.</description>
+            <no-change/>
+          </base-sfr-spec>
+          <base-sfr-spec cc-id="fia_x509_ext.3" title="X.509 Certificate Requests" id="nd-mod-fia-x509-ext.3">
             <consistency-rationale>There is no change to this SFR. Only its trigger for inclusion is changed because this PP-Module introduces an alternate method of obtaining a certificate for the TOE.</consistency-rationale>
-            <f-element id="nd-fia-x509-3e1">
-              <title>
-                In the Base-PP, this SFR is optional but must be claimed in any situation where the TOE presents its own X.509 certificate to an external entity (e.g. any case where the TOE acts as a TLS server or where the TOE acts as a TLS client
-                in an connection that uses mutual authentication). A STIP TOE must present an X.509 certificate to an external entity as part of TLS session proxying. The TOE may obtain this certificate either using PKCS#10 (covered by this SFR) or
-                through Enrollment over Secure Transport (EST), which is covered by the selection-based SFR FIA_ESTC_EXT.1. Therefore, the ST author only claims FIA_X509_EXT.3 if PKCS#10 is selected in FIA_ENR_EXT.1.
-              </title>
-              <aactivity>
-                <no-tests>There is no change to the Base-PP EAs for this SFR when this PP-Module is claimed.</no-tests>
-              </aactivity>
-            </f-element>
-            <audit-event/>
-          </f-component>
+            <description>In the <h:a href="https://www.niap-ccevs.org/protectionprofiles/511">Functional Package for X.509, version 1.0</h:a>, this SFR is optional but must be claimed in any situation where the TOE presents its own X.509 certificate to an external entity (e.g. any case where the TOE acts as a TLS server or where the TOE acts as a TLS client
+              in an connection that uses mutual authentication). A STIP TOE must present an X.509 certificate to an external entity as part of TLS session proxying. The TOE may obtain this certificate either using PKCS#10 (covered by this SFR) or
+              through Enrollment over Secure Transport (EST), which is covered by the selection-based SFR FIA_ESTC_EXT.1. Therefore, the ST author only claims FIA_X509_EXT.3 if PKCS#10 is selected in FIA_ENR_EXT.1.</description>
+            <no-change/>
+            </base-sfr-spec>
           
         </section>
         
         
         <section title="Trusted Path/Channels (FTP)" id="nd-m-ftp">
-          <f-component cc-id="ftp_itc.1" id="nd-ftp-itc-1" name="Inter-TSF Trusted Channel">
+          <base-sfr-spec cc-id="ftp_itc.1" title="Inter-TSF Trusted Channel" id="nd-mod-ftp-itc-1">
             <consistency-rationale>The PP-Module partially completes selections and assignments in this SFR using the available options to specify external interfaces and trusted channels that all STIP products must support at minimum.</consistency-rationale>
-            <f-element id="nd-ftp-itc-1e1">
-              <title>
-                The TSF shall be capable of using <h:b>TLS</h:b> and <selectables>
-                  <selectable>IPsec</selectable>
-                  <selectable>SSH</selectable>
-                  <selectable>DTLS</selectable>
-                  <selectable>HTTPS</selectable>
-                  <selectable><h:b>no other protocols</h:b></selectable>
-                </selectables>
-                to provide a trusted communication channel between itself and authorized IT
-                entities supporting the following capabilities: audit server, <h:b>TLS session proxying</h:b>, <selectables>
-                  <selectable>authentication server</selectable>
-                  <selectable><h:b>Enrollment over Secure Transport</h:b></selectable>
-                  <selectable><assignable>other capabilities</assignable></selectable>
-                  <selectable>no other capabilities</selectable>
-                </selectables> 
-                that is logically distinct from
-                other communication channels and provides assured identification of its end points and
-                protection of the channel data from disclosure and detection of modification of the channel
-                data.
-              </title>
-              <note role="Application">
-                This SFR is modified from its definition in the Base-PP by specifying that a conformant TOE will always implement TLS trusted channels at minimum, due
+            <description>
+              <h:p>This SFR has been modified from its definition in the Base-PP to mandate the use of TLS. Other protocol options may be selected without restriction. Any element that is not present in this section is unchanged from its definition in the Base-PP.</h:p>
+              <h:p>The text of the specified elements is replaced with:</h:p>
+              <h:p><h:b>FTP_ITC.1.1: </h:b>The TSF shall be capable of using <h:b>TLS as defined in the <h:a href="https://www.niap-ccevs.org/protectionprofiles/465">Functional Package for TLS, version 2.0</h:a></h:b> and [<h:b>selection: </h:b><h:i>IPsec, 
+                SSH as defined in the <h:a href="https://www.niap-ccevs.org/protectionprofiles/515">Functional Package for SSH, version 2.0</h:a>, DTLS, HTTPS, <h:b>no other protocols</h:b></h:i>] to provide a trusted communication channel between itself 
+                and authorized IT entities supporting the following capabilities: audit server, <h:b>TLS session proxying, </h:b>[<h:b>selection: </h:b><h:i>authentication server, <h:b>Enrollment over Secure Transport, </h:b>[<h:b>assignment: </h:b>other capabilities], no other capabilities</h:i>] 
+                that is logically distinct from other communication channels and provides assured identification of its end points and protection of the channel data from modification and disclosure.</h:p>
+              <h:p><h:b>Application Note: </h:b>This SFR is modified from its definition in the Base-PP by specifying that a conformant TOE will always implement TLS trusted channels at minimum, due
                 to the Module's required functionality for SSL/TLS session proxying. EST is also specified as a selectable use of TLS because 
                 this interface is defined in the PP-Module as selection-based functionality.
                 The TLS functionality used to implement SSL/TLS session proxying is defined in this PP-Module under the FCS_TTTC_EXT and FCS_TTTS_EXT requirements.
-              For other potential TLS uses (e.g. EST, audit server communications), the relevant SFRs from the Base-PP would be used.</note>
-            </f-element>
-              <f-element id="nd-ftp-itc-1e2">
-                <title>
-                  The TSF shall permit the TSF or the authorized IT entities to initiate
-                  communication via the trusted channel.
-                </title>
-              </f-element>
-                <f-element id="nd-ftp-itc-1e3">
-                  <!-- Note: is it ok to do the modification this way, specifically for the asignment? Or do we need to make it a selection between "assignment: list of services" and "no other services"?
-                  I'm never sure if 'null' is implied by an assignment prompt or if it needs to be called out separately as an explicit option -->
-                  <title>
-                    The TSF shall initiate communication via the trusted channel for <h:b>establishment of TLS proxy connections,</h:b> 
-                    <selectables>
-                      <selectable><assignable>list of other services for which the TSF is able to initiate communications</assignable></selectable>
-                      <selectable>no other services</selectable></selectables>.
-                  </title>
-                
-              <aactivity>
-                <no-tests>There is no change to the Base-PP EAs for this SFR when this PP-Module is claimed.</no-tests>
-              </aactivity>
-            </f-element>
-            <audit-event/>
-          </f-component>
-          
+                For other potential TLS uses (e.g. EST, audit server communications), the relevant SFRs from the Base-PP would be used.</h:p>
+              <h:p><h:b>FTP_ITC.1.2: </h:b>The TSF shall permit [<h:b>selection: </h:b><h:i>the TSF, <h:b>the authorized IT entities</h:b></h:i>] to initiate communication via the trusted channel.</h:p>
+            </description>  
+            <no-change/>
+          </base-sfr-spec>          
         </section>
       </modified-sfrs>
         
@@ -1897,7 +1815,7 @@ expected to enforce.<h:p/>
                 <h:li>TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA as defined in RFC 8422</h:li>
                 <h:li>TLS_ECDH_ECDSA_WITH_AES_128_CBC_SHA as defined in RFC 8422</h:li>
                 <h:li>TLS_DHE_RSA_WITH_AES_128_CBC_SHA as defined in RFC 5246</h:li>
-                <h:li>TLS_RSA_WITH_AES_128_CBC_SHA as defined in RFC 5426</h:li>
+                <h:li>TLS_RSA_WITH_AES_128_CBC_SHA as defined in RFC 5246</h:li>
                 <h:li>TLS_RSA_WITH_AES_128_CCM_8 as defined in RFC 6655</h:li>
                 <h:li>TLS_DHE_RSA_WITH_AES_128_CCM_8 as defined in RFC 6655</h:li>
                 <h:li>TLS_DHE_RSA_WITH_AES_256_CCM_8 as defined in RFC 6655</h:li>
@@ -4739,13 +4657,16 @@ legacy cipher suites. -->
                 <h:li>The TSF shall validate the extendedKeyUsage field according to the
                   following rules depending on the certificate type and purpose:
                 <h:ul>
-                  <h:li>Server certificates presented in a TLS certificate message for Thru-Traffic processing TLS shall have meet one of the following checks:
+                  <h:li>Server certificates presented in a TLS certificate message for Thru-Traffic processing TLS shall meet one of the following conditions:
                   <h:ul>
-                    <h:li>There is no extendedKeyUsage field</h:li>
                     <h:li>The extendedKeyUsage field is present and contains the Server
                       Authentication purpose (id-kp 1 with OID 1.3.6.1.5.5.7.3.1)</h:li>
-                    <h:li>The extendedKeyUsage field is present and contains the ‘any’
-                      purpose (id-…)</h:li>
+                    <h:li><selectables>
+                      <selectable>There is no extendedKeyUsage field,</selectable>
+                      <selectable>The extendedKeyUsage field is present and contains the ‘any’
+                        purpose (id-…)</selectable>
+                        <selectable>No other conditions</selectable>
+                    </selectables></h:li>
                   </h:ul>
                   </h:li>
                   <h:li>Server certificates presented for TLS not associated with the Thru-Traffic processing include an extendedKeyUsage field that contains
@@ -4825,6 +4746,14 @@ legacy cipher suites. -->
               authentication. FIA_X509_EXT.1.2/STIP applies to certificates that are used and
               processed by the TSF and restricts the certificates that may be added as trusted
               CA certificates.
+              <h:p/>
+              It is highly recommended that the selection for extendedKeyUsage include both “There 
+              is no extendedKeyUsage field” and “The extendedKeyUsage field is present and contains 
+              the ‘any’ purpose” options to ensure the TOE is able to be used to inspect traffic to 
+              external servers that do not follow best practice certificate guidance. When either of 
+              these options is not supported, it is required that server certificates presented to the 
+              TOE that do not present supported features are considered invalid, and in accordance with 
+              FCS_TTTC_EXT.1.3, the inspected session is terminated, blocking access to such sites.
             </note>
             <aactivity>
               <TSS>
