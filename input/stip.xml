@@ -41,6 +41,21 @@
     </entry>
   </RevisionHistory>
 
+  <include-pkg id="pkgX509">
+    <git>
+      <url>https://github.com/commoncriteria/X509</url>
+      <branch>release-1.0</branch>
+    </git>
+    <url>https://www.niap-ccevs.org/protectionprofiles/511</url>
+  </include-pkg>
+  <include-pkg id="pkgTLS">
+    <git>
+      <url>https://github.com/commoncriteria/tls</url>
+      <branch>release-2.0</branch>
+    </git>
+    <url>https://www.niap-ccevs.org/protectionprofiles/465</url>
+  </include-pkg>
+
   <!-- 1.0 Introduction -->
   <sec:Introduction>
     
@@ -308,7 +323,10 @@
       <cc-pp-config-with>
         <Mod-cc-ref>collaborative PP-Module for Stateful Traffic Filter Firewalls, v1.4 + Errata, 20200625</Mod-cc-ref>
       </cc-pp-config-with>
-      <cc-pkg-claim/>
+      <cc-pkg-claim>
+        <FP-cc-ref conf="conformant">Functional Package for TLS, version 2.0</FP-cc-ref>
+        <FP-cc-ref conf="conformant">Functional Package for X.509, version 1.0</FP-cc-ref>
+      </cc-pkg-claim>
     </CClaimsInfo>
   </section>
     
@@ -751,11 +769,11 @@ expected to enforce.<h:p/>
         <SO name="O.INTEGRITY_PROTECTION">
           <description>The TOE will provide appropriate integrity protection for TSF data and software and any user data
             stored by the TOE.<h:p/>
-            Addressed by: FPT_FLS.1
+            Addressed by: FPT_FLS.1/STIP
           </description>
           
           
-          <addressed-by>FPT_FLS.1</addressed-by>
+          <addressed-by>FPT_FLS.1/STIP</addressed-by>
           <rationale>This SFR supports the objective by requiring the TSF to take some action to preserve a 
             secure state in the response to a loss of integrity or other potential failure.</rationale>
         </SO>
@@ -787,12 +805,12 @@ expected to enforce.<h:p/>
             distributed TOE, and authorized IT entities. The TOE will protect data assets when they are being
             transmitted to and from the TOE, including through intervening untrusted components.
             <h:p/>
-            Addressed by: FCS_CKM.4 (from Base-PP), FCS_TLSC_EXT.1 (from Base-PP), FCS_TLSC_EXT.2 (from Base-PP), FTP_ITC.1 (refined from Base-PP), 
+            Addressed by: FCS_CKM.6 (from Base-PP), FCS_TLSC_EXT.1 (from Base-PP), FCS_TLSC_EXT.2 (from Base-PP), FTP_ITC.1 (refined from Base-PP), 
             FCS_COP.1/STIP, FCS_TTTC_EXT.1, FCS_TTTC_EXT.5, FCS_TTTS_EXT.1, FDP_PRC_EXT.1, FDP_STIP_EXT.1, FDP_TEP_EXT.1,
             FCS_TTTC_EXT.3 (selection-based), FCS_TTTC_EXT.4 (selection-based), FCS_TTTS_EXT.3
             (selection-based), FCS_TTTS_EXT.4 (selection-based), FDP_STIP_EXT.2 (selection-based)
           </description>
-          <addressed-by>FCS_CKM.4 (from Base-PP)</addressed-by>
+          <addressed-by>FCS_CKM.6 (from Base-PP)</addressed-by>
           <rationale>This SFR supports the objective by ensuring secret and private key data is disposed of immediately after use to prevent unauthorized disclosure of keys.</rationale>
           <addressed-by>FCS_TLSC_EXT.1 (from Base-PP)</addressed-by>
           <rationale>This SFR supports the objective by defining the TLS trusted channel used for EST if the TOE supports that functionality.</rationale>
@@ -835,9 +853,9 @@ expected to enforce.<h:p/>
             The TOE will have the ability to store and recover to a previous state at the direction of the
             administrator (e.g., provide support for archival and recovery capabilities).
             <h:p/>
-            Addressed by: FPT_FLS.1, FPT_RCV.1
+            Addressed by: FPT_FLS.1/STIP, FPT_RCV.1
           </description>
-          <addressed-by>FPT_FLS.1</addressed-by>
+          <addressed-by>FPT_FLS.1/STIP</addressed-by>
           <rationale>This SFR supports the objective by requiring the TSF to preserve a secure state when certain failures occur.</rationale>
           <addressed-by>FPT_RCV.1</addressed-by>
           <rationale>This SFR supports the objective by requiring the TSF to support a maintenance mode of operation that is entered when certain failures occur.</rationale>
@@ -860,10 +878,10 @@ expected to enforce.<h:p/>
             TOE will record in audit records: date and time of action and the entity responsible for the action. The
             TOE will provide the ability to store and review certificate information.
             <h:p/>
-            Addressed by: FAU_SAR.1 (optional), FAU_STG_EXT.1 (from Base-PP), FAU_GEN.1/STIP, FAU_GCR_EXT.1, FAU_SAR.3
+            Addressed by: FAU_SAR.1 (optional), FAU_STG.1 (from Base-PP), FAU_GEN.1/STIP, FAU_GCR_EXT.1, FAU_SAR.3
             (optional), FAU_SCR_EXT.1 (selection-based)
           </description>
-          <addressed-by>FAU_STG_EXT.1 (from Base-PP)</addressed-by>
+          <addressed-by>FAU_STG.1 (from Base-PP)</addressed-by>
           <rationale>This SFR supports the objective by defining a mechanism for the secure storage of audit data in the OE.</rationale>
           <addressed-by>FAU_GEN.1/STIP</addressed-by>
           <rationale>This SFR supports the objective by defining the auditable events specific to STIP functionality that the TSF must generate.</rationale>
@@ -1228,7 +1246,7 @@ expected to enforce.<h:p/>
       
       <!-- Note: modified some of these to make the consistency more obvious, is that ok -->
       <con-mod ref="OE.AUDIT">This objective intends for the TOE’s OE to have adequate storage to retain
-        the TOE's audit records. This objective is not defined in the Base-PP but can be assumed to be consistent with the Base-PP because FAU_STG_EXT.1 requires transmission of audit data to an 
+        the TOE's audit records. This objective is not defined in the Base-PP but can be assumed to be consistent with the Base-PP because FAU_STG.1 requires transmission of audit data to an 
       environmental audit server, which means that there should be some assurance of the security of that server.</con-mod>
       <con-mod ref="OE.CERT_REPOSITORY">This objective intends for the TOE’s OE to provide a certificate repository. This is not defined in the Base-PP because not all network devices will necessarily need to interface with a certificate repository.</con-mod>
       <con-mod ref="OE.CERT_REPOSITORY_SEARCH">This objective intends for the TOE’s OE which will provide a certificate
@@ -1447,19 +1465,15 @@ expected to enforce.<h:p/>
         </f-component>
         
         
-        <f-component name="Prevention of Audit Data Loss" cc-id="fau_stg.4" id="fau-stg-4">
+        <f-component name="Prevention of Audit Data Loss" cc-id="fau_stg.5" id="fau-stg-5">
           <consistency-rationale>This SFR applies to the prevention of audit data loss by the inclusion of the
             auditor role which is not listed in the Base-PP.</consistency-rationale>
-          <comp-lev></comp-lev>
-          <management></management>
-          <audit></audit>
-          <dependencies></dependencies>
-          <f-element id="fau-stg-4e1">
+          <f-element id="fau-stg-5e1">
             <title>
               The TSF shall [<h:i>prevent audited events, except those taken by the <h:b><selectables>
                 <selectable>Security Administrator</selectable>
-                <selectable>Auditor</selectable></selectables></h:b></h:i>] and <assignable>other actions to be taken in
-                  case of audit storage failure</assignable> if the audit trail <h:b>cannot be written to</h:b>.
+                <selectable>Auditor</selectable></selectables></h:b>, <assignable>other actions to be taken in
+                  case of audit storage failure</assignable></h:i>]if the audit <h:b>trail cannot be written to</h:b>.
             </title>
             <note role="application">
               This requirement applies to the TOE regardless of whether the audit trail is stored
@@ -1781,7 +1795,7 @@ expected to enforce.<h:p/>
             FCS_CKM.1 Cryptographic Key Generation<h:p/>
             FCS_CKM.2 Cryptographic Key Distribution<h:p/>
             FCS_COP.1 Cryptographic Operation<h:p/>
-            FCS_RBG_EXT.1 Random Bit Generation<h:p/>
+            FCS_RBG.1 Random Bit Generation<h:p/>
             FCS_TTTS_EXT.1 Thru-Traffic TLS Inspection Server Protocol<h:p/>
             FIA_X509_EXT.1 X.509 Certificate Validation<h:p/>
             FIA_X509_EXT.2 X.509 Certificate Authentication<h:p/>
@@ -2420,7 +2434,7 @@ legacy cipher suites. -->
             FCS_CKM.1 Cryptographic Key Generation<h:p/>
             FCS_CKM.2 Cryptographic Key Distribution<h:p/>
             FCS_COP.1 Cryptographic Operation<h:p/>
-            FCS_RBG_EXT.1 Random Bit Generation<h:p/>
+            FCS_RBG.1 Random Bit Generation<h:p/>
             FCS_TTTC_EXT.1 Thru-Traffic TLS Inspection Client Protocol<h:p/>
             FIA_X509_EXT.1 X.509 Certificate Validation<h:p/>
             FIA_X509_EXT.2 X.509 Certificate Authentication
@@ -5214,10 +5228,10 @@ legacy cipher suites. -->
 	  <!-- Protection of the TSF (FPT) -->
       <section title="Protection of the TSF (FPT)" id="m-fpt">
 	 
-        <f-component name="Failure with Preservation of Secure State" cc-id="fpt_fls.1" id="fpt-fls-1">
+        <f-component name="Failure with Preservation of Secure State" cc-id="fpt_fls.1" iteration="STIP" id="fpt-fls-1">
           <consistency-rationale>This SFR applies to preserving a secure state when different failures occur
             which is not defined in the Base-PP.</consistency-rationale>
-          <f-element id="fpt-fls-1e1">
+          <f-element id="fpt-fls-1e1-stip">
             <title>The TSF shall preserve a secure state when the following types of failures occur: <h:b>
               DRBG failure, integrity test failure, external audit server is unavailable, <selectables>
                 <selectable>local audit storage is full</selectable>
@@ -5250,7 +5264,7 @@ legacy cipher suites. -->
               <Guidance>The evaluator shall examine the operational guidance to ensure it describes the actions that might occur in response to any detected failures 
                 and provides remedial instructions for the administrator.<h:p/></Guidance>
               <Tests>The evaluator shall attempt to cause each documented failure to occur and shall verify that the
-                actions taken by the TSF are those specified in FPT_FLS.1.1. For those failures that the evaluator cannot
+                actions taken by the TSF are those specified in FPT_FLS.1.1/STIP. For those failures that the evaluator cannot
                 cause, the evaluator shall provide a justification to explain why the failure could not be induced.
               </Tests>
             </aactivity>
@@ -5370,7 +5384,7 @@ legacy cipher suites. -->
               <Tests>The evaluator shall attempt to cause each documented failure to occur and shall verify that the
                 result of this failure is that the TSF enters a maintenance mode. The evaluator shall also verify that the
                 maintenance mode can be exited and the TSF can be restored to a secure state. This testing may be
-                performed in conjunction with FPT_FLS.1.</Tests>
+                performed in conjunction with FPT_FLS.1/STIP.</Tests>
             </aactivity>
           </f-element>
           <audit-event>
@@ -5571,12 +5585,10 @@ legacy cipher suites. -->
                 <selectable>certificate</selectable>
                 <selectable>certificate issuer</selectable>
               </selectables> used by requested servers according to 
-              <h:b>
                 <selectables>
                   <selectable>a Security Administrator configurable number of the most common requested servers</selectable>
                   <selectable>a Security Administrator specified list of servers</selectable>
                   <selectable><assignable>a Security Administrator configurable rules based on attributes of the certificates used by the server</assignable></selectable></selectables>.
-              </h:b>
             </title>
             <ext-comp-def-title>
               <title>
@@ -6070,10 +6082,10 @@ legacy cipher suites. -->
             <title>
               The TSF shall be able to obtain EST server and CA certificates for authorized EST
               services via <selectables>
-                <selectable>implicit Trust Anchor/Trust Store (TA) configured by <h:b>
+                <selectable>implicit Trust Anchor/Trust Store (TA) configured by 
                   <selectables>
                     <selectable>Security Administrator</selectable>
-                    <selectable>CA Operations Staff</selectable></selectables></h:b></selectable>
+                    <selectable>CA Operations Staff</selectable></selectables></selectable>
                 <selectable>an explicit TA populated
                   via a TLS-authenticated EST CA certificate request in accordance with RFC 7030
                   section 4.1.2 and FCS_TLSC_EXT.1</selectable>
@@ -6098,7 +6110,7 @@ legacy cipher suites. -->
               store elements from the <selectables>
                 <selectable>implicit Trust Anchor database</selectable>
                 <selectable>explicit Trust Anchor/Trust Store</selectable>
-              </selectables> in accordance with FIA_X509_EXT.1<h:b>/Rev</h:b> for all EST requests.
+              </selectables> in accordance with FIA_X509_EXT.1 <h:b>(from <xref to="pkgX509"/>)</h:b> for all EST requests.
             </title>
             <ext-comp-def-title>
               <title>
@@ -6519,11 +6531,11 @@ legacy cipher suites. -->
                 <h:li>The validity field shall specify a notBefore value that does not precede
                   the current time and a notAfter value that does not precede the value
                   specified in notBefore.</h:li>
-                <h:li>The issuer field is not empty and is populated with the <h:b>
+                <h:li>The issuer field is not empty and is populated with the 
                   <selectables>
                     <selectable>Security Administrator</selectable>
                     <selectable>CA Operations Staff</selectable>
-                  </selectables></h:b>-configured CA name.</h:li>
+                  </selectables>-configured CA name.</h:li>
                 <h:li>The signature field and the algorithm in the subjectPublicKeyInfo field
                   shall contain the OID for a signature algorithm specified in
                   FCS_COP.1<h:b>/SigGen in the NDcPP</h:b>.</h:li>
@@ -6654,11 +6666,11 @@ legacy cipher suites. -->
                   notAfter time of the CA’s signing certificate.</h:li>
                 <h:li>The issuer field identifies the <selectables>
                   <selectable>subject</selectable>
-                  <selectable><h:b>
+                  <selectable>
                     <selectables>
                       <selectable>Security Administrator</selectable>
                       <selectable>CA Operations Staff</selectable>
-                    </selectables></h:b>-assigned identifying information</selectable>
+                    </selectables>-assigned identifying information</selectable>
                 </selectables> of the CA's signing certificate.</h:li>
                 <h:li><selectables linebreak="yes">
                   <selectable>The subject name is limited by name constraints specified in the CA’s
@@ -6704,12 +6716,12 @@ legacy cipher suites. -->
                 <h:li>The notAfter field shall not exceed the notAfter field of the validated
                   client certificate.</h:li>
                 <h:li>The notAfter field shall not exceed the current time by more than a
-                  maximum validity duration value as configured by a <h:b>
+                  maximum validity duration value as configured by a
                     <selectables>
                       <selectable>Security Administrator</selectable>
                       <selectable>CA Operations Staff</selectable>
                     </selectables>
-                  </h:b> user.</h:li>
+                   user.</h:li>
                 <h:li>If the basicConstraints field is configured to be present, it shall be
                   populated with the value cA=False.</h:li>
                 <h:li>If configured to be present, th epolicy OID and policy mapping fields shall be populated according to 
@@ -6890,7 +6902,8 @@ legacy cipher suites. -->
           </f-element>
           <audit-event>
             <audit-event-descr>Certificate generation</audit-event-descr>
-            <audit-event-info>Success: <selectables>
+            <audit-event-info><comment>There is an auditable event designated "Success" here but nothing listed for "Failure". Should an additional event be included for a failure case?</comment>
+              Success: <selectables>
               <selectable>certificate value</selectable>
               <selectable>certificate object identifier</selectable>
             </selectables></audit-event-info>
@@ -6932,10 +6945,10 @@ legacy cipher suites. -->
           <f-element id="fdp-csi-ext-2e2">
             <title>
               The TSF shall support changes to the status of a certificate in accordance with the following rules: <h:ul>
-                <h:li>as directed by <h:b><selectables>
+                <h:li>as directed by <selectables>
                   <selectable>Security Administrator</selectable>
                   <selectable>CA Operations Staff</selectable>
-                </selectables></h:b> and</h:li>
+                </selectables> and</h:li>
                 <h:li>
                   <selectables linebreak="yes">
                     <selectable>a certificate in cache is revoked when a certificate representing the same subject is received for client authentication and either <h:ul>
@@ -7192,7 +7205,7 @@ legacy cipher suites. -->
                 <selectable>invoke the Operational Environment to provide</selectable>
               </selectables>
               the ability to search certificates containing specified values of the following
-              certificate fields: <h:b><selectables linebreak="yes">
+              certificate fields: <selectables linebreak="yes">
                 <selectable>subject name</selectable>
                 <selectable>individual components of Subject Alternative Name</selectable>
                 <selectable>subject ID</selectable>
@@ -7203,7 +7216,7 @@ legacy cipher suites. -->
                 <selectable>extended key usage</selectable>
                 <selectable>serial number</selectable>
                 <selectable><assignable>list of other certificate fields</assignable></selectable>
-              </selectables></h:b>
+              </selectables>
               returning all matching certificates and <assignable>object identifier(s)</assignable> of
               matching certificate.
             </title>
@@ -7495,6 +7508,7 @@ legacy cipher suites. -->
 	    </section>
       
       <section title="Identification and Authentication (FIA)" id="obj-fia">
+        <comment>All objective SFRs need a review to determine if they should change status in the next release of this PP-Module.</comment>
         
         <f-component name="Client Use of TLS-Unique Value" cc-id="fia_estc_ext.2" id="fia-estc-ext-2">
           <consistency-rationale>This SFR applies to the implementation of EST, which is a method of acquiring certificates that is not defined in the Base-PP.</consistency-rationale>
@@ -7585,16 +7599,8 @@ This appendix lists requirements that should be considered satisfied by products
     <entry id="bibNDcPP">
       <tag>NDcPP</tag>
       <description>
-        <h:a href="https://www.niap-ccevs.org/Profile/Info.cfm?PPID=447&amp;id=447/">
-			collaborative Protection Profile for Network Devices</h:a>, Version 2.2E, March 2020
-      </description>
-    </entry>
-
-    <entry id="bibNDSD">
-      <tag>ND-SD</tag>
-      <description>
-        <h:a href="https://www.niap-ccevs.org/Profile/Info.cfm?PPID=447&amp;id=447/">
-          Supporting Document - Mandatory Technical Document - Evaluation Activities for Network Device cPP</h:a>, Version 2.2, December 2019
+        <h:a href="https://www.niap-ccevs.org/protectionprofiles/482">
+			collaborative Protection Profile for Network Devices</h:a>, Version 3.0E, 06 December 2023
       </description>
     </entry>
 
