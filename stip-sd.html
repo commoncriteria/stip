@@ -477,7 +477,7 @@ The following sections list Common Criteria and technology terms used in this do
               <p></p></div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
                 The evaluator shall test the audit functionality by performing actions that trigger each of the claimed audit events and verifying that the audit records are accurate and that their format is consistent with what is specified 
                 in the operational guidance. The evaluator may generate these audit events as a consequence of performing other tests that would cause these events to be generated.
-              </div></div></span></div><div class="comp" id="FAU-STG-4"><h4>FAU_STG.4 Prevention of Audit Data Loss</h4><span class="activity_pane_body"><div class="component-activity-header">FAU_STG.4</div>
+              </div></div></span></div><div class="comp" id="FAU-STG-5"><h4>FAU_STG.5 Prevention of Audit Data Loss</h4><span class="activity_pane_body"><div class="component-activity-header">FAU_STG.5</div>
               
               
               
@@ -495,17 +495,17 @@ The following sections list Common Criteria and technology terms used in this do
                 The evaluator shall perform the following tests. The tests are conditional on where the audit data are
                 being stored.
                 <p></p>
-                <a href="#fau-stg-4-local" class="dynref">Test FAU_STG.4:1</a> demonstrates the capability of the TOE to react to an indication that the repository is full; this is
+                <a href="#fau-stg-4-local" class="dynref">Test FAU_STG.5:1</a> demonstrates the capability of the TOE to react to an indication that the repository is full; this is
                 always applicable if the audit data are stored locally. If the TOE has a means to detect that a remote audit
-                repository is full, then this test will be run for those types of TOEs as well. <a href="#fau-stg-4-remote" class="dynref">Test FAU_STG.4:2</a> is only executed in cases
+                repository is full, then this test will be run for those types of TOEs as well. <a href="#fau-stg-4-remote" class="dynref">Test FAU_STG.5:2</a> is only executed in cases
                 where an external repository is supported, and tests the ability of the TOE to detect when the connection
                 to the repository becomes unavailable:
                 <span class="testlist-"><ul>
-                  <li class="test-"><a id="fau-stg-4-local" class="defined" href="#fau-stg-4-local">Test FAU_STG.4:1</a>:
+                  <li class="test-"><a id="fau-stg-4-local" class="defined" href="#fau-stg-4-local">Test FAU_STG.5:1</a>:
       (conditional, the audit trail is local to the TOE) The evaluator shall cause the audit trail to become full, verify that the TSF
                     behaves as documented in the TSS, and verify that a privileged user can perform the
                     documented remedial steps.</li>
-                  <li class="test-"><a id="fau-stg-4-remote" class="defined" href="#fau-stg-4-remote">Test FAU_STG.4:2</a>:
+                  <li class="test-"><a id="fau-stg-4-remote" class="defined" href="#fau-stg-4-remote">Test FAU_STG.5:2</a>:
       (conditional, the audit trail is stored in the Operational Environment) The evaluator shall cause the audit trail to become unavailable, verify that
                     the TSF behaves as documented in the TSS, and verify that a privileged user can perform the
                     documented remedial steps.
@@ -2038,7 +2038,7 @@ The following sections list Common Criteria and technology terms used in this do
               </p><p>
               Testing of the actual functional limitations of the assigned management roles is addressed by FMT_MOF.1/STIP.
               </p>
-            </div></div></span></div><h2 class="indexable" data-level="2" id="m-fpt">2.2.6 Protection of the TSF (FPT)</h2><div class="comp" id="FPT-FLS-1"><h4>FPT_FLS.1 Failure with Preservation of Secure State</h4><span class="activity_pane_body"><div class="component-activity-header">FPT_FLS.1</div>
+            </div></div></span></div><h2 class="indexable" data-level="2" id="m-fpt">2.2.6 Protection of the TSF (FPT)</h2><div class="comp" id="FPT-FLS-1"><h4>FPT_FLS.1/STIP Failure with Preservation of Secure State</h4><span class="activity_pane_body"><div class="component-activity-header">FPT_FLS.1/STIP</div>
               
               
               
@@ -2049,7 +2049,7 @@ The following sections list Common Criteria and technology terms used in this do
                 evaluator shall review the TSS to determine that the definition of secure state is defined and is suitable to
                 ensure protection of key material and user data. <p></p></div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea">The evaluator shall examine the operational guidance to ensure it describes the actions that might occur in response to any detected failures 
                 and provides remedial instructions for the administrator.<p></p></div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">The evaluator shall attempt to cause each documented failure to occur and shall verify that the
-                actions taken by the TSF are those specified in FPT_FLS.1.1. For those failures that the evaluator cannot
+                actions taken by the TSF are those specified in FPT_FLS.1.1/STIP. For those failures that the evaluator cannot
                 cause, the evaluator shall provide a justification to explain why the failure could not be induced.
               </div></div></span></div><div class="comp" id="FPT-KST-EXT-1"><h4>FPT_KST_EXT.1 No Plaintext Key Export</h4><span class="activity_pane_body"><div class="component-activity-header">FPT_KST_EXT.1</div>
               
@@ -2077,7 +2077,7 @@ The following sections list Common Criteria and technology terms used in this do
                 this state.<p></p></div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">The evaluator shall attempt to cause each documented failure to occur and shall verify that the
                 result of this failure is that the TSF enters a maintenance mode. The evaluator shall also verify that the
                 maintenance mode can be exited and the TSF can be restored to a secure state. This testing may be
-                performed in conjunction with FPT_FLS.1.</div></div></span></div><h2 class="indexable" data-level="1" id="opt-sfrs">2.3 Evaluation Activities for Optional SFRs</h2><h2 class="indexable" data-level="2" id="opt-fau">2.3.1 Persistent Local Audit Storage</h2><div class="comp" id="FAU-SAR-1"><h4>FAU_SAR.1 Audit Review</h4><span class="activity_pane_body"><div class="component-activity-header">FAU_SAR.1</div>
+                performed in conjunction with FPT_FLS.1/STIP.</div></div></span></div><h2 class="indexable" data-level="1" id="opt-sfrs">2.3 Evaluation Activities for Optional SFRs</h2><h2 class="indexable" data-level="2" id="opt-fau">2.3.1 Persistent Local Audit Storage</h2><div class="comp" id="FAU-SAR-1"><h4>FAU_SAR.1 Audit Review</h4><span class="activity_pane_body"><div class="component-activity-header">FAU_SAR.1</div>
               This activity should be accomplished in conjunction with the testing of FAU_GEN.1/STIP. Review of each of the
                 generated audit records demonstrates that these records are reviewable.<br/><br/>
             </span></div><div class="comp" id="FAU-SAR-3"><h4>FAU_SAR.3 Selectable Audit Review</h4><span class="activity_pane_body"><div class="component-activity-header">FAU_SAR.3</div>
@@ -2722,14 +2722,8 @@ guidance, and testing.</p><h1 id="biblio" class="indexable" data-level="A">Appen
                 3: Security Assurance Components</a>, CCMB-2017-04-003, Version 3.1 Revision 5,
               April 2017.</li></ul></td></tr>
     <tr><td><span id="bibNDcPP"></span>[NDcPP]</td><td>
-        <a href="https://www.niap-ccevs.org/Profile/Info.cfm?PPID=447&amp;id=447/">
-			collaborative Protection Profile for Network Devices</a>, Version 2.2E, March 2020
-      </td></tr>
-
-
-    <tr><td><span id="bibNDSD"></span>[ND-SD]</td><td>
-        <a href="https://www.niap-ccevs.org/Profile/Info.cfm?PPID=447&amp;id=447/">
-          Supporting Document - Mandatory Technical Document - Evaluation Activities for Network Device cPP</a>, Version 2.2, December 2019
+        <a href="https://www.niap-ccevs.org/protectionprofiles/482">
+			collaborative Protection Profile for Network Devices</a>, Version 3.0E, 06 December 2023
       </td></tr>
 
 

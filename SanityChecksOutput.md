@@ -1,3 +1,4 @@
+* Warning: This document still has at least one comment.
 * Error: Detected multiple elements with an id of 'genStatus'.
 * Error: Detected multiple elements with an id of 'genStatus'.
 * Error: Detected multiple elements with an id of 'banner'.

@@ -204,6 +204,7 @@ output/stip-release.html: un
 output/stip-release.html: users’
 output/stip-release.html: v1
 output/stip-release.html: ’
+output/stip-sd.html: 0E
 output/stip-sd.html: 0e
 output/stip-sd.html: 0x00
 output/stip-sd.html: 0x0000000000000000
