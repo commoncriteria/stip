@@ -1325,12 +1325,14 @@ expected to enforce.<h:p/>
             </consistency-rationale>
           <f-element id="fau-gen-1e1-stip">
             <title>
-              The TSF shall be able to generate an audit record of the following
+              The TSF shall be able to generate audit data of the following
               auditable events: <h:ol type="a">
-                <h:li>Start-up and shutdown of the audit functions</h:li>
-                <h:li>All auditable events for the [<h:i>not specified</h:i>] level of audit; and</h:li>
-                <h:li>[<h:i>auditable events defined in Auditable Events for Mandatory Requirements table, </h:i></h:li>
-                <h:li><h:i>applicable auditable events defined in Auditable Events for Selection-based Requirements table</h:i>].</h:li>
+                <h:li>Start-up and shutdown of the audit functions;</h:li>
+                <h:li>All auditable events for the [<h:i>not specified</h:i>] level of audit;</h:li>
+                <h:li>[<h:ul>
+                  <h:li><h:i>auditable events defined in Auditable Events for Mandatory Requirements table, </h:i></h:li>
+                <h:li><h:i>applicable auditable events defined in Auditable Events for Selection-based Requirements table</h:i>].</h:li></h:ul>
+                </h:li>
               </h:ol>
             </title>
             <note role="application">
@@ -5231,14 +5233,14 @@ legacy cipher suites. -->
           <consistency-rationale>This SFR applies to preserving a secure state when different failures occur
             which is not defined in the Base-PP.</consistency-rationale>
           <f-element id="fpt-fls-1e1-stip">
-            <title>The TSF shall preserve a secure state when the following types of failures occur: <h:b>
+            <title>The TSF shall preserve a secure state when the following types of failures occur: [<h:i>
               DRBG failure, integrity test failure, external audit server is unavailable, <selectables>
                 <selectable>local audit storage is full</selectable>
                 <selectable>update signature verification failure</selectable>
                 <selectable>integrity failure on local audit</selectable>
                 <selectable>integrity failure on Trust Anchor database</selectable>
                 <selectable><assignable>other potential TSF failures</assignable></selectable>
-              </selectables></h:b>.</title>
+              </selectables></h:i>].</title>
             <note role="application">
               The intent of this requirement is to prevent the use of failed randomization and
               other events that can compromise the operation of the TOE. This means that the
@@ -5494,13 +5496,13 @@ legacy cipher suites. -->
                 <selectable>Security Administrators</selectable>
                 <selectable>Auditors</selectable>
               </selectables> with the
-              capability to read all information from the local audit records.
+              capability to read [<h:i>all information</h:i>] from the audit data.
             </title>
           </f-element>
           <f-element id="fau-sar-1e2">
             <title>
               The TSF shall provide the local audit records in a manner suitable for the
-              administrator to interpret the information.
+              <h:b>administrator </h:b>to interpret the information.
             </title>
             <aactivity>
               <no-tests>This activity should be accomplished in conjunction with the testing of FAU_GEN.1/STIP. Review of each of the
@@ -5515,8 +5517,8 @@ legacy cipher suites. -->
             identifiers which is not defined in the Base-PP.</consistency-rationale>
           <f-element id="fau-sar-3e1">
             <title>
-              The TSF shall provide the ability to apply [<h:i>searches</h:i>] of <h:b>local</h:b> audit data based on <h:b>
-                <assignable>object identifier of certificate</assignable> associated with the event</h:b>.
+              The TSF shall provide the ability to apply [<h:i>searches</h:i>] of <h:b>local</h:b> audit data based on 
+              [<h:i><assignable>object identifier of certificate</assignable> associated with the event</h:i>].
             </title>
             <note role="application">
               FAU_SCR_EXT.1 defines the ability of the TOE to search a certificate repository
@@ -6227,10 +6229,10 @@ legacy cipher suites. -->
             of an SSL/TLS inspection session which is not defined in the Base-PP. </consistency-rationale>
           <f-element id="fta-tab-1e1-tls">
             <title>
-              Before forwarding decrypted application data intended for the requested server
-              to inspection processing components the TSF shall display <h:b>to the monitored
-              client a Security Administrator-specified</h:b> advisory <h:b>notice and consent</h:b> warning
-              message regarding use of the TOE.
+              Before <h:b>forwarding decrypted application data intended for the requested server
+              to inspection processing components</h:b>, the <h:i>TSF</h:i> shall display <h:b>to the monitored
+              client </h:b>[<h:i>a Security Administrator-specified advisory notice and consent warning
+              message regarding use of the TOE</h:i>].
             </title>
             <note role="application">
               This SFR should be claimed if ‘provide a consent to monitor banner..’ is selected in
