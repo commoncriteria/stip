@@ -1047,10 +1047,14 @@ expected to enforce.<p></p>
     <h2 class="indexable" data-level="2" id="Security_Objectives_for_the_TOE">4.1 Security Objectives for the TOE</h2>
       <dl><dt class="SO defined" id="O.AUDIT_LOSS_RESPONSE">O.AUDIT_LOSS_RESPONSE</dt><dd><span class="description">The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> will respond to possible loss of audit records when an audit trail cannot be written to by
             restricting auditable events.<p></p>
-			      Addressed by: FAU_STG.4
+			      Addressed by: <a href="#FAU_STG.5">FAU_STG.5</a>
           </span></dd><dt class="SO defined" id="O.CERTIFICATES">O.CERTIFICATES</dt><dd><span class="description">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> must ensure that certificates, certificate revocation lists, and certificate status information
             are valid.<p></p>
-            Addressed by: FCS_TLSC_EXT.1 (from <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>), FCS_TLSC_EXT.2 (from <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>), FIA_X509_EXT.1/Rev (from <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>), FIA_X509_EXT.3 (from <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>), <a href="#FDP_CER_EXT.1">FDP_CER_EXT.1</a>, <a href="#FDP_CER_EXT.2">FDP_CER_EXT.2</a>, <a href="#FDP_CER_EXT.3">FDP_CER_EXT.3</a>, <a href="#FDP_CSIR_EXT.1">FDP_CSIR_EXT.1</a>, <a href="#FIA_ENR_EXT.1">FIA_ENR_EXT.1</a>, <a href="#FIA_X509_EXT.1/STIP">FIA_X509_EXT.1/STIP</a>, <a href="#FIA_X509_EXT.2/STIP">FIA_X509_EXT.2/STIP</a>,
+            Addressed by: FCS_TLSC_EXT.1 (from <a href="https://www.niap-ccevs.org/protectionprofiles/465">Functional Package for Transport Layer Security (TLS),
+        version 
+        2.0</a>), FCS_TLSC_EXT.2 (from <a href="https://www.niap-ccevs.org/protectionprofiles/465">Functional Package for Transport Layer Security (TLS),
+        version 
+        2.0</a>), FIA_X509_EXT.1/Rev (from <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>), FIA_X509_EXT.3 (from <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>), <a href="#FDP_CER_EXT.1">FDP_CER_EXT.1</a>, <a href="#FDP_CER_EXT.2">FDP_CER_EXT.2</a>, <a href="#FDP_CER_EXT.3">FDP_CER_EXT.3</a>, <a href="#FDP_CSIR_EXT.1">FDP_CSIR_EXT.1</a>, <a href="#FIA_ENR_EXT.1">FIA_ENR_EXT.1</a>, <a href="#FIA_X509_EXT.1/STIP">FIA_X509_EXT.1/STIP</a>, <a href="#FIA_X509_EXT.2/STIP">FIA_X509_EXT.2/STIP</a>,
             <a href="#FDP_PIN_EXT.1">FDP_PIN_EXT.1</a> (optional), <a href="#FIA_ESTC_EXT.2">FIA_ESTC_EXT.2</a> (optional), <a href="#FDP_CER_EXT.4">FDP_CER_EXT.4</a> (selection-based), 
             <a href="#FDP_CER_EXT.5">FDP_CER_EXT.5</a> (selection-based), <a href="#FDP_CRL_EXT.1">FDP_CRL_EXT.1</a> (selection-based),
 			<a href="#FDP_CSI_EXT.1">FDP_CSI_EXT.1</a> (selection-based), <a href="#FDP_CSI_EXT.2">FDP_CSI_EXT.2</a> (selection-based), <a href="#FDP_OCSP_EXT.1">FDP_OCSP_EXT.1</a> (selection-based), <a href="#FDP_OCSPS_EXT.1">FDP_OCSPS_EXT.1</a> (selection-based), <a href="#FIA_ESTC_EXT.1">FIA_ESTC_EXT.1</a> (selection-based)    
@@ -1069,7 +1073,11 @@ expected to enforce.<p></p>
             distributed <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>, and authorized IT entities. The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> will protect data assets when they are being
             transmitted to and from the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>, including through intervening untrusted components.
             <p></p>
-            Addressed by: FCS_CKM.6 (from <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>), FCS_TLSC_EXT.1 (from <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>), FCS_TLSC_EXT.2 (from <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>), FTP_ITC.1 (refined from <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>), 
+            Addressed by: FCS_CKM.6 (from <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>), FCS_TLSC_EXT.1 (from <a href="https://www.niap-ccevs.org/protectionprofiles/465">Functional Package for Transport Layer Security (TLS),
+        version 
+        2.0</a>), FCS_TLSC_EXT.2 (from <a href="https://www.niap-ccevs.org/protectionprofiles/465">Functional Package for Transport Layer Security (TLS),
+        version 
+        2.0</a>), FTP_ITC.1 (refined from <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>), 
             <a href="#FCS_COP.1/STIP">FCS_COP.1/STIP</a>, <a href="#FCS_TTTC_EXT.1">FCS_TTTC_EXT.1</a>, <a href="#FCS_TTTC_EXT.5">FCS_TTTC_EXT.5</a>, <a href="#FCS_TTTS_EXT.1">FCS_TTTS_EXT.1</a>, <a href="#FDP_PRC_EXT.1">FDP_PRC_EXT.1</a>, <a href="#FDP_STIP_EXT.1">FDP_STIP_EXT.1</a>, <a href="#FDP_TEP_EXT.1">FDP_TEP_EXT.1</a>,
             <a href="#FCS_TTTC_EXT.3">FCS_TTTC_EXT.3</a> (selection-based), <a href="#FCS_TTTC_EXT.4">FCS_TTTC_EXT.4</a> (selection-based), <a href="#FCS_TTTS_EXT.3">FCS_TTTS_EXT.3</a>
             (selection-based), <a href="#FCS_TTTS_EXT.4">FCS_TTTS_EXT.4</a> (selection-based), <a href="#FDP_STIP_EXT.2">FDP_STIP_EXT.2</a> (selection-based)
@@ -1300,12 +1308,12 @@ The assumptions identified in Section 3 are incorporated as security objectives 
 
 		<h4 id="@id" class="indexable" data-level="4">5.1.1.1 Cryptographic Support (FCS)</h4><div class="comp" id="@id"><h4>FCS_CKM.6: Cryptographic Key Destruction</h4><span class="description"><p>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is modified from its definition in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> to include security critical parameters as an item to be destroyed.</p>
               <p>The text of the requirement is replaced with: </p>
-              <p><b>FCS_CKM.6.1: </b>The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall destroy [<i>all cryptographic keys <b>and security parameters</b></i>] when 
+              <p><b>FCS_CKM.6.1: </b>The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall destroy [<i>all cryptographic keys <b>and critical security parameters</b></i>] when 
                 [<i>no longer needed</i>].</p>
               <p><b>FCS_CKM.6.2: </b>The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall destroy cryptographic keys and keying material specified by FCS_CKM.6.1 in accordance with a specified cryptographic 
                 key destruction method: [<b>selection: </b><i>
                 <ul>
-                  <li>For plaintext keys in volatile storage, the destruction hall be executed by a [<b>selection: </b>
+                  <li>For plaintext keys in volatile storage, the destruction shall be executed by a [<b>selection: </b>
                     <ul>
                       <li>Single overwrite consisting of [<b>selection: </b>
                         <ul>
@@ -1314,14 +1322,13 @@ The assumptions identified in Section 3 are incorporated as security objectives 
                           <li>ones</li>
                           <li>a new value of the key</li>
                           <li>[<b>assignment: </b>a static or dynamic value that does not contain any CSP]</li>
-                        ]</ul></li>
+                        </ul>]</li>
                         <li>Destruction of reference to the key directly followed by a request for garbage collection</li>
-                        </ul>
-                      </li>
+                        </ul>]</li>
                       <li>For plaintext keys in non-volatile storage, the destruction shall be executed by the invocation of an interface provided by the 
                         <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> that [<b>selection: </b>
                         <ul>
-                          <li>Locically addresses the storage location of the key and performs a [<b>selection: </b>single, [<b>assignment: </b> number of passes]-pass] overwrite 
+                          <li>Logically addresses the storage location of the key and performs a [<b>selection: </b>single, [<b>assignment: </b> number of passes]-pass] overwrite 
                             consisting of [<b>selection: </b>
                             <ul>
                               <li>a pseudo-random pattern using the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>'s RBG</li>
@@ -1334,27 +1341,26 @@ The assumptions identified in Section 3 are incorporated as security objectives 
                           <li>Instructs a part of the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> to destroy the abstraction that represents the key</li>
                         </ul>]
                       </li>
-                ]</ul></i>] that meets the following: [<i>no standard</i>].
+                </ul></i>] that meets the following: [<i>no standard</i>].
               </p>
               <p><b>Application Note: </b>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is refined from its definition in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> through the inclusion of security critical parameters and clarifies when destruction 
               is required; a <abbr class="dyn-abbr"><a href="#abbr_STIP">STIP</a></abbr> device includes persistent keys, including the embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>’s signing private key that should not be destroyed until they are no longer needed. Security 
               critical parameters includes security related information (e.g., secret and private cryptographic keys, authentication data such as passwords and PINs) appearing in plaintext 
-              or otherwise unprotected form and whose disclosure or modification can compromise the security of a <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> or the security of the information protected by the <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> or the security 
-              of the information protected by the <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>.</p></span></div><div class="comp" id="@id"><h4>FCS_TLSC_EXT.1: TLS Client Protocol without Mutual Authentication</h4><span class="description">This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does not modify this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> as it is defined in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>. This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is selection-based in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> for its potential use in trusted communications.
+              or otherwise unprotected form and whose disclosure or modification can compromise the security of a <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> or the security of the information protected by the <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>.</p></span></div><div class="comp" id="@id"><h4>FCS_TLSC_EXT.1: TLS Client Protocol without Mutual Authentication</h4><span class="description">This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does not modify this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> as it is defined in the <a href="https://www.niap-ccevs.org/protectionprofiles/465">Functional Package for TLS, version 2.0</a>. This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is selection-based in the Functional Package for its potential use in trusted communications.
               This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> also defines EST as a supported method of obtaining certificates for the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>, which may use TLS. 
-              This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> can therefore also be triggered if the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> claims <a href="#FIA_ESTC_EXT.1">FIA_ESTC_EXT.1</a> and selects a mechanism that makes use of FCS_TLSC_EXT.1.</span></div><div class="comp" id="@id"><h4>FCS_TLSC_EXT.2: TLS Client Support for Mutual Authentication</h4><span class="description">This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does not modify this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> as it is defined in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>. This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is optional in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> for its potential use in trusted communications.
-              This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> defines EST as a supported method of obtaining certificates, which may use mutually-authenticated TLS. 
-              This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is therefore selection-based when the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> claims this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>, dependent on selection in <a href="#FIA_ESTC_EXT.1.4">FIA_ESTC_EXT.1.4</a>. </span></div><h4 id="@id" class="indexable" data-level="4">5.1.1.2 Identification and Authentication (FIA)</h4><div class="comp" id="@id"><h4>FIA_X509_EXT.1: X.509 Certificate Validation</h4><span class="description"> This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is selection-based in the <a href="https://www.niap-ccevs.org/protectionprofiles/511">Functional Package for X.509, version 1.0</a> but 
+              This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> can therefore also be triggered if the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> claims <a href="#FIA_ESTC_EXT.1">FIA_ESTC_EXT.1</a> and selects a mechanism that makes use of FCS_TLSC_EXT.1.</span></div><div class="comp" id="@id"><h4>FCS_TLSC_EXT.2: TLS Client Support for Mutual Authentication</h4><span class="description">This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does not modify this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> as it is defined in the <a href="https://www.niap-ccevs.org/protectionprofiles/465">Functional Package for TLS, version 2.0</a>. This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is selection-based in the Functional Package for its potential use in trusted communications.
+              This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> also defines EST as a supported method of obtaining certificates, which may use mutually-authenticated TLS. 
+              This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> can therefore also be triggered if the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> claims <a href="#FIA_ESTC_EXT.1">FIA_ESTC_EXT.1</a>, dependent on selection in <a href="#FIA_ESTC_EXT.1.4">FIA_ESTC_EXT.1.4</a>. </span></div><h4 id="@id" class="indexable" data-level="4">5.1.1.2 Identification and Authentication (FIA)</h4><div class="comp" id="@id"><h4>FIA_X509_EXT.1: X.509 Certificate Validation</h4><span class="description"> This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is selection-based in the <a href="https://www.niap-ccevs.org/protectionprofiles/511">Functional Package for X.509, version 1.0</a> but 
               is mandatory when this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> is claimed. <a href="#FIA_ENR_EXT.1">FIA_ENR_EXT.1</a> requires this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> to generate certificate requests
               using either PKCS#10 or Enrollment over Secure Transport (EST). If PKCS#10 is claimed, the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> must be able to apply this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> to the certificate repsonse signed
-              by an external <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>. If EST is claimed, the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> must be able to apply this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> to the X.509 certificate presented by an EST server.</span></div><div class="comp" id="@id"><h4>FIA_X509_EXT.3: X.509 Certificate Requests</h4><span class="description">In the <a href="https://www.niap-ccevs.org/protectionprofiles/511">Functional Package for X.509, version 1.0</a>, this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is optional but must be claimed in any situation where the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> presents its own X.509 certificate to an external entity (e.g. any case where the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> acts as a TLS server or where the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> acts as a TLS client
-              in an connection that uses mutual authentication). A <abbr class="dyn-abbr"><a href="#abbr_STIP">STIP</a></abbr> <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> must present an X.509 certificate to an external entity as part of TLS session proxying. The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> may obtain this certificate either using PKCS#10 (covered by this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>) or
+              by an external <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>. If EST is claimed, the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> must be able to apply this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> to the X.509 certificate presented by an EST server.</span></div><div class="comp" id="@id"><h4>FIA_X509_EXT.3: X.509 Certificate Requests</h4><span class="description">In the <a href="https://www.niap-ccevs.org/protectionprofiles/511">Functional Package for X.509, version 1.0</a>, this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is selection-based and is claimed if the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> asserts an identity included in an X.509 certificate and requests a certificate from either an 
+              external or embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>. A <abbr class="dyn-abbr"><a href="#abbr_STIP">STIP</a></abbr> <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> must present an X.509 certificate to an external entity as part of TLS session proxying. The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> may obtain this certificate either using PKCS#10 (covered by this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>) or
               through Enrollment over Secure Transport (EST), which is covered by the selection-based <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> <a href="#FIA_ESTC_EXT.1">FIA_ESTC_EXT.1</a>. Therefore, the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author only claims FIA_X509_EXT.3 if PKCS#10 is selected in <a href="#FIA_ENR_EXT.1">FIA_ENR_EXT.1</a>.</span></div><h4 id="@id" class="indexable" data-level="4">5.1.1.3 Trusted Path/Channels (FTP)</h4><div class="comp" id="@id"><h4>FTP_ITC.1: Inter-TSF Trusted Channel</h4><span class="description">
               <p>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> has been modified from its definition in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> to mandate the use of TLS. Other protocol options may be selected without restriction. Any element that is not present in this section is unchanged from its definition in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>.</p>
               <p>The text of the specified elements is replaced with:</p>
               <p><b>FTP_ITC.1.1: </b>The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall be capable of using <b>TLS as defined in the <a href="https://www.niap-ccevs.org/protectionprofiles/465">Functional Package for TLS, version 2.0</a></b> and [<b>selection: </b><i>IPsec, 
-                SSH as defined in the <a href="https://www.niap-ccevs.org/protectionprofiles/515">Functional Package for SSH, version 2.0</a>, DTLS, HTTPS, <b>no other protocols</b></i>] to provide a trusted communication channel between itself 
-                and authorized IT entities supporting the following capabilities: audit server, <b>TLS session proxying, </b>[<b>selection: </b><i>authentication server, <b>Enrollment over Secure Transport, </b>[<b>assignment: </b>other capabilities], no other capabilities</i>] 
+                SSH as defined in the <a href="https://www.niap-ccevs.org/protectionprofiles/515">Functional Package for SSH, version 2.0</a>, DTLS <b>as defined in the <a href="https://www.niap-ccevs.org/protectionprofiles/465">Functional Package for TLS, version 2.0</a></b>, HTTPS, <b>no other protocols</b></i>] 
+                to provide a trusted communication channel between itself and authorized IT entities supporting the following capabilities: audit server, <b>TLS session proxying, </b>[<b>selection: </b><i>authentication server, <b>Enrollment over Secure Transport, </b>[<b>assignment: </b>other capabilities], no other capabilities</i>] 
                 that is logically distinct from other communication channels and provides assured identification of its end points and protection of the channel data from modification and disclosure.</p>
               <p><b>Application Note: </b>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is modified from its definition in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> by specifying that a conformant <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> will always implement TLS trusted channels at minimum, due
                 to the Module's required functionality for <abbr class="dyn-abbr"><a href="#abbr_SSL/TLS">SSL/TLS</a></abbr> session proxying. EST is also specified as a selectable use of TLS because 
@@ -1362,6 +1368,7 @@ The assumptions identified in Section 3 are incorporated as security objectives 
                 The TLS functionality used to implement <abbr class="dyn-abbr"><a href="#abbr_SSL/TLS">SSL/TLS</a></abbr> session proxying is defined in this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> under the FCS_TTTC_EXT and FCS_TTTS_EXT requirements.
                 For other potential TLS uses (e.g. EST, audit server communications), the relevant <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> from the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> would be used.</p>
               <p><b>FTP_ITC.1.2: </b>The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall permit [<b>selection: </b><i>the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>, <b>the authorized IT entities</b></i>] to initiate communication via the trusted channel.</p>
+              <p><b>FTP_ITC.1.3: </b>The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall initiate communication via the trusted channel for [<i>establishment of TLS proxy connections, [<b>selection: </b>[<b>assignment: </b>list of other services for which the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> is able to initiate communications], no other services</i>].</p>
             </span></div><h2 id="man-sfrs" class="indexable" data-level="2">5.2 TOE Security Functional Requirements</h2>
 	The following section describes the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> that must be satisfied by any <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> that claims conformance to this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>.
 	These <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> must be claimed regardless of which <abbr class="dyn-abbr"><a href="#abbr_PP-Configuration">PP-Configuration</a></abbr> is used to define the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>.
@@ -2388,7 +2395,7 @@ The assumptions identified in Section 3 are incorporated as security objectives 
                 <li>TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA as defined in RFC 8422</li>
                 <li>TLS_ECDH_ECDSA_WITH_AES_128_CBC_SHA as defined in RFC 8422</li>
                 <li>TLS_DHE_RSA_WITH_AES_128_CBC_SHA as defined in RFC 5246</li>
-                <li>TLS_RSA_WITH_AES_128_CBC_SHA as defined in RFC 5426</li>
+                <li>TLS_RSA_WITH_AES_128_CBC_SHA as defined in RFC 5246</li>
                 <li>TLS_RSA_WITH_AES_128_CCM_8 as defined in RFC 6655</li>
                 <li>TLS_DHE_RSA_WITH_AES_128_CCM_8 as defined in RFC 6655</li>
                 <li>TLS_DHE_RSA_WITH_AES_256_CCM_8 as defined in RFC 6655</li>
@@ -3987,8 +3994,8 @@ The assumptions identified in Section 3 are incorporated as security objectives 
                   <ul>
                     <li>The extendedKeyUsage field is present and contains the Server
                       Authentication purpose (id-kp 1 with OID 1.3.6.1.5.5.7.3.1)</li>
-                    <li>[<b>selection</b>: <span class="selectable-content" id="_s_192">There is no extendedKeyUsage field,</span>, <span class="selectable-content" id="_s_193">The extendedKeyUsage field is present and contains the ‘any’
-                        purpose (id-…)</span>, <span class="selectable-content" id="_s_194">No other conditions</span>]</li>
+                    <li>[<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_192">There is no extendedKeyUsage field</span></li><li style=""><span class="selectable-content" id="_s_193">The extendedKeyUsage field is present and contains the ‘any’
+                        purpose (id-…)</span></li><li style=""><span class="selectable-content" id="_s_194">No other conditions</span></li></ul>]</li>
                   </ul>
                   </li>
                   <li>Server certificates presented for TLS not associated with the Thru-Traffic processing include an extendedKeyUsage field that contains
@@ -4857,8 +4864,8 @@ The assumptions identified in Section 3 are incorporated as security objectives 
     </h1>
       
 	    <h2 class="indexable" data-level="2" id="sb-audit-table">B.1 Auditable Events for Selection-based SFRs</h2>
-        	<table class="sort_kids_" border="1"><caption data-sortkey="#0"><span class="ctr" data-myid="sel-based-audit-events" data-counter-type="ct-Table" id="sel-based-audit-events">Table <span class="counter">9</span></span>: Auditable Events for Selection-based Requirements</caption><tr data-sortkey="#1"><th>Requirement</th><th>Auditable Events</th><th>Additional Audit Record Contents</th></tr><tr data-sortkey="FAU_SCR_EXT.1"><td rowspan="2"><a href="#FAU_SCR_EXT.1">FAU_SCR_EXT.1</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FAU_SCR_EXT.1#"><td></td></tr><tr data-sortkey="FAU_SCR_EXT.1.1"><td>No events specified</td><td>N/A</td></tr><tr data-sortkey="FCS_TTTC_EXT.3"><td rowspan="3"><a href="#FCS_TTTC_EXT.3">FCS_TTTC_EXT.3</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FCS_TTTC_EXT.3#"><td></td></tr><tr data-sortkey="FCS_TTTC_EXT.3.7"><td>Mutual authentication authorized</td><td>[<b>selection</b>: <span class="selectable-content" id="_s_284">client certificate value</span>, <span class="selectable-content" id="_s_285">client certificate object identifier</span>]</td></tr><tr data-sortkey="FCS_TTTC_EXT.3.8"><td>Mutual authentication not authorized</td><td>N/A</td></tr><tr data-sortkey="FCS_TTTC_EXT.4"><td rowspan="2"><a href="#FCS_TTTC_EXT.4">FCS_TTTC_EXT.4</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FCS_TTTC_EXT.4#"><td></td></tr><tr data-sortkey="FCS_TTTC_EXT.4.1"><td>No events specified</td><td>N/A</td></tr><tr data-sortkey="FCS_TTTS_EXT.3"><td rowspan="3"><a href="#FCS_TTTS_EXT.3">FCS_TTTS_EXT.3</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FCS_TTTS_EXT.3#"><td></td></tr><tr data-sortkey="FCS_TTTS_EXT.3.10"><td>Mutual authentication required and valid client certificate received</td><td>Client certificate</td></tr><tr data-sortkey="FCS_TTTS_EXT.3.11"><td>Mutual authentication not authorized</td><td>N/A</td></tr><tr data-sortkey="FCS_TTTS_EXT.4"><td rowspan="2"><a href="#FCS_TTTS_EXT.4">FCS_TTTS_EXT.4</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FCS_TTTS_EXT.4#"><td></td></tr><tr data-sortkey="FCS_TTTS_EXT.4.1"><td>No events specified</td><td>N/A</td></tr><tr data-sortkey="FDP_CER_EXT.4"><td rowspan="2"><a href="#FDP_CER_EXT.4">FDP_CER_EXT.4</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FDP_CER_EXT.4#"><td></td></tr><tr data-sortkey="FDP_CER_EXT.4.1"><td>No events specified</td><td>N/A</td></tr><tr data-sortkey="FDP_CER_EXT.5"><td rowspan="2"><a href="#FDP_CER_EXT.5">FDP_CER_EXT.5</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FDP_CER_EXT.5#"><td></td></tr><tr data-sortkey="FDP_CER_EXT.5.8"><td>Certificate generation</td><td><span style="" class="comment " id="Comment-1-">There is an auditable event designated "Success" here but nothing listed for "Failure". Should an additional event be included for a failure case?</span>
-              Success: [<b>selection</b>: <span class="selectable-content" id="_s_323">certificate value</span>, <span class="selectable-content" id="_s_324">certificate object identifier</span>]</td></tr><tr data-sortkey="FDP_CRL_EXT.1"><td rowspan="2"><a href="#FDP_CRL_EXT.1">FDP_CRL_EXT.1</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FDP_CRL_EXT.1#"><td></td></tr><tr data-sortkey="FDP_CRL_EXT.1.7"><td>Failure to generate CRL</td><td>N/A</td></tr><tr data-sortkey="FDP_CSI_EXT.1"><td rowspan="2"><a href="#FDP_CSI_EXT.1">FDP_CSI_EXT.1</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FDP_CSI_EXT.1#"><td></td></tr><tr data-sortkey="FDP_CSI_EXT.1.1"><td>No events specified</td><td>N/A</td></tr><tr data-sortkey="FDP_CSI_EXT.2"><td rowspan="2"><a href="#FDP_CSI_EXT.2">FDP_CSI_EXT.2</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FDP_CSI_EXT.2#"><td></td></tr><tr data-sortkey="FDP_CSI_EXT.2.1"><td>No events specified</td><td>N/A</td></tr><tr data-sortkey="FDP_OCSPS_EXT.1"><td rowspan="2"><a href="#FDP_OCSPS_EXT.1">FDP_OCSPS_EXT.1</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FDP_OCSPS_EXT.1#"><td></td></tr><tr data-sortkey="FDP_OCSPS_EXT.1.8"><td>Failure to include certificate status information in TLS handshake message</td><td>N/A</td></tr><tr data-sortkey="FDP_OCSP_EXT.1"><td rowspan="2"><a href="#FDP_OCSP_EXT.1">FDP_OCSP_EXT.1</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FDP_OCSP_EXT.1#"><td></td></tr><tr data-sortkey="FDP_OCSP_EXT.1.7"><td>Failure to generate certificate status information</td><td>N/A</td></tr><tr data-sortkey="FDP_STIP_EXT.2"><td rowspan="2"><a href="#FDP_STIP_EXT.2">FDP_STIP_EXT.2</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FDP_STIP_EXT.2#"><td></td></tr><tr data-sortkey="FDP_STIP_EXT.2.1"><td>No events specified</td><td>N/A</td></tr><tr data-sortkey="FIA_ESTC_EXT.1"><td rowspan="2"><a href="#FIA_ESTC_EXT.1">FIA_ESTC_EXT.1</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FIA_ESTC_EXT.1#"><td></td></tr><tr data-sortkey="FIA_ESTC_EXT.1.11"><td>EST requests</td><td>N/A</td></tr><tr data-sortkey="FTA_TAB.1/TLS"><td rowspan="2"><a href="#FTA_TAB.1/TLS">FTA_TAB.1/TLS</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FTA_TAB.1/TLS#"><td></td></tr><tr data-sortkey="FTA_TAB.1/TLS.1"><td>No events specified</td><td>N/A</td></tr></table>
+        	<table class="sort_kids_" border="1"><caption data-sortkey="#0"><span class="ctr" data-myid="sel-based-audit-events" data-counter-type="ct-Table" id="sel-based-audit-events">Table <span class="counter">9</span></span>: Auditable Events for Selection-based Requirements</caption><tr data-sortkey="#1"><th>Requirement</th><th>Auditable Events</th><th>Additional Audit Record Contents</th></tr><tr data-sortkey="FAU_SCR_EXT.1"><td rowspan="2"><a href="#FAU_SCR_EXT.1">FAU_SCR_EXT.1</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FAU_SCR_EXT.1#"><td></td></tr><tr data-sortkey="FAU_SCR_EXT.1.1"><td>No events specified</td><td>N/A</td></tr><tr data-sortkey="FCS_TTTC_EXT.3"><td rowspan="3"><a href="#FCS_TTTC_EXT.3">FCS_TTTC_EXT.3</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FCS_TTTC_EXT.3#"><td></td></tr><tr data-sortkey="FCS_TTTC_EXT.3.7"><td>Mutual authentication authorized</td><td>[<b>selection</b>: <span class="selectable-content" id="_s_287">client certificate value</span>, <span class="selectable-content" id="_s_288">client certificate object identifier</span>]</td></tr><tr data-sortkey="FCS_TTTC_EXT.3.8"><td>Mutual authentication not authorized</td><td>N/A</td></tr><tr data-sortkey="FCS_TTTC_EXT.4"><td rowspan="2"><a href="#FCS_TTTC_EXT.4">FCS_TTTC_EXT.4</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FCS_TTTC_EXT.4#"><td></td></tr><tr data-sortkey="FCS_TTTC_EXT.4.1"><td>No events specified</td><td>N/A</td></tr><tr data-sortkey="FCS_TTTS_EXT.3"><td rowspan="3"><a href="#FCS_TTTS_EXT.3">FCS_TTTS_EXT.3</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FCS_TTTS_EXT.3#"><td></td></tr><tr data-sortkey="FCS_TTTS_EXT.3.10"><td>Mutual authentication required and valid client certificate received</td><td>Client certificate</td></tr><tr data-sortkey="FCS_TTTS_EXT.3.11"><td>Mutual authentication not authorized</td><td>N/A</td></tr><tr data-sortkey="FCS_TTTS_EXT.4"><td rowspan="2"><a href="#FCS_TTTS_EXT.4">FCS_TTTS_EXT.4</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FCS_TTTS_EXT.4#"><td></td></tr><tr data-sortkey="FCS_TTTS_EXT.4.1"><td>No events specified</td><td>N/A</td></tr><tr data-sortkey="FDP_CER_EXT.4"><td rowspan="2"><a href="#FDP_CER_EXT.4">FDP_CER_EXT.4</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FDP_CER_EXT.4#"><td></td></tr><tr data-sortkey="FDP_CER_EXT.4.1"><td>No events specified</td><td>N/A</td></tr><tr data-sortkey="FDP_CER_EXT.5"><td rowspan="2"><a href="#FDP_CER_EXT.5">FDP_CER_EXT.5</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FDP_CER_EXT.5#"><td></td></tr><tr data-sortkey="FDP_CER_EXT.5.8"><td>Certificate generation</td><td><span style="" class="comment " id="Comment-1-">There is an auditable event designated "Success" here but nothing listed for "Failure". Should an additional event be included for a failure case?</span>
+              Success: [<b>selection</b>: <span class="selectable-content" id="_s_326">certificate value</span>, <span class="selectable-content" id="_s_327">certificate object identifier</span>]</td></tr><tr data-sortkey="FDP_CRL_EXT.1"><td rowspan="2"><a href="#FDP_CRL_EXT.1">FDP_CRL_EXT.1</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FDP_CRL_EXT.1#"><td></td></tr><tr data-sortkey="FDP_CRL_EXT.1.7"><td>Failure to generate CRL</td><td>N/A</td></tr><tr data-sortkey="FDP_CSI_EXT.1"><td rowspan="2"><a href="#FDP_CSI_EXT.1">FDP_CSI_EXT.1</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FDP_CSI_EXT.1#"><td></td></tr><tr data-sortkey="FDP_CSI_EXT.1.1"><td>No events specified</td><td>N/A</td></tr><tr data-sortkey="FDP_CSI_EXT.2"><td rowspan="2"><a href="#FDP_CSI_EXT.2">FDP_CSI_EXT.2</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FDP_CSI_EXT.2#"><td></td></tr><tr data-sortkey="FDP_CSI_EXT.2.1"><td>No events specified</td><td>N/A</td></tr><tr data-sortkey="FDP_OCSPS_EXT.1"><td rowspan="2"><a href="#FDP_OCSPS_EXT.1">FDP_OCSPS_EXT.1</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FDP_OCSPS_EXT.1#"><td></td></tr><tr data-sortkey="FDP_OCSPS_EXT.1.8"><td>Failure to include certificate status information in TLS handshake message</td><td>N/A</td></tr><tr data-sortkey="FDP_OCSP_EXT.1"><td rowspan="2"><a href="#FDP_OCSP_EXT.1">FDP_OCSP_EXT.1</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FDP_OCSP_EXT.1#"><td></td></tr><tr data-sortkey="FDP_OCSP_EXT.1.7"><td>Failure to generate certificate status information</td><td>N/A</td></tr><tr data-sortkey="FDP_STIP_EXT.2"><td rowspan="2"><a href="#FDP_STIP_EXT.2">FDP_STIP_EXT.2</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FDP_STIP_EXT.2#"><td></td></tr><tr data-sortkey="FDP_STIP_EXT.2.1"><td>No events specified</td><td>N/A</td></tr><tr data-sortkey="FIA_ESTC_EXT.1"><td rowspan="2"><a href="#FIA_ESTC_EXT.1">FIA_ESTC_EXT.1</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FIA_ESTC_EXT.1#"><td></td></tr><tr data-sortkey="FIA_ESTC_EXT.1.11"><td>EST requests</td><td>N/A</td></tr><tr data-sortkey="FTA_TAB.1/TLS"><td rowspan="2"><a href="#FTA_TAB.1/TLS">FTA_TAB.1/TLS</a></td><td style="display:none"></td></tr><tr style="display:none;" data-sortkey="FTA_TAB.1/TLS#"><td></td></tr><tr data-sortkey="FTA_TAB.1/TLS.1"><td>No events specified</td><td>N/A</td></tr></table>
 	     
       
       
@@ -5129,7 +5136,9 @@ The assumptions identified in Section 3 are incorporated as security objectives 
               services via [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_271">implicit Trust Anchor/Trust Store (<abbr class="dyn-abbr"><a href="#abbr_TA">TA</a></abbr>) configured by 
                   [<b>selection</b>: <span class="selectable-content" id="_s_272">Security Administrator</span>, <span class="selectable-content" id="_s_273"><abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> Operations Staff</span>]</span></li><li style=""><span class="selectable-content" id="_s_274">an explicit <abbr class="dyn-abbr"><a href="#abbr_TA">TA</a></abbr> populated
                   via a TLS-authenticated EST <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> certificate request in accordance with RFC 7030
-                  section 4.1.2 and FCS_TLSC_EXT.1</span></li></ul>].
+                  section 4.1.2 and FCS_TLSC_EXT.1 <b>(from the <a href="https://www.niap-ccevs.org/protectionprofiles/465">Functional Package for Transport Layer Security (TLS),
+        version 
+        2.0</a>)</b></span></li></ul>].
             </div></div>
           <div class="element"><div class="reqid" id="FIA_ESTC_EXT.1.3"><a href="#FIA_ESTC_EXT.1.3" class="abbr">FIA_ESTC_EXT.1.3</a></div><div class="reqdesc">
               The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall authenticate EST servers using X.509 certificates that chain to trust
@@ -5143,9 +5152,13 @@ The assumptions identified in Section 3 are incorporated as security objectives 
      <span class="assignable-content">other certificates
               required to authenticate the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr></span>], from an authorized EST server using
               [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_281"><abbr class="dyn-abbr"><a href="#abbr_HTTP">HTTP</a></abbr> basic authentication transported over TLS in accordance with RFC
-              7030 section 3.2.3 and FCS_TLSC_EXT.1</span></li><li style=""><span class="selectable-content" id="_s_282"><abbr class="dyn-abbr"><a href="#abbr_HTTP">HTTP</a></abbr> digest authentication using a cryptographic hash algorithm in
+              7030 section 3.2.3 and FCS_TLSC_EXT.1 <b>(from the <a href="https://www.niap-ccevs.org/protectionprofiles/465">Functional Package for Transport Layer Security (TLS),
+        version 
+        2.0</a>)</b></span></li><li style=""><span class="selectable-content" id="_s_282"><abbr class="dyn-abbr"><a href="#abbr_HTTP">HTTP</a></abbr> digest authentication using a cryptographic hash algorithm in
               accordance with FCS_COP.1<b>/Hash</b>, transported over TLS in accordance
-              with RFC 7030 section 3.2.3 and FCS_TLSC_EXT.1</span></li><li style=""><span class="selectable-content" id="_s_283">Certificate-based authentication in accordance with RFC 7030 section
+              with RFC 7030 section 3.2.3 and FCS_TLSC_EXT.1 <b>(from the <a href="https://www.niap-ccevs.org/protectionprofiles/465">Functional Package for Transport Layer Security (TLS),
+        version 
+        2.0</a>)</b></span></li><li style=""><span class="selectable-content" id="_s_283">Certificate-based authentication in accordance with RFC 7030 section
               3.3.2 and FCS_TLSC_EXT.2 using [<b>assignment</b>: 
      <span class="assignable-content">a pre-existing certificate
               authorized by the EST server</span>]</span></li></ul>].
@@ -5384,7 +5397,7 @@ The assumptions identified in Section 3 are incorporated as security objectives 
               defined in <a href="#FDP_TEP_EXT.1">FDP_TEP_EXT.1</a>.</div></div>
           <div class="element"><div class="reqid" id="FCS_TTTS_EXT.3.3"><a href="#FCS_TTTS_EXT.3.3" class="abbr">FCS_TTTS_EXT.3.3</a></div><div class="reqdesc">
               The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall validate the certificate presented by the client and 
-              [<b>selection</b>: <span class="selectable-content" id="_s_286">allow the connection if the certificate is invalid and an exception is permitted for the client</span>, <span class="selectable-content" id="_s_287">terminate the connection if the certificate is invalid</span>].
+              [<b>selection</b>: <span class="selectable-content" id="_s_289">allow the connection if the certificate is invalid and an exception is permitted for the client</span>, <span class="selectable-content" id="_s_290">terminate the connection if the certificate is invalid</span>].
             <div class="appnote"><span class="note-header">Application
       Note:
     </span><span class="note">
@@ -5502,7 +5515,7 @@ The assumptions identified in Section 3 are incorporated as security objectives 
                   the current time and a notAfter value that does not precede the value
                   specified in notBefore.</li>
                 <li>The issuer field is not empty and is populated with the 
-                  [<b>selection</b>: <span class="selectable-content" id="_s_288">Security Administrator</span>, <span class="selectable-content" id="_s_289"><abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> Operations Staff</span>]-configured <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> name.</li>
+                  [<b>selection</b>: <span class="selectable-content" id="_s_291">Security Administrator</span>, <span class="selectable-content" id="_s_292"><abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> Operations Staff</span>]-configured <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> name.</li>
                 <li>The signature field and the algorithm in the subjectPublicKeyInfo field
                   shall contain the OID for a signature algorithm specified in
                   FCS_COP.1<b>/SigGen in the NDcPP</b>.</li>
@@ -5513,7 +5526,7 @@ The assumptions identified in Section 3 are incorporated as security objectives 
                     <li>keyUsage</li>
                     <li>extendedKeyUsage</li>
                     <li>certificatePolicy</li>
-                    <li>[<b>selection</b>: <span class="selectable-content" id="_s_290">basicConstraints</span>, <span class="selectable-content" id="_s_291">cRLDistributionPoints</span>, <span class="selectable-content" id="_s_292">authorityInfoAccess</span>, <span class="selectable-content" id="_s_293">no other extensions</span>]</li></ol></li>
+                    <li>[<b>selection</b>: <span class="selectable-content" id="_s_293">basicConstraints</span>, <span class="selectable-content" id="_s_294">cRLDistributionPoints</span>, <span class="selectable-content" id="_s_295">authorityInfoAccess</span>, <span class="selectable-content" id="_s_296">no other extensions</span>]</li></ol></li>
                 <li>A subject field containing a null Name (e.g., a sequence of zero relative
                   distinguished names) is accompanied by a populated critical
                   subjectAltName extension.</li>
@@ -5562,16 +5575,16 @@ The assumptions identified in Section 3 are incorporated as security objectives 
               on constraints imposed by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>’s embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>’s signing certificate: <ul>
                 <li>The validity field shall specify a notAfter time that does not exceed the
                   notAfter time of the <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>’s signing certificate.</li>
-                <li>The issuer field identifies the [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_298">subject</span></li><li style=""><span class="selectable-content" id="_s_299">
-                    [<b>selection</b>: <span class="selectable-content" id="_s_300">Security Administrator</span>, <span class="selectable-content" id="_s_301"><abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> Operations Staff</span>]-assigned identifying information</span></li></ul>] of the <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>'s signing certificate.</li>
-                <li>[<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_302">The subject name is limited by name constraints specified in the <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>’s
-                    signing certificate</span></li><li style=""><span class="selectable-content" id="_s_303">[<b>assignment</b>: 
-     <span class="assignable-content">list of rules</span>]</span></li><li style=""><span class="selectable-content" id="_s_304">no other rules</span></li></ul>].</li>
+                <li>The issuer field identifies the [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_301">subject</span></li><li style=""><span class="selectable-content" id="_s_302">
+                    [<b>selection</b>: <span class="selectable-content" id="_s_303">Security Administrator</span>, <span class="selectable-content" id="_s_304"><abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> Operations Staff</span>]-assigned identifying information</span></li></ul>] of the <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>'s signing certificate.</li>
+                <li>[<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_305">The subject name is limited by name constraints specified in the <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>’s
+                    signing certificate</span></li><li style=""><span class="selectable-content" id="_s_306">[<b>assignment</b>: 
+     <span class="assignable-content">list of rules</span>]</span></li><li style=""><span class="selectable-content" id="_s_307">no other rules</span></li></ul>].</li>
               </ul>
             </div></div>
           <div class="element"><div class="reqid" id="FDP_CER_EXT.4.4"><a href="#FDP_CER_EXT.4.4" class="abbr">FDP_CER_EXT.4.4</a></div><div class="reqdesc">
               The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall implement the following rules for populating certificate fields based
-              on the validated certificate and constraints imposed by the <b>[<b>selection</b>: <span class="selectable-content" id="_s_310">Security Administrator</span>, <span class="selectable-content" id="_s_311"><abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> Operations Staff</span>]</b>:
+              on the validated certificate and constraints imposed by the <b>[<b>selection</b>: <span class="selectable-content" id="_s_313">Security Administrator</span>, <span class="selectable-content" id="_s_314"><abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> Operations Staff</span>]</b>:
               <ol type="a">
                 <li>The Subject/Subject Alternative Name shall be copied from validated
                   client certificate.</li>
@@ -5581,13 +5594,13 @@ The assumptions identified in Section 3 are incorporated as security objectives 
                   client certificate.</li>
                 <li>The notAfter field shall not exceed the current time by more than a
                   maximum validity duration value as configured by a
-                    [<b>selection</b>: <span class="selectable-content" id="_s_312">Security Administrator</span>, <span class="selectable-content" id="_s_313"><abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> Operations Staff</span>]
+                    [<b>selection</b>: <span class="selectable-content" id="_s_315">Security Administrator</span>, <span class="selectable-content" id="_s_316"><abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> Operations Staff</span>]
                    user.</li>
                 <li>If the basicConstraints field is configured to be present, it shall be
                   populated with the value cA=False.</li>
                 <li>If configured to be present, th epolicy OID and policy mapping fields shall be populated according to 
-                  [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_314">a <b>[<b>selection</b>: <span class="selectable-content" id="_s_315">Security Administrator</span>, <span class="selectable-content" id="_s_316"><abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> Operations Staff</span>]</b> configured mapping from validated client certificate values to
-                        one or more stated policy OIDs</span></li><li style=""><span class="selectable-content" id="_s_317">[<b>assignment</b>: 
+                  [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_317">a <b>[<b>selection</b>: <span class="selectable-content" id="_s_318">Security Administrator</span>, <span class="selectable-content" id="_s_319"><abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> Operations Staff</span>]</b> configured mapping from validated client certificate values to
+                        one or more stated policy OIDs</span></li><li style=""><span class="selectable-content" id="_s_320">[<b>assignment</b>: 
      <span class="assignable-content">list of rules</span>]</span></li></ul>].
                 </li>
               </ol>
@@ -5695,8 +5708,8 @@ The assumptions identified in Section 3 are incorporated as security objectives 
                   servers,</li>
                 <li>The specific requested server includes a Certificate Request message in
                   the TLS handshake,</li>
-              </ul>[<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_320">A valid certificate for the same subject is not present in cache</span></li><li style=""><span class="selectable-content" id="_s_321">The embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> certificate’s name space allows issuance of a certificate
-                  that represents the authenticated client</span></li><li style=""><span class="selectable-content" id="_s_322">No other constraints</span></li></ul>].<div class="appnote"><span class="note-header">Application
+              </ul>[<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_323">A valid certificate for the same subject is not present in cache</span></li><li style=""><span class="selectable-content" id="_s_324">The embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> certificate’s name space allows issuance of a certificate
+                  that represents the authenticated client</span></li><li style=""><span class="selectable-content" id="_s_325">No other constraints</span></li></ul>].<div class="appnote"><span class="note-header">Application
       Note:
     </span><span class="note">
               Caching client certificates is neither required nor preferred, since such storage of
@@ -5731,18 +5744,18 @@ The assumptions identified in Section 3 are incorporated as security objectives 
           
           
           <div class="element"><div class="reqid" id="FDP_CSI_EXT.2.1"><a href="#FDP_CSI_EXT.2.1" class="abbr">FDP_CSI_EXT.2.1</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall generate certificate status information for issued client certificates whose format complies with
-              [<b>selection</b>: <span class="selectable-content" id="_s_325">ITU-T Recommendation X.509 CRL</span>, <span class="selectable-content" id="_s_326">the OCSP standard as defined by RFC 6960</span>].</div></div>
+              [<b>selection</b>: <span class="selectable-content" id="_s_328">ITU-T Recommendation X.509 CRL</span>, <span class="selectable-content" id="_s_329">the OCSP standard as defined by RFC 6960</span>].</div></div>
           <div class="element"><div class="reqid" id="FDP_CSI_EXT.2.2"><a href="#FDP_CSI_EXT.2.2" class="abbr">FDP_CSI_EXT.2.2</a></div><div class="reqdesc">
               The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall support changes to the status of a certificate in accordance with the following rules: <ul>
-                <li>as directed by [<b>selection</b>: <span class="selectable-content" id="_s_327">Security Administrator</span>, <span class="selectable-content" id="_s_328"><abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> Operations Staff</span>] and</li>
+                <li>as directed by [<b>selection</b>: <span class="selectable-content" id="_s_330">Security Administrator</span>, <span class="selectable-content" id="_s_331"><abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> Operations Staff</span>] and</li>
                 <li>
-                  [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_329">a certificate in cache is revoked when a certificate representing the same subject is received for client authentication and either <ul>
+                  [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_332">a certificate in cache is revoked when a certificate representing the same subject is received for client authentication and either <ul>
                       <li>the validation of the received certificate fails, or</li>
                       <li>the validation of the received certificate passes and the certificate
                         fields of the validated certificate would result in a different
                         certificate being issued under the current profile in accordance
-                        with <a href="#FDP_CER_EXT.4">FDP_CER_EXT.4</a></li></ul></span></li><li style=""><span class="selectable-content" id="_s_330">[<b>assignment</b>: 
-     <span class="assignable-content">other rules for revocation of issued certificates</span>]</span></li><li style=""><span class="selectable-content" id="_s_331">no other rules</span></li></ul>].
+                        with <a href="#FDP_CER_EXT.4">FDP_CER_EXT.4</a></li></ul></span></li><li style=""><span class="selectable-content" id="_s_333">[<b>assignment</b>: 
+     <span class="assignable-content">other rules for revocation of issued certificates</span>]</span></li><li style=""><span class="selectable-content" id="_s_334">no other rules</span></li></ul>].
                 </li>
               </ul>
             <div class="appnote"><span class="note-header">Application
@@ -5758,8 +5771,8 @@ The assumptions identified in Section 3 are incorporated as security objectives 
               <a href="#FDP_CSI_EXT.2.2">FDP_CSI_EXT.2.2</a>.
             </span></div></div></div>
           <div class="element"><div class="reqid" id="FDP_CSI_EXT.2.3"><a href="#FDP_CSI_EXT.2.3" class="abbr">FDP_CSI_EXT.2.3</a></div><div class="reqdesc">
-              The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall [<b>selection</b>: <span class="selectable-content" id="_s_335">provide</span>, <span class="selectable-content" id="_s_336">interface with the Operational Environment to provide</span>] certificate status information generated in accordance with
-              <a href="#FDP_CSI_EXT.2.1">FDP_CSI_EXT.2.1</a> via [<b>selection</b>: <span class="selectable-content" id="_s_337">posting CRLs at the location specified in the cRLDistributionPoints of the issued certificate</span>, <span class="selectable-content" id="_s_338">an OCSP mechanism indicated in the authorityInfoAccess extension of the issued certificate</span>].
+              The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall [<b>selection</b>: <span class="selectable-content" id="_s_338">provide</span>, <span class="selectable-content" id="_s_339">interface with the Operational Environment to provide</span>] certificate status information generated in accordance with
+              <a href="#FDP_CSI_EXT.2.1">FDP_CSI_EXT.2.1</a> via [<b>selection</b>: <span class="selectable-content" id="_s_340">posting CRLs at the location specified in the cRLDistributionPoints of the issued certificate</span>, <span class="selectable-content" id="_s_341">an OCSP mechanism indicated in the authorityInfoAccess extension of the issued certificate</span>].
             <div class="appnote"><span class="note-header">Application
       Note:
     </span><span class="note">
@@ -5832,7 +5845,7 @@ The assumptions identified in Section 3 are incorporated as security objectives 
               After receiving the TLS client certificate from the monitored client, the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall
               be able to generate a certificate representing the client in accordance with
               <a href="#FDP_CER_EXT.5">FDP_CER_EXT.5</a> and 
-              [<b>selection</b>: <span class="selectable-content" id="_s_339">obtain a valid certificate representing the client from cache</span>, <span class="selectable-content" id="_s_340">no other method</span>] matching the current certificate profile.
+              [<b>selection</b>: <span class="selectable-content" id="_s_342">obtain a valid certificate representing the client from cache</span>, <span class="selectable-content" id="_s_343">no other method</span>] matching the current certificate profile.
             <div class="appnote"><span class="note-header">Application
       Note:
     </span><span class="note">
@@ -5870,7 +5883,9 @@ The assumptions identified in Section 3 are incorporated as security objectives 
                 certificate received from the monitored client requesting TLS to the server.
               <p></p></div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea">The evaluator shall examine operational documentation and verify that instructions to configure the
                 mutual authentication inspection operation is provided.<p></p></div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea"><b>Setup:</b> The evaluator shall follow operational guidance to configure the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>. The evaluator shall establish a
-                monitored client able to initiate a TLS session compliant with FCS_TLSC_EXT.2 and which is issued a
+                monitored client able to initiate a TLS session compliant with FCS_TLSC_EXT.2 (from the <a href="https://www.niap-ccevs.org/protectionprofiles/465">Functional Package for Transport Layer Security (TLS),
+        version 
+        2.0</a>) and which is issued a
                 certificate compliant with <a href="#FIA_X509_EXT.1/STIP">FIA_X509_EXT.1/STIP</a> for client authentication from a trusted <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> that is
                 different than the embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>.
                 <p></p>
@@ -5946,9 +5961,9 @@ The assumptions identified in Section 3 are incorporated as security objectives 
           
           <div class="element"><div class="reqid" id="FAU_SCR_EXT.1.1"><a href="#FAU_SCR_EXT.1.1" class="abbr">FAU_SCR_EXT.1.1</a></div><div class="reqdesc">
               The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall 
-              [<b>selection</b>: <span class="selectable-content" id="_s_341">provide</span>, <span class="selectable-content" id="_s_342">invoke the Operational Environment to provide</span>]
+              [<b>selection</b>: <span class="selectable-content" id="_s_344">provide</span>, <span class="selectable-content" id="_s_345">invoke the Operational Environment to provide</span>]
               the ability to search certificates containing specified values of the following
-              certificate fields: [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_343">subject name</span></li><li style=""><span class="selectable-content" id="_s_344">individual components of Subject Alternative Name</span></li><li style=""><span class="selectable-content" id="_s_345">subject ID</span></li><li style=""><span class="selectable-content" id="_s_346">issuer ID</span></li><li style=""><span class="selectable-content" id="_s_347">algorithm ID</span></li><li style=""><span class="selectable-content" id="_s_348">public key</span></li><li style=""><span class="selectable-content" id="_s_349">key usage</span></li><li style=""><span class="selectable-content" id="_s_350">extended key usage</span></li><li style=""><span class="selectable-content" id="_s_351">serial number</span></li><li style=""><span class="selectable-content" id="_s_352">[<b>assignment</b>: 
+              certificate fields: [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_346">subject name</span></li><li style=""><span class="selectable-content" id="_s_347">individual components of Subject Alternative Name</span></li><li style=""><span class="selectable-content" id="_s_348">subject ID</span></li><li style=""><span class="selectable-content" id="_s_349">issuer ID</span></li><li style=""><span class="selectable-content" id="_s_350">algorithm ID</span></li><li style=""><span class="selectable-content" id="_s_351">public key</span></li><li style=""><span class="selectable-content" id="_s_352">key usage</span></li><li style=""><span class="selectable-content" id="_s_353">extended key usage</span></li><li style=""><span class="selectable-content" id="_s_354">serial number</span></li><li style=""><span class="selectable-content" id="_s_355">[<b>assignment</b>: 
      <span class="assignable-content">list of other certificate fields</span>]</span></li></ul>]
               returning all matching certificates and [<b>assignment</b>: 
      <span class="assignable-content">object identifier(s)</span>] of
@@ -6009,11 +6024,11 @@ The assumptions identified in Section 3 are incorporated as security objectives 
           
           <div class="element"><div class="reqid" id="FCS_CKM_EXT.5.1"><a href="#FCS_CKM_EXT.5.1" class="abbr">FCS_CKM_EXT.5.1</a></div><div class="reqdesc">
               The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall protect persistent public keys against undetected modification
-              through the use of [<b>selection</b>: <span class="selectable-content" id="_s_355">digital signatures <b>(in accordance with
-                  FCS_COP.1/SigGen)</b></span>, <span class="selectable-content" id="_s_356">keyed hashes <b>(in accordance with FCS_COP.1/KeyedHash)</b></span>].
+              through the use of [<b>selection</b>: <span class="selectable-content" id="_s_358">digital signatures <b>(in accordance with
+                  FCS_COP.1/SigGen)</b></span>, <span class="selectable-content" id="_s_359">keyed hashes <b>(in accordance with FCS_COP.1/KeyedHash)</b></span>].
             </div></div>
           <div class="element"><div class="reqid" id="FCS_CKM_EXT.5.2"><a href="#FCS_CKM_EXT.5.2" class="abbr">FCS_CKM_EXT.5.2</a></div><div class="reqdesc">
-              The [<b>selection</b>: <span class="selectable-content" id="_s_359">digital signature</span>, <span class="selectable-content" id="_s_360">keyed hash</span>] used to protect a public key shall be
+              The [<b>selection</b>: <span class="selectable-content" id="_s_362">digital signature</span>, <span class="selectable-content" id="_s_363">keyed hash</span>] used to protect a public key shall be
               verified upon [<b>assignment</b>: 
      <span class="assignable-content">criteria for automated verification</span>]. 
             <div class="appnote"><span class="note-header">Application
@@ -6057,7 +6072,7 @@ The assumptions identified in Section 3 are incorporated as security objectives 
               of the “renegotiation_info” TLS extension in accordance with RFC 5746.</div></div>
           <div class="element"><div class="reqid" id="FCS_TTTC_EXT.4.2"><a href="#FCS_TTTC_EXT.4.2" class="abbr">FCS_TTTC_EXT.4.2</a></div><div class="reqdesc">
               The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall include 
-              [<b>selection</b><b>, choose one of</b>: <span class="selectable-content" id="_s_361">renegotiation_info extension</span>, <span class="selectable-content" id="_s_362">TLS_EMPTY_RENEGOTIATION_INFO_SCSV cipher suite</span>] in the Client Hello
+              [<b>selection</b><b>, choose one of</b>: <span class="selectable-content" id="_s_364">renegotiation_info extension</span>, <span class="selectable-content" id="_s_365">TLS_EMPTY_RENEGOTIATION_INFO_SCSV cipher suite</span>] in the Client Hello
               message.
             <div class="appnote"><span class="note-header">Application
       Note:
@@ -6071,8 +6086,8 @@ The assumptions identified in Section 3 are incorporated as security objectives 
             </span></div></div></div>
           <div class="element"><div class="reqid" id="FCS_TTTC_EXT.4.3"><a href="#FCS_TTTC_EXT.4.3" class="abbr">FCS_TTTC_EXT.4.3</a></div><div class="reqdesc">
               The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall ensure that renegotiation is performed before 
-              [<b>selection</b>: <span class="selectable-content" id="_s_363">[<b>assignment</b>: 
-     <span class="assignable-content">renegotiation rules</span>]</span>, <span class="selectable-content" id="_s_364">2^20 64-bit data blocks are encrypted using
+              [<b>selection</b>: <span class="selectable-content" id="_s_366">[<b>assignment</b>: 
+     <span class="assignable-content">renegotiation rules</span>]</span>, <span class="selectable-content" id="_s_367">2^20 64-bit data blocks are encrypted using
                   TDES cipher suites using the same key</span>].
             <div class="appnote"><span class="note-header">Application
       Note:
@@ -6242,18 +6257,18 @@ The assumptions identified in Section 3 are incorporated as security objectives 
                 The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall authenticate EST servers using X.509 certificates that chain to trust
                 store elements from the [<b>selection</b>: <span class="selectable-content" id="_s_279">implicit Trust Anchor database</span>, <span class="selectable-content" id="_s_280">explicit Trust Anchor/Trust Store</span>] in accordance with FIA_X509_EXT.1 for all EST requests.
               <h4 id="ext-comp-FIA_ESTC_EXT.1.4">FIA_ESTC_EXT.1.4</h4>
-              The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall authenticate its certificate enrollment requests to receive the
-              signing certificate of its embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> and [<b>assignment</b>: 
+                The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall authenticate its certificate enrollment requests to receive the
+                signing certificate of its embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> and [<b>assignment</b>: 
      <span class="assignable-content">other certificates
-              required to authenticate the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr></span>], from an authorized EST server using
-              [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_281"><abbr class="dyn-abbr"><a href="#abbr_HTTP">HTTP</a></abbr> basic authentication transported over TLS in accordance with RFC
-              7030 section 3.2.3 and FCS_TLSC_EXT.1</span></li><li style=""><span class="selectable-content" id="_s_282"><abbr class="dyn-abbr"><a href="#abbr_HTTP">HTTP</a></abbr> digest authentication using a cryptographic hash algorithm in
-              accordance with FCS_COP.1<b>/Hash</b>, transported over TLS in accordance
-              with RFC 7030 section 3.2.3 and FCS_TLSC_EXT.1</span></li><li style=""><span class="selectable-content" id="_s_283">Certificate-based authentication in accordance with RFC 7030 section
-              3.3.2 and FCS_TLSC_EXT.2 using [<b>assignment</b>: 
+                required to authenticate the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr></span>], from an authorized EST server using
+                [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_284"><abbr class="dyn-abbr"><a href="#abbr_HTTP">HTTP</a></abbr> basic authentication transported over TLS in accordance with RFC
+                7030 section 3.2.3 and FCS_TLSC_EXT.1</span></li><li style=""><span class="selectable-content" id="_s_285"><abbr class="dyn-abbr"><a href="#abbr_HTTP">HTTP</a></abbr> digest authentication using a cryptographic hash algorithm in
+                accordance with FCS_COP.1<b>/Hash</b>, transported over TLS in accordance
+                with RFC 7030 section 3.2.3 and FCS_TLSC_EXT.1</span></li><li style=""><span class="selectable-content" id="_s_286">Certificate-based authentication in accordance with RFC 7030 section
+                3.3.2 and FCS_TLSC_EXT.2 using [<b>assignment</b>: 
      <span class="assignable-content">a pre-existing certificate
-              authorized by the EST server</span>]</span></li></ul>].
-            <h4 id="ext-comp-FIA_ESTC_EXT.1.5">FIA_ESTC_EXT.1.5</h4>
+                authorized by the EST server</span>]</span></li></ul>].
+              <h4 id="ext-comp-FIA_ESTC_EXT.1.5">FIA_ESTC_EXT.1.5</h4>
               The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall generate authenticated re-enrollment requests in accordance with
               RFC 7030 Section 3.3.2 and FCS_TLSC_EXT.1, using an existing valid
               certificate with the same subject name as the requested certificate and which
@@ -6357,23 +6372,23 @@ The assumptions identified in Section 3 are incorporated as security objectives 
             <a href="#FDP_OCSPS_EXT.1">FDP_OCSPS_EXT.1</a> OCSP Stapling<p></p>
             FMT_SMR.1 Security Roles
           </td></tr></table><h4 id="ext-comp-FDP_CSI_EXT.2.1">FDP_CSI_EXT.2.1</h4>The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall generate certificate status information for issued client certificates whose format complies with
-              [<b>selection</b>: <span class="selectable-content" id="_s_325">ITU-T Recommendation X.509 CRL</span>, <span class="selectable-content" id="_s_326">the OCSP standard as defined by RFC 6960</span>].<h4 id="ext-comp-FDP_CSI_EXT.2.2">FDP_CSI_EXT.2.2</h4>
+              [<b>selection</b>: <span class="selectable-content" id="_s_328">ITU-T Recommendation X.509 CRL</span>, <span class="selectable-content" id="_s_329">the OCSP standard as defined by RFC 6960</span>].<h4 id="ext-comp-FDP_CSI_EXT.2.2">FDP_CSI_EXT.2.2</h4>
                 The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall support changes to the status of a certificate in accordance with the following rules: <ul>
                   <li>as directed by [<b>assignment</b>: 
      <span class="assignable-content">authorized role(s)</span>] and</li>
                   <li>
-                    [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_332">a certificate in cache is revoked when a certificate representing the same subject is received for client authentication and either <ul>
+                    [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_335">a certificate in cache is revoked when a certificate representing the same subject is received for client authentication and either <ul>
                         <li>the validation of the received certificate fails, or</li>
                         <li>the validation of the received certificate passes and the certificate
                           fields of the validated certificate would result in a different
                           certificate being issued under the current profile in accordance
-                          with <a href="#FDP_CER_EXT.4">FDP_CER_EXT.4</a></li></ul></span></li><li style=""><span class="selectable-content" id="_s_333">[<b>assignment</b>: 
-     <span class="assignable-content">other rules for revocation of issued certificates</span>]</span></li><li style=""><span class="selectable-content" id="_s_334">no other rules</span></li></ul>].
+                          with <a href="#FDP_CER_EXT.4">FDP_CER_EXT.4</a></li></ul></span></li><li style=""><span class="selectable-content" id="_s_336">[<b>assignment</b>: 
+     <span class="assignable-content">other rules for revocation of issued certificates</span>]</span></li><li style=""><span class="selectable-content" id="_s_337">no other rules</span></li></ul>].
                   </li>
                 </ul>
               <h4 id="ext-comp-FDP_CSI_EXT.2.3">FDP_CSI_EXT.2.3</h4>
-              The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall [<b>selection</b>: <span class="selectable-content" id="_s_335">provide</span>, <span class="selectable-content" id="_s_336">interface with the Operational Environment to provide</span>] certificate status information generated in accordance with
-              <a href="#FDP_CSI_EXT.2.1">FDP_CSI_EXT.2.1</a> via [<b>selection</b>: <span class="selectable-content" id="_s_337">posting CRLs at the location specified in the cRLDistributionPoints of the issued certificate</span>, <span class="selectable-content" id="_s_338">an OCSP mechanism indicated in the authorityInfoAccess extension of the issued certificate</span>].
+              The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall [<b>selection</b>: <span class="selectable-content" id="_s_338">provide</span>, <span class="selectable-content" id="_s_339">interface with the Operational Environment to provide</span>] certificate status information generated in accordance with
+              <a href="#FDP_CSI_EXT.2.1">FDP_CSI_EXT.2.1</a> via [<b>selection</b>: <span class="selectable-content" id="_s_340">posting CRLs at the location specified in the cRLDistributionPoints of the issued certificate</span>, <span class="selectable-content" id="_s_341">an OCSP mechanism indicated in the authorityInfoAccess extension of the issued certificate</span>].
             </div></div><h3 id="ext-comp-FDP_OCSP_EXT" class="indexable" data-level="4">C.2.3.3 FDP_OCSP_EXT Online Certificate Status Protocol</h3><div style="margin-left: 1em;"><h4>Family Behavior</h4><div>Components in this family define requirements for the usage of the Online Certificate Status Protocol
             (OCSP) as a method of recording certificate status information.
           </div><h4>Component Leveling</h4><svg style="max-height: 30px;"><text x="4" fill="black" font-size="15" y="24">FDP_OCSP_EXT</text><rect x="2" y="11" width="150" height="16" fill="none" stroke="black"></rect><text x="234" fill="black" font-size="15" y="24">1</text><rect x="232" y="11" width="12" height="16" fill="none" stroke="black"></rect><line x1="152" y1="17" x2="231" y2="17" stroke="black"></line></svg><p><a href="#FDP_OCSP_EXT.1">FDP_OCSP_EXT.1</a>,
@@ -6491,12 +6506,12 @@ The assumptions identified in Section 3 are incorporated as security objectives 
             </div><h4>Management: FCS_TTTC_EXT.4</h4><p>No specific management functions are identified.</p><h4>Audit: FCS_TTTC_EXT.4</h4><p>There are no auditable events foreseen.</p><h4>FCS_TTTC_EXT.4 STIP Client-Side Support for Renegotiation</h4><div style="margin-left: 1em;"><table class="ecd_heir_dep" style="width: 100%"><tr><td style="whitespace: nowrap">Hierarchical to:</td><td style="width: 100%">No other components.</td></tr><tr style="background-color: inherit"><td>Dependencies to:</td><td><a href="#FCS_TTTC_EXT.1">FCS_TTTC_EXT.1</a> Thru-Traffic TLS Inspection Client Protocol</td></tr></table><h4 id="ext-comp-FCS_TTTC_EXT.4.1">FCS_TTTC_EXT.4.1</h4>The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall support secure renegotiation on <abbr class="dyn-abbr"><a href="#abbr_STIP">STIP</a></abbr> TLS connections through use
               of the “renegotiation_info” TLS extension in accordance with RFC 5746.<h4 id="ext-comp-FCS_TTTC_EXT.4.2">FCS_TTTC_EXT.4.2</h4>
               The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall include 
-              [<b>selection</b><b>, choose one of</b>: <span class="selectable-content" id="_s_361">renegotiation_info extension</span>, <span class="selectable-content" id="_s_362">TLS_EMPTY_RENEGOTIATION_INFO_SCSV cipher suite</span>] in the Client Hello
+              [<b>selection</b><b>, choose one of</b>: <span class="selectable-content" id="_s_364">renegotiation_info extension</span>, <span class="selectable-content" id="_s_365">TLS_EMPTY_RENEGOTIATION_INFO_SCSV cipher suite</span>] in the Client Hello
               message.
             <h4 id="ext-comp-FCS_TTTC_EXT.4.3">FCS_TTTC_EXT.4.3</h4>
               The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall ensure that renegotiation is performed before 
-              [<b>selection</b>: <span class="selectable-content" id="_s_363">[<b>assignment</b>: 
-     <span class="assignable-content">renegotiation rules</span>]</span>, <span class="selectable-content" id="_s_364">2^20 64-bit data blocks are encrypted using
+              [<b>selection</b>: <span class="selectable-content" id="_s_366">[<b>assignment</b>: 
+     <span class="assignable-content">renegotiation rules</span>]</span>, <span class="selectable-content" id="_s_367">2^20 64-bit data blocks are encrypted using
                   TDES cipher suites using the same key</span>].
             </div></div><h3 id="ext-comp-FCS_TTTS_EXT" class="indexable" data-level="4">C.2.4.3 FCS_TTTS_EXT Thru-Traffic TLS Inspection Server Protocol</h3><div style="margin-left: 1em;"><h4>Family Behavior</h4><div>Components in this family define requirements for the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>’s ability to act as a TLS server for the purpose
             of reconstructing the original intended TLS connection that it is inserted into as a proxy.
@@ -6548,7 +6563,7 @@ The assumptions identified in Section 3 are incorporated as security objectives 
               authentication is required by the configured TLS session establishment policy as
               defined in <a href="#FDP_TEP_EXT.1">FDP_TEP_EXT.1</a>.<h4 id="ext-comp-FCS_TTTS_EXT.3.3">FCS_TTTS_EXT.3.3</h4>
               The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall validate the certificate presented by the client and 
-              [<b>selection</b>: <span class="selectable-content" id="_s_286">allow the connection if the certificate is invalid and an exception is permitted for the client</span>, <span class="selectable-content" id="_s_287">terminate the connection if the certificate is invalid</span>].
+              [<b>selection</b>: <span class="selectable-content" id="_s_289">allow the connection if the certificate is invalid and an exception is permitted for the client</span>, <span class="selectable-content" id="_s_290">terminate the connection if the certificate is invalid</span>].
             <h4 id="ext-comp-FCS_TTTS_EXT.3.4">FCS_TTTS_EXT.3.4</h4>
               The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall not establish a TLS session if the distinguished name (DN) or Subject
               Alternative Name (SAN) contained in a certificate does not match the expected
@@ -6579,7 +6594,7 @@ The assumptions identified in Section 3 are incorporated as security objectives 
             certificate repository based on the values of specific certificate fields. </p><h4>Management: FAU_SCR_EXT.1</h4><p>The following actions could be considered for the management functions in FMT:<ul>
             <li>Ability to search the certificate repository</li>
           </ul></p><h4>Audit: FAU_SCR_EXT.1</h4><p>There are no auditable events foreseen.</p><h4>FAU_SCR_EXT.1 Certificate Repository Review</h4><div style="margin-left: 1em;"><table class="ecd_heir_dep" style="width: 100%"><tr><td style="whitespace: nowrap">Hierarchical to:</td><td style="width: 100%">No other components.</td></tr><tr style="background-color: inherit"><td>Dependencies to:</td><td><a href="#FAU_GCR_EXT.1">FAU_GCR_EXT.1</a> Generation of Certificate Repository</td></tr></table><h4 id="ext-comp-FAU_SCR_EXT.1.1">FAU_SCR_EXT.1.1</h4>The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall
-                [<b>selection</b>: <span class="selectable-content" id="_s_353">provide</span>, <span class="selectable-content" id="_s_354">invoke the Operational Environment to provide</span>] the ability to search certificates containing specified values of the following
+                [<b>selection</b>: <span class="selectable-content" id="_s_356">provide</span>, <span class="selectable-content" id="_s_357">invoke the Operational Environment to provide</span>] the ability to search certificates containing specified values of the following
                 certificate fields: [<b>assignment</b>: 
      <span class="assignable-content">list of certificate fields</span>], returning all matching 
                 certificates and [<b>assignment</b>: 
@@ -6589,8 +6604,8 @@ The assumptions identified in Section 3 are incorporated as security objectives 
              Public Key Integrity,
               requires the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> to apply a cryptographic integrity validation
             method to public keys in persistent storage.</p><h4>Management: FCS_CKM_EXT.5</h4><p>No specific management functions are identified.</p><h4>Audit: FCS_CKM_EXT.5</h4><p>There are no auditable events foreseen.</p><h4>FCS_CKM_EXT.5 Public Key Integrity</h4><div style="margin-left: 1em;"><table class="ecd_heir_dep" style="width: 100%"><tr><td style="whitespace: nowrap">Hierarchical to:</td><td style="width: 100%">No other components.</td></tr><tr style="background-color: inherit"><td>Dependencies to:</td><td>FCS_COP.1 Cryptographic Operation</td></tr></table><h4 id="ext-comp-FCS_CKM_EXT.5.1">FCS_CKM_EXT.5.1</h4>The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall protect persistent public keys against undetected modification
-                through the use of [<b>selection</b>: <span class="selectable-content" id="_s_357">digital signatures</span>, <span class="selectable-content" id="_s_358">keyed hashes</span>].<h4 id="ext-comp-FCS_CKM_EXT.5.2">FCS_CKM_EXT.5.2</h4>
-              The [<b>selection</b>: <span class="selectable-content" id="_s_359">digital signature</span>, <span class="selectable-content" id="_s_360">keyed hash</span>] used to protect a public key shall be
+                through the use of [<b>selection</b>: <span class="selectable-content" id="_s_360">digital signatures</span>, <span class="selectable-content" id="_s_361">keyed hashes</span>].<h4 id="ext-comp-FCS_CKM_EXT.5.2">FCS_CKM_EXT.5.2</h4>
+              The [<b>selection</b>: <span class="selectable-content" id="_s_362">digital signature</span>, <span class="selectable-content" id="_s_363">keyed hash</span>] used to protect a public key shall be
               verified upon [<b>assignment</b>: 
      <span class="assignable-content">criteria for automated verification</span>]. 
             </div></div></span><span data-sortkey="Protection of the TSF (FPT)"><h3 id="ext-comp-FPT" class="indexable" data-level="3">C.2.7 Protection of the TSF (FPT)</h3>This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> defines the following extended components as part of the
@@ -6804,7 +6819,7 @@ The assumptions identified in Section 3 are incorporated as security objectives 
                       <li>keyUsage</li>
                       <li>extendedKeyUsage</li>
                       <li>certificatePolicy</li>
-                      <li>[<b>selection</b>: <span class="selectable-content" id="_s_294">basicConstraints</span>, <span class="selectable-content" id="_s_295">cRLDistributionPoints</span>, <span class="selectable-content" id="_s_296">authorityInfoAccess</span>, <span class="selectable-content" id="_s_297">no other extensions</span>]</li></ol></li>
+                      <li>[<b>selection</b>: <span class="selectable-content" id="_s_297">basicConstraints</span>, <span class="selectable-content" id="_s_298">cRLDistributionPoints</span>, <span class="selectable-content" id="_s_299">authorityInfoAccess</span>, <span class="selectable-content" id="_s_300">no other extensions</span>]</li></ol></li>
                   <li>A subject field containing a null Name (e.g., a sequence of zero relative
                     distinguished names) is accompanied by a populated critical
                     subjectAltName extension.</li>
@@ -6840,12 +6855,12 @@ The assumptions identified in Section 3 are incorporated as security objectives 
                 on constraints imposed by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>’s embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>’s signing certificate: <ul>
                   <li>The validity field shall specify a notAfter time that does not exceed the
                     notAfter time of the <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>’s signing certificate.</li>
-                  <li>The issuer field identifies the [<b>selection</b>: <span class="selectable-content" id="_s_305">subject</span>, <span class="selectable-content" id="_s_306">[<b>assignment</b>: 
+                  <li>The issuer field identifies the [<b>selection</b>: <span class="selectable-content" id="_s_308">subject</span>, <span class="selectable-content" id="_s_309">[<b>assignment</b>: 
      <span class="assignable-content">authorized role(s)</span>]-assigned identifying information
                     </span>] of the <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>'s signing certificate.</li>
-                  <li>[<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_307">The subject name is limited by name constraints specified in the <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>’s
-                      signing certificate</span></li><li style=""><span class="selectable-content" id="_s_308">[<b>assignment</b>: 
-     <span class="assignable-content">list of rules</span>]</span></li><li style=""><span class="selectable-content" id="_s_309">no other rules</span></li></ul>].</li>
+                  <li>[<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_310">The subject name is limited by name constraints specified in the <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>’s
+                      signing certificate</span></li><li style=""><span class="selectable-content" id="_s_311">[<b>assignment</b>: 
+     <span class="assignable-content">list of rules</span>]</span></li><li style=""><span class="selectable-content" id="_s_312">no other rules</span></li></ul>].</li>
                 </ul>
               <h4 id="ext-comp-FDP_CER_EXT.4.4">FDP_CER_EXT.4.4</h4>
                 The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall implement the following rules for populating certificate fields based
@@ -6864,9 +6879,9 @@ The assumptions identified in Section 3 are incorporated as security objectives 
                   <li>If the basicConstraints field is configured to be present, it shall be
                     populated with the value cA=False</li>
                   <li>If configured to be present, th epolicy OID and policy mapping fields shall be populated according to 
-                    [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_318">a [<b>assignment</b>: 
+                    [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_321">a [<b>assignment</b>: 
      <span class="assignable-content">authorized role(s)</span>] configured mapping from validated client certificate values to
-                        one or more stated policy OIDs</span></li><li style=""><span class="selectable-content" id="_s_319">[<b>assignment</b>: 
+                        one or more stated policy OIDs</span></li><li style=""><span class="selectable-content" id="_s_322">[<b>assignment</b>: 
      <span class="assignable-content">list of rules</span>]</span></li></ul>].
                   </li>
                 </ol>
@@ -6887,8 +6902,8 @@ The assumptions identified in Section 3 are incorporated as security objectives 
                   servers,</li>
                 <li>The specific requested server includes a Certificate Request message in
                   the TLS handshake,</li>
-              </ul>[<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_320">A valid certificate for the same subject is not present in cache</span></li><li style=""><span class="selectable-content" id="_s_321">The embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> certificate’s name space allows issuance of a certificate
-                  that represents the authenticated client</span></li><li style=""><span class="selectable-content" id="_s_322">No other constraints</span></li></ul>].<h4 id="ext-comp-FDP_CER_EXT.5.2">FDP_CER_EXT.5.2</h4>The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall reject all certificate requests originating external to the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>.</div></div><h3 id="ext-comp-FDP_CSIR_EXT" class="indexable" data-level="4">C.2.9.2 FDP_CSIR_EXT Certificate Status Information Required</h3><div style="margin-left: 1em;"><h4>Family Behavior</h4><div>Components in this family define requirements for the association of certificate status information with
+              </ul>[<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_323">A valid certificate for the same subject is not present in cache</span></li><li style=""><span class="selectable-content" id="_s_324">The embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> certificate’s name space allows issuance of a certificate
+                  that represents the authenticated client</span></li><li style=""><span class="selectable-content" id="_s_325">No other constraints</span></li></ul>].<h4 id="ext-comp-FDP_CER_EXT.5.2">FDP_CER_EXT.5.2</h4>The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall reject all certificate requests originating external to the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>.</div></div><h3 id="ext-comp-FDP_CSIR_EXT" class="indexable" data-level="4">C.2.9.2 FDP_CSIR_EXT Certificate Status Information Required</h3><div style="margin-left: 1em;"><h4>Family Behavior</h4><div>Components in this family define requirements for the association of certificate status information with
             certificates issued by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>.
           </div><h4>Component Leveling</h4><svg style="max-height: 30px;"><text x="4" fill="black" font-size="15" y="24">FDP_CSIR_EXT</text><rect x="2" y="11" width="150" height="16" fill="none" stroke="black"></rect><text x="234" fill="black" font-size="15" y="24">1</text><rect x="232" y="11" width="12" height="16" fill="none" stroke="black"></rect><line x1="152" y1="17" x2="231" y2="17" stroke="black"></line></svg><p><a href="#FDP_CSIR_EXT.1">FDP_CSIR_EXT.1</a>,
              Certificate Status Information Required,
@@ -7023,7 +7038,7 @@ The assumptions identified in Section 3 are incorporated as security objectives 
               After receiving the TLS client certificate from the monitored client, the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall
               be able to generate a certificate representing the client in accordance with
               <a href="#FDP_CER_EXT.5">FDP_CER_EXT.5</a> and 
-              [<b>selection</b>: <span class="selectable-content" id="_s_339">obtain a valid certificate representing the client from cache</span>, <span class="selectable-content" id="_s_340">no other method</span>] matching the current certificate profile.
+              [<b>selection</b>: <span class="selectable-content" id="_s_342">obtain a valid certificate representing the client from cache</span>, <span class="selectable-content" id="_s_343">no other method</span>] matching the current certificate profile.
             <h4 id="ext-comp-FDP_STIP_EXT.2.3">FDP_STIP_EXT.2.3</h4>
               After obtaining a certificate representing the monitored client, the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall send
               the client certificate and certificate verify messages to the requested server.

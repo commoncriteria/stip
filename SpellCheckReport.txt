@@ -32,7 +32,6 @@ output/stip-release-linkable.html: KeyCertSign
 output/stip-release-linkable.html: KeyExchange
 output/stip-release-linkable.html: KeyExchangeMessage
 output/stip-release-linkable.html: KeyUsage
-output/stip-release-linkable.html: Locically
 output/stip-release-linkable.html: M1
 output/stip-release-linkable.html: M2
 output/stip-release-linkable.html: M3
@@ -131,7 +130,6 @@ output/stip-release.html: CodeSigning
 output/stip-release.html: DataEncryption
 output/stip-release.html: Github
 output/stip-release.html: KERBEROS
-output/stip-release.html: Locically
 output/stip-release.html: OIDs
 output/stip-release.html: PINs
 output/stip-release.html: RC4
@@ -316,7 +314,6 @@ output/stip.html: KeyCertSign
 output/stip.html: KeyExchange
 output/stip.html: KeyExchangeMessage
 output/stip.html: KeyUsage
-output/stip.html: Locically
 output/stip.html: M1
 output/stip.html: M2
 output/stip.html: M3
