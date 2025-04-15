@@ -1435,12 +1435,14 @@ The assumptions identified in Section 3 are incorporated as security objectives 
         <div class="comp" id="FAU_GEN.1/STIP"><h4>FAU_GEN.1/STIP Audit Data Generation (STIP)</h4>
           
           <div class="element"><div class="reqid" id="FAU_GEN.1.1/STIP"><a href="#FAU_GEN.1.1/STIP" class="abbr">FAU_GEN.1.1/STIP</a></div><div class="reqdesc">
-              The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall be able to generate an audit record of the following
+              The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall be able to generate audit data of the following
               auditable events: <ol type="a">
-                <li>Start-up and shutdown of the audit functions</li>
-                <li>All auditable events for the [<i>not specified</i>] level of audit; and</li>
-                <li>[<i>auditable events defined in Auditable Events for Mandatory Requirements table, </i></li>
-                <li><i>applicable auditable events defined in Auditable Events for Selection-based Requirements table</i>].</li>
+                <li>Start-up and shutdown of the audit functions;</li>
+                <li>All auditable events for the [<i>not specified</i>] level of audit;</li>
+                <li>[<ul>
+                  <li><i>auditable events defined in Auditable Events for Mandatory Requirements table, </i></li>
+                <li><i>applicable auditable events defined in Auditable Events for Selection-based Requirements table</i>].</li></ul>
+                </li>
               </ol>
             <div class="appnote"><span class="note-header">Application
       Note:
@@ -2881,9 +2883,9 @@ The assumptions identified in Section 3 are incorporated as security objectives 
 	 
         <div class="comp" id="FPT_FLS.1/STIP"><h4>FPT_FLS.1/STIP Failure with Preservation of Secure State</h4>
           
-          <div class="element"><div class="reqid" id="FPT_FLS.1.1/STIP"><a href="#FPT_FLS.1.1/STIP" class="abbr">FPT_FLS.1.1/STIP</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall preserve a secure state when the following types of failures occur: <b>
+          <div class="element"><div class="reqid" id="FPT_FLS.1.1/STIP"><a href="#FPT_FLS.1.1/STIP" class="abbr">FPT_FLS.1.1/STIP</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall preserve a secure state when the following types of failures occur: [<i>
               DRBG failure, integrity test failure, external audit server is unavailable, [<b>selection</b>: <span class="selectable-content" id="_s_228">local audit storage is full</span>, <span class="selectable-content" id="_s_229">update signature verification failure</span>, <span class="selectable-content" id="_s_230">integrity failure on local audit</span>, <span class="selectable-content" id="_s_231">integrity failure on Trust Anchor database</span>, <span class="selectable-content" id="_s_232">[<b>assignment</b>: 
-     <span class="assignable-content">other potential <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> failures</span>]</span>]</b>.<div class="appnote"><span class="note-header">Application
+     <span class="assignable-content">other potential <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> failures</span>]</span>]</i>].<div class="appnote"><span class="note-header">Application
       Note:
     </span><span class="note">
               The intent of this requirement is to prevent the use of failed randomization and
@@ -3095,11 +3097,11 @@ The assumptions identified in Section 3 are incorporated as security objectives 
           
           <div class="element"><div class="reqid" id="FAU_SAR.1.1"><a href="#FAU_SAR.1.1" class="abbr">FAU_SAR.1.1</a></div><div class="reqdesc">
               The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall provide [<b>selection</b>: <span class="selectable-content" id="_s_235">Security Administrators</span>, <span class="selectable-content" id="_s_236">Auditors</span>] with the
-              capability to read all information from the local audit records.
+              capability to read [<i>all information</i>] from the audit data.
             </div></div>
           <div class="element"><div class="reqid" id="FAU_SAR.1.2"><a href="#FAU_SAR.1.2" class="abbr">FAU_SAR.1.2</a></div><div class="reqdesc">
               The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall provide the local audit records in a manner suitable for the
-              administrator to interpret the information.
+              <b>administrator </b>to interpret the information.
             </div></div>
           
         </div>
@@ -3107,9 +3109,9 @@ The assumptions identified in Section 3 are incorporated as security objectives 
         <div class="comp" id="FAU_SAR.3"><h4>FAU_SAR.3 Selectable Audit Review</h4>
           
           <div class="element"><div class="reqid" id="FAU_SAR.3.1"><a href="#FAU_SAR.3.1" class="abbr">FAU_SAR.3.1</a></div><div class="reqdesc">
-              The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall provide the ability to apply [<i>searches</i>] of <b>local</b> audit data based on <b>
-                [<b>assignment</b>: 
-     <span class="assignable-content">object identifier of certificate</span>] associated with the event</b>.
+              The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall provide the ability to apply [<i>searches</i>] of <b>local</b> audit data based on 
+              [<i>[<b>assignment</b>: 
+     <span class="assignable-content">object identifier of certificate</span>] associated with the event</i>].
             <div class="appnote"><span class="note-header">Application
       Note:
     </span><span class="note">
@@ -3432,10 +3434,10 @@ The assumptions identified in Section 3 are incorporated as security objectives 
           
           
           <div class="element"><div class="reqid" id="FTA_TAB.1.1/TLS"><a href="#FTA_TAB.1.1/TLS" class="abbr">FTA_TAB.1.1/TLS</a></div><div class="reqdesc">
-              Before forwarding decrypted application data intended for the requested server
-              to inspection processing components the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall display <b>to the monitored
-              client a Security Administrator-specified</b> advisory <b>notice and consent</b> warning
-              message regarding use of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>.
+              Before <b>forwarding decrypted application data intended for the requested server
+              to inspection processing components</b>, the <i><abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr></i> shall display <b>to the monitored
+              client </b>[<i>a Security Administrator-specified advisory notice and consent warning
+              message regarding use of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr></i>].
             <div class="appnote"><span class="note-header">Application
       Note:
     </span><span class="note">
