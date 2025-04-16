@@ -55,8 +55,10 @@ output/stip-release-linkable.html: TDES
 output/stip-release-linkable.html: TLSversion
 output/stip-release-linkable.html: V2
 output/stip-release-linkable.html: XAML
+output/stip-release-linkable.html: abbility
 output/stip-release-linkable.html: acknowledgement
 output/stip-release-linkable.html: aren
+output/stip-release-linkable.html: audid
 output/stip-release-linkable.html: authorityInfoAccess
 output/stip-release-linkable.html: authorityKeyIdentifier
 output/stip-release-linkable.html: authorzed
@@ -71,6 +73,7 @@ output/stip-release-linkable.html: cleartext
 output/stip-release-linkable.html: clientAuth
 output/stip-release-linkable.html: containsthe
 output/stip-release-linkable.html: deallocation
+output/stip-release-linkable.html: echecking
 output/stip-release-linkable.html: endentity
 output/stip-release-linkable.html: ensuresthat
 output/stip-release-linkable.html: epolicy
@@ -144,8 +147,10 @@ output/stip-release.html: SubjectAlternateName
 output/stip-release.html: TDES
 output/stip-release.html: V2
 output/stip-release.html: XAML
+output/stip-release.html: abbility
 output/stip-release.html: acknowledgement
 output/stip-release.html: any’
+output/stip-release.html: audid
 output/stip-release.html: authorityInfoAccess
 output/stip-release.html: authorityInfoAccess’
 output/stip-release.html: authorityKeyIdentifier
@@ -159,6 +164,7 @@ output/stip-release.html: certificatePolicy
 output/stip-release.html: cleartext
 output/stip-release.html: clientAuth
 output/stip-release.html: deallocation
+output/stip-release.html: echecking
 output/stip-release.html: ensuresthat
 output/stip-release.html: epolicy
 output/stip-release.html: ffdhe2048
@@ -337,8 +343,10 @@ output/stip.html: TDES
 output/stip.html: TLSversion
 output/stip.html: V2
 output/stip.html: XAML
+output/stip.html: abbility
 output/stip.html: acknowledgement
 output/stip.html: any’
+output/stip.html: audid
 output/stip.html: authorityInfoAccess
 output/stip.html: authorityInfoAccess’
 output/stip.html: authorityKeyIdentifier
@@ -358,6 +366,7 @@ output/stip.html: cleartext
 output/stip.html: clientAuth
 output/stip.html: containsthe
 output/stip.html: deallocation
+output/stip.html: echecking
 output/stip.html: endentity
 output/stip.html: ensuresthat
 output/stip.html: epolicy

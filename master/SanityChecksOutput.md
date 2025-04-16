@@ -3,9 +3,42 @@
 * Error: Detected multiple elements with an id of 'genStatus'.
 * Error: Detected multiple elements with an id of 'banner'.
 * Error: Detected multiple elements with an id of 'banner'.
+* Error: Detected dangling ref to 'O.AUDIT_LOSS_RESPONSE'
+        for a ref.
+	/Module[1]""/sec:Security_Requirements[1]""/base-pp[1]""/con-mod[10]"The Base-"/ref[1]""
 * Error: Detected dangling ref to 'O.AUDIT_PROTECTION'
         for a ref.
 	/Module[1]""/sec:Security_Requirements[1]""/base-pp[1]""/con-mod[11]"The Base-"/ref[1]""
+* Error: Detected dangling ref to 'O.CERTIFICATES'
+        for a ref.
+	/Module[1]""/sec:Security_Requirements[1]""/base-pp[1]""/con-mod[12]"The Base-"/ref[1]""
+* Error: Detected dangling ref to 'O.DISPLAY_BANNER'
+        for a ref.
+	/Module[1]""/sec:Security_Requirements[1]""/base-pp[1]""/con-mod[13]"The Base-"/ref[1]""
+* Error: Detected dangling ref to 'O.INTEGRITY_PROTECTION'
+        for a ref.
+	/Module[1]""/sec:Security_Requirements[1]""/base-pp[1]""/con-mod[14]"The Base-"/ref[1]""
+* Error: Detected dangling ref to 'O.PERSISTENT_KEY_PROTECTION'
+        for a ref.
+	/Module[1]""/sec:Security_Requirements[1]""/base-pp[1]""/con-mod[15]"The Base-"/ref[1]""
+* Error: Detected dangling ref to 'O.PROTECTED_COMMUNICATIONS'
+        for a ref.
+	/Module[1]""/sec:Security_Requirements[1]""/base-pp[1]""/con-mod[16]"The Base-"/ref[1]""
+* Error: Detected dangling ref to 'O.RECOVERY'
+        for a ref.
+	/Module[1]""/sec:Security_Requirements[1]""/base-pp[1]""/con-mod[17]"The Base-"/ref[1]""
+* Error: Detected dangling ref to 'O.RESIDUAL_INFORMATION_CLEARING'
+        for a ref.
+	/Module[1]""/sec:Security_Requirements[1]""/base-pp[1]""/con-mod[18]"The Base-"/ref[1]""
+* Error: Detected dangling ref to 'O.SYSTEM_MONITORING'
+        for a ref.
+	/Module[1]""/sec:Security_Requirements[1]""/base-pp[1]""/con-mod[19]"The Base-"/ref[1]""
+* Error: Detected dangling ref to 'O.TOE_ADMINISTRATION'
+        for a ref.
+	/Module[1]""/sec:Security_Requirements[1]""/base-pp[1]""/con-mod[20]"The Base-"/ref[1]""
+* Error: Detected dangling ref to 'O.TRAFFIC_MONITORING'
+        for a ref.
+	/Module[1]""/sec:Security_Requirements[1]""/base-pp[1]""/con-mod[21]"The Base-"/ref[1]""
 * Warning: Detected an empty _p_ element./Module[1]""/sec:Introduction[1]""/sec:Overview[1]"The scope"/h:p[1]""
 * Warning: Detected an empty _p_ element./Module[1]""/sec:Introduction[1]""/sec:Overview[1]"The scope"/h:p[2]""
 * Warning: Detected an empty _p_ element./Module[1]""/sec:Introduction[1]""/sec:Overview[1]"The scope"/h:p[3]""
@@ -24,20 +57,9 @@
 * Warning: Detected an empty _p_ element./Module[1]""/sec:Security_Problem_Definition[1]"The secur"/sec:Assumptions[1]""/h:p[3]""
 * Warning: Detected an empty _p_ element./Module[1]""/sec:Security_Problem_Definition[1]"The secur"/sec:Assumptions[1]""/h:p[4]""
 * Warning: Detected an empty _p_ element./Module[1]""/sec:Security_Problem_Definition[1]"The secur"/sec:Assumptions[1]""/h:p[5]""
-* Warning: Detected an empty _p_ element./Module[1]""/sec:Security_Objectives[1]""/sec:Security_Objectives_for_the_TOE[1]""/SOs[1]""/SO[1]""/description[1]"The TOE w"/h:p[1]""
-* Warning: Detected an empty _p_ element./Module[1]""/sec:Security_Objectives[1]""/sec:Security_Objectives_for_the_TOE[1]""/SOs[1]""/SO[2]""/description[1]"The TSF m"/h:p[1]""
-* Warning: Detected an empty _p_ element./Module[1]""/sec:Security_Objectives[1]""/sec:Security_Objectives_for_the_TOE[1]""/SOs[1]""/SO[3]""/description[1]"The TOE w"/h:p[1]""
-* Warning: Detected an empty _p_ element./Module[1]""/sec:Security_Objectives[1]""/sec:Security_Objectives_for_the_TOE[1]""/SOs[1]""/SO[4]""/description[1]"The TOE w"/h:p[1]""
-* Warning: Detected an empty _p_ element./Module[1]""/sec:Security_Objectives[1]""/sec:Security_Objectives_for_the_TOE[1]""/SOs[1]""/SO[5]""/description[1]"The TOE w"/h:p[1]""
-* Warning: Detected an empty _p_ element./Module[1]""/sec:Security_Objectives[1]""/sec:Security_Objectives_for_the_TOE[1]""/SOs[1]""/SO[6]""/description[1]"The TOE w"/h:p[1]""
-* Warning: Detected an empty _p_ element./Module[1]""/sec:Security_Objectives[1]""/sec:Security_Objectives_for_the_TOE[1]""/SOs[1]""/SO[7]""/description[1]"The TOE w"/h:p[1]""
-* Warning: Detected an empty _p_ element./Module[1]""/sec:Security_Objectives[1]""/sec:Security_Objectives_for_the_TOE[1]""/SOs[1]""/SO[8]""/description[1]"The TOE w"/h:p[1]""
-* Warning: Detected an empty _p_ element./Module[1]""/sec:Security_Objectives[1]""/sec:Security_Objectives_for_the_TOE[1]""/SOs[1]""/SO[9]""/description[1]"The TOE w"/h:p[1]""
-* Warning: Detected an empty _p_ element./Module[1]""/sec:Security_Objectives[1]""/sec:Security_Objectives_for_the_TOE[1]""/SOs[1]""/SO[10]""/description[1]"The TOE w"/h:p[1]""
-* Warning: Detected an empty _p_ element./Module[1]""/sec:Security_Objectives[1]""/sec:Security_Objectives_for_the_TOE[1]""/SOs[1]""/SO[11]""/description[1]"The TOE w"/h:p[1]""
-* Warning: Detected an empty _p_ element./Module[1]""/sec:Security_Objectives[1]""/section[1]""/SOEs[1]""/SOE[1]""/description[1]"The opera"/h:p[1]""
-* Warning: Detected an empty _p_ element./Module[1]""/sec:Security_Objectives[1]""/section[1]""/SOEs[1]""/SOE[2]""/description[1]"The OE pr"/h:p[1]""
-* Warning: Detected an empty _p_ element./Module[1]""/sec:Security_Objectives[1]""/section[1]""/SOEs[1]""/SOE[3]""/description[1]"The OE pr"/h:p[1]""
+* Warning: Detected an empty _p_ element./Module[1]""/sec:Security_Objectives[1]""/sec:Security_Objectives_for_the_Operational_Environment[1]""/SOEs[1]""/SOE[1]""/description[1]"The opera"/h:p[1]""
+* Warning: Detected an empty _p_ element./Module[1]""/sec:Security_Objectives[1]""/sec:Security_Objectives_for_the_Operational_Environment[1]""/SOEs[1]""/SOE[2]""/description[1]"The OE pr"/h:p[1]""
+* Warning: Detected an empty _p_ element./Module[1]""/sec:Security_Objectives[1]""/sec:Security_Objectives_for_the_Operational_Environment[1]""/SOEs[1]""/SOE[3]""/description[1]"The OE pr"/h:p[1]""
 * Warning: Detected an empty _p_ element./Module[1]""/sec:Security_Requirements[1]""/h:p[1]""
 * Warning: Detected an empty _p_ element./Module[1]""/sec:Security_Requirements[1]""/h:p[2]""
 * Warning: Detected an empty _p_ element./Module[1]""/sec:Security_Requirements[1]""/h:ul[1]""/h:li[2]"Refinemen"/h:p[1]""
