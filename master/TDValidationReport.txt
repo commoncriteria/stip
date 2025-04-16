@@ -1,0 +1,1 @@
+/home/runner/work/stip/stip/output/effective.xml:24:75: error: element "RevisionHistory" not allowed here; expected element "include-pkg", "pp-preferences" or "section" or an element from another namespace
