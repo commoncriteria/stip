@@ -1484,7 +1484,7 @@ expected to enforce.<h:p/>
                   applicable), and the outcome (success or failure) of the event;</h:li>
                 <h:li>For each audit event type, based on the auditable event
                   definitions of the functional components included in the PP, PP-Module, functional package, or ST,
-                 [<h:i>additional information defined in column three of the Auditable Events table in which the auditable event was defined</h:i>]</h:li>
+                 [<h:i>additional information defined in column three of the Auditable Events table in which the auditable event was defined</h:i>].</h:li>
               </h:ol>
             </title>
             <note role="application">The ST author only needs to include the auditable events that correspond to the SFRs claimed in the ST.
@@ -4717,8 +4717,16 @@ legacy cipher suites. -->
         <f-component name="X.509 Certificate Validation (STIP)" cc-id="fia_x509_ext.1" iteration="STIP" id="fia-x509-ext-1-stip">
           <consistency-rationale>This SFR specifies validation of certificates used for connections supporting
             STIP functions.</consistency-rationale>
-          <f-element id="fia-x509-ext-1e1-stip">
-            <title>The TSF shall validate certificates used for connections supporting STIP
+            <description><comment>This component will ostensibly be moved to the definitions present in the X.509 FP. However, we currently do not have a concrete way to accurately model its status in this PP-Module. 
+              In this case, STIP levies requirements on the Extended Key Usage field that will need to be represented in one of the open-ended assignment fields present in the X.509 FP, but there is 
+              no way to provide guidance on what selections/assignments must be made in the FP. There is also no way to provide guidance on what selections must be made in the Base-PP in order to 
+              make the X.509 FP applicable to the product.
+            </comment></description>
+            <f-element id="fia-x509-ext-1e1-stip">
+            
+            <title>
+              
+              The TSF shall validate certificates used for connections supporting STIP
               functions in accordance with the following rules: <h:ul>
                 <h:li>RFC 5280 certificate validation and certification path validation
                   supporting a minimum path length of three certificates.</h:li>
@@ -4945,7 +4953,12 @@ legacy cipher suites. -->
           <consistency-rationale>The PP-Module iterates this SFR from its definition in the Base-PP to
             specify minimum required functionality for X.509 authentication based on its use in STIP. The PP-Module
             also refines the authorized roles that can perform the related management function.</consistency-rationale>
-          <f-element id="nd-fia-x509-ext-2e1">
+            <description><comment>This component will ostensibly be moved to the definitions present in the X.509 FP. However, we currently do not have a way to accurately model its status in this PP-Module. 
+              In this case, there is an assignment that will need to be filled in in one of the open-ended assignment fields present in the X.509 FP, but there is 
+              no way to provide guidance on what selections/assignments must be made in the FP from the PP-Module. There is also no way to provide guidance on what selections must be made in the Base-PP in order to 
+              make the X.509 FP applicable to the product.
+            </comment></description>
+            <f-element id="nd-fia-x509-ext-2e1">
             <title>
               The TSF shall use X.509v3 certificates as defined by RFC 5280 to support
               authentication for [<h:i>TLS</h:i>] and [<h:i>no additional uses</h:i>]. 
@@ -6285,7 +6298,7 @@ legacy cipher suites. -->
             <title>
               Before <h:b>forwarding decrypted application data intended for the requested server
               to inspection processing components</h:b>, the [<h:i>TSF</h:i>] shall display <h:b>to the monitored
-              client a</h:b>[<h:i>Security Administrator-specified advisory notice and consent warning
+              client a </h:b>[<h:i>Security Administrator-specified advisory notice and consent warning
               message regarding use of the TOE</h:i>].
             </title>
             <note role="application">
