@@ -22,6 +22,10 @@
             <br>
             <a href="#Comment-2-">Comment: Comment-2-</a>
             <br>
+            <a href="#Comment-3-">Comment: Comment-3-</a>
+            <br>
+            <a href="#Comment-4-">Comment: Comment-4-</a>
+            <br>
         </div>
         <h1 class="title" style="page-break-before:auto;">PP-Module for SSL/TLS Inspection Proxy</h1>
         <h1 style="text-align:center; border-style: dashed; border-width: medium; border-color: red;">This page is best viewed with JavaScript enabled!</h1>
@@ -926,7 +930,7 @@
                     <ol type="a">
                         <li>Date and time of the event, type of event, subject identity (if applicable), and the outcome (success or failure) of the event;</li>
                         <li>
-                            For each audit event type, based on the auditable event definitions of the functional components included in the <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>, <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>, functional package, or <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>, [<i>additional information defined in column three of the Auditable Events table in which the auditable event was defined</i>]
+                            For each audit event type, based on the auditable event definitions of the functional components included in the <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>, <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>, functional package, or <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>, [<i>additional information defined in column three of the Auditable Events table in which the auditable event was defined</i>].
                         </li>
                     </ol>
                     <div class="appnote">
@@ -1977,12 +1981,13 @@
         </div>
         <div class="comp" id="FIA_X509_EXT.1/STIP">
             <h4>FIA_X509_EXT.1/STIP X.509 Certificate Validation (STIP)</h4>
+             <span class="description"><span style="" class="comment " id="Comment-1-">This component will ostensibly be moved to the definitions present in the X.509 <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr>. However, we currently do not have a concrete way to accurately model its status in this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>. In this case, <abbr class="dyn-abbr"><a href="#abbr_STIP">STIP</a></abbr> levies requirements on the Extended Key Usage field that will need to be represented in one of the open-ended assignment fields present in the X.509 <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr>, but there is no way to provide guidance on what selections/assignments must be made in the <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr>. There is also no way to provide guidance on what selections must be made in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> in order to make the X.509 <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr> applicable to the product. </span></span> 
             <div class="element">
                 <div class="reqid" id="FIA_X509_EXT.1.1/STIP">
                     <a href="#FIA_X509_EXT.1.1/STIP" class="abbr">FIA_X509_EXT.1.1/STIP</a>
                 </div>
                 <div class="reqdesc">
-                    The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall validate certificates used for connections supporting <abbr class="dyn-abbr"><a href="#abbr_STIP">STIP</a></abbr> functions in accordance with the following rules: 
+                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall validate certificates used for connections supporting <abbr class="dyn-abbr"><a href="#abbr_STIP">STIP</a></abbr> functions in accordance with the following rules: 
                     <ul>
                         <li>RFC 5280 certificate validation and certification path validation supporting a minimum path length of three certificates.</li>
                         <li>
@@ -2065,6 +2070,7 @@
         </div>
         <div class="comp" id="FIA_X509_EXT.2/STIP">
             <h4>FIA_X509_EXT.2/STIP X.509 Certificate Authentication (STIP)</h4>
+             <span class="description"><span style="" class="comment " id="Comment-2-">This component will ostensibly be moved to the definitions present in the X.509 <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr>. However, we currently do not have a way to accurately model its status in this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>. In this case, there is an assignment that will need to be filled in in one of the open-ended assignment fields present in the X.509 <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr>, but there is no way to provide guidance on what selections/assignments must be made in the <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr> from the <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>. There is also no way to provide guidance on what selections must be made in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> in order to make the X.509 <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr> applicable to the product. </span></span> 
             <div class="element">
                 <div class="reqid" id="FIA_X509_EXT.2.1/STIP">
                     <a href="#FIA_X509_EXT.2.1/STIP" class="abbr">FIA_X509_EXT.2.1/STIP</a>
@@ -3273,7 +3279,7 @@
             </tr>
         </table>
         <h3 id="obj-fia" class="indexable" data-level="3">A.2.2 Identification and Authentication (FIA)</h3>
-         <span style="" class="comment " id="Comment-2-">All objective <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> need a review to determine if they should change status in the next release of this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>.</span> 
+         <span style="" class="comment " id="Comment-4-">All objective <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> need a review to determine if they should change status in the next release of this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>.</span> 
         <div class="comp" id="FIA_ESTC_EXT.2">
             <h4>FIA_ESTC_EXT.2 Client Use of TLS-Unique Value</h4>
             <div class="element">
@@ -3377,7 +3383,7 @@
                 <td></td>
             </tr>
             <tr data-sortkey="FDP_CER_EXT.5.8">
-                <td>Certificate generation</td><td><span style="" class="comment " id="Comment-1-">There is an auditable event designated "Success" here but nothing listed for "Failure". Should an additional event be included for a failure case?</span> Success: [<b>selection</b>: <span class="selectable-content" id="_s_326">certificate value</span>, <span class="selectable-content" id="_s_327">certificate object identifier</span>]</td>
+                <td>Certificate generation</td><td><span style="" class="comment " id="Comment-3-">There is an auditable event designated "Success" here but nothing listed for "Failure". Should an additional event be included for a failure case?</span> Success: [<b>selection</b>: <span class="selectable-content" id="_s_326">certificate value</span>, <span class="selectable-content" id="_s_327">certificate object identifier</span>]</td>
             </tr>
             <tr data-sortkey="FDP_CRL_EXT.1">
                 <td rowspan="2"><a href="#FDP_CRL_EXT.1">FDP_CRL_EXT.1</a></td><td style="display:none"></td>
@@ -3663,7 +3669,7 @@
                     <a href="#FTA_TAB.1.1/TLS" class="abbr">FTA_TAB.1.1/TLS</a>
                 </div>
                 <div class="reqdesc">
-                     Before <b>forwarding decrypted application data intended for the requested server to inspection processing components</b>, the [<i><abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr></i>] shall display <b>to the monitored client a</b>[<i>Security Administrator-specified advisory notice and consent warning message regarding use of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr></i>]. 
+                     Before <b>forwarding decrypted application data intended for the requested server to inspection processing components</b>, the [<i><abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr></i>] shall display <b>to the monitored client a </b>[<i>Security Administrator-specified advisory notice and consent warning message regarding use of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr></i>]. 
                     <div class="appnote">
                         <span class="note-header">Application Note: </span><span class="note"> This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> should be claimed if &lsquo;provide a consent to monitor banner..&rsquo; is selected in <a href="#FDP_STIP_EXT.1.3">FDP_STIP_EXT.1.3</a>. </span>
                     </div>
