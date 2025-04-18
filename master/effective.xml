@@ -770,7 +770,27 @@ expected to enforce.<h:p/>
       <h:p/>
       A.RESIDUAL_INFORMATION is still operative, but the residual information is expanded to include information relevant to STIP operation (e.g. decrypted SSL/TLS payload, ephemeral keys).
       <h:br/><h:br/>
-      <assumptions/>
+      <assumptions>
+        <assumption name="A.AUDIT">
+          <description>An audit server is assumed to be present in the Operational Environment which contains adequate storage to retain the audit record, and provides adequate availability, integrity, and access control to 
+            the audit record to support operational requirements. Administration of the audit server is assumed to be separate to that of the SSL/TLS inspection proxy, and it is also assumed to support all required role separations.</description>
+          <objective-refer ref="OE.AUDIT">
+            <rationale>The operational environment objective OE.AUDIT is realized through A.AUDIT because the audit server assumed to be present fulfills all aspects of the objective for the Operational Environment.</rationale>
+          </objective-refer>
+        </assumption>
+        <assumption name="A.CERT_REPOSITORY">
+          <description>A certificate repository is assumed to be present in the Operational Environment that provides storage of certificates (and optionally CRLs) issued by the TSF. This certificate repository is assumed to provide 
+            the ability to search for certificates issued by the TSF based on specific certificate fields in the certificate. The search process is assumed to result in the certificate(s) and certificate identifier(s) that correspond to the 
+            search criteria.
+          </description>
+          <objective-refer ref="OE.CERT_REPOSITORY">
+            <rationale>The operational objective OE.CERT_REPOSITORY is realized through A.CERT_REPOSITORY because the certificate repository assumed to be present fulfills all aspects of the objective for the Operational Environment.</rationale>
+          </objective-refer>
+          <objective-refer ref="OE.CERT_REPOSITORY_SEARCH">
+            <rationale>The operational objective OE.CERT_REPOSITORY_SEARCH is realized through A.CERT_REPOSITORY because the certificate repository assumed to be present implements all aspects of the search function laid out in the objective for the Operational Environment.</rationale>
+          </objective-refer>
+        </assumption>
+      </assumptions>
     </sec:Assumptions>
     
     <!-- 3.3 Organizational Security Policies -->
@@ -809,251 +829,9 @@ expected to enforce.<h:p/>
     
   <!-- 4. Security Objectives --> 
   <sec:Security_Objectives>  
-<!--  <section title="Security Objectives" id="obj"> -->
+
     
-    <!-- 4.1 Security Objectives for the TOE -->
-    <!-- <sec:Security_Objectives_for_the_TOE>
-      <SOs>
-        <SO name="O.AUDIT_LOSS_RESPONSE">
-          <description>The TOE will respond to possible loss of audit records when an audit trail cannot be written to by
-            restricting auditable events.<h:p/>
-			      Addressed by: FAU_STG.5
-          </description>
-    
-       <addressed-by>FAU_STG.5</addressed-by>
-			<rationale>Mitigates the threat by requiring the TSF to disable the execution of auditable events if the audit trail cannot be written to.</rationale>
-      </SO>
-        
-        <SO name="O.CERTIFICATES">
-          <description>The TSF must ensure that certificates, certificate revocation lists, and certificate status information
-            are valid.<h:p/>
-            Addressed by: FCS_TLSC_EXT.1 (from <xref to="pkgTLS"/>), FCS_TLSC_EXT.2 (from <xref to="pkgTLS"/>), FIA_X509_EXT.1/Rev (from Base-PP), FIA_X509_EXT.3 (from Base-PP), FDP_CER_EXT.1, FDP_CER_EXT.2, FDP_CER_EXT.3, FDP_CSIR_EXT.1, FIA_ENR_EXT.1, FIA_X509_EXT.1/STIP, FIA_X509_EXT.2/STIP,
-            FDP_PIN_EXT.1 (optional), FIA_ESTC_EXT.2 (optional), FDP_CER_EXT.4 (selection-based), 
-            FDP_CER_EXT.5 (selection-based), FDP_CRL_EXT.1 (selection-based),
-			FDP_CSI_EXT.1 (selection-based), FDP_CSI_EXT.2 (selection-based), FDP_OCSP_EXT.1 (selection-based), FDP_OCSPS_EXT.1 (selection-based), FIA_ESTC_EXT.1 (selection-based)    
-          </description>
-          <addressed-by>FCS_TLSC_EXT.1 (from <xref to="pkgTLS"/>)</addressed-by>
-          <rationale>Mitigates the threat because TLS is a mechanism by which its own certificate data may be obtained from an external CA. </rationale>
-          <addressed-by>FCS_TLSC_EXT.2 (from <xref to="pkgTLS"/>)</addressed-by>
-          <rationale>Mitigates the threat because mutually-authenticated TLS is a mechanism by which its own certificate 
-            data may be obtained from an external CA. </rationale>
-          <addressed-by>FIA_X509_EXT.1/Rev (from Base-PP)</addressed-by>
-            <rationale>Mitigates the threat by defining the TOE functionality for certificate validation. </rationale>
-            <addressed-by>FIA_X509_EXT.3 (from Base-PP)</addressed-by>
-            <rationale>Mitigates the threat by defining the mechanism by which the TOE generates certificate signing requests, which includes validation of the certificate provided in response. </rationale>
-            <addressed-by>FDP_CER_EXT.1</addressed-by>
-            <rationale>Mitigates the threat by defining the rules the TOE must use to generate and issue proxy TLS server certificates from its internal CA. </rationale>
-            <addressed-by>FDP_CER_EXT.2</addressed-by>
-            <rationale>Mitigates the threat by requiring the TOE to link the certificates presented for TLS connectivity with the certificates it issues from its internal CA. </rationale>
-            <addressed-by>FDP_CER_EXT.3</addressed-by>
-            <rationale>Mitigates the threat by defining the rules for the TOE's issuing of proxy TLS server certificates. </rationale>
-            <addressed-by>FDP_CSIR_EXT.1</addressed-by>
-            <rationale>Mitigates the threat by defining how the TOE can ensure the use of fresh certificates.</rationale>
-            <addressed-by>FIA_ENR_EXT.1</addressed-by>
-            <rationale>Mitigates the threat by defining the mechanism by which the TOE requests a certificate for its own embedded CA's signing key. </rationale>
-            <addressed-by>FIA_X509_EXT.1/STIP</addressed-by>
-            <rationale>Mitigates the threat by defining the certificate validation rules that must be followed for certificates that are used for proxy TLS connections. </rationale>
-          <addressed-by>FIA_X509_EXT.2/STIP</addressed-by>
-          <rationale>Mitigates the threat by defining the certificate authentication behavior for STIP connections. </rationale>
-          <addressed-by>FDP_PIN_EXT.1 (optional)</addressed-by>
-            <rationale>Mitigates the threat by defining the optional implementation of certificate pinning. </rationale>
-            <addressed-by>FIA_ESTC_EXT.2 (optional)</addressed-by>
-            <rationale>Mitigates the threat by defining requirements for the composition of EST requests if the TOE supports EST. </rationale>
-            <addressed-by>FDP_CER_EXT.4 (selection-based)</addressed-by>
-            <rationale>Mitigates the threat by defining the rules the TOE must use to generate and issue proxy TLS client certificates from its internal CA if mutual authentication is supported. </rationale>
-            <addressed-by>FDP_CER_EXT.5 (selection-based)</addressed-by>
-            <rationale>Mitigates the threat by defining the rules for the TOE's issuing of proxy TLS client certificates if mutual authentication is supported. </rationale>
-            <addressed-by>FDP_CRL_EXT.1 (selection-based)</addressed-by>
-            <rationale>Mitigates the threat by defining rules for the generation of CRLs if the TOE uses this as the mechanism to ensure the freshness of its issued certificates. </rationale>
-            <addressed-by>FDP_CSI_EXT.1 (selection-based)</addressed-by>
-            <rationale>Mitigates the threat by defining the revocation echecking method supported by the TOE for the proxy TLS server certificates it issues, if revocation is how the freshness of its issued certificates is assured. </rationale>
-            <addressed-by>FDP_CSI_EXT.2 (selection-based)</addressed-by>
-          <rationale>Mitigates the threat by defining the revocation echecking method supported by the TOE for the proxy TLS client certificates it issues, if mutual authentication is supported and revocation is how the freshness of its issued certificates is assured. </rationale>
-            <addressed-by>FDP_OCSP_EXT.1 (selection-based)</addressed-by>
-          <rationale>Mitigates the threat by defining rules for the generation of OCSP responses if the TOE uses this as the mechanism to ensure the freshness of its issued certificates. </rationale>
-            <addressed-by>FDP_OCSPS_EXT.1 (selection-based)</addressed-by>
-            <rationale>Mitigates the threat by defining rules for the implementation of OCSP stapling if the TOE supports this functionality. </rationale>
-            <addressed-by>FIA_ESTC_EXT.1 (selection-based)</addressed-by>
-            <rationale>Mitigates the threat by defining requirements for the implementation of EST if the TOE uses this mechanism to obtain TLS certificates for its own use. </rationale>
-        </SO>
-        
-        
-        <SO name="O.DISPLAY_BANNER">
-          <description>The TOE will display an advisory warning regarding use of the TOE. <h:p/>
-            Addressed by: FTA_TAB.1 (from Base-PP), FDP_STIP_EXT.1, FTA_TAB.1/TLS (selection-based)
-          </description>
-		  
-			<addressed-by>FTA_TAB.1 (from Base-PP)</addressed-by>
-			<rationale>Mitigates the threat by applying a warning banner to any interface used by an administrator to access the TOE.</rationale>
-          <addressed-by>FDP_STIP_EXT.1</addressed-by>
-          <rationale>Mitigates the threat by defining the mechanism used to 
-            obtain consent to monitor user communications.</rationale>
-          <addressed-by>FTA_TAB.1/TLS (selection-based)</addressed-by>
-			<rationale>Mitigates the threat by optionally applying a warning banner to a user whose network activity passes through the TOE for decryption and potential inspection.</rationale>
-        </SO>
-        
-        <SO name="O.INTEGRITY_PROTECTION">
-          <description>The TOE will provide appropriate integrity protection for TSF data and software and any user data
-            stored by the TOE.<h:p/>
-            Addressed by: FPT_FLS.1/STIP
-          </description>
-          
-          
-          <addressed-by>FPT_FLS.1/STIP</addressed-by>
-          <rationale>Mitigates the threat by requiring the TSF to take some action to preserve a 
-            secure state in the response to a loss of integrity or other potential failure.</rationale>
-        </SO>
-        
-        
-        <SO name="O.PERSISTENT_KEY_PROTECTION">
-          <description>
-            The TOE will provide appropriate confidentiality and access protection to persistent keys and security
-            critical parameters stored by the TOE.
-            <h:p/>
-            Addressed by: FCS_STG_EXT.1, FDP_STG_EXT.1, FPT_KST_EXT.1, FPT_KST_EXT.2, FCS_CKM_EXT.5 (selection-based)
-          </description>
-          <addressed-by>FCS_STG_EXT.1</addressed-by>
-          <rationale>Mitigates the threat by requiring the TOE to implement hardware-based protection for stored keys.</rationale>
-          <addressed-by>FDP_STG_EXT.1</addressed-by>
-          <rationale>Mitigates the threat by defining the mechanism used to protect public key data from unauthorized modification.</rationale>
-          <addressed-by>FPT_KST_EXT.1</addressed-by>
-          <rationale>Mitigates the threat by requiring the TSF to enforce the prevention of plaintext key export.</rationale>
-          <addressed-by>FPT_KST_EXT.2</addressed-by>
-          <rationale>Mitigates the threat by preventing the unauthorized use of secret and private keys.</rationale>
-          <addressed-by>FCS_CKM_EXT.5 (selection-based)</addressed-by>
-          <rationale>Mitigates the threat by defining the integrity mechanism used to guarantee the integrity of public key data.</rationale>
-          
-        </SO>
-        
-        <SO name="O.PROTECTED_COMMUNICATIONS">
-          <description>
-            The TOE will provide protected communication channels for administrators, other parts of a
-            distributed TOE, and authorized IT entities. The TOE will protect data assets when they are being
-            transmitted to and from the TOE, including through intervening untrusted components.
-            <h:p/>
-            Addressed by: FCS_CKM.6 (from Base-PP), FCS_TLSC_EXT.1 (from <xref to="pkgTLS"/>), FCS_TLSC_EXT.2 (from <xref to="pkgTLS"/>), FTP_ITC.1 (refined from Base-PP), 
-            FCS_COP.1/STIP, FCS_TTTC_EXT.1, FCS_TTTC_EXT.5, FCS_TTTS_EXT.1, FDP_PRC_EXT.1, FDP_STIP_EXT.1, FDP_TEP_EXT.1,
-            FCS_TTTC_EXT.3 (selection-based), FCS_TTTC_EXT.4 (selection-based), FCS_TTTS_EXT.3
-            (selection-based), FCS_TTTS_EXT.4 (selection-based), FDP_STIP_EXT.2 (selection-based)
-          </description>
-          <addressed-by>FCS_CKM.6 (from Base-PP)</addressed-by>
-          <rationale>Mitigates the threat by ensuring secret and private key data is disposed of immediately after use to prevent unauthorized disclosure of keys.</rationale>
-          <addressed-by>FCS_TLSC_EXT.1 (from <xref to="pkgTLS"/>)</addressed-by>
-          <rationale>Mitigates the threat by defining the TLS trusted channel used for EST if the TOE supports that functionality.</rationale>
-          <addressed-by>FCS_TLSC_EXT.2 (from <xref to="pkgTLS"/>)</addressed-by>
-          <rationale>Mitigates the threat by defining support for mutually-authenticated TLS, which the TOE may optionally support for EST.</rationale>
-          <addressed-by>FTP_ITC.1 (refined from Base-PP)</addressed-by>
-          <rationale>Mitigates the threat by defining the TOE interfaces that require protected communications as well as the methods of protection applied to these interfaces.</rationale>
-          <addressed-by>FCS_COP.1/STIP</addressed-by>
-          <rationale>Mitigates the threat by defining cryptographic algorithms the TOE must support for decryption and re-encryption of proxy TLS traffic.</rationale>
-          <addressed-by>FCS_TTTC_EXT.1</addressed-by>
-          <rationale>Mitigates the threat by defining requirements for the TOE's implementation of TLS as a client, specifically in the case where the TOE is establishing a proxy connection between itself and the original requested 
-          TLS server.</rationale>
-          <addressed-by>FCS_TTTC_EXT.5</addressed-by>
-          <rationale>Mitigates the threat by defining the Supported Groups used by the TOE's proxy TLS client interface.</rationale>
-          <addressed-by>FCS_TTTS_EXT.1</addressed-by>
-          <rationale>Mitigates the threat by defining requirements for the TOE's implementation of TLS as a server, specifically in the case where the TOE is establishing a proxy connection between itself and the original monitored 
-            TLS client.</rationale>
-          
-          <addressed-by>FDP_PRC_EXT.1</addressed-by>
-          <rationale>Mitigates the threat by defining requirements for the routing of decrypted plaintext traffic.</rationale>
-          <addressed-by>FDP_STIP_EXT.1</addressed-by>
-          <rationale>Mitigates the threat by defining the TOE's ability to establish proxy TLS sessions between a monitored client and a requested server and to apply appropriate rules to the handling of the decrypted traffic.</rationale>
-          <addressed-by>FDP_TEP_EXT.1</addressed-by>
-          <rationale>Mitigates the threat by defining the TOE's abbility to enforce filtering rules on TLS traffic passing through the TOE.</rationale>
-          <addressed-by>FCS_TTTC_EXT.3 (selection-based)</addressed-by>
-          <rationale>Mitigates the threat by defining optional support for TLS mutual authentication that is applied to the TOE's proxy TLS client interface.</rationale>
-          <addressed-by>FCS_TTTC_EXT.4 (selection-based)</addressed-by>
-          <rationale>Mitigates the threat by defining optional support for TLS session renegotiation that is applied to the TOE's proxy TLS client interface.</rationale>
-          <addressed-by>FCS_TTTS_EXT.3 (selection-based)</addressed-by>
-          <rationale>Mitigates the threat by defining optional support for TLS mutual authentication that is applied to the TOE's proxy TLS server interface.</rationale>
-          <addressed-by>FCS_TTTS_EXT.4 (selection-based)</addressed-by>
-          <rationale>Mitigates the threat by defining optional support for TLS session renegotiation that is applied to the TOE's proxy TLS server interface.</rationale>
-          <addressed-by>FDP_STIP_EXT.2 (selection-based)</addressed-by>
-          <rationale>Mitigates the threat by defining the optional capability of the TOE to establish a proxy TLS session in the case where mutual authentication is supported.</rationale>
-        </SO>
-        
-        
-        <SO name="O.RECOVERY">
-          <description>
-            The TOE will have the ability to store and recover to a previous state at the direction of the
-            administrator (e.g., provide support for archival and recovery capabilities).
-            <h:p/>
-            Addressed by: FPT_FLS.1/STIP, FPT_RCV.1
-          </description>
-          <addressed-by>FPT_FLS.1/STIP</addressed-by>
-          <rationale>Mitigates the threat by requiring the TSF to preserve a secure state when certain failures occur.</rationale>
-          <addressed-by>FPT_RCV.1</addressed-by>
-          <rationale>Mitigates the threat by requiring the TSF to support a maintenance mode of operation that is entered when certain failures occur.</rationale>
-        </SO>
-        
-        <SO name="O.RESIDUAL_INFORMATION_CLEARING">
-          <description>
-            The TOE will ensure that any data contained in a protected resource is not available when the resource
-            is reallocated.
-            <h:p/>
-            Addressed by: FDP_RIP.1
-          </description>
-          <addressed-by>FDP_RIP.1</addressed-by>
-          <rationale>Mitigates the threat by defining the residual data that is cleared from TOE memory and when the clearing occurs.</rationale>
-        </SO>
-        
-        <SO name="O.SYSTEM_MONITORING">
-          <description>
-            The TOE will provide the ability to generate audit data and send that data to an external IT entity. The
-            TOE will record in audit records: date and time of action and the entity responsible for the action. The
-            TOE will provide the ability to store and review certificate information.
-            <h:p/>
-            Addressed by: FAU_SAR.1 (optional), FAU_STG.1 (from Base-PP), FAU_GEN.1/STIP, FAU_GCR_EXT.1, FAU_SAR.3
-            (optional), FAU_SCR_EXT.1 (selection-based)
-          </description>
-          <addressed-by>FAU_STG.1 (from Base-PP)</addressed-by>
-          <rationale>Mitigates the threat by defining a mechanism for the secure storage of audit data in the OE.</rationale>
-          <addressed-by>FAU_GEN.1/STIP</addressed-by>
-          <rationale>Mitigates the threat by defining the auditable events specific to STIP functionality that the TSF must generate.</rationale>
-          <addressed-by>FAU_GCR_EXT.1</addressed-by>
-          <rationale>Mitigates the threat by defining the mechanism the TOE uses to store certificate data.</rationale>
-          <addressed-by>FAU_SAR.3 (optional)</addressed-by>
-          <rationale>Mitigates the threat by optionally defining the functionality to search audit records for events associated with a particular certificate.</rationale>
-          <addressed-by>FAU_SCR_EXT.1 (selection-based)</addressed-by>
-          <rationale>Mitigates the threat by requiring the TOE to implement a search function for certificate storage if the TSF implements its own certificate store (as opposed to relying on environmental storage).</rationale>
-        </SO>
-        
-        <SO name="O.TOE_ADMINISTRATION">
-          <description>
-            The TOE will provide mechanisms to ensure that only privileged users are able to log in and configure
-            the TOE, and provide protections for logged-in users. The TOE will ensure that administrative
-            responsibilities are separated across different roles in order to mitigate the impact of improper
-            administrative activities or unauthorized administrative access.
-            <h:p/>
-            Addressed by: FMT_MOF.1/STIP, FMT_SMF.1/STIP, FMT_SMR.2/STIP
-          </description>
-          <addressed-by>FMT_MOF.1/STIP</addressed-by>
-          <rationale>Mitigates the threat by defining the authorized use of the TOE by association between the supported management functions and the roles that are authorized to perform them.</rationale>
-          <addressed-by>FMT_SMF.1/STIP</addressed-by>
-          <rationale>Mitigates the threat by defining the TOE's management functions that are specific to STIP functionality.</rationale>
-          <addressed-by>FDP_SMR.2/STIP</addressed-by>
-          <rationale>Mitigates the threat by defining additional management roles that the TOE may support that are specific to STIP functionality.</rationale>
-        </SO>
-        
-        
-        <SO name="O.TRAFFIC_MONITORING">
-          <description>
-            The TOE will provide a mechanism for processing SSL/TLS traffic. This mechanism requires the TOE to enforce a policy to process encrypted traffic, which
-            results in the traffic being allowed, blocked, or decrypted for further inspection. This mechanism also requires the TOE to enforce a policy to process decrypted traffic,
-            which may be inspected for unauthorized content either by the TOE itself or through an interface with an external inspection component.
-            <h:p/>
-            Addressed by: FDP_PPP_EXT.1, FDP_TEP_EXT.1
-          </description>
-          <addressed-by>FDP_PPP_EXT.1</addressed-by>
-          <rationale>Mitigates the threat by defining the processing rules that the TOE applies to plaintext traffic once decrypted.</rationale>
-          <addressed-by>FDP_TEP_EXT.1</addressed-by>
-          <rationale>Mitigates the threat by defining the processing rules that the TOE applies to encrypted traffic.</rationale>
-        </SO>
-      </SOs>
-    </sec:Security_Objectives_for_the_TOE> -->
-    
-    <!-- 4.2 Security Objectives for the Operational Environment -->
+    <!-- 4.1 Security Objectives for the Operational Environment -->
     <sec:Security_Objectives_for_the_Operational_Environment>
       <!-- Note: updated this section to be more in line with how these are done now. We don't want to use refinements on OE objectives because then multiple simultaneous PP-Module claims could cause mutually exclusive changes. -->
       <!-- 
@@ -6126,8 +5904,15 @@ legacy cipher suites. -->
             FIA_X509_EXT.1 X.509 Certificate Validation<h:p/>
             FMT_SMR.1 Security Roles
           </dependencies>
+          <description>
+            <comment>This component will ostensibly be moved to the definitions present in the X.509 FP. However, we currently do not have a concrete way to accurately model its status in this PP-Module. 
+              In this case, there is no way to provide guidance on what selections must be made in the Base-PP in order to make the X.509 FP applicable to the product, nor a way to model 
+              what selections must be made in the FP to make its ESTC requirements applicable to the TOE.
+            </comment>
+          </description>
           <f-element id="fia-estc-ext-1e1">
             <title>
+              
               The TSF shall use the Enrollment over Secure Transport (EST) as specified in RFC
               7030 as updated by RFC 8996 to obtain its embedded CA certificate and <assignable>other certificates for
               the TOE</assignable> from an external certification authority (external CA) associated with an
@@ -7592,7 +7377,11 @@ legacy cipher suites. -->
           <audit>There are no auditable events foreseen.</audit>
           <dependencies>FIA_ESTC_EXT.1 Enrollment over Secure Transport (EST) Client</dependencies>
           <f-element id="fia-estc-ext-2e1">
-            <title>The TSF shall generate tls-unique values and integrate them into EST requests it
+            <title>
+              <comment>The parent requirement for this SFR (FIA_ESTC_EXT.1) will likely be moved to the X.509 FP, whose version of FIA_ESTC_EXT.1 does not include a requirement 
+                to include a tls-unique value. A determination will need to be made on if this requirement should be included in a future version of the X.509 FP, or how this requirement should be handled in another case.
+              </comment>
+              The TSF shall generate tls-unique values and integrate them into EST requests it
               generates in accordance with RFC 7030 section 3.5.</title>
             <note role="application">
               This SFR describes an optional element of RFC 7030 that strengthens the

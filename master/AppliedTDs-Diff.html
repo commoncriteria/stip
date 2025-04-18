@@ -26,6 +26,10 @@
             <br>
             <a href="#Comment-4-">Comment: Comment-4-</a>
             <br>
+            <a href="#Comment-5-">Comment: Comment-5-</a>
+            <br>
+            <a href="#Comment-6-">Comment: Comment-6-</a>
+            <br>
         </div>
         <h1 class="title" style="page-break-before:auto;">PP-Module for SSL/TLS Inspection Proxy</h1>
         <h1 style="text-align:center; border-style: dashed; border-width: medium; border-color: red;">This page is best viewed with JavaScript enabled!</h1>
@@ -388,7 +392,7 @@
         </dl>
          
         <h2 class="indexable" data-level="2" id="Assumptions">3.2 Assumptions</h2>
-         These assumptions are made on the Operational Environment in order to be able to ensure that the security functionality specified in the <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> can be provided by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>. If the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is placed in an Operational Environment that does not meet these assumptions, the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> may no longer be able to provide all of its security functionality. 
+         These assumptions are made on the Operational Environment (<abbr class="dyn-abbr"><a href="#abbr_OE">OE</a></abbr>) in order to be able to ensure that the security functionality specified in the <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> can be provided by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>. If the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is placed in an <abbr class="dyn-abbr"><a href="#abbr_OE">OE</a></abbr> that does not meet these assumptions, the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> may no longer be able to provide all of its security functionality. These assumptions are made on the Operational Environment in order to be able to ensure that the security functionality specified in the <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> can be provided by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>. If the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is placed in an Operational Environment that does not meet these assumptions, the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> may no longer be able to provide all of its security functionality. 
         <p></p>
          All assumptions for the operational environment of the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> also apply to this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>. 
         <p></p>
@@ -401,7 +405,18 @@
          A.RESIDUAL_INFORMATION is still operative, but the residual information is expanded to include information relevant to <abbr class="dyn-abbr"><a href="#abbr_STIP">STIP</a></abbr> operation (e.g. decrypted <abbr class="dyn-abbr"><a href="#abbr_SSL/TLS">SSL/TLS</a></abbr> payload, ephemeral keys). 
         <br>
         <br>
-         This document does not define any additional assumptions. 
+         
+        <dl>
+            <dt class="assumption defined" id="A.AUDIT">A.AUDIT</dt>
+            <dd>
+                <span class="description">An audit server is assumed to be present in the Operational Environment which contains adequate storage to retain the audit record, and provides adequate availability, integrity, and access control to the audit record to support operational requirements. Administration of the audit server is assumed to be separate to that of the <abbr class="dyn-abbr"><a href="#abbr_SSL/TLS">SSL/TLS</a></abbr> inspection proxy, and it is also assumed to support all required role separations.</span>
+            </dd>
+            <dt class="assumption defined" id="A.CERT_REPOSITORY">A.CERT_REPOSITORY</dt>
+            <dd>
+                <span class="description">A certificate repository is assumed to be present in the Operational Environment that provides storage of certificates (and optionally CRLs) issued by the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>. This certificate repository is assumed to provide the ability to search for certificates issued by the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> based on specific certificate fields in the certificate. The search process is assumed to result in the certificate(s) and certificate identifier(s) that correspond to the search criteria. </span>
+            </dd>
+        </dl>
+         
         <h2 class="indexable" data-level="2" id="Organizational_Security_Policies">3.3 Organizational Security Policies</h2>
         <p>
             An organization deploying the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is expected to satisfy the organizational security policy listed below in addition to all organizational security policies defined by the claimed <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>. 
@@ -458,6 +473,15 @@
             </caption>
             <tr class="header">
                 <td>Assumption or OSP</td><td>Security Objectives</td><td>Rationale</td>
+            </tr>
+            <tr class="major-row">
+                <td rowspan="1"><a href="#A.AUDIT">A.AUDIT</a></td><td><a href="#OE.AUDIT">OE.AUDIT</a></td><td>The operational environment objective <a href="#OE.AUDIT">OE.AUDIT</a> is realized through <a href="#A.AUDIT">A.AUDIT</a> because the audit server assumed to be present fulfills all aspects of the objective for the Operational Environment.</td>
+            </tr>
+            <tr class="major-row">
+                <td rowspan="2"><a href="#A.CERT_REPOSITORY">A.CERT_​REPOSITORY</a></td><td><a href="#OE.CERT_REPOSITORY">OE.CERT_​REPOSITORY</a></td><td>The operational objective <a href="#OE.CERT_REPOSITORY">OE.CERT_REPOSITORY</a> is realized through <a href="#A.CERT_REPOSITORY">A.CERT_REPOSITORY</a> because the certificate repository assumed to be present fulfills all aspects of the objective for the Operational Environment.</td>
+            </tr>
+            <tr>
+                <td><a href="#OE.CERT_REPOSITORY_SEARCH">OE.CERT_​REPOSITORY_​SEARCH</a></td><td>The operational objective <a href="#OE.CERT_REPOSITORY_SEARCH">OE.CERT_REPOSITORY_SEARCH</a> is realized through <a href="#A.CERT_REPOSITORY">A.CERT_REPOSITORY</a> because the certificate repository assumed to be present implements all aspects of the search function laid out in the objective for the Operational Environment.</td>
             </tr>
             <tr class="major-row">
                 <td rowspan="3"><a href="#P.AUTHORIZATION_TO_INSPECT">P.AUTHORIZATION_​TO_​INSPECT</a></td><td>O.DISPLAY_​BANNER</td><td>The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOEs</a></abbr> advisory warning includes consent to monitor.</td>
@@ -2948,6 +2972,12 @@
                 <td><a href="#T.INAPPROPRIATE_ACCESS">T.INAPPROPRIATE_ACCESS</a></td><td>The threat of inappropriate access to unintended servers could disclose unauthorized traffic to inspection processes which is not defined in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> because a generic network device does not necessarily have a traffic inspection functionality.</td>
             </tr>
             <tr>
+                <td><a href="#A.AUDIT">A.AUDIT</a></td><td></td>
+            </tr>
+            <tr>
+                <td><a href="#A.CERT_REPOSITORY">A.CERT_REPOSITORY</a></td><td></td>
+            </tr>
+            <tr>
                 <td><a href="#P.AUTHORIZATION_TO_INSPECT">P.AUTHORIZATION_TO_INSPECT</a></td><td>The <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> cannot define the interactions that an end user will have with a generic device because it may vary depending on the specific device type. This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> defines a policy that is specific to the use case of a <abbr class="dyn-abbr"><a href="#abbr_STIP">STIP</a></abbr> device.</td>
             </tr>
         </table>
@@ -3279,7 +3309,7 @@
             </tr>
         </table>
         <h3 id="obj-fia" class="indexable" data-level="3">A.2.2 Identification and Authentication (FIA)</h3>
-         <span style="" class="comment " id="Comment-4-">All objective <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> need a review to determine if they should change status in the next release of this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>.</span> 
+         <span style="" class="comment " id="Comment-5-">All objective <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> need a review to determine if they should change status in the next release of this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>.</span> 
         <div class="comp" id="FIA_ESTC_EXT.2">
             <h4>FIA_ESTC_EXT.2 Client Use of TLS-Unique Value</h4>
             <div class="element">
@@ -3287,7 +3317,7 @@
                     <a href="#FIA_ESTC_EXT.2.1" class="abbr">FIA_ESTC_EXT.2.1</a>
                 </div>
                 <div class="reqdesc">
-                    The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall generate tls-unique values and integrate them into EST requests it generates in accordance with RFC 7030 section 3.5.
+                     <span style="" class="comment " id="Comment-6-">The parent requirement for this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> (<a href="#FIA_ESTC_EXT.1">FIA_ESTC_EXT.1</a>) will likely be moved to the X.509 <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr>, whose version of <a href="#FIA_ESTC_EXT.1">FIA_ESTC_EXT.1</a> does not include a requirement to include a tls-unique value. A determination will need to be made on if this requirement should be included in a future version of the X.509 <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr>, or how this requirement should be handled in another case. </span> The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall generate tls-unique values and integrate them into EST requests it generates in accordance with RFC 7030 section 3.5.
                     <div class="appnote">
                         <span class="note-header">Application Note: </span><span class="note"> This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> describes an optional element of RFC 7030 that strengthens the authentication provided by EST. While RFC 7030 requires EST servers to validate the tls-unique values when presented, this requirement is not implemented in current EST servers. <a href="#FIA_ESTC_EXT.2.1">FIA_ESTC_EXT.2.1</a> will be integrated into <a href="#FIA_ESTC_EXT.1">FIA_ESTC_EXT.1</a> in a subsequent release of this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> and should be claimed if the EST implementation supports it. </span>
                     </div>
@@ -3383,7 +3413,7 @@
                 <td></td>
             </tr>
             <tr data-sortkey="FDP_CER_EXT.5.8">
-                <td>Certificate generation</td><td><span style="" class="comment " id="Comment-3-">There is an auditable event designated "Success" here but nothing listed for "Failure". Should an additional event be included for a failure case?</span> Success: [<b>selection</b>: <span class="selectable-content" id="_s_326">certificate value</span>, <span class="selectable-content" id="_s_327">certificate object identifier</span>]</td>
+                <td>Certificate generation</td><td><span style="" class="comment " id="Comment-4-">There is an auditable event designated "Success" here but nothing listed for "Failure". Should an additional event be included for a failure case?</span> Success: [<b>selection</b>: <span class="selectable-content" id="_s_326">certificate value</span>, <span class="selectable-content" id="_s_327">certificate object identifier</span>]</td>
             </tr>
             <tr data-sortkey="FDP_CRL_EXT.1">
                 <td rowspan="2"><a href="#FDP_CRL_EXT.1">FDP_CRL_EXT.1</a></td><td style="display:none"></td>
@@ -3445,7 +3475,7 @@
             <tr style="display:none;" data-sortkey="FIA_ESTC_EXT.1#">
                 <td></td>
             </tr>
-            <tr data-sortkey="FIA_ESTC_EXT.1.11">
+            <tr data-sortkey="FIA_ESTC_EXT.1.12">
                 <td>EST requests</td><td>N/A</td>
             </tr>
             <tr data-sortkey="FTA_TAB.1/TLS">
@@ -3592,6 +3622,7 @@
             <div class="statustag">
                 <b><i>The inclusion of this selection-based component depends upon selection in <a href="#FIA_ENR_EXT.1.1">FIA_ENR_EXT.1.1</a>. </i></b>
             </div>
+             <span class="description"> <span style="" class="comment " id="Comment-3-">This component will ostensibly be moved to the definitions present in the X.509 <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr>. However, we currently do not have a concrete way to accurately model its status in this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>. In this case, there is no way to provide guidance on what selections must be made in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> in order to make the X.509 <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr> applicable to the product, nor a way to model what selections must be made in the <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr> to make its ESTC requirements applicable to the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>. </span> </span> 
             <div class="element">
                 <div class="reqid" id="FIA_ESTC_EXT.1.1">
                     <a href="#FIA_ESTC_EXT.1.1" class="abbr">FIA_ESTC_EXT.1.1</a>
@@ -4373,7 +4404,7 @@
                             </tr>
                         </table>
                         <h4 id="ext-comp-FIA_ESTC_EXT.2.1">FIA_ESTC_EXT.2.1</h4>
-                        The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall generate tls-unique values and integrate them into EST requests it generates in accordance with RFC 7030 section 3.5.
+                         <span style="" class="comment " id="Comment-6-">The parent requirement for this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> (<a href="#FIA_ESTC_EXT.1">FIA_ESTC_EXT.1</a>) will likely be moved to the X.509 <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr>, whose version of <a href="#FIA_ESTC_EXT.1">FIA_ESTC_EXT.1</a> does not include a requirement to include a tls-unique value. A determination will need to be made on if this requirement should be included in a future version of the X.509 <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr>, or how this requirement should be handled in another case. </span> The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall generate tls-unique values and integrate them into EST requests it generates in accordance with RFC 7030 section 3.5.
                     </div>
                 </div>
             </span><span data-sortkey="Certificate Pinning">
