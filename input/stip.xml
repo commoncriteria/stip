@@ -3293,7 +3293,11 @@ legacy cipher suites. -->
             FDP_CER_EXT.3 Certificate Issuance Rules for Server Certificates
           </dependencies>
           <f-element id="fdp-csir-ext-1e1">
-            <title>The TSF shall <selectables>
+            <title>
+              <comment>This requirement can be pulled from the X.509 FP, but it is unclear as to how this SFR should be modeled. A minor refinement would be necessary to remove some selections present in the FP that STIP does not include. 
+                Since the FP is intended to be the single point of definition for a re-used SFR, it is not desirable to manually reproduce the text of the SFR in this PP-Module (i.e. in the modified SFRs section).
+              </comment>
+              The TSF shall <selectables>
               <selectable id="genStatus">generate certificate status information</selectable>
               <selectable>only issue certificates with validity period of less than [24 hours]</selectable>
             </selectables>.
@@ -5520,6 +5524,9 @@ legacy cipher suites. -->
           </dependencies>
           <f-element id="fdp-crl-ext-1e1">
             <title>
+              <comment>This requirement can be pulled from the X.509 FP, but it is unclear as to how this SFR should be modeled. A minor refinement would be necessary to iterate FCS_COP.1 to the NDcPP iteration of this SFR for signature generation. In the case of a Base-PP, this would 
+                be a trivial inclusion, but since the FP is intended to be the single point of definition for a re-used SFR, it is not desirable to manually reproduce the text of the SFR in this PP-Module (i.e. in the modified SFRs section).
+              </comment>
               When the TSF is configured to generate CRLs, the TSF shall verify that all
               mandatory fields in any generated CRL contains values in accordance with ITU-T
               Recommendation X.509. At a minimum, the following items shall be validated: <h:ol type="a">
@@ -5628,7 +5635,12 @@ legacy cipher suites. -->
             FMT_SMR.1 Security Roles
           </dependencies>
           <f-element id="fdp-csi-ext-1e1">
-            <title>The TSF shall generate certificate status information whose format complies with
+            <title>
+              <comment>This requirement can be pulled from the X.509 FP, but it is unclear as to how this SFR should be modeled. Some minor refinements would be necessary (e.g., the FP defines only a single 
+                "administrative action" in FDP_CSI_EXT.1.2 that STIP would want to refine to provide a selection between the Security Administrator and CA Operations Staff). In the case of a Base-PP, this would 
+                be a trivial inclusion, but since the FP is intended to be the single point of definition for a re-used SFR, it is not desirable to manually reproduce the text of the SFR in this PP-Module (i.e. in the modified SFRs section).
+              </comment>
+              The TSF shall generate certificate status information whose format complies with
               <selectables>
                 <!-- Is X.509v2 correct or should it be v3? -->
                 <selectable id="CRLs">ITU-T Recommendation X.509v2 CRL</selectable>
@@ -5759,6 +5771,9 @@ legacy cipher suites. -->
           </dependencies>
           <f-element id="fdp-ocsp-ext-1e1">
             <title>
+              <comment>This requirement can be pulled from the X.509 FP, but it is unclear as to how this SFR should be modeled. No refinements are necessary to this SFR, but since the FP is intended to be the single point of definition for a re-used SFR, it is not desirable to manually reproduce the text of the SFR in this PP-Module (i.e. in the modified SFRs section or through duplicating the SFR content).
+              </comment>
+              <!--With the move to the X.509 package, FDP_OCSPS_EXT.1 is incorporated into other requirements and is being removed from this PP-Module.-->
               When the TSF is configured to generate OCSP responses of the basic response
               type, the TSF shall ensure that all mandatory fields in the OCSP basic response
               contain values in accordance with RFC 6960. At a minimum, the following items
@@ -5821,63 +5836,6 @@ legacy cipher suites. -->
           </f-element>
           <audit-event>
             <audit-event-descr>Failure to generate certificate status information</audit-event-descr>
-            <audit-event-info>N/A</audit-event-info>
-          </audit-event>
-        </f-component>
-        
-        <ext-comp-def fam-id="FDP_OCSPS_EXT" title="Online Certificate Status Protocol Stapling">
-          <fam-behavior>Components in this family define requirements for the usage of OCSP stapling as a method of
-            communicating certificate revocation status information.
-          </fam-behavior>
-        </ext-comp-def>
-        
-        <f-component name="OCSP Stapling" cc-id="fdp_ocsps_ext.1" id="fdp-ocsps-ext-1">
-          <depends on-sel="stapling"/>
-          <consistency-rationale>
-            This SFR applies to ability of the TOE to implement OCSP stapling for its own issued certificates, which is not defined in the Base-PP.
-            This SFR applies to OCSP stapling which is not defined in the Base-PP.</consistency-rationale>
-          <comp-lev> requires the TSF to perform OCSP Stapling by including OCSP response
-            information in a TLS Certificate Status Message.</comp-lev>
-          <management>No specific management functions are identified.</management>
-          <audit>The following actions should be auditable if FAU_GEN.1 Audit Data Generation is included in the
-            PP/ST:<h:ul>
-              <h:li>Failure to include certificate status information in TLS handshake message.</h:li>
-            </h:ul>
-          </audit>
-          <dependencies>FDP_OCSP_EXT.1 OCSP Basic Response Generation</dependencies>
-          <f-element id="fcs-ocsps-ext-1e1">
-            <title>
-              The TSF shall be able to process
-              <!-- Note: more generalized version of previous not about CRL RFCs - are any of the RFCs cited in 1.0 out of date and in need of replacement -->
-              <selectables>
-                <selectable>Certificate Status Request extension in
-                  accordance with RFC 6066 section 8</selectable>
-                <selectable>Certificate Status Request List V2 in
-                  accordance with RFC 6961</selectable>
-              </selectables>.
-            </title>
-          </f-element>
-          <f-element id="fcs-ocsps-ext-1e2">
-            <title>The TSF shall <selectables>
-              <selectable>generate OCSP response information in accordance with
-                FDP_OCSP_EXT.1</selectable>
-              <selectable>interface with an OCSP provider to obtain an OCSP response</selectable>
-            </selectables> and populate a Certificate Status Message in accordance with RFC 6066.</title>
-            <note role="application">This SFR must be claimed in situations where the TOE computes OCSP responses
-              for inclusion in TLS certificate status messages. It may also be claimed if the TOE
-              includes a separate certificate status component (CRL or OCSP provider) and
-              provides an interface to an internal or external OCSP responder that processes
-              certificate status information provided to it by the TOE. When claimed, certificate
-              status is provided via OCSP stapling contained within TLS Server certificate status
-              message(s).</note>
-            <aactivity>
-              <no-tests>For any selection, evaluation activities are included in the TSS, guidance portions, and <xref to="unrevoked-cert"/> and <xref to="revoked-cert"/> within
-                the Test portion of the evaluation activities in FDP_CSI_EXT.1. Additional activities if the first option of
-                FDP_OCSPS_EXT.1.2 is claimed are covered under the evaluation activities for FDP_OCSP_EXT.1.</no-tests>
-            </aactivity>
-          </f-element>
-          <audit-event>
-            <audit-event-descr>Failure to include certificate status information in TLS handshake message</audit-event-descr>
             <audit-event-info>N/A</audit-event-info>
           </audit-event>
         </f-component>
@@ -6806,7 +6764,12 @@ legacy cipher suites. -->
             FMT_SMR.1 Security Roles
           </dependencies>
           <f-element id="fdp-csi-ext-2e1">
-            <title>The TSF shall generate certificate status information for issued client certificates whose format complies with
+            
+            <title>
+              <comment>This requirement can be pulled from the X.509 FP, but it is unclear as to how this SFR should be modeled. This SFR would likely be an iteration of FDP_CSI_EXT.1 in the FP, with some minor refinements (e.g., the FP defines only a single 
+                "administrative action" in FDP_CSI_EXT.1.2 that STIP would want to refine to provide a selection between the Security Administrator and CA Operations Staff). Like with FDP_CSI_EXT.1, it is not desirable to manually reproduce the text of the SFR in this PP-Module (i.e. in the modified SFRs section).
+              </comment>
+              The TSF shall generate certificate status information for issued client certificates whose format complies with
               <selectables>
                 <selectable>ITU-T Recommendation X.509 CRL</selectable>
                 <selectable>the OCSP standard as defined by RFC 6960</selectable>
