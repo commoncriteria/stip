@@ -2723,7 +2723,14 @@ legacy cipher suites. -->
             FMT_SMR.1 Security Roles
           </dependencies>
           <f-element id="fdp-cer-ext-1e1">
-            <title>The TSF shall implement a certificate profile function for TLS server certificates
+            <title>
+              <comment>
+                This SFR can be pulled as an iteration of FDP_CER_EXT.1 from the X.509 FP, however the FP provides customizability in its certificate profile definitions 
+                that the PP-Module version does not specify a position on. A review of these two versions of the SFRs is needed to determine the appropriate assignments/selections such that 
+                the configuration is comparable to its old definitions. Additionally, there is currently no syntactical or administrative 
+                way to provide guidance on what selections/assignments must be made in the FP from the perspective of this PP-Module. There is also no way to provide guidance on what selections must be made in the Base-PP in order to 
+                make the X.509 FP applicable to the product.
+              </comment>The TSF shall implement a certificate profile function for TLS server certificates
               issued by a CA embedded within the TOE, and shall ensure that issued certificates
               are consistent with configured profiles.</title>
           </f-element>
@@ -6336,7 +6343,14 @@ legacy cipher suites. -->
             FMT_SMR.1 Security Roles
           </dependencies>
           <f-element id="fdp-cer-ext-4e1">
-            <title>The TSF shall implement a certificate profile function for TLS client certificates
+            <title>
+              <comment>
+                This SFR can be pulled as an iteration of FDP_CER_EXT.1 from the X.509 FP, however the FP provides customizability in its certificate profile definitions 
+                that the PP-Module version does not specify a position on. A review of these two versions of the SFRs is needed to determine the appropriate assignments/selections such that 
+                the configuration is comparable to its old definitions. Additionally, there is currently no syntactical or administrative 
+                way to provide guidance on what selections/assignments must be made in the FP from the perspective of this PP-Module. There is also no way to provide guidance on what selections must be made in the Base-PP in order to 
+                make the X.509 FP applicable to the product.
+              </comment>The TSF shall implement a certificate profile function for TLS client certificates
               issued by a CA embedded within the TOE, and shall ensure that issued certificates
               are consistent with configured profiles.</title>
             <note role="application">
