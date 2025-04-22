@@ -1058,7 +1058,7 @@ expected to enforce.<h:p/>
               the certificate enrollment process always requires the TSF to validate a presented certificate.</consistency-rationale> 
             <description> This SFR is selection-based in the <h:a href="https://www.niap-ccevs.org/protectionprofiles/511">Functional Package for X.509, version 1.0</h:a> but 
               is mandatory when this PP-Module is claimed. FIA_ENR_EXT.1 requires this PP-Module to generate certificate requests
-              using either PKCS#10 or Enrollment over Secure Transport (EST). If PKCS#10 is claimed, the TSF must be able to apply this SFR to the certificate repsonse signed
+              using either PKCS#10 or Enrollment over Secure Transport (EST). If PKCS#10 is claimed, the TSF must be able to apply this SFR to the certificate response signed
               by an external CA. If EST is claimed, the TSF must be able to apply this SFR to the X.509 certificate presented by an EST server.</description>
             <no-change/>
           </base-sfr-spec>
@@ -1249,7 +1249,7 @@ expected to enforce.<h:p/>
               </h:ol>
             </title>
             <note role="application">
-              The "Start-up and shtudown of the audit functions" event is identical to the event defined in the Base-PP's iteration of FAU_GEN.1.
+              The "Start-up and shutdown of the audit functions" event is identical to the event defined in the Base-PP's iteration of FAU_GEN.1.
               The TOE is not required to have two separate events for this behavior if there is only a single audit stream that which all audit events use.
               If the TOE does maintain a separate logging facility for STIP-related behavior, then this event must be addressed for it. Note that if 
               the audit functions cannot be started and stopped separately from the TOE itself, then auditing the start-up and shutdown of the TOE is sufficient to address this.
@@ -1445,7 +1445,7 @@ expected to enforce.<h:p/>
                     evaluator shall compare the ciphertext with the result of encryption of the same inputs with a known
                     good implementation.
                     <h:p/>
-                    <h:b>Variable Assocated Data Test</h:b>
+                    <h:b>Variable Associated Data Test</h:b>
                     <h:p/>
                     For each supported key size and associated data length, and any supported payload length, nonce length,
                     and tag length, the evaluator shall supply one key value, one nonce value, and 10 pairs of associated data
@@ -1583,7 +1583,7 @@ expected to enforce.<h:p/>
               and secret keys referenced by this SFR</note>
             <aactivity>
               <TSS>The evaluator will check the TSS to ensure it lists each persistent secret and private key needed to meet
-                the requirements in the ST. For each of these items, the evaluatorshall confirm that the TSS lists for what
+                the requirements in the ST. For each of these items, the evaluator shall confirm that the TSS lists for what
                 purpose it is used, and how it is stored, and that the storage is hardware-protected.<h:p/></TSS>
               <Guidance>There are no guidance EAs for this component.<h:p/></Guidance>
               <Tests>There are no test EAs for this component.</Tests>
@@ -2009,7 +2009,7 @@ expected to enforce.<h:p/>
               <h:p/></Guidance>
               <Tests>Using the setup for <xref to="tttc-ciphers"/> of FCS_TTTC_EXT.1.1, the evaluator shall establish one or more trusted
                 subordinate CAs by issuing them valid CA certificates from the trusted CA. The evaluator shall establish a
-                certificate status capability for both the trusted subordinate CAsand the trusted CA that uses a method
+                certificate status capability for both the trusted subordinate CAs and the trusted CA that uses a method
                 supported by the TSF. The evaluator shall also establish an untrusted CA to use a self-signed CA certificate
                 not loaded into the TSF trust store. The evaluator shall establish one or more requested servers to use a
                 valid TLS version and cipher suite combination and to respond using valid TLS handshake messages except
@@ -2033,7 +2033,7 @@ expected to enforce.<h:p/>
                     evaluator shall ensure the subordinate CA is included in the certificate chain provided by the requested
                     server and the revocation information is available. The evaluator shall confirm that authentication fails.</test>
                   <test>The evaluator shall issue a valid certificate for the requested server from the subordinate CA, and
-                    establish valid revocation information from the subordinate CA using a supported mechanism for endentity certificates, indicating the requested server’s certificate is revoked. The evaluator shall ensure the
+                    establish valid revocation information from the subordinate CA using a supported mechanism for end-entity certificates, indicating the requested server’s certificate is revoked. The evaluator shall ensure the
                     subordinate CA is included in the certificate chain provided by the requested server and ensure the
                     revocation information is not available to the TSF. The evaluator shall confirm that the default behavior
                     for revocation information not available is performed by the TSF. If this behavior is configurable (the first
@@ -2819,7 +2819,7 @@ legacy cipher suites. -->
                   the current time and a notAfter value that does not precede the value
                   specified in notBefore.</h:li>
                 <h:li>The issuer field is not empty and is populated with the
-                  <assignable>authrozied role(s)</assignable>-configured CA name.</h:li>
+                  <assignable>authorized role(s)</assignable>-configured CA name.</h:li>
                 <h:li>The signature field and the algorithm in the subjectPublicKeyInfo field
                   shall contain the OID for a signature algorithm specified in
                   FCS_COP.1.</h:li>
@@ -4434,13 +4434,13 @@ legacy cipher suites. -->
                     <!-- Note: changed conditional statement to make it more obvious what the trigger is for this test --> 
                     (conditional, both 'mutual authentication inspection' and 'send an empty certificate list as part of the inspection operation' are selected in FDP_TEP_EXT.1.7):
                     The evaluator shall establish a server to send certificate requests in its TLS handshake. 
-                    The evaluator shall extablish a monitored client configured to provide a valid client certificate in response to a certificate request. 
+                    The evaluator shall establish a monitored client configured to provide a valid client certificate in response to a certificate request. 
                     The evaluator shall follow operational guidance to configure the TLS inspection proxy policy to send an empty certificate list in a certificate message to the server, 
                     and initiate a TLS request from a monitored client to the server through the TOE. 
                     The evaluator shall observe network traffic between the TOE and the requested server and confirm that the TOE sends an empty certificate list to the server after receiving the certificate request.
                     <h:p/>
                     Using the same server, the evaluator shall follow operational guidance to configure the TSF to perform mutual authentication inspection with the server, 
-                    and initiate a TLS request from the same monitored client ro the same requested server through the TOE. 
+                    and initiate a TLS request from the same monitored client to the same requested server through the TOE. 
                     The evaluator shall observe network traffic between the TOE and the requested server and confirm the TOE sends a certificate message containing a client certificate representing the monitored client.
                   </test>
                 </testlist>
@@ -4608,7 +4608,7 @@ legacy cipher suites. -->
                   correspond to SFR-relevant functionality. For example, a peer acting as
                   a web server should have TLS Web Server Authentication listed as an
                   extendedKeyUsage parameter of its X.509v3 certificate. The TOE
-                  ensuresthat the relevant extensions in each certificate in the chain such
+                  ensures that the relevant extensions in each certificate in the chain such
                   as the extendedKeyUsage parameters of the leaf certificate correspond
                   to the SFR-relevant functionality they are used with.</h:li>
               </h:ol><h:p/>
@@ -4652,7 +4652,7 @@ legacy cipher suites. -->
               <Guidance>There are no guidance EAs for this component.<h:p/></Guidance>
               <Tests>
                 The evaluator shall demonstrate that checking the validity of a certificate is performed when a certificate
-                is used in an authentication of a requested server certificate, or, if mutual authentication for throughtraffic processing is supported, a monitored client certificate, as well as CA certificates included in the
+                is used in an authentication of a requested server certificate, or, if mutual authentication for through traffic processing is supported, a monitored client certificate, as well as CA certificates included in the
                 certificate path and any for OCSP responses used in validating these certificates. The evaluator shall
                 perform the following tests for FIA_X509_EXT.1.1/STIP. These tests must be repeated for each distinct
                 security function that uses X.509v3 certificates in association with thru-traffic processing. For
@@ -5914,7 +5914,7 @@ legacy cipher suites. -->
                 The TSF shall be able to obtain EST server and CA certificates for authorized EST
                 services via <selectables>
                   <selectable>implicit Trust Anchor/Trust Store (TA) configured by 
-                    <assignable>authorzed role(s)</assignable></selectable>
+                    <assignable>authorized role(s)</assignable></selectable>
                   <selectable>an explicit TA populated
                     via a TLS-authenticated EST CA certificate request in accordance with RFC 7030
                     section 4.1.2 and FCS_TLSC_EXT.1</selectable>
@@ -6566,7 +6566,7 @@ legacy cipher suites. -->
                    user.</h:li>
                 <h:li>If the basicConstraints field is configured to be present, it shall be
                   populated with the value cA=False.</h:li>
-                <h:li>If configured to be present, th epolicy OID and policy mapping fields shall be populated according to 
+                <h:li>If configured to be present, the policy OID and policy mapping fields shall be populated according to 
                   <selectables linebreak="yes">
                     <selectable>a <h:b><selectables>
                         <selectable>Security Administrator</selectable>
@@ -6593,7 +6593,7 @@ legacy cipher suites. -->
                     maximum validity duration value as configured by a <assignable>authorized role(s)</assignable> user.</h:li>
                   <h:li>If the basicConstraints field is configured to be present, it shall be
                     populated with the value cA=False</h:li>
-                  <h:li>If configured to be present, th epolicy OID and policy mapping fields shall be populated according to 
+                  <h:li>If configured to be present, the policy OID and policy mapping fields shall be populated according to 
                     <selectables linebreak="yes">
                       <selectable>a <assignable>authorized role(s)</assignable> configured mapping from validated client certificate values to
                         one or more stated policy OIDs</selectable>
@@ -7284,7 +7284,7 @@ legacy cipher suites. -->
                   connection between the TSF and the requested server.
                 </test>
                 <test>The evaluator shall cause the TSF to initiate renegotiation with the requested server and verify
-                  that the Client Hello message received by the requested server containsthe renegotiation_info extension.
+                  that the Client Hello message received by the requested server contains the renegotiation_info extension.
                   The evaluator shall cause the requested server to send a Server Hello message with a renegotiation info
                   extension containing data in which one or both of the client_verify_data or server_verify_data value is
                   modified. The evaluator shall verify that the TSF terminates the connection.
