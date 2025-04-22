@@ -1188,7 +1188,7 @@ provide all of its security functionality.
               This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> also defines EST as a supported method of obtaining certificates, which may use mutually-authenticated TLS. 
               This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> can therefore also be triggered if the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> claims <a href="#FIA_ESTC_EXT.1">FIA_ESTC_EXT.1</a>, dependent on selection in <a href="#FIA_ESTC_EXT.1.4">FIA_ESTC_EXT.1.4</a>. </span></div><h4 id="@id" class="indexable" data-level="4">5.1.1.2 Identification and Authentication (FIA)</h4><div class="comp" id="@id"><h4>FIA_X509_EXT.1: X.509 Certificate Validation</h4><span class="description"> This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is selection-based in the <a href="https://www.niap-ccevs.org/protectionprofiles/511">Functional Package for X.509, version 1.0</a> but 
               is mandatory when this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> is claimed. <a href="#FIA_ENR_EXT.1">FIA_ENR_EXT.1</a> requires this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> to generate certificate requests
-              using either PKCS#10 or Enrollment over Secure Transport (EST). If PKCS#10 is claimed, the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> must be able to apply this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> to the certificate repsonse signed
+              using either PKCS#10 or Enrollment over Secure Transport (EST). If PKCS#10 is claimed, the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> must be able to apply this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> to the certificate response signed
               by an external <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>. If EST is claimed, the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> must be able to apply this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> to the X.509 certificate presented by an EST server.</span></div><div class="comp" id="@id"><h4>FIA_X509_EXT.3: X.509 Certificate Requests</h4><span class="description">In the <a href="https://www.niap-ccevs.org/protectionprofiles/511">Functional Package for X.509, version 1.0</a>, this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is selection-based and is claimed if the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> asserts an identity included in an X.509 certificate and requests a certificate from either an 
               external or embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>. A <abbr class="dyn-abbr"><a href="#abbr_STIP">STIP</a></abbr> <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> must present an X.509 certificate to an external entity as part of TLS session proxying. The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> may obtain this certificate either using PKCS#10 (covered by this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>) or
               through Enrollment over Secure Transport (EST), which is covered by the selection-based <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> <a href="#FIA_ESTC_EXT.1">FIA_ESTC_EXT.1</a>. Therefore, the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author only claims FIA_X509_EXT.3 if PKCS#10 is selected in <a href="#FIA_ENR_EXT.1">FIA_ENR_EXT.1</a>.</span></div><h4 id="@id" class="indexable" data-level="4">5.1.1.3 Trusted Path/Channels (FTP)</h4><div class="comp" id="@id"><h4>FTP_ITC.1: Inter-TSF Trusted Channel</h4><span class="description">
@@ -1289,7 +1289,7 @@ provide all of its security functionality.
             <div class="appnote"><span class="note-header">Application
       Note:
     </span><span class="note">
-              The "Start-up and shtudown of the audit functions" event is identical to the event defined in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>'s iteration of FAU_GEN.1.
+              The "Start-up and shutdown of the audit functions" event is identical to the event defined in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>'s iteration of FAU_GEN.1.
               The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is not required to have two separate events for this behavior if there is only a single audit stream that which all audit events use.
               If the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> does maintain a separate logging facility for <abbr class="dyn-abbr"><a href="#abbr_STIP">STIP</a></abbr>-related behavior, then this event must be addressed for it. Note that if 
               the audit functions cannot be started and stopped separately from the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> itself, then auditing the start-up and shutdown of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is sufficient to address this.
@@ -1464,7 +1464,7 @@ provide all of its security functionality.
                     evaluator shall compare the ciphertext with the result of encryption of the same inputs with a known
                     good implementation.
                     <p></p>
-                    <b>Variable Assocated Data Test</b>
+                    <b>Variable Associated Data Test</b>
                     <p></p>
                     For each supported key size and associated data length, and any supported payload length, nonce length,
                     and tag length, the evaluator shall supply one key value, one nonce value, and 10 pairs of associated data
@@ -1599,7 +1599,7 @@ provide all of its security functionality.
               
               
             <div class="eacategory"><abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr></div><div class="ea"><div class="ea">The evaluator will check the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> to ensure it lists each persistent secret and private key needed to meet
-                the requirements in the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>. For each of these items, the evaluatorshall confirm that the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> lists for what
+                the requirements in the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>. For each of these items, the evaluator shall confirm that the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> lists for what
                 purpose it is used, and how it is stored, and that the storage is hardware-protected.<p></p></div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea">There are no guidance EAs for this component.<p></p></div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">There are no test EAs for this component.</div></div></div></div></div>
         
         
@@ -1989,7 +1989,7 @@ provide all of its security functionality.
               <p></p></div>
               <div class="eacategory">Tests</div><div class="ea">Using the setup for <a href="#tttc-ciphers" class="dynref">Test FCS_TTTC_EXT.1.1:1</a> of <a href="#FCS_TTTC_EXT.1.1">FCS_TTTC_EXT.1.1</a>, the evaluator shall establish one or more trusted
                 subordinate CAs by issuing them valid <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> certificates from the trusted <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>. The evaluator shall establish a
-                certificate status capability for both the trusted subordinate CAsand the trusted <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> that uses a method
+                certificate status capability for both the trusted subordinate CAs and the trusted <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> that uses a method
                 supported by the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>. The evaluator shall also establish an untrusted <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> to use a self-signed <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> certificate
                 not loaded into the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> trust store. The evaluator shall establish one or more requested servers to use a
                 valid TLS version and cipher suite combination and to respond using valid TLS handshake messages except
@@ -2017,7 +2017,7 @@ provide all of its security functionality.
                     server and the revocation information is available. The evaluator shall confirm that authentication fails.</li>
                   <li class="test-"><a id="_t_28" class="defined" href="#_t_28">Test FCS_TTTC_EXT.1.3:4</a>:
       The evaluator shall issue a valid certificate for the requested server from the subordinate <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>, and
-                    establish valid revocation information from the subordinate <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> using a supported mechanism for endentity certificates, indicating the requested server’s certificate is revoked. The evaluator shall ensure the
+                    establish valid revocation information from the subordinate <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> using a supported mechanism for end-entity certificates, indicating the requested server’s certificate is revoked. The evaluator shall ensure the
                     subordinate <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> is included in the certificate chain provided by the requested server and ensure the
                     revocation information is not available to the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>. The evaluator shall confirm that the default behavior
                     for revocation information not available is performed by the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>. If this behavior is configurable (the first
@@ -3771,13 +3771,13 @@ provide all of its security functionality.
                      
                     (conditional, both 'mutual authentication inspection' and 'send an empty certificate list as part of the inspection operation' are selected in <a href="#FDP_TEP_EXT.1.7">FDP_TEP_EXT.1.7</a>):
                     The evaluator shall establish a server to send certificate requests in its TLS handshake. 
-                    The evaluator shall extablish a monitored client configured to provide a valid client certificate in response to a certificate request. 
+                    The evaluator shall establish a monitored client configured to provide a valid client certificate in response to a certificate request. 
                     The evaluator shall follow operational guidance to configure the TLS inspection proxy policy to send an empty certificate list in a certificate message to the server, 
                     and initiate a TLS request from a monitored client to the server through the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>. 
                     The evaluator shall observe network traffic between the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> and the requested server and confirm that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> sends an empty certificate list to the server after receiving the certificate request.
                     <p></p>
                     Using the same server, the evaluator shall follow operational guidance to configure the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> to perform mutual authentication inspection with the server, 
-                    and initiate a TLS request from the same monitored client ro the same requested server through the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>. 
+                    and initiate a TLS request from the same monitored client to the same requested server through the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>. 
                     The evaluator shall observe network traffic between the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> and the requested server and confirm the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> sends a certificate message containing a client certificate representing the monitored client.
                   </li>
                 </ul></span>
@@ -3910,7 +3910,7 @@ provide all of its security functionality.
                   correspond to <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>-relevant functionality. For example, a peer acting as
                   a web server should have TLS Web Server Authentication listed as an
                   extendedKeyUsage parameter of its X.509v3 certificate. The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>
-                  ensuresthat the relevant extensions in each certificate in the chain such
+                  ensures that the relevant extensions in each certificate in the chain such
                   as the extendedKeyUsage parameters of the leaf certificate correspond
                   to the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>-relevant functionality they are used with.</li>
               </ol><p></p>
@@ -3956,7 +3956,7 @@ provide all of its security functionality.
                 designated a trust anchor (e.g., for an intermediate <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>), only when it is loaded onto the device.
               <p></p></div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea">There are no guidance EAs for this component.<p></p></div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
                 The evaluator shall demonstrate that checking the validity of a certificate is performed when a certificate
-                is used in an authentication of a requested server certificate, or, if mutual authentication for throughtraffic processing is supported, a monitored client certificate, as well as <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> certificates included in the
+                is used in an authentication of a requested server certificate, or, if mutual authentication for through traffic processing is supported, a monitored client certificate, as well as <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> certificates included in the
                 certificate path and any for OCSP responses used in validating these certificates. The evaluator shall
                 perform the following tests for <a href="#FIA_X509_EXT.1.1/STIP">FIA_X509_EXT.1.1/STIP</a>. These tests must be repeated for each distinct
                 security function that uses X.509v3 certificates in association with thru-traffic processing. For
@@ -5632,7 +5632,7 @@ provide all of its security functionality.
                    user.</li>
                 <li>If the basicConstraints field is configured to be present, it shall be
                   populated with the value cA=False.</li>
-                <li>If configured to be present, th epolicy OID and policy mapping fields shall be populated according to 
+                <li>If configured to be present, the policy OID and policy mapping fields shall be populated according to 
                   [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_313">a <b>[<b>selection</b>: <span class="selectable-content" id="_s_314">Security Administrator</span>, <span class="selectable-content" id="_s_315"><abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> Operations Staff</span>]</b> configured mapping from validated client certificate values to
                         one or more stated policy OIDs</span></li><li style=""><span class="selectable-content" id="_s_316">[<b>assignment</b>: 
      <span class="assignable-content">list of rules</span>]</span></li></ul>].
@@ -6161,7 +6161,7 @@ provide all of its security functionality.
                 </li>
                 <li class="test-"><a id="_t_114" class="defined" href="#_t_114">Test FCS_TTTC_EXT.4:3</a>:
       The evaluator shall cause the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> to initiate renegotiation with the requested server and verify
-                  that the Client Hello message received by the requested server containsthe renegotiation_info extension.
+                  that the Client Hello message received by the requested server contains the renegotiation_info extension.
                   The evaluator shall cause the requested server to send a Server Hello message with a renegotiation info
                   extension containing data in which one or both of the client_verify_data or server_verify_data value is
                   modified. The evaluator shall verify that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> terminates the connection.
@@ -6290,7 +6290,7 @@ provide all of its security functionality.
                 The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall be able to obtain EST server and <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> certificates for authorized EST
                 services via [<b>selection</b>: <span class="selectable-content" id="_s_271">implicit Trust Anchor/Trust Store (<abbr class="dyn-abbr"><a href="#abbr_TA">TA</a></abbr>) configured by 
                     [<b>assignment</b>: 
-     <span class="assignable-content">authorzed role(s)</span>]</span>, <span class="selectable-content" id="_s_272">an explicit <abbr class="dyn-abbr"><a href="#abbr_TA">TA</a></abbr> populated
+     <span class="assignable-content">authorized role(s)</span>]</span>, <span class="selectable-content" id="_s_272">an explicit <abbr class="dyn-abbr"><a href="#abbr_TA">TA</a></abbr> populated
                     via a TLS-authenticated EST <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> certificate request in accordance with RFC 7030
                     section 4.1.2 and FCS_TLSC_EXT.1</span>].
               <h4 id="ext-comp-FIA_ESTC_EXT.1.3">FIA_ESTC_EXT.1.3</h4>
@@ -6726,7 +6726,7 @@ provide all of its security functionality.
                   specified in notBefore.</li>
                 <li>The issuer field is not empty and is populated with the
                   [<b>assignment</b>: 
-     <span class="assignable-content">authrozied role(s)</span>]-configured <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> name.</li>
+     <span class="assignable-content">authorized role(s)</span>]-configured <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> name.</li>
                 <li>The signature field and the algorithm in the subjectPublicKeyInfo field
                   shall contain the OID for a signature algorithm specified in
                   FCS_COP.1.</li>
@@ -6929,7 +6929,7 @@ provide all of its security functionality.
      <span class="assignable-content">authorized role(s)</span>] user.</li>
                   <li>If the basicConstraints field is configured to be present, it shall be
                     populated with the value cA=False</li>
-                  <li>If configured to be present, th epolicy OID and policy mapping fields shall be populated according to 
+                  <li>If configured to be present, the policy OID and policy mapping fields shall be populated according to 
                     [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_317">a [<b>assignment</b>: 
      <span class="assignable-content">authorized role(s)</span>] configured mapping from validated client certificate values to
                         one or more stated policy OIDs</span></li><li style=""><span class="selectable-content" id="_s_318">[<b>assignment</b>: 

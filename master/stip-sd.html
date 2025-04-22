@@ -571,7 +571,7 @@ The following sections list Common Criteria and technology terms used in this do
                     evaluator shall compare the ciphertext with the result of encryption of the same inputs with a known
                     good implementation.
                     <p></p>
-                    <b>Variable Assocated Data Test</b>
+                    <b>Variable Associated Data Test</b>
                     <p></p>
                     For each supported key size and associated data length, and any supported payload length, nonce length,
                     and tag length, the evaluator shall supply one key value, one nonce value, and 10 pairs of associated data
@@ -685,7 +685,7 @@ The following sections list Common Criteria and technology terms used in this do
               
               
             <div class="eacategory">TSS</div><div class="ea"><div class="ea">The evaluator will check the TSS to ensure it lists each persistent secret and private key needed to meet
-                the requirements in the ST. For each of these items, the evaluatorshall confirm that the TSS lists for what
+                the requirements in the ST. For each of these items, the evaluator shall confirm that the TSS lists for what
                 purpose it is used, and how it is stored, and that the storage is hardware-protected.<p></p></div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea">There are no guidance EAs for this component.<p></p></div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">There are no test EAs for this component.</div></div></span></div><div class="comp" id="FCS-TTTC-EXT-1"><h4>FCS_TTTC_EXT.1 Thru-Traffic TLS Inspection Client Protocol</h4><span class="activity_pane_body"><div class="element-activity-header">FCS_TTTC_EXT.1.1</div>
               <div class="eacategory">TSS</div><div class="ea">The evaluator will check the description of this protocol in the TSS to ensure that the TLS versions and
                 cipher suites supported for inspection of TLS sessions are included. The evaluator shall check the TSS to
@@ -929,7 +929,7 @@ The following sections list Common Criteria and technology terms used in this do
               <p></p></div>
               <div class="eacategory">Tests</div><div class="ea">Using the setup for <a href="#tttc-ciphers" class="dynref">Test FCS_TTTC_EXT.1.1:1</a> of FCS_TTTC_EXT.1.1, the evaluator shall establish one or more trusted
                 subordinate CAs by issuing them valid CA certificates from the trusted CA. The evaluator shall establish a
-                certificate status capability for both the trusted subordinate CAsand the trusted CA that uses a method
+                certificate status capability for both the trusted subordinate CAs and the trusted CA that uses a method
                 supported by the TSF. The evaluator shall also establish an untrusted CA to use a self-signed CA certificate
                 not loaded into the TSF trust store. The evaluator shall establish one or more requested servers to use a
                 valid TLS version and cipher suite combination and to respond using valid TLS handshake messages except
@@ -957,7 +957,7 @@ The following sections list Common Criteria and technology terms used in this do
                     server and the revocation information is available. The evaluator shall confirm that authentication fails.</li>
                   <li class="test-"><a id="_t_28" class="defined" href="#_t_28">Test FCS_TTTC_EXT.1.3:4</a>:
       The evaluator shall issue a valid certificate for the requested server from the subordinate CA, and
-                    establish valid revocation information from the subordinate CA using a supported mechanism for endentity certificates, indicating the requested server’s certificate is revoked. The evaluator shall ensure the
+                    establish valid revocation information from the subordinate CA using a supported mechanism for end-entity certificates, indicating the requested server’s certificate is revoked. The evaluator shall ensure the
                     subordinate CA is included in the certificate chain provided by the requested server and ensure the
                     revocation information is not available to the TSF. The evaluator shall confirm that the default behavior
                     for revocation information not available is performed by the TSF. If this behavior is configurable (the first
@@ -1869,13 +1869,13 @@ The following sections list Common Criteria and technology terms used in this do
                      
                     (conditional, both 'mutual authentication inspection' and 'send an empty certificate list as part of the inspection operation' are selected in FDP_TEP_EXT.1.7):
                     The evaluator shall establish a server to send certificate requests in its TLS handshake. 
-                    The evaluator shall extablish a monitored client configured to provide a valid client certificate in response to a certificate request. 
+                    The evaluator shall establish a monitored client configured to provide a valid client certificate in response to a certificate request. 
                     The evaluator shall follow operational guidance to configure the TLS inspection proxy policy to send an empty certificate list in a certificate message to the server, 
                     and initiate a TLS request from a monitored client to the server through the TOE. 
                     The evaluator shall observe network traffic between the TOE and the requested server and confirm that the TOE sends an empty certificate list to the server after receiving the certificate request.
                     <p></p>
                     Using the same server, the evaluator shall follow operational guidance to configure the TSF to perform mutual authentication inspection with the server, 
-                    and initiate a TLS request from the same monitored client ro the same requested server through the TOE. 
+                    and initiate a TLS request from the same monitored client to the same requested server through the TOE. 
                     The evaluator shall observe network traffic between the TOE and the requested server and confirm the TOE sends a certificate message containing a client certificate representing the monitored client.
                   </li>
                 </ul></span>
@@ -1906,7 +1906,7 @@ The following sections list Common Criteria and technology terms used in this do
                 designated a trust anchor (e.g., for an intermediate CA), only when it is loaded onto the device.
               <p></p></div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea">There are no guidance EAs for this component.<p></p></div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
                 The evaluator shall demonstrate that checking the validity of a certificate is performed when a certificate
-                is used in an authentication of a requested server certificate, or, if mutual authentication for throughtraffic processing is supported, a monitored client certificate, as well as CA certificates included in the
+                is used in an authentication of a requested server certificate, or, if mutual authentication for through traffic processing is supported, a monitored client certificate, as well as CA certificates included in the
                 certificate path and any for OCSP responses used in validating these certificates. The evaluator shall
                 perform the following tests for FIA_X509_EXT.1.1/STIP. These tests must be repeated for each distinct
                 security function that uses X.509v3 certificates in association with thru-traffic processing. For
@@ -2625,7 +2625,7 @@ The following sections list Common Criteria and technology terms used in this do
                 </li>
                 <li class="test-"><a id="_t_114" class="defined" href="#_t_114">Test FCS_TTTC_EXT.4:3</a>:
       The evaluator shall cause the TSF to initiate renegotiation with the requested server and verify
-                  that the Client Hello message received by the requested server containsthe renegotiation_info extension.
+                  that the Client Hello message received by the requested server contains the renegotiation_info extension.
                   The evaluator shall cause the requested server to send a Server Hello message with a renegotiation info
                   extension containing data in which one or both of the client_verify_data or server_verify_data value is
                   modified. The evaluator shall verify that the TSF terminates the connection.
