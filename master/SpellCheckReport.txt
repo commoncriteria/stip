@@ -73,6 +73,7 @@ output/stip-release-linkable.html: certificatePolicy
 output/stip-release-linkable.html: cleartext
 output/stip-release-linkable.html: clientAuth
 output/stip-release-linkable.html: containsthe
+output/stip-release-linkable.html: customizability
 output/stip-release-linkable.html: deallocation
 output/stip-release-linkable.html: echecking
 output/stip-release-linkable.html: endentity
@@ -165,6 +166,7 @@ output/stip-release.html: cRLDistributionPoints
 output/stip-release.html: certificatePolicy
 output/stip-release.html: cleartext
 output/stip-release.html: clientAuth
+output/stip-release.html: customizability
 output/stip-release.html: deallocation
 output/stip-release.html: echecking
 output/stip-release.html: ensuresthat
@@ -368,6 +370,7 @@ output/stip.html: certificatePolicy
 output/stip.html: cleartext
 output/stip.html: clientAuth
 output/stip.html: containsthe
+output/stip.html: customizability
 output/stip.html: deallocation
 output/stip.html: echecking
 output/stip.html: endentity
