@@ -60,6 +60,7 @@
 * Warning: Detected an empty _p_ element./Module[1]""/sec:Security_Objectives[1]""/sec:Security_Objectives_for_the_Operational_Environment[1]""/SOEs[1]""/SOE[1]""/description[1]"The opera"/h:p[1]""
 * Warning: Detected an empty _p_ element./Module[1]""/sec:Security_Objectives[1]""/sec:Security_Objectives_for_the_Operational_Environment[1]""/SOEs[1]""/SOE[2]""/description[1]"The OE pr"/h:p[1]""
 * Warning: Detected an empty _p_ element./Module[1]""/sec:Security_Objectives[1]""/sec:Security_Objectives_for_the_Operational_Environment[1]""/SOEs[1]""/SOE[3]""/description[1]"The OE pr"/h:p[1]""
+* Warning: Detected an empty _p_ element./Module[1]""/sec:Security_Objectives[1]""/sec:Security_Objectives_for_the_Operational_Environment[1]""/SOEs[1]""/SOE[4]""/description[1]"The OE pr"/h:p[1]""
 * Warning: Detected an empty _p_ element./Module[1]""/sec:Security_Requirements[1]""/h:p[1]""
 * Warning: Detected an empty _p_ element./Module[1]""/sec:Security_Requirements[1]""/h:p[2]""
 * Warning: Detected an empty _p_ element./Module[1]""/sec:Security_Requirements[1]""/h:ul[1]""/h:li[2]"Refinemen"/h:p[1]""
