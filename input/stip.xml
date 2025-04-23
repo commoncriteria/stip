@@ -759,6 +759,8 @@ expected to enforce.<h:p/>
           <rationale>Mitigates the threat by defining the TOE's management functions that are specific to STIP functionality.</rationale>
           <addressed-by>FMT_SMR.2/STIP</addressed-by>
           <rationale>Mitigates the threat by defining additional management roles that the TOE may support that are specific to STIP functionality.</rationale>
+          <addressed-by>FTA_TAB.1/TLS</addressed-by>
+          <rationale>Mitigates the threat by obtaining consent prior to monitoring.</rationale>
           
         </threat>
         
@@ -818,22 +820,9 @@ expected to enforce.<h:p/>
 		      The TOE may be required to additionally provide a consent to monitor notice for users whose traffic is inspected by the device, 
 		      if the monitored client might not provide such a banner.
 		    </description>
-		    <objective-refer ref="O.DISPLAY_BANNER">
-		      <rationale>The TOEs advisory warning includes
-		        consent to monitor.</rationale>
-		    </objective-refer>
-		    <objective-refer ref="O.PROTECTED_COMMUNICATIONS">
-		      <rationale>The TSF ensures that data
-		        traversing the TOE boundary is
-		        protected, alleviating concerns
-		        about inspection.</rationale>
-		    </objective-refer>
-		    <objective-refer ref="O.TOE_ADMINISTRATION">
-		      <rationale>Administrator roles provide
-		        separation of activities and ensure
-		        inspection is authorized and
-		        performed properly.</rationale>
-		    </objective-refer>
+		    <objective-refer ref="OE.CONSENT_TO_INSPECT">
+          <rationale>The OSP P.AUTHORIZATION_TO_INSPECT can be realized through OE.CONSENT_TO_INSPECT because the OE provides a notice and consent message to monitored users/clients.</rationale>
+        </objective-refer>
 		  </OSP>
 		  		</OSPs>
     </sec:Organizational_Security_Policies>
@@ -904,6 +893,16 @@ expected to enforce.<h:p/>
               appropriate actions (e.g., certificate revocation, administrative actions, etc.) to be taken.</h:i>
           </description>
           <consistency-rationale/>
+        </SOE>
+        <SOE name="OE.CONSENT_TO_INSPECT">
+          <description>The OE provides consent or assurance of consent from monitored users to the inspection of network traffic traversing the TOE.
+            <h:p/>
+            <h:i>Rationale: Inspection of encrypted traffic may be limited by privacy laws, regulations, or policies. It may be 
+              necessary to obtain consent to monitor traffic, which can take different forms (e.g., banner on the monitored client 
+              itself, separate legal agreement).
+            </h:i>
+
+          </description>
         </SOE>
       </SOEs>
     </sec:Security_Objectives_for_the_Operational_Environment>
