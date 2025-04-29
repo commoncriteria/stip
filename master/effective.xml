@@ -18,7 +18,7 @@
     <entry>
       <version>1.1</version>
       <date>2022-11-17</date>
-      <subject>Updates to reflect Github conversion, compatibility with CPP_ND_V2.2E, and Technical Decisions applied to version 1.0</subject>
+      <subject>Updates to reflect GitHub conversion, compatibility with CPP_ND_V2.2E, and Technical Decisions applied to version 1.0</subject>
     </entry>
   </RevisionHistory>
   <release-notes><h:h3>TDs Applied</h:h3></release-notes><RevisionHistory>
@@ -380,7 +380,7 @@ expected to enforce.<h:p/>
             <addressed-by>FDP_STIP_EXT.1</addressed-by>
             <rationale>Mitigates the threat by defining the TOE's ability to establish proxy TLS sessions between a monitored client and a requested server and to apply appropriate rules to the handling of the decrypted traffic.</rationale>
             <addressed-by>FDP_TEP_EXT.1</addressed-by>
-            <rationale>Mitigates the threat by defining the TOE's abbility to enforce filtering rules on TLS traffic passing through the TOE.</rationale>
+            <rationale>Mitigates the threat by defining the TOE's ability to enforce filtering rules on TLS traffic passing through the TOE.</rationale>
             <addressed-by>FCS_TTTC_EXT.3 (selection-based)</addressed-by>
             <rationale>Mitigates the threat by defining optional support for TLS mutual authentication that is applied to the TOE's proxy TLS client interface.</rationale>
             <addressed-by>FCS_TTTC_EXT.4 (selection-based)</addressed-by>
@@ -565,7 +565,7 @@ expected to enforce.<h:p/>
           <addressed-by>FDP_STIP_EXT.1</addressed-by>
           <rationale>Mitigates the threat by defining the TOE's ability to establish proxy TLS sessions between a monitored client and a requested server and to apply appropriate rules to the handling of the decrypted traffic.</rationale>
           <addressed-by>FDP_TEP_EXT.1</addressed-by>
-          <rationale>Mitigates the threat by defining the TOE's abbility to enforce filtering rules on TLS traffic passing through the TOE.</rationale>
+          <rationale>Mitigates the threat by defining the TOE's ability to enforce filtering rules on TLS traffic passing through the TOE.</rationale>
           <addressed-by>FIA_ENR_EXT.1</addressed-by>
           <rationale>Mitigates the threat by defining the mechanism by which the TOE requests a certificate for its own embedded CA's signing key. </rationale>
           <addressed-by>FIA_X509_EXT.1/STIP</addressed-by>
@@ -711,7 +711,7 @@ expected to enforce.<h:p/>
           <addressed-by>FDP_STIP_EXT.1</addressed-by>
           <rationale>Mitigates the threat by defining the TOE's ability to establish proxy TLS sessions between a monitored client and a requested server and to apply appropriate rules to the handling of the decrypted traffic.</rationale>
           <addressed-by>FDP_TEP_EXT.1</addressed-by>
-          <rationale>Mitigates the threat by defining the TOE's abbility to enforce filtering rules on TLS traffic passing through the TOE.</rationale>
+          <rationale>Mitigates the threat by defining the TOE's ability to enforce filtering rules on TLS traffic passing through the TOE.</rationale>
           <addressed-by>FCS_TTTC_EXT.3 (selection-based)</addressed-by>
           <rationale>Mitigates the threat by defining optional support for TLS mutual authentication that is applied to the TOE's proxy TLS client interface.</rationale>
           <addressed-by>FCS_TTTC_EXT.4 (selection-based)</addressed-by>
@@ -1243,7 +1243,7 @@ expected to enforce.<h:p/>
             </note>
           </f-element>
           <f-element id="fau-gen-1e2-stip">
-            <title>The TSF shall record within the audid data at least the following
+            <title>The TSF shall record within the audit data at least the following
               information: <h:ol type="a">
                 <h:li>Date and time of the event, type of event, subject identity (if
                   applicable), and the outcome (success or failure) of the event;</h:li>
@@ -4861,7 +4861,7 @@ legacy cipher suites. -->
               <h:tr><h:td>Ability to configure EST functionality to generate and export EST requests</h:td><h:td>C</h:td><h:td>-</h:td><h:td>-</h:td><h:td>CM</h:td></h:tr>
               <h:tr><h:td>Ability to configure TLS error responses for monitored clients</h:td><h:td>M</h:td><h:td>-</h:td><h:td>-</h:td><h:td>O</h:td></h:tr>
               <h:tr><h:td>Ability to configure notification and consent message for monitored clients</h:td><h:td>M</h:td><h:td>-</h:td><h:td>-</h:td><h:td>O</h:td></h:tr>
-              <h:tr><h:td>Ability to configure rules for displaying a notification and consent message for acknowledgement prior to TLS inspection processing</h:td>
+              <h:tr><h:td>Ability to configure rules for displaying a notification and consent message for acknowledgment prior to TLS inspection processing</h:td>
                 <h:td>M</h:td><h:td>-</h:td><h:td>-</h:td><h:td>O</h:td></h:tr>
               <h:tr><h:td>Ability to search the certificate repository</h:td><h:td>C</h:td><h:td>CM</h:td><h:td>-</h:td><h:td>CM</h:td></h:tr>
             </h:table>
@@ -4956,7 +4956,7 @@ legacy cipher suites. -->
               <selectable>Ability to configure notification and consent message for monitored
               clients</selectable>
               <selectable>Ability to configure rules for displaying a notification and consent
-              message for acknowledgement prior to TLS inspection processing</selectable>
+              message for acknowledgment prior to TLS inspection processing</selectable>
               <selectable>Ability to search the certificate repository</selectable>
               <selectable>No other capabilities</selectable></selectables>
           </h:i>].
@@ -5029,7 +5029,7 @@ legacy cipher suites. -->
                   <selectable>No identity is authorized to assume both an Auditor role and any of
                     the other roles in FMT_SMR.2.1/STIP</selectable>
                   <selectable>No other conditions</selectable>
-                </selectables></h:i>] are satisifed.
+                </selectables></h:i>] are satisfied.
           </title>
           <note role="application">
             <h:p>
