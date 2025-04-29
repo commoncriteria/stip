@@ -1304,7 +1304,7 @@ expected to enforce.<h:p/>
               The TSF shall [<h:i>prevent audited events, except those taken by the <h:b><selectables>
                 <selectable>Security Administrator</selectable>
                 <selectable>Auditor</selectable></selectables></h:b>, <assignable>other actions to be taken in
-                  case of audit storage failure</assignable></h:i>]if the audit <h:b>trail cannot be written to</h:b>.
+                  case of audit storage failure</assignable></h:i>] if the audit <h:b>trail cannot be written to</h:b>.
             </title>
             <note role="application">
               This requirement applies to the TOE regardless of whether the audit trail is stored
@@ -1366,7 +1366,7 @@ expected to enforce.<h:p/>
             the through-traffic processing of the TOE.</consistency-rationale>
           <f-element id="fcs-cop-1e1-stip">
             <title>
-              The TSF shall perform encryption/decryption in accordance with a specified
+              The TSF shall perform encryption/decryption in accordance with specified
               cryptographic algorithms [<h:i>AES in CCM and CCM-8 mode and <selectables>
                 <selectable>TDES used
                 in CBC mode with 3 distinct keys in its key set</selectable>
@@ -1384,7 +1384,7 @@ expected to enforce.<h:p/>
                 <selectable>no other standards</selectable>
               </selectables></h:i>].
             </title>
-            <note role="application">This requirement, in conjunction with FCS_COP.1/DataEncryption from the Base-PP, is used to support FCS_TTTC_EXT.1 and FCS_TTTS_EXT.1. Note that
+              <note role="application">This requirement, in conjunction with FCS_COP.1/DataEncryption from the Base-PP, is used to support FCS_TTTC_EXT.1 and FCS_TTTS_EXT.1. Note that
               FCS_TTTC_EXT.1 and FCS_TTTS_EXT.1 may necessitate certain selections.</note>
             <aactivity>
               <TSS>
@@ -2160,7 +2160,7 @@ expected to enforce.<h:p/>
                   <selectable>ffdhe4096(258)</selectable>
                   <selectable>ffdhe6144(259)</selectable>
                   <selectable>ffdhe8192(260)</selectable>
-                  <selectable><assignable>other supported curves]</assignable></selectable>
+                  <selectable><assignable>other supported curves</assignable></selectable>
                 </selectables>.
             </title>
             <ext-comp-def-title>
@@ -2487,7 +2487,7 @@ legacy cipher suites. -->
                       <selectable>secp384r1</selectable>
                       <selectable>secp521r1</selectable>
                       <selectable><assignable>other curves</assignable></selectable>
-                    </selectables> and no other curves.</h:li>
+                    </selectables> and no other curves.</h:li>               
                 </h:ul>
               </h:i>
             </title>
@@ -3305,13 +3305,13 @@ legacy cipher suites. -->
               </comment>
               The TSF shall <selectables>
               <selectable id="genStatus">generate certificate status information</selectable>
-              <selectable>only issue certificates with validity period of less than [24 hours]</selectable>
+              <selectable>only issue certificates with a validity period of less than [24 hours]</selectable>
             </selectables>.
             </title>
             <ext-comp-def-title>
               <title>The TSF shall <selectables>
                 <selectable id="genStatus">generate certificate status information</selectable>
-                <selectable>only issue certificates with validity period of less than <assignable>length of time</assignable></selectable>
+                <selectable>only issue certificates with a validity period of less than <assignable>length of time</assignable></selectable>
               </selectables>.
               </title>  
             </ext-comp-def-title>
@@ -4475,7 +4475,7 @@ legacy cipher suites. -->
           </management>
           <audit>There are no auditable events foreseen.</audit>
           <dependencies>
-            [FIA_ESTC_EXT.1 Enrollment over Secure Transport (EST) Client, OR<h:p/>
+            [FIA_ESTC_EXT.1 Enrollment over Secure Transport (EST) Client or <h:p/>
             FIA_X509_EXT.3 X.509 Certificate Requests]
           </dependencies>
           <f-element id="fia-enr-ext-1e1">
@@ -5088,7 +5088,7 @@ legacy cipher suites. -->
           <consistency-rationale>This SFR applies to preserving a secure state when different failures occur
             which is not defined in the Base-PP.</consistency-rationale>
           <f-element id="fpt-fls-1e1-stip">
-            <title>The TSF shall preserve a secure state when the following types of failures occur: [<h:i>
+            <title>The TSF shall preserve a secure state when the following types of failures occur:[<h:i>
               DRBG failure, integrity test failure, external audit server is unavailable, <selectables>
                 <selectable>local audit storage is full</selectable>
                 <selectable>update signature verification failure</selectable>
@@ -5444,7 +5444,7 @@ legacy cipher suites. -->
                 <selectables>
                   <selectable>a Security Administrator configurable number of the most common requested servers</selectable>
                   <selectable>a Security Administrator specified list of servers</selectable>
-                  <selectable><assignable>a Security Administrator configurable rules based on attributes of the certificates used by the server</assignable></selectable></selectables>.
+                  <selectable><assignable>Security Administrator configurable rules based on attributes of the certificates used by the server</assignable></selectable></selectables>.
             </title>
             <ext-comp-def-title>
               <title>
@@ -5635,7 +5635,7 @@ legacy cipher suites. -->
           </management>
           <audit>There are no auditable events foreseen.</audit>
           <dependencies>
-            [FDP_CRL_EXT.1 Certificate Revocation List Generation OR<h:p/>
+            [FDP_CRL_EXT.1 Certificate Revocation List Generation or<h:p/>
             FDP_OCSP_EXT.1 OCSP Basic Response Generation]<h:p/>
             FDP_OCSPS_EXT.1 OCSP Stapling<h:p/>
             FMT_SMR.1 Security Roles
@@ -6771,7 +6771,7 @@ legacy cipher suites. -->
           <dependencies>
             FDP_CER_EXT.4 Certificate Profiles for Client Certificates<h:p/>
             FDP_CSI_EXT.1 Certificate Status Information<h:p/>
-            [FDP_CRL_EXT.1 Certificate Revocation List Generation OR<h:p/>
+            [FDP_CRL_EXT.1 Certificate Revocation List Generation or<h:p/>
             FDP_OCSP_EXT.1 OCSP Basic Response Generation]<h:p/>
             FDP_OCSPS_EXT.1 OCSP Stapling<h:p/>
             FMT_SMR.1 Security Roles
