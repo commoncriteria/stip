@@ -984,7 +984,7 @@
                     <a href="#FAU_STG.5.1" class="abbr">FAU_STG.5.1</a>
                 </div>
                 <div class="reqdesc">
-                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall [<i>prevent audited events, except those taken by the <b>[<b>selection</b>: <span class="selectable-content" id="_s_3">Security Administrator</span>, <span class="selectable-content" id="_s_4">Auditor</span>]</b>, [<b>assignment</b>: <span class="assignable-content">other actions to be taken in case of audit storage failure</span>]</i>]if the audit <b>trail cannot be written to</b>. 
+                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall [<i>prevent audited events, except those taken by the <b>[<b>selection</b>: <span class="selectable-content" id="_s_3">Security Administrator</span>, <span class="selectable-content" id="_s_4">Auditor</span>]</b>, [<b>assignment</b>: <span class="assignable-content">other actions to be taken in case of audit storage failure</span>]</i>] if the audit <b>trail cannot be written to</b>. 
                     <div class="appnote">
                         <span class="note-header">Application Note: </span><span class="note"> This requirement applies to the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> regardless of whether the audit trail is stored within the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> boundary or on an external system in the Operational Environment. If the audit trail is stored locally, then the requirement applies when the audit trail cannot be written to when it is full. If the audit trail (in whole or in part) is stored on a system external to the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>, then the requirement applies when the connection between the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> and the external audit server becomes disconnected and the audit trail cannot be written to. In the case where the audit trail is external to the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> and cannot be written to because it is full (and the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> has some way of detecting that), then the requirement applies in that case as well. In all cases, the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author is expected to describe (in the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr>) how the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> is made aware of any such failures and how it behaves in response. </span>
                     </div>
@@ -999,7 +999,7 @@
                     <a href="#FCS_COP.1.1/STIP" class="abbr">FCS_COP.1.1/STIP</a>
                 </div>
                 <div class="reqdesc">
-                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall perform encryption/decryption in accordance with a specified cryptographic algorithms [<i>AES in CCM and CCM-8 mode and [<b>selection</b>: <span class="selectable-content" id="_s_5">TDES used in CBC mode with 3 distinct keys in its key set</span>, <span class="selectable-content" id="_s_6">no other algorithms </span>]</i>] and cryptographic key sizes [<b>selection</b>: <span class="selectable-content" id="_s_7">128 bits</span>, <span class="selectable-content" id="_s_8">192 bits</span>, <span class="selectable-content" id="_s_9">256 bits</span>] that meet the following: [<i>AES as specified in ISO 18033-3, CCM and CCM-8 as specified in NIST SP 800-38C and [<b>selection</b>: <span class="selectable-content" id="_s_10">TDES as specified in NIST SP 800-67 Rev 2 and CBC mode as specified in NIST SP 800-38A addendum</span>, <span class="selectable-content" id="_s_11">no other standards</span>]</i>]. 
+                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall perform encryption/decryption in accordance with specified cryptographic algorithms [<i>AES in CCM and CCM-8 mode and [<b>selection</b>: <span class="selectable-content" id="_s_5">TDES used in CBC mode with 3 distinct keys in its key set</span>, <span class="selectable-content" id="_s_6">no other algorithms </span>]</i>] and cryptographic key sizes [<b>selection</b>: <span class="selectable-content" id="_s_7">128 bits</span>, <span class="selectable-content" id="_s_8">192 bits</span>, <span class="selectable-content" id="_s_9">256 bits</span>] that meet the following: [<i>AES as specified in ISO 18033-3, CCM and CCM-8 as specified in NIST SP 800-38C and [<b>selection</b>: <span class="selectable-content" id="_s_10">TDES as specified in NIST SP 800-67 Rev 2 and CBC mode as specified in NIST SP 800-38A addendum</span>, <span class="selectable-content" id="_s_11">no other standards</span>]</i>]. 
                     <div class="appnote">
                         <span class="note-header">Application Note: </span><span class="note">This requirement, in conjunction with FCS_COP.1/DataEncryption from the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>, is used to support <a href="#FCS_TTTC_EXT.1">FCS_TTTC_EXT.1</a> and <a href="#FCS_TTTS_EXT.1">FCS_TTTS_EXT.1</a>. Note that <a href="#FCS_TTTC_EXT.1">FCS_TTTC_EXT.1</a> and <a href="#FCS_TTTS_EXT.1">FCS_TTTS_EXT.1</a> may necessitate certain selections.</span>
                     </div>
@@ -1185,7 +1185,7 @@
                             <span class="selectable-content" id="_s_32">ffdhe8192(260)</span>
                         </li>
                         <li style="">
-                            <span class="selectable-content" id="_s_33">[<b>assignment</b>: <span class="assignable-content">other supported curves]</span>]</span>
+                            <span class="selectable-content" id="_s_33">[<b>assignment</b>: <span class="assignable-content">other supported curves</span>]</span>
                         </li>
                     </ul>
                     ]. 
@@ -1546,7 +1546,7 @@
                     <a href="#FDP_CSIR_EXT.1.1" class="abbr">FDP_CSIR_EXT.1.1</a>
                 </div>
                 <div class="reqdesc">
-                     <span style="" class="comment " id="Comment-2-">This requirement can be pulled from the X.509 <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr>, but it is unclear as to how this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> should be modeled. A minor refinement would be necessary to remove some selections present in the <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr> that <abbr class="dyn-abbr"><a href="#abbr_STIP">STIP</a></abbr> does not include. Since the <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr> is intended to be the single point of definition for a re-used <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>, it is not desirable to manually reproduce the text of the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> in this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> (i.e. in the modified <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> section). </span> The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall [<b>selection</b>: <span class="selectable-content" id="genStatus">generate certificate status information</span>, <span class="selectable-content" id="_s_122">only issue certificates with validity period of less than [24 hours]</span>]. 
+                     <span style="" class="comment " id="Comment-2-">This requirement can be pulled from the X.509 <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr>, but it is unclear as to how this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> should be modeled. A minor refinement would be necessary to remove some selections present in the <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr> that <abbr class="dyn-abbr"><a href="#abbr_STIP">STIP</a></abbr> does not include. Since the <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr> is intended to be the single point of definition for a re-used <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>, it is not desirable to manually reproduce the text of the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> in this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> (i.e. in the modified <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> section). </span> The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall [<b>selection</b>: <span class="selectable-content" id="genStatus">generate certificate status information</span>, <span class="selectable-content" id="_s_122">only issue certificates with a validity period of less than [24 hours]</span>]. 
                     <div class="appnote">
                         <span class="note-header">Application Note: </span><span class="note"> Based on the selection, the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author must choose the appropriate requirements from Appendix B.1 of this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>. 
                             <p></p>
@@ -2453,7 +2453,7 @@
                     <a href="#FPT_FLS.1.1/STIP" class="abbr">FPT_FLS.1.1/STIP</a>
                 </div>
                 <div class="reqdesc">
-                    The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall preserve a secure state when the following types of failures occur: [<i> DRBG failure, integrity test failure, external audit server is unavailable, [<b>selection</b>: <span class="selectable-content" id="_s_228">local audit storage is full</span>, <span class="selectable-content" id="_s_229">update signature verification failure</span>, <span class="selectable-content" id="_s_230">integrity failure on local audit</span>, <span class="selectable-content" id="_s_231">integrity failure on Trust Anchor database</span>, <span class="selectable-content" id="_s_232">[<b>assignment</b>: <span class="assignable-content">other potential <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> failures</span>]</span>]</i>].
+                    The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall preserve a secure state when the following types of failures occur:[<i> DRBG failure, integrity test failure, external audit server is unavailable, [<b>selection</b>: <span class="selectable-content" id="_s_228">local audit storage is full</span>, <span class="selectable-content" id="_s_229">update signature verification failure</span>, <span class="selectable-content" id="_s_230">integrity failure on local audit</span>, <span class="selectable-content" id="_s_231">integrity failure on Trust Anchor database</span>, <span class="selectable-content" id="_s_232">[<b>assignment</b>: <span class="assignable-content">other potential <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> failures</span>]</span>]</i>].
                     <div class="appnote">
                         <span class="note-header">Application Note: </span><span class="note"> The intent of this requirement is to prevent the use of failed randomization and other events that can compromise the operation of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>. This means that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> must be able to attain a secure/safe state when any of the identified failures occurs. If the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> should encounter a failure in the middle of a critical operation, the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> should not just quit operating, leaving key material and user data unprotected. 
                             <p></p>
@@ -3299,7 +3299,7 @@
                     <a href="#FDP_PIN_EXT.1.1" class="abbr">FDP_PIN_EXT.1.1</a>
                 </div>
                 <div class="reqdesc">
-                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall be able to detect and [<b>selection</b>: <span class="selectable-content" id="_s_237">alert</span>, <span class="selectable-content" id="_s_238">perform a [Security Administrator] managed action</span>] to changes in the [<b>selection</b>: <span class="selectable-content" id="_s_239">public key</span>, <span class="selectable-content" id="_s_240">certificate</span>, <span class="selectable-content" id="_s_241">certificate issuer</span>] used by requested servers according to [<b>selection</b>: <span class="selectable-content" id="_s_242">a Security Administrator configurable number of the most common requested servers</span>, <span class="selectable-content" id="_s_243">a Security Administrator specified list of servers</span>, <span class="selectable-content" id="_s_244">[<b>assignment</b>: <span class="assignable-content">a Security Administrator configurable rules based on attributes of the certificates used by the server</span>]</span>]. 
+                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall be able to detect and [<b>selection</b>: <span class="selectable-content" id="_s_237">alert</span>, <span class="selectable-content" id="_s_238">perform a [Security Administrator] managed action</span>] to changes in the [<b>selection</b>: <span class="selectable-content" id="_s_239">public key</span>, <span class="selectable-content" id="_s_240">certificate</span>, <span class="selectable-content" id="_s_241">certificate issuer</span>] used by requested servers according to [<b>selection</b>: <span class="selectable-content" id="_s_242">a Security Administrator configurable number of the most common requested servers</span>, <span class="selectable-content" id="_s_243">a Security Administrator specified list of servers</span>, <span class="selectable-content" id="_s_244">[<b>assignment</b>: <span class="assignable-content">Security Administrator configurable rules based on attributes of the certificates used by the server</span>]</span>]. 
                     <div class="appnote">
                         <span class="note-header">Application Note: </span><span class="note"> This requirement should be claimed if implemented by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>. If claimed, additional management functions and audit events associated with the function must be claimed. </span>
                     </div>
@@ -4527,7 +4527,7 @@
                                 <td style="whitespace: nowrap">Hierarchical to:</td><td style="width: 100%">No other components.</td>
                             </tr>
                             <tr style="background-color: inherit">
-                                <td>Dependencies to:</td><td> [<a href="#FDP_CRL_EXT.1">FDP_CRL_EXT.1</a> Certificate Revocation List Generation OR
+                                <td>Dependencies to:</td><td> [<a href="#FDP_CRL_EXT.1">FDP_CRL_EXT.1</a> Certificate Revocation List Generation or
                                     <p></p>
                                      <a href="#FDP_OCSP_EXT.1">FDP_OCSP_EXT.1</a> OCSP Basic Response Generation]
                                     <p></p>
@@ -4566,7 +4566,7 @@
                                     <p></p>
                                      <a href="#FDP_CSI_EXT.1">FDP_CSI_EXT.1</a> Certificate Status Information
                                     <p></p>
-                                     [<a href="#FDP_CRL_EXT.1">FDP_CRL_EXT.1</a> Certificate Revocation List Generation OR
+                                     [<a href="#FDP_CRL_EXT.1">FDP_CRL_EXT.1</a> Certificate Revocation List Generation or
                                     <p></p>
                                      <a href="#FDP_OCSP_EXT.1">FDP_OCSP_EXT.1</a> OCSP Basic Response Generation]
                                     <p></p>
@@ -5024,7 +5024,7 @@
                                 <td style="whitespace: nowrap">Hierarchical to:</td><td style="width: 100%">No other components.</td>
                             </tr>
                             <tr style="background-color: inherit">
-                                <td>Dependencies to:</td><td> [<a href="#FIA_ESTC_EXT.1">FIA_ESTC_EXT.1</a> Enrollment over Secure Transport (EST) Client, OR
+                                <td>Dependencies to:</td><td> [<a href="#FIA_ESTC_EXT.1">FIA_ESTC_EXT.1</a> Enrollment over Secure Transport (EST) Client or 
                                     <p></p>
                                      FIA_X509_EXT.3 X.509 Certificate Requests] </td>
                             </tr>
@@ -5677,7 +5677,7 @@
                             </tr>
                         </table>
                         <h4 id="ext-comp-FDP_CSIR_EXT.1.1">FDP_CSIR_EXT.1.1</h4>
-                        The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall [<b>selection</b>: <span class="selectable-content" id="genStatus">generate certificate status information</span>, <span class="selectable-content" id="_s_124">only issue certificates with validity period of less than [<b>assignment</b>: <span class="assignable-content">length of time</span>]</span>]. 
+                        The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall [<b>selection</b>: <span class="selectable-content" id="genStatus">generate certificate status information</span>, <span class="selectable-content" id="_s_124">only issue certificates with a validity period of less than [<b>assignment</b>: <span class="assignable-content">length of time</span>]</span>]. 
                     </div>
                 </div>
                 <h3 id="ext-comp-FDP_PPP_EXT" class="indexable" data-level="4">C.2.9.3 FDP_PPP_EXT Plaintext Processing Policy</h3>
