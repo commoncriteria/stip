@@ -35,7 +35,6 @@ output/stip-release-linkable.html: M3
 output/stip-release-linkable.html: M4
 output/stip-release-linkable.html: M5
 output/stip-release-linkable.html: NSIT
-output/stip-release-linkable.html: OCSPS
 output/stip-release-linkable.html: OIDs
 output/stip-release-linkable.html: PINs
 output/stip-release-linkable.html: RC4
@@ -115,7 +114,6 @@ output/stip-release.html: CSP
 output/stip-release.html: CodeSigning
 output/stip-release.html: DataEncryption
 output/stip-release.html: KERBEROS
-output/stip-release.html: OCSPS
 output/stip-release.html: OIDs
 output/stip-release.html: PINs
 output/stip-release.html: RC4
@@ -288,7 +286,6 @@ output/stip.html: M3
 output/stip.html: M4
 output/stip.html: M5
 output/stip.html: NSIT
-output/stip.html: OCSPS
 output/stip.html: OIDs
 output/stip.html: PINs
 output/stip.html: RC4

@@ -4484,7 +4484,7 @@ provide all of its security functionality.
 <tr class="major-row"><td rowspan="3"><a href="#T.UNAUTHORIZED_USERS">T.UNAUTHORIZED_​USERS</a></td><td><a href="#FMT_MOF.1/STIP">FMT_MOF.1/STIP</a></td><td>Mitigates the threat by defining the authorized use of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> by association between the supported management functions and the roles that are authorized to perform them.</td></tr>
 <tr><td><a href="#FMT_SMF.1/STIP">FMT_SMF.1/STIP</a></td><td>Mitigates the threat by defining the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>'s management functions that are specific to <abbr class="dyn-abbr"><a href="#abbr_STIP">STIP</a></abbr> functionality.</td></tr>
 <tr><td><a href="#FMT_SMR.2/STIP">FMT_SMR.2/STIP</a></td><td>Mitigates the threat by defining additional management roles that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> may support that are specific to <abbr class="dyn-abbr"><a href="#abbr_STIP">STIP</a></abbr> functionality.</td></tr>
-<tr class="major-row"><td rowspan="26"><a href="#T.CREDENTIALS">T.CREDENTIALS</a></td><td><a href="#FCS_STG_EXT.1">FCS_STG_EXT.1</a></td><td>Mitigates the threat by requiring the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to implement hardware-based protection for stored keys.</td></tr>
+<tr class="major-row"><td rowspan="25"><a href="#T.CREDENTIALS">T.CREDENTIALS</a></td><td><a href="#FCS_STG_EXT.1">FCS_STG_EXT.1</a></td><td>Mitigates the threat by requiring the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to implement hardware-based protection for stored keys.</td></tr>
 <tr><td>FCS_TLSC_EXT.1 (from <a href="https://www.niap-ccevs.org/protectionprofiles/465">Functional Package for Transport Layer Security (TLS),
         version 
         2.0</a>)</td><td>Mitigates the threat because TLS is a mechanism by which its own certificate data may be obtained from an external <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>. </td></tr>
@@ -4509,7 +4509,7 @@ provide all of its security functionality.
 <tr><td><a href="#FPT_KST_EXT.1">FPT_KST_EXT.1</a></td><td>Mitigates the threat by requiring the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> to enforce the prevention of plaintext key export.</td></tr>
 <tr><td><a href="#FPT_KST_EXT.2">FPT_KST_EXT.2</a></td><td>Mitigates the threat by preventing the unauthorized use of secret and private keys.</td></tr>
 <tr><td><a href="#FDP_PIN_EXT.1">FDP_PIN_EXT.1</a> (optional)</td><td>Mitigates the threat by defining the optional implementation of certificate pinning. </td></tr>
-<tr><td><a href="#FIA_ESTC_EXT.2">FIA_ESTC_EXT.2</a> (optional)</td><td>Mitigates the threat by defining requirements for the composition of EST requests if the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> supports EST. </td></tr>
+<tr><td><a href="#FIA_ESTC_EXT.2">FIA_ESTC_EXT.2</a> (objective)</td><td>Mitigates the threat by defining requirements for the composition of EST requests if the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> supports EST. </td></tr>
 <tr><td><a href="#FCS_CKM_EXT.5">FCS_CKM_EXT.5</a> (selection-based)</td><td>Mitigates the threat by defining the integrity mechanism used to guarantee the integrity of public key data.</td></tr>
 <tr><td><a href="#FDP_CER_EXT.4">FDP_CER_EXT.4</a> (selection-based)</td><td>Mitigates the threat by defining the rules the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> must use to generate and issue proxy TLS client certificates from its internal <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> if mutual authentication is supported. </td></tr>
 <tr><td><a href="#FDP_CER_EXT.5">FDP_CER_EXT.5</a> (selection-based)</td><td>Mitigates the threat by defining the rules for the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>'s issuing of proxy TLS client certificates if mutual authentication is supported. </td></tr>
@@ -4517,9 +4517,8 @@ provide all of its security functionality.
 <tr><td><a href="#FDP_CSI_EXT.1">FDP_CSI_EXT.1</a> (selection-based)</td><td>Mitigates the threat by defining the revocation checking method supported by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> for the proxy TLS server certificates it issues, if revocation is how the freshness of its issued certificates is assured. </td></tr>
 <tr><td><a href="#FDP_CSI_EXT.2">FDP_CSI_EXT.2</a> (selection-based)</td><td>Mitigates the threat by defining the revocation checking method supported by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> for the proxy TLS client certificates it issues, if mutual authentication is supported and revocation is how the freshness of its issued certificates is assured. </td></tr>
 <tr><td><a href="#FDP_OCSP_EXT.1">FDP_OCSP_EXT.1</a> (selection-based)</td><td>Mitigates the threat by defining rules for the generation of OCSP responses if the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> uses this as the mechanism to ensure the freshness of its issued certificates. </td></tr>
-<tr><td>FDP_OCSPS_EXT.1 (selection-based)</td><td>Mitigates the threat by defining rules for the implementation of OCSP stapling if the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> supports this functionality. </td></tr>
 <tr><td><a href="#FIA_ESTC_EXT.1">FIA_ESTC_EXT.1</a> (selection-based)</td><td>Mitigates the threat by defining requirements for the implementation of EST if the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> uses this mechanism to obtain TLS certificates for its own use. </td></tr>
-<tr class="major-row"><td rowspan="38"><a href="#T.SERVICES">T.SERVICES</a></td><td>FCS_CKM.6 (from <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>)</td><td>Mitigates the threat by ensuring secret and private key data is disposed of immediately after use to prevent unauthorized disclosure of keys.</td></tr>
+<tr class="major-row"><td rowspan="37"><a href="#T.SERVICES">T.SERVICES</a></td><td>FCS_CKM.6 (from <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>)</td><td>Mitigates the threat by ensuring secret and private key data is disposed of immediately after use to prevent unauthorized disclosure of keys.</td></tr>
 <tr><td>FCS_TLSC_EXT.1 (from <a href="https://www.niap-ccevs.org/protectionprofiles/465">Functional Package for Transport Layer Security (TLS),
         version 
         2.0</a>)</td><td>Mitigates the threat because TLS is a mechanism by which its own certificate data may be obtained from an external <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>. </td></tr>
@@ -4554,7 +4553,7 @@ provide all of its security functionality.
 <tr><td><a href="#FMT_SMF.1/STIP">FMT_SMF.1/STIP</a></td><td>Mitigates the threat by defining the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>'s management functions that are specific to <abbr class="dyn-abbr"><a href="#abbr_STIP">STIP</a></abbr> functionality.</td></tr>
 <tr><td><a href="#FMT_SMR.2/STIP">FMT_SMR.2/STIP</a></td><td>Mitigates the threat by defining additional management roles that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> may support that are specific to <abbr class="dyn-abbr"><a href="#abbr_STIP">STIP</a></abbr> functionality.</td></tr>
 <tr><td><a href="#FDP_PIN_EXT.1">FDP_PIN_EXT.1</a> (optional)</td><td>Mitigates the threat by defining the optional implementation of certificate pinning. </td></tr>
-<tr><td><a href="#FIA_ESTC_EXT.2">FIA_ESTC_EXT.2</a> (optional)</td><td>Mitigates the threat by defining requirements for the composition of EST requests if the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> supports EST. </td></tr>
+<tr><td><a href="#FIA_ESTC_EXT.2">FIA_ESTC_EXT.2</a> (objective)</td><td>Mitigates the threat by defining requirements for the composition of EST requests if the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> supports EST. </td></tr>
 <tr><td><a href="#FDP_CER_EXT.4">FDP_CER_EXT.4</a> (selection-based)</td><td>Mitigates the threat by defining the rules the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> must use to generate and issue proxy TLS client certificates from its internal <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> if mutual authentication is supported. </td></tr>
 <tr><td><a href="#FCS_TTTC_EXT.3">FCS_TTTC_EXT.3</a> (selection-based)</td><td>Mitigates the threat by defining optional support for TLS mutual authentication that is applied to the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>'s proxy TLS client interface.</td></tr>
 <tr><td><a href="#FCS_TTTC_EXT.4">FCS_TTTC_EXT.4</a> (selection-based)</td><td>Mitigates the threat by defining optional support for TLS session renegotiation that is applied to the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>'s proxy TLS client interface.</td></tr>
@@ -4565,10 +4564,9 @@ provide all of its security functionality.
 <tr><td><a href="#FDP_CSI_EXT.1">FDP_CSI_EXT.1</a> (selection-based)</td><td>Mitigates the threat by defining the revocation echecking method supported by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> for the proxy TLS server certificates it issues, if revocation is how the freshness of its issued certificates is assured. </td></tr>
 <tr><td><a href="#FDP_CSI_EXT.2">FDP_CSI_EXT.2</a> (selection-based)</td><td>Mitigates the threat by defining the revocation echecking method supported by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> for the proxy TLS client certificates it issues, if mutual authentication is supported and revocation is how the freshness of its issued certificates is assured. </td></tr>
 <tr><td><a href="#FDP_OCSP_EXT.1">FDP_OCSP_EXT.1</a> (selection-based)</td><td>Mitigates the threat by defining rules for the generation of OCSP responses if the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> uses this as the mechanism to ensure the freshness of its issued certificates. </td></tr>
-<tr><td>FDP_OCSPS_EXT.1 (selection-based)</td><td>Mitigates the threat by defining rules for the implementation of OCSP stapling if the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> supports this functionality. </td></tr>
 <tr><td><a href="#FDP_STIP_EXT.2">FDP_STIP_EXT.2</a> (selection-based)</td><td>Mitigates the threat by defining the optional capability of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to establish a proxy TLS session in the case where mutual authentication is supported.</td></tr>
 <tr><td><a href="#FIA_ESTC_EXT.1">FIA_ESTC_EXT.1</a> (selection-based)</td><td>Mitigates the threat by defining requirements for the implementation of EST if the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> uses this mechanism to obtain TLS certificates for its own use. </td></tr>
-<tr class="major-row"><td rowspan="28"><a href="#T.DEVICE_FAILURE">T.DEVICE_​FAILURE</a></td><td>FCS_TLSC_EXT.1 (from <a href="https://www.niap-ccevs.org/protectionprofiles/465">Functional Package for Transport Layer Security (TLS),
+<tr class="major-row"><td rowspan="27"><a href="#T.DEVICE_FAILURE">T.DEVICE_​FAILURE</a></td><td>FCS_TLSC_EXT.1 (from <a href="https://www.niap-ccevs.org/protectionprofiles/465">Functional Package for Transport Layer Security (TLS),
         version 
         2.0</a>)</td><td>Mitigates the threat because TLS is a mechanism by which its own certificate data may be obtained from an external <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>. </td></tr>
 <tr><td>FCS_TLSC_EXT.2 (from <a href="https://www.niap-ccevs.org/protectionprofiles/465">Functional Package for Transport Layer Security (TLS),
@@ -4596,7 +4594,7 @@ provide all of its security functionality.
 <tr><td><a href="#FPT_KST_EXT.2">FPT_KST_EXT.2</a></td><td>Mitigates the threat by preventing the unauthorized use of secret and private keys.</td></tr>
 <tr><td><a href="#FPT_RCV.1">FPT_RCV.1</a></td><td>Mitigates the threat by requiring the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> to support a maintenance mode of operation that is entered when certain failures occur.</td></tr>
 <tr><td><a href="#FDP_PIN_EXT.1">FDP_PIN_EXT.1</a> (optional)</td><td>Mitigates the threat by defining the optional implementation of certificate pinning. </td></tr>
-<tr><td><a href="#FIA_ESTC_EXT.2">FIA_ESTC_EXT.2</a> (optional)</td><td>Mitigates the threat by defining requirements for the composition of EST requests if the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> supports EST. </td></tr>
+<tr><td><a href="#FIA_ESTC_EXT.2">FIA_ESTC_EXT.2</a> (objective)</td><td>Mitigates the threat by defining requirements for the composition of EST requests if the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> supports EST. </td></tr>
 <tr><td><a href="#FCS_CKM_EXT.5">FCS_CKM_EXT.5</a> (selection-based)</td><td>Mitigates the threat by defining the integrity mechanism used to guarantee the integrity of public key data.</td></tr>
 <tr><td><a href="#FDP_CER_EXT.4">FDP_CER_EXT.4</a> (selection-based)</td><td>Mitigates the threat by defining the rules the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> must use to generate and issue proxy TLS client certificates from its internal <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> if mutual authentication is supported. </td></tr>
 <tr><td><a href="#FDP_CER_EXT.5">FDP_CER_EXT.5</a> (selection-based)</td><td>Mitigates the threat by defining the rules for the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>'s issuing of proxy TLS client certificates if mutual authentication is supported. </td></tr>
@@ -4604,7 +4602,6 @@ provide all of its security functionality.
 <tr><td><a href="#FDP_CSI_EXT.1">FDP_CSI_EXT.1</a> (selection-based)</td><td>Mitigates the threat by defining the revocation echecking method supported by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> for the proxy TLS server certificates it issues, if revocation is how the freshness of its issued certificates is assured. </td></tr>
 <tr><td><a href="#FDP_CSI_EXT.2">FDP_CSI_EXT.2</a> (selection-based)</td><td>Mitigates the threat by defining the revocation echecking method supported by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> for the proxy TLS client certificates it issues, if mutual authentication is supported and revocation is how the freshness of its issued certificates is assured. </td></tr>
 <tr><td><a href="#FDP_OCSP_EXT.1">FDP_OCSP_EXT.1</a> (selection-based)</td><td>Mitigates the threat by defining rules for the generation of OCSP responses if the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> uses this as the mechanism to ensure the freshness of its issued certificates. </td></tr>
-<tr><td>FDP_OCSPS_EXT.1 (selection-based)</td><td>Mitigates the threat by defining rules for the implementation of OCSP stapling if the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> supports this functionality. </td></tr>
 <tr><td><a href="#FIA_ESTC_EXT.1">FIA_ESTC_EXT.1</a> (selection-based)</td><td>Mitigates the threat by defining requirements for the implementation of EST if the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> uses this mechanism to obtain TLS certificates for its own use. </td></tr>
 <tr class="major-row"><td rowspan="19"><a href="#T.UNAUTHORIZED_DISCLOSURE">T.UNAUTHORIZED_​DISCLOSURE</a></td><td>FCS_CKM.6 (from <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>)</td><td>Mitigates the threat by ensuring secret and private key data is disposed of immediately after use to prevent unauthorized disclosure of keys.</td></tr>
 <tr><td>FCS_TLSC_EXT.1 (from <a href="https://www.niap-ccevs.org/protectionprofiles/465">Functional Package for Transport Layer Security (TLS),
@@ -4763,7 +4760,7 @@ provide all of its security functionality.
               capability to read [<i>all information</i>] from the audit data.
             </div></div>
           <div class="element"><div class="reqid" id="FAU_SAR.1.2"><a href="#FAU_SAR.1.2" class="abbr">FAU_SAR.1.2</a></div><div class="reqdesc">
-              The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall provide the local audit records in a manner suitable for the
+              The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall provide the local audit data in a manner suitable for the
               <b>administrator </b>to interpret the information.
             </div></div>
           
@@ -5007,7 +5004,7 @@ provide all of its security functionality.
             </div></div>
           <div class="element"><div class="reqid" id="FDP_CSI_EXT.1.3"><a href="#FDP_CSI_EXT.1.3" class="abbr">FDP_CSI_EXT.1.3</a></div><div class="reqdesc">
               The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall [<b>selection</b>: <span class="selectable-content" id="_s_262">provide</span>, <span class="selectable-content" id="_s_263">interface with the Operational Environment to provide</span>] certificate status information generated in accordance with
-              <a href="#FDP_CSI_EXT.1.1">FDP_CSI_EXT.1.1</a> via [<b>selection</b>: <span class="selectable-content" id="_s_264">posting CRLs at the location specified in the cRLDistributionPoints of the issued certificate</span>, <span class="selectable-content" id="_s_265">an OCSP mechanism indicated in the authorityInfoAccess extension of the issued certificate</span>, <span class="selectable-content" id="stapling">OCSP Stapling in accordance with FDP_OCSPS_EXT.1</span>].
+              <a href="#FDP_CSI_EXT.1.1">FDP_CSI_EXT.1.1</a> via [<b>selection</b>: <span class="selectable-content" id="_s_264">posting CRLs at the location specified in the cRLDistributionPoints of the issued certificate</span>, <span class="selectable-content" id="_s_265">an OCSP mechanism indicated in the authorityInfoAccess extension of the issued certificate</span>, <span class="selectable-content" id="stapling">OCSP Stapling </span>].
             <div class="appnote"><span class="note-header">Application
       Note:
     </span><span class="note">
@@ -6137,45 +6134,54 @@ provide all of its security functionality.
               section 3.4, and the second selection should be chosen.
             </span></div></div></div>
           
-        <div class="activity_pane hide"><div class="activity_pane_header"><a onclick="toggle(this);return false;" href="#"><span class="activity_pane_label"> Evaluation Activities </span><span class="toggler"></span></a></div><div class="activity_pane_body"><div class="component-activity-header"><a href="#FCS_TTTC_EXT.4">FCS_TTTC_EXT.4</a></div>
-              
-              
-              
-            <div class="eacategory"><abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr></div><div class="ea"><div class="ea">The evaluator shall examine the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> to validate that it describes the method used to support
-                renegotiation.
-              <p></p></div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea">There are no guidance EAs for this component beyond what is specified for <a href="#FCS_TTTC_EXT.4.3">FCS_TTTC_EXT.4.3</a>.<p></p></div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">The evaluator shall perform the following tests:<p></p>
-              <span class="testlist-"><ul>
-                <li class="test-"><a id="_t_112" class="defined" href="#_t_112">Test FCS_TTTC_EXT.4:1</a>:
-      The evaluator shall use a network packet analyzer and/or sniffer to capture the traffic between
-                  the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> and a requested server during inspection of a TLS session between a monitored client and the
-                  requested server through the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>. The evaluator shall verify that either the renegotiation_info field or
-                  the SCSV cipher suite is included in the Client Hello message during the initial handshake.
-                </li>
-                <li class="test-"><a id="_t_113" class="defined" href="#_t_113">Test FCS_TTTC_EXT.4:2</a>:
+        <div class="activity_pane hide"><div class="activity_pane_header"><a onclick="toggle(this);return false;" href="#"><span class="activity_pane_label"> Evaluation Activities </span><span class="toggler"></span></a></div><div class="activity_pane_body"><div class="element-activity-header"><a href="#FCS_TTTC_EXT.4.1">FCS_TTTC_EXT.4.1</a></div>
+              <div class="eacategory"><abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr></div><div class="ea">The evaluator shall examine the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> to validate that it describes the method used to support
+                renegotiation.</div>
+              <div class="eacategory">Guidance</div>
+			There are no additional Guidance evaluation activities for this element.<br/><br/>
+              <div class="eacategory">Tests</div><div class="ea">
+                <span class="testlist-"><ul>
+                  <li class="test-"><a id="_t_110" class="defined" href="#_t_110">Test FCS_TTTC_EXT.4.1:1</a>:
       The evaluator shall verify the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>’s handling of Server Hello messages received from a requested
-                  server during an authorized inspection of a TLS session between a monitored client and the requested
-                  server through the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>, during the initial handshake that include the renegotiation_info extension. The
-                  evaluator shall modify the length portion of this field in the Server Hello message to be non-zero and verify
-                  that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> sends a failure and terminates the connection. The evaluator shall verify that a properly
-                  formatted field during an authorized inspection of traffic to the server results in a successful TLS
-                  connection between the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> and the requested server.
-                </li>
-                <li class="test-"><a id="_t_114" class="defined" href="#_t_114">Test FCS_TTTC_EXT.4:3</a>:
+                    server during an authorized inspection of a TLS session between a monitored client and the requested
+                    server through the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>, during the initial handshake that include the renegotiation_info extension. The
+                    evaluator shall modify the length portion of this field in the Server Hello message to be non-zero and verify
+                    that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> sends a failure and terminates the connection. The evaluator shall verify that a properly
+                    formatted field during an authorized inspection of traffic to the server results in a successful TLS
+                    connection between the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> and the requested server.
+                  </li>
+                  <li class="test-"><a id="_t_111" class="defined" href="#_t_111">Test FCS_TTTC_EXT.4.1:2</a>:
       The evaluator shall cause the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> to initiate renegotiation with the requested server and verify
-                  that the Client Hello message received by the requested server contains the renegotiation_info extension.
-                  The evaluator shall cause the requested server to send a Server Hello message with a renegotiation info
-                  extension containing data in which one or both of the client_verify_data or server_verify_data value is
-                  modified. The evaluator shall verify that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> terminates the connection.
-                </li>
-              </ul></span>
-              </div></div><div class="element-activity-header"><a href="#FCS_TTTC_EXT.4.3">FCS_TTTC_EXT.4.3</a></div>
+                    that the Client Hello message received by the requested server contains the renegotiation_info extension.
+                    The evaluator shall cause the requested server to send a Server Hello message with a renegotiation info
+                    extension containing data in which one or both of the client_verify_data or server_verify_data value is
+                    modified. The evaluator shall verify that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> terminates the connection.
+                  </li>
+                </ul></span>
+              </div>
+            <div class="element-activity-header"><a href="#FCS_TTTC_EXT.4.2">FCS_TTTC_EXT.4.2</a></div>
+              <div class="eacategory"><abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr></div>
+			There are no additional <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> evaluation activities for this element.<br/><br/>
+              <div class="eacategory">Guidance</div>
+			There are no additional Guidance evaluation activities for this element.<br/><br/>
+              <div class="eacategory">Tests</div><div class="ea">
+                <span class="testlist-"><ul>
+                  <li class="test-"><a id="_t_112" class="defined" href="#_t_112">Test FCS_TTTC_EXT.4.2:1</a>:
+      The evaluator shall use a network packet analyzer and/or sniffer to capture the traffic between
+                    the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> and a requested server during inspection of a TLS session between a monitored client and the
+                    requested server through the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>. The evaluator shall verify that either the renegotiation_info field or
+                    the SCSV cipher suite is included in the Client Hello message during the initial handshake.
+                  </li>
+                </ul></span>
+              </div>
+            <div class="element-activity-header"><a href="#FCS_TTTC_EXT.4.3">FCS_TTTC_EXT.4.3</a></div>
               <div class="eacategory"><abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr></div><div class="ea">The evaluator shall verify that the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> describes the mechanisms used to specify when renegotiation
                 occurs. <p></p></div>
               <div class="eacategory">Guidance</div><div class="ea">The evaluator shall check the operational guidance documentation to ensure that instructions for any
                 configurable features of the TLS implementation required to meet this requirement are provided.<p></p></div>
               <div class="eacategory">Tests</div><div class="ea">The evaluator shall perform the following tests:<p></p>
               <span class="testlist-"><ul>
-                <li class="test-"><a id="_t_110" class="defined" href="#_t_110">Test FCS_TTTC_EXT.4.3:1</a>:
+                <li class="test-"><a id="_t_113" class="defined" href="#_t_113">Test FCS_TTTC_EXT.4.3:1</a>:
       For any mechanism specified, the evaluator will establish one or more monitored client and
                   requested servers configured to use each of the supported cipher suites through the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>. For each
                   supported cipher suite, the evaluator shall initiate a session between the monitored client to a requested
@@ -6185,7 +6191,7 @@ provide all of its security functionality.
                   shall observe that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> terminates or renegotiates the TLS session as specified by the renegotiation
                   mechanism.
                 </li>
-                <li class="test-"><a id="_t_111" class="defined" href="#_t_111">Test FCS_TTTC_EXT.4.3:2</a>:
+                <li class="test-"><a id="_t_114" class="defined" href="#_t_114">Test FCS_TTTC_EXT.4.3:2</a>:
       (conditional, the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> selects "2^20 64-bit data blocks are encrypted using TDES cipher suites using the same key"
                   in <a href="#FCS_TTTC_EXT.4.3">FCS_TTTC_EXT.4.3</a>): the evaluator shall establish one or more monitored client and requested servers
                   configured to use each of the supported cipher suites using TDES through the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>. For each supported
@@ -6388,7 +6394,6 @@ provide all of its security functionality.
           </p><h4>Audit: FDP_CSI_EXT.1</h4><p>There are no auditable events foreseen.</p><h4>FDP_CSI_EXT.1 Certificate Status Information</h4><div style="margin-left: 1em;"><table class="ecd_heir_dep" style="width: 100%"><tr><td style="whitespace: nowrap">Hierarchical to:</td><td style="width: 100%">No other components.</td></tr><tr style="background-color: inherit"><td>Dependencies to:</td><td>
             [<a href="#FDP_CRL_EXT.1">FDP_CRL_EXT.1</a> Certificate Revocation List Generation or<p></p>
             <a href="#FDP_OCSP_EXT.1">FDP_OCSP_EXT.1</a> OCSP Basic Response Generation]<p></p>
-            FDP_OCSPS_EXT.1 OCSP Stapling<p></p>
             FMT_SMR.1 Security Roles
           </td></tr></table><h4 id="ext-comp-FDP_CSI_EXT.1.1">FDP_CSI_EXT.1.1</h4>
               <span style="" class="comment " id="Comment-6-">This requirement can be pulled from the X.509 <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr>, but it is unclear as to how this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> should be modeled. Some minor refinements would be necessary (e.g., the <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr> defines only a single 
@@ -6405,7 +6410,7 @@ provide all of its security functionality.
      <span class="assignable-content">automated revocation rules</span>]</span>]. 
               <h4 id="ext-comp-FDP_CSI_EXT.1.3">FDP_CSI_EXT.1.3</h4>
               The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall [<b>selection</b>: <span class="selectable-content" id="_s_262">provide</span>, <span class="selectable-content" id="_s_263">interface with the Operational Environment to provide</span>] certificate status information generated in accordance with
-              <a href="#FDP_CSI_EXT.1.1">FDP_CSI_EXT.1.1</a> via [<b>selection</b>: <span class="selectable-content" id="_s_264">posting CRLs at the location specified in the cRLDistributionPoints of the issued certificate</span>, <span class="selectable-content" id="_s_265">an OCSP mechanism indicated in the authorityInfoAccess extension of the issued certificate</span>, <span class="selectable-content" id="stapling">OCSP Stapling in accordance with FDP_OCSPS_EXT.1</span>].
+              <a href="#FDP_CSI_EXT.1.1">FDP_CSI_EXT.1.1</a> via [<b>selection</b>: <span class="selectable-content" id="_s_264">posting CRLs at the location specified in the cRLDistributionPoints of the issued certificate</span>, <span class="selectable-content" id="_s_265">an OCSP mechanism indicated in the authorityInfoAccess extension of the issued certificate</span>, <span class="selectable-content" id="stapling">OCSP Stapling </span>].
             </div><h4>Management: FDP_CSI_EXT.2</h4><p><ul>
             The following actions could be considered for the management functions in FMT:
             <li>Ability to revoke issued certificates.</li>
@@ -6419,7 +6424,7 @@ provide all of its security functionality.
             <a href="#FDP_CSI_EXT.1">FDP_CSI_EXT.1</a> Certificate Status Information<p></p>
             [<a href="#FDP_CRL_EXT.1">FDP_CRL_EXT.1</a> Certificate Revocation List Generation or<p></p>
             <a href="#FDP_OCSP_EXT.1">FDP_OCSP_EXT.1</a> OCSP Basic Response Generation]<p></p>
-            FDP_OCSPS_EXT.1 OCSP Stapling<p></p>
+          
             FMT_SMR.1 Security Roles
           </td></tr></table><h4 id="ext-comp-FDP_CSI_EXT.2.1">FDP_CSI_EXT.2.1</h4>
               <span style="" class="comment " id="Comment-11-">This requirement can be pulled from the X.509 <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr>, but it is unclear as to how this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> should be modeled. This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> would likely be an iteration of <a href="#FDP_CSI_EXT.1">FDP_CSI_EXT.1</a> in the <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr>, with some minor refinements (e.g., the <abbr class="dyn-abbr"><a href="#abbr_FP">FP</a></abbr> defines only a single 

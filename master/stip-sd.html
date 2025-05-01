@@ -2600,45 +2600,54 @@ The following sections list Common Criteria and technology terms used in this do
                 For each public key identified in the TSS, the evaluator shall perform the following test:
                 <p></p>
                 The evaluator shall perform an action to invalidate the integrity of each public key and then verify
-                that the TSF detects the invalid key.</div></div></span></div><div class="comp" id="FCS-TTTC-EXT-4"><h4>FCS_TTTC_EXT.4 STIP Client-Side Support for Renegotiation</h4><span class="activity_pane_body"><div class="component-activity-header">FCS_TTTC_EXT.4</div>
-              
-              
-              
-            <div class="eacategory">TSS</div><div class="ea"><div class="ea">The evaluator shall examine the TSS to validate that it describes the method used to support
-                renegotiation.
-              <p></p></div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea">There are no guidance EAs for this component beyond what is specified for FCS_TTTC_EXT.4.3.<p></p></div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">The evaluator shall perform the following tests:<p></p>
-              <span class="testlist-"><ul>
-                <li class="test-"><a id="_t_112" class="defined" href="#_t_112">Test FCS_TTTC_EXT.4:1</a>:
-      The evaluator shall use a network packet analyzer and/or sniffer to capture the traffic between
-                  the TSF and a requested server during inspection of a TLS session between a monitored client and the
-                  requested server through the TOE. The evaluator shall verify that either the renegotiation_info field or
-                  the SCSV cipher suite is included in the Client Hello message during the initial handshake.
-                </li>
-                <li class="test-"><a id="_t_113" class="defined" href="#_t_113">Test FCS_TTTC_EXT.4:2</a>:
+                that the TSF detects the invalid key.</div></div></span></div><div class="comp" id="FCS-TTTC-EXT-4"><h4>FCS_TTTC_EXT.4 STIP Client-Side Support for Renegotiation</h4><span class="activity_pane_body"><div class="element-activity-header">FCS_TTTC_EXT.4.1</div>
+              <div class="eacategory">TSS</div><div class="ea">The evaluator shall examine the TSS to validate that it describes the method used to support
+                renegotiation.</div>
+              <div class="eacategory">Guidance</div>
+			There are no additional Guidance evaluation activities for this element.<br/><br/>
+              <div class="eacategory">Tests</div><div class="ea">
+                <span class="testlist-"><ul>
+                  <li class="test-"><a id="_t_110" class="defined" href="#_t_110">Test FCS_TTTC_EXT.4.1:1</a>:
       The evaluator shall verify the TSF’s handling of Server Hello messages received from a requested
-                  server during an authorized inspection of a TLS session between a monitored client and the requested
-                  server through the TOE, during the initial handshake that include the renegotiation_info extension. The
-                  evaluator shall modify the length portion of this field in the Server Hello message to be non-zero and verify
-                  that the TSF sends a failure and terminates the connection. The evaluator shall verify that a properly
-                  formatted field during an authorized inspection of traffic to the server results in a successful TLS
-                  connection between the TSF and the requested server.
-                </li>
-                <li class="test-"><a id="_t_114" class="defined" href="#_t_114">Test FCS_TTTC_EXT.4:3</a>:
+                    server during an authorized inspection of a TLS session between a monitored client and the requested
+                    server through the TOE, during the initial handshake that include the renegotiation_info extension. The
+                    evaluator shall modify the length portion of this field in the Server Hello message to be non-zero and verify
+                    that the TSF sends a failure and terminates the connection. The evaluator shall verify that a properly
+                    formatted field during an authorized inspection of traffic to the server results in a successful TLS
+                    connection between the TSF and the requested server.
+                  </li>
+                  <li class="test-"><a id="_t_111" class="defined" href="#_t_111">Test FCS_TTTC_EXT.4.1:2</a>:
       The evaluator shall cause the TSF to initiate renegotiation with the requested server and verify
-                  that the Client Hello message received by the requested server contains the renegotiation_info extension.
-                  The evaluator shall cause the requested server to send a Server Hello message with a renegotiation info
-                  extension containing data in which one or both of the client_verify_data or server_verify_data value is
-                  modified. The evaluator shall verify that the TSF terminates the connection.
-                </li>
-              </ul></span>
-              </div></div><div class="element-activity-header">FCS_TTTC_EXT.4.3</div>
+                    that the Client Hello message received by the requested server contains the renegotiation_info extension.
+                    The evaluator shall cause the requested server to send a Server Hello message with a renegotiation info
+                    extension containing data in which one or both of the client_verify_data or server_verify_data value is
+                    modified. The evaluator shall verify that the TSF terminates the connection.
+                  </li>
+                </ul></span>
+              </div>
+            <div class="element-activity-header">FCS_TTTC_EXT.4.2</div>
+              <div class="eacategory">TSS</div>
+			There are no additional TSS evaluation activities for this element.<br/><br/>
+              <div class="eacategory">Guidance</div>
+			There are no additional Guidance evaluation activities for this element.<br/><br/>
+              <div class="eacategory">Tests</div><div class="ea">
+                <span class="testlist-"><ul>
+                  <li class="test-"><a id="_t_112" class="defined" href="#_t_112">Test FCS_TTTC_EXT.4.2:1</a>:
+      The evaluator shall use a network packet analyzer and/or sniffer to capture the traffic between
+                    the TSF and a requested server during inspection of a TLS session between a monitored client and the
+                    requested server through the TOE. The evaluator shall verify that either the renegotiation_info field or
+                    the SCSV cipher suite is included in the Client Hello message during the initial handshake.
+                  </li>
+                </ul></span>
+              </div>
+            <div class="element-activity-header">FCS_TTTC_EXT.4.3</div>
               <div class="eacategory">TSS</div><div class="ea">The evaluator shall verify that the TSS describes the mechanisms used to specify when renegotiation
                 occurs. <p></p></div>
               <div class="eacategory">Guidance</div><div class="ea">The evaluator shall check the operational guidance documentation to ensure that instructions for any
                 configurable features of the TLS implementation required to meet this requirement are provided.<p></p></div>
               <div class="eacategory">Tests</div><div class="ea">The evaluator shall perform the following tests:<p></p>
               <span class="testlist-"><ul>
-                <li class="test-"><a id="_t_110" class="defined" href="#_t_110">Test FCS_TTTC_EXT.4.3:1</a>:
+                <li class="test-"><a id="_t_113" class="defined" href="#_t_113">Test FCS_TTTC_EXT.4.3:1</a>:
       For any mechanism specified, the evaluator will establish one or more monitored client and
                   requested servers configured to use each of the supported cipher suites through the TSF. For each
                   supported cipher suite, the evaluator shall initiate a session between the monitored client to a requested
@@ -2648,7 +2657,7 @@ The following sections list Common Criteria and technology terms used in this do
                   shall observe that the TSF terminates or renegotiates the TLS session as specified by the renegotiation
                   mechanism.
                 </li>
-                <li class="test-"><a id="_t_111" class="defined" href="#_t_111">Test FCS_TTTC_EXT.4.3:2</a>:
+                <li class="test-"><a id="_t_114" class="defined" href="#_t_114">Test FCS_TTTC_EXT.4.3:2</a>:
       (conditional, the ST selects "2^20 64-bit data blocks are encrypted using TDES cipher suites using the same key"
                   in FCS_TTTC_EXT.4.3): the evaluator shall establish one or more monitored client and requested servers
                   configured to use each of the supported cipher suites using TDES through the TSF. For each supported
