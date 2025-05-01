@@ -506,7 +506,7 @@ expected to enforce.<h:p/>
             <rationale>Mitigates the threat by preventing the unauthorized use of secret and private keys.</rationale>
             <addressed-by>FDP_PIN_EXT.1 (optional)</addressed-by>
             <rationale>Mitigates the threat by defining the optional implementation of certificate pinning. </rationale>
-            <addressed-by>FIA_ESTC_EXT.2 (optional)</addressed-by>
+            <addressed-by>FIA_ESTC_EXT.2 (objective)</addressed-by>
             <rationale>Mitigates the threat by defining requirements for the composition of EST requests if the TOE supports EST. </rationale>
             <addressed-by>FCS_CKM_EXT.5 (selection-based)</addressed-by>
             <rationale>Mitigates the threat by defining the integrity mechanism used to guarantee the integrity of public key data.</rationale>
@@ -522,8 +522,6 @@ expected to enforce.<h:p/>
           <rationale>Mitigates the threat by defining the revocation checking method supported by the TOE for the proxy TLS client certificates it issues, if mutual authentication is supported and revocation is how the freshness of its issued certificates is assured. </rationale>
             <addressed-by>FDP_OCSP_EXT.1 (selection-based)</addressed-by>
           <rationale>Mitigates the threat by defining rules for the generation of OCSP responses if the TOE uses this as the mechanism to ensure the freshness of its issued certificates. </rationale>
-            <addressed-by>FDP_OCSPS_EXT.1 (selection-based)</addressed-by>
-            <rationale>Mitigates the threat by defining rules for the implementation of OCSP stapling if the TOE supports this functionality. </rationale>
             <addressed-by>FIA_ESTC_EXT.1 (selection-based)</addressed-by>
             <rationale>Mitigates the threat by defining requirements for the implementation of EST if the TOE uses this mechanism to obtain TLS certificates for its own use. </rationale>
           <!-- <objective-refer ref="OE.CERT_REPOSITORY">
@@ -592,7 +590,7 @@ expected to enforce.<h:p/>
           <rationale>Mitigates the threat by defining additional management roles that the TOE may support that are specific to STIP functionality.</rationale>          
           <addressed-by>FDP_PIN_EXT.1 (optional)</addressed-by>
           <rationale>Mitigates the threat by defining the optional implementation of certificate pinning. </rationale>
-          <addressed-by>FIA_ESTC_EXT.2 (optional)</addressed-by>
+          <addressed-by>FIA_ESTC_EXT.2 (objective)</addressed-by>
           <rationale>Mitigates the threat by defining requirements for the composition of EST requests if the TOE supports EST. </rationale>
           <addressed-by>FDP_CER_EXT.4 (selection-based)</addressed-by>
           <rationale>Mitigates the threat by defining the rules the TOE must use to generate and issue proxy TLS client certificates from its internal CA if mutual authentication is supported. </rationale>
@@ -614,8 +612,6 @@ expected to enforce.<h:p/>
           <rationale>Mitigates the threat by defining the revocation echecking method supported by the TOE for the proxy TLS client certificates it issues, if mutual authentication is supported and revocation is how the freshness of its issued certificates is assured. </rationale>
           <addressed-by>FDP_OCSP_EXT.1 (selection-based)</addressed-by>
           <rationale>Mitigates the threat by defining rules for the generation of OCSP responses if the TOE uses this as the mechanism to ensure the freshness of its issued certificates. </rationale>
-          <addressed-by>FDP_OCSPS_EXT.1 (selection-based)</addressed-by>
-          <rationale>Mitigates the threat by defining rules for the implementation of OCSP stapling if the TOE supports this functionality. </rationale>
           <addressed-by>FDP_STIP_EXT.2 (selection-based)</addressed-by>
           <rationale>Mitigates the threat by defining the optional capability of the TOE to establish a proxy TLS session in the case where mutual authentication is supported.</rationale>
           <addressed-by>FIA_ESTC_EXT.1 (selection-based)</addressed-by>
@@ -673,7 +669,7 @@ expected to enforce.<h:p/>
           <rationale>Mitigates the threat by requiring the TSF to support a maintenance mode of operation that is entered when certain failures occur.</rationale>
           <addressed-by>FDP_PIN_EXT.1 (optional)</addressed-by>
           <rationale>Mitigates the threat by defining the optional implementation of certificate pinning. </rationale>
-          <addressed-by>FIA_ESTC_EXT.2 (optional)</addressed-by>
+          <addressed-by>FIA_ESTC_EXT.2 (objective)</addressed-by>
           <rationale>Mitigates the threat by defining requirements for the composition of EST requests if the TOE supports EST. </rationale>
           <addressed-by>FCS_CKM_EXT.5 (selection-based)</addressed-by>
           <rationale>Mitigates the threat by defining the integrity mechanism used to guarantee the integrity of public key data.</rationale>
@@ -689,8 +685,6 @@ expected to enforce.<h:p/>
           <rationale>Mitigates the threat by defining the revocation echecking method supported by the TOE for the proxy TLS client certificates it issues, if mutual authentication is supported and revocation is how the freshness of its issued certificates is assured. </rationale>
           <addressed-by>FDP_OCSP_EXT.1 (selection-based)</addressed-by>
           <rationale>Mitigates the threat by defining rules for the generation of OCSP responses if the TOE uses this as the mechanism to ensure the freshness of its issued certificates. </rationale>
-          <addressed-by>FDP_OCSPS_EXT.1 (selection-based)</addressed-by>
-          <rationale>Mitigates the threat by defining rules for the implementation of OCSP stapling if the TOE supports this functionality. </rationale>
           <addressed-by>FIA_ESTC_EXT.1 (selection-based)</addressed-by>
           <rationale>Mitigates the threat by defining requirements for the implementation of EST if the TOE uses this mechanism to obtain TLS certificates for its own use. </rationale>   
         </threat>
@@ -5356,7 +5350,7 @@ legacy cipher suites. -->
           </f-element>
           <f-element id="fau-sar-1e2">
             <title>
-              The TSF shall provide the local audit records in a manner suitable for the
+              The TSF shall provide the local audit data in a manner suitable for the
               <h:b>administrator </h:b>to interpret the information.
             </title>
             <aactivity>
@@ -5637,7 +5631,6 @@ legacy cipher suites. -->
           <dependencies>
             [FDP_CRL_EXT.1 Certificate Revocation List Generation or<h:p/>
             FDP_OCSP_EXT.1 OCSP Basic Response Generation]<h:p/>
-            FDP_OCSPS_EXT.1 OCSP Stapling<h:p/>
             FMT_SMR.1 Security Roles
           </dependencies>
           <f-element id="fdp-csi-ext-1e1">
@@ -5685,7 +5678,7 @@ legacy cipher suites. -->
               FDP_CSI_EXT.1.1 via <selectables>
                 <selectable>posting CRLs at the location specified in the cRLDistributionPoints of the issued certificate</selectable>
                 <selectable>an OCSP mechanism indicated in the authorityInfoAccess extension of the issued certificate</selectable>
-                <selectable id="stapling">OCSP Stapling in accordance with FDP_OCSPS_EXT.1</selectable>
+                <selectable id="stapling">OCSP Stapling <!--in accordance with FDP_OCSPS_EXT.1--></selectable>
               </selectables>.
             </title>
             <note role="application">
@@ -6773,7 +6766,7 @@ legacy cipher suites. -->
             FDP_CSI_EXT.1 Certificate Status Information<h:p/>
             [FDP_CRL_EXT.1 Certificate Revocation List Generation or<h:p/>
             FDP_OCSP_EXT.1 OCSP Basic Response Generation]<h:p/>
-            FDP_OCSPS_EXT.1 OCSP Stapling<h:p/>
+          
             FMT_SMR.1 Security Roles
           </dependencies>
           <f-element id="fdp-csi-ext-2e1">
@@ -7199,6 +7192,29 @@ legacy cipher suites. -->
           <f-element id="fcs-tttc-ext-4e1">
             <title>The TSF shall support secure renegotiation on STIP TLS connections through use
               of the “renegotiation_info” TLS extension in accordance with RFC 5746.</title>
+            <aactivity level="element">
+              <TSS>The evaluator shall examine the TSS to validate that it describes the method used to support
+                renegotiation.</TSS>
+              <Guidance/>
+              <Tests>
+                <testlist>
+                  <test>The evaluator shall verify the TSF’s handling of Server Hello messages received from a requested
+                    server during an authorized inspection of a TLS session between a monitored client and the requested
+                    server through the TOE, during the initial handshake that include the renegotiation_info extension. The
+                    evaluator shall modify the length portion of this field in the Server Hello message to be non-zero and verify
+                    that the TSF sends a failure and terminates the connection. The evaluator shall verify that a properly
+                    formatted field during an authorized inspection of traffic to the server results in a successful TLS
+                    connection between the TSF and the requested server.
+                  </test>
+                  <test>The evaluator shall cause the TSF to initiate renegotiation with the requested server and verify
+                    that the Client Hello message received by the requested server contains the renegotiation_info extension.
+                    The evaluator shall cause the requested server to send a Server Hello message with a renegotiation info
+                    extension containing data in which one or both of the client_verify_data or server_verify_data value is
+                    modified. The evaluator shall verify that the TSF terminates the connection.
+                  </test>
+                </testlist>
+              </Tests>
+            </aactivity>
           </f-element>
           <f-element id="fcs-tttc-ext-4e2">
             <title>
@@ -7217,6 +7233,19 @@ legacy cipher suites. -->
               extension. It is recommended that client implementations support both the cipher
               suite and the extension.
             </note>
+            <aactivity level="element">
+              <TSS/>
+              <Guidance/>
+              <Tests>
+                <testlist>
+                  <test>The evaluator shall use a network packet analyzer and/or sniffer to capture the traffic between
+                    the TSF and a requested server during inspection of a TLS session between a monitored client and the
+                    requested server through the TOE. The evaluator shall verify that either the renegotiation_info field or
+                    the SCSV cipher suite is included in the Client Hello message during the initial handshake.
+                  </test>
+                </testlist>
+              </Tests>
+            </aactivity>
           </f-element>
           <f-element id="fcs-tttc-ext-4e3">
             <title>
@@ -7259,35 +7288,6 @@ legacy cipher suites. -->
                   the requested server so that the number of data blocks encrypted under TDES will exceed 2^20. The
                   evaluator shall observe that the TSF terminates or renegotiates the TLS session before the number of data
                   blocks encrypted to the requested server exceeds 2^20.</test>
-              </testlist>
-              </Tests>
-            </aactivity>
-            <aactivity level="component">
-              <TSS>The evaluator shall examine the TSS to validate that it describes the method used to support
-                renegotiation.
-              <h:p/></TSS>
-              <Guidance>There are no guidance EAs for this component beyond what is specified for FCS_TTTC_EXT.4.3.<h:p/></Guidance>
-              <Tests>The evaluator shall perform the following tests:<h:p/>
-              <testlist>
-                <test>The evaluator shall use a network packet analyzer and/or sniffer to capture the traffic between
-                  the TSF and a requested server during inspection of a TLS session between a monitored client and the
-                  requested server through the TOE. The evaluator shall verify that either the renegotiation_info field or
-                  the SCSV cipher suite is included in the Client Hello message during the initial handshake.
-                </test>
-                <test>The evaluator shall verify the TSF’s handling of Server Hello messages received from a requested
-                  server during an authorized inspection of a TLS session between a monitored client and the requested
-                  server through the TOE, during the initial handshake that include the renegotiation_info extension. The
-                  evaluator shall modify the length portion of this field in the Server Hello message to be non-zero and verify
-                  that the TSF sends a failure and terminates the connection. The evaluator shall verify that a properly
-                  formatted field during an authorized inspection of traffic to the server results in a successful TLS
-                  connection between the TSF and the requested server.
-                </test>
-                <test>The evaluator shall cause the TSF to initiate renegotiation with the requested server and verify
-                  that the Client Hello message received by the requested server contains the renegotiation_info extension.
-                  The evaluator shall cause the requested server to send a Server Hello message with a renegotiation info
-                  extension containing data in which one or both of the client_verify_data or server_verify_data value is
-                  modified. The evaluator shall verify that the TSF terminates the connection.
-                </test>
               </testlist>
               </Tests>
             </aactivity>
