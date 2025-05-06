@@ -1333,7 +1333,7 @@ provide all of its security functionality.
         <div class="comp" id="FCS_COP.1/STIP"><h4>FCS_COP.1/STIP Cryptographic Operation (Data Encryption/Decryption in Support of STIP)</h4>
           
           <div class="element"><div class="reqid" id="FCS_COP.1.1/STIP"><a href="#FCS_COP.1.1/STIP" class="abbr">FCS_COP.1.1/STIP</a></div><div class="reqdesc">
-              The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall perform encryption/decryption in accordance with specified
+              The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall perform [<i>encryption/decryption</i>] in accordance with specified
               cryptographic algorithms [<i>AES in CCM and CCM-8 mode and [<b>selection</b>: <span class="selectable-content" id="_s_5">TDES used
                 in CBC mode with 3 distinct keys in its key set</span>, <span class="selectable-content" id="_s_6">no other algorithms
                 </span>]</i>] and
@@ -1631,8 +1631,8 @@ provide all of its security functionality.
             The data encryption and decryption algorithms used in this element are
             performed in accordance with <a href="#FCS_COP.1/STIP">FCS_COP.1/STIP</a>.</span></div></div></div>
           <div class="element"><div class="reqid" id="FCS_TTTS_EXT.1.2"><a href="#FCS_TTTS_EXT.1.2" class="abbr">FCS_TTTS_EXT.1.2</a></div><div class="reqdesc">
-              The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall deny connections from clients requesting [SSL 2.0, SSL 3.0, and
-              [<b>selection</b>: <span class="selectable-content" id="_s_47">TLS 1.1</span>, <span class="selectable-content" id="_s_48">no other SSL or TLS versions</span>]
+              The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall deny connections from clients requesting [<i>SSL 2.0, SSL 3.0, and
+              [<b>selection</b>: <span class="selectable-content" id="_s_47">TLS 1.1</span>, <span class="selectable-content" id="_s_48">no other SSL or TLS versions</span>]</i>]
               for thru-traffic processing.
             <div class="appnote"><span class="note-header">Application
       Note:
@@ -1653,7 +1653,7 @@ provide all of its security functionality.
                     [<b>selection</b>: <span class="selectable-content" id="_s_67">secp256r1</span>, <span class="selectable-content" id="_s_68">secp384r1</span>, <span class="selectable-content" id="_s_69">secp521r1</span>, <span class="selectable-content" id="_s_70">[<b>assignment</b>: 
      <span class="assignable-content">other curves</span>]</span>] and no other curves.</li>               
                 </ul>
-              </i>
+              </i>].
             <div class="appnote"><span class="note-header">Application
       Note:
     </span><span class="note">
@@ -2850,36 +2850,35 @@ provide all of its security functionality.
 <tr><td><a href="#FCS_TTTS_EXT.3">FCS_TTTS_EXT.3</a> (selection-based)</td><td>Mitigates the threat by defining optional support for TLS mutual authentication that is applied to the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>'s proxy TLS server interface.</td></tr>
 <tr><td><a href="#FCS_TTTS_EXT.4">FCS_TTTS_EXT.4</a> (selection-based)</td><td>Mitigates the threat by defining optional support for TLS session renegotiation that is applied to the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>'s proxy TLS server interface.</td></tr>
 <tr><td><a href="#FDP_STIP_EXT.2">FDP_STIP_EXT.2</a> (selection-based)</td><td>Mitigates the threat by defining the optional capability of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to establish a proxy TLS session in the case where mutual authentication is supported.</td></tr>
-<tr class="major-row"><td rowspan="7"><a href="#T.AUDIT">T.AUDIT</a></td><td><a href="#FAU_GCR_EXT.1">FAU_GCR_EXT.1</a></td><td>Mitigates the threat by defining the mechanism the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> uses to store certificate data.</td></tr>
+<tr class="major-row"><td rowspan="7"><a href="#T.AUDIT">T.AUDIT</a></td><td>FAU_STG.1 (from <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>)</td><td>Mitigates the threat by defining a mechanism for the secure storage of audit data in the <abbr class="dyn-abbr"><a href="#abbr_OE">OE</a></abbr>.</td></tr>
+<tr><td><a href="#FAU_GCR_EXT.1">FAU_GCR_EXT.1</a></td><td>Mitigates the threat by defining the mechanism the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> uses to store certificate data.</td></tr>
 <tr><td><a href="#FAU_GEN.1/STIP">FAU_GEN.1/STIP</a></td><td>Mitigates the threat by defining the auditable events specific to <abbr class="dyn-abbr"><a href="#abbr_STIP">STIP</a></abbr> functionality that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> must generate.</td></tr>
 <tr><td><a href="#FAU_SAR.1">FAU_SAR.1</a></td><td>Mitigates the threat by defining administrative review of audit records for any potential issues in <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> configuration or functionality.</td></tr>
-<tr><td>FAU_STG.1 (from <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>)</td><td>Mitigates the threat by defining a mechanism for the secure storage of audit data in the <abbr class="dyn-abbr"><a href="#abbr_OE">OE</a></abbr>.</td></tr>
 <tr><td><a href="#FAU_STG.5">FAU_STG.5</a></td><td>Mitigates the threat by requiring the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> to disable the execution of auditable events if the audit trail cannot be written to.</td></tr>
 <tr><td><a href="#FAU_SAR.3">FAU_SAR.3</a> (optional)</td><td>Mitigates the threat by optionally defining the functionality to search audit records for events associated with a particular certificate.</td></tr>
 <tr><td><a href="#FAU_SCR_EXT.1">FAU_SCR_EXT.1</a> (selection-based)</td><td>Mitigates the threat by requiring the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to implement a search function for certificate storage if the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> implements its own certificate store (as opposed to relying on environmental storage).</td></tr>
 <tr class="major-row"><td rowspan="3"><a href="#T.UNAUTHORIZED_USERS">T.UNAUTHORIZED_​USERS</a></td><td><a href="#FMT_MOF.1/STIP">FMT_MOF.1/STIP</a></td><td>Mitigates the threat by defining the authorized use of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> by association between the supported management functions and the roles that are authorized to perform them.</td></tr>
 <tr><td><a href="#FMT_SMF.1/STIP">FMT_SMF.1/STIP</a></td><td>Mitigates the threat by defining the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>'s management functions that are specific to <abbr class="dyn-abbr"><a href="#abbr_STIP">STIP</a></abbr> functionality.</td></tr>
 <tr><td><a href="#FMT_SMR.2/STIP">FMT_SMR.2/STIP</a></td><td>Mitigates the threat by defining additional management roles that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> may support that are specific to <abbr class="dyn-abbr"><a href="#abbr_STIP">STIP</a></abbr> functionality.</td></tr>
-<tr class="major-row"><td rowspan="25"><a href="#T.CREDENTIALS">T.CREDENTIALS</a></td><td><a href="#FCS_STG_EXT.1">FCS_STG_EXT.1</a></td><td>Mitigates the threat by requiring the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to implement hardware-based protection for stored keys.</td></tr>
-<tr><td>FCS_TLSC_EXT.1 (from <a href="https://www.niap-ccevs.org/protectionprofiles/465">Functional Package for Transport Layer Security (TLS),
+<tr class="major-row"><td rowspan="25"><a href="#T.CREDENTIALS">T.CREDENTIALS</a></td><td>FCS_TLSC_EXT.1 (from <a href="https://www.niap-ccevs.org/protectionprofiles/465">Functional Package for Transport Layer Security (TLS),
         version 
         2.0</a>)</td><td>Mitigates the threat because TLS is a mechanism by which its own certificate data may be obtained from an external <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>. </td></tr>
 <tr><td>FCS_TLSC_EXT.2 (from <a href="https://www.niap-ccevs.org/protectionprofiles/465">Functional Package for Transport Layer Security (TLS),
         version 
-        2.0</a>)</td><td>Mitigates the threat because mutually-authenticated TLS is a mechanism by which its own certificate 
-            data may be obtained from an external <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>. </td></tr>
-<tr><td><a href="#FDP_CER_EXT.1">FDP_CER_EXT.1</a></td><td>Mitigates the threat by defining the rules the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> must use to generate and issue proxy TLS server certificates from its internal <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>. </td></tr>
-<tr><td><a href="#FDP_CER_EXT.2">FDP_CER_EXT.2</a></td><td>Mitigates the threat by requiring the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to link the certificates presented for TLS connectivity with the certificates it issues from its internal <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>. </td></tr>
-<tr><td><a href="#FDP_CER_EXT.3">FDP_CER_EXT.3</a></td><td>Mitigates the threat by defining the rules for the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>'s issuing of proxy TLS server certificates. </td></tr>
-<tr><td><a href="#FDP_CSIR_EXT.1">FDP_CSIR_EXT.1</a></td><td>Mitigates the threat by defining how the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> can ensure the use of fresh certificates.</td></tr>
-<tr><td><a href="#FDP_STG_EXT.1">FDP_STG_EXT.1</a></td><td>Mitigates the threat by defining the mechanism used to protect public key data from unauthorized modification.</td></tr>
-<tr><td><a href="#FIA_ENR_EXT.1">FIA_ENR_EXT.1</a></td><td>Mitigates the threat by defining the mechanism by which the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> requests a certificate for its own embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>'s signing key. </td></tr>
+        2.0</a>)</td><td>Mitigates the threat because mutually-authenticated TLS is a mechanism by which its own certificate data may be obtained from an external <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>. </td></tr>
 <tr><td>FIA_X509_EXT.1 (from <a href="https://www.niap-ccevs.org/protectionprofiles/511">Functional Package for X.509,
         version 
         1.0</a>)</td><td>Mitigates the threat by defining the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> functionality for certificate validation. </td></tr>
 <tr><td>FIA_X509_EXT.3 (from <a href="https://www.niap-ccevs.org/protectionprofiles/511">Functional Package for X.509,
         version 
         1.0</a>)</td><td>Mitigates the threat by defining the mechanism by which the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> generates certificate signing requests, which includes validation of the certificate provided in response. </td></tr>
+<tr><td><a href="#FCS_STG_EXT.1">FCS_STG_EXT.1</a></td><td>Mitigates the threat by requiring the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to implement hardware-based protection for stored keys.</td></tr>
+<tr><td><a href="#FDP_CER_EXT.1">FDP_CER_EXT.1</a></td><td>Mitigates the threat by defining the rules the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> must use to generate and issue proxy TLS server certificates from its internal <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>. </td></tr>
+<tr><td><a href="#FDP_CER_EXT.2">FDP_CER_EXT.2</a></td><td>Mitigates the threat by requiring the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to link the certificates presented for TLS connectivity with the certificates it issues from its internal <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>. </td></tr>
+<tr><td><a href="#FDP_CER_EXT.3">FDP_CER_EXT.3</a></td><td>Mitigates the threat by defining the rules for the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>'s issuing of proxy TLS server certificates. </td></tr>
+<tr><td><a href="#FDP_CSIR_EXT.1">FDP_CSIR_EXT.1</a></td><td>Mitigates the threat by defining how the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> can ensure the use of fresh certificates.</td></tr>
+<tr><td><a href="#FDP_STG_EXT.1">FDP_STG_EXT.1</a></td><td>Mitigates the threat by defining the mechanism used to protect public key data from unauthorized modification.</td></tr>
+<tr><td><a href="#FIA_ENR_EXT.1">FIA_ENR_EXT.1</a></td><td>Mitigates the threat by defining the mechanism by which the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> requests a certificate for its own embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>'s signing key. </td></tr>
 <tr><td><a href="#FIA_X509_EXT.1/STIP">FIA_X509_EXT.1/STIP</a></td><td>Mitigates the threat by defining the certificate validation rules that must be followed for certificates that are used for proxy TLS connections. </td></tr>
 <tr><td><a href="#FIA_X509_EXT.2/STIP">FIA_X509_EXT.2/STIP</a></td><td>Mitigates the threat by defining the certificate authentication behavior for <abbr class="dyn-abbr"><a href="#abbr_STIP">STIP</a></abbr> connections. </td></tr>
 <tr><td><a href="#FPT_KST_EXT.1">FPT_KST_EXT.1</a></td><td>Mitigates the threat by requiring the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> to enforce the prevention of plaintext key export.</td></tr>
@@ -2996,14 +2995,14 @@ provide all of its security functionality.
 <tr><td><a href="#FDP_PRC_EXT.1">FDP_PRC_EXT.1</a></td><td>Mitigates the threat by defining requirements for the routing of decrypted plaintext traffic.</td></tr>
 <tr><td><a href="#FDP_STIP_EXT.1">FDP_STIP_EXT.1</a></td><td>Mitigates the threat by defining the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>'s ability to establish proxy TLS sessions between a monitored client and a requested server and to apply appropriate rules to the handling of the decrypted traffic.</td></tr>
 <tr><td><a href="#FDP_TEP_EXT.1">FDP_TEP_EXT.1</a></td><td>Mitigates the threat by defining the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>'s ability to enforce filtering rules on TLS traffic passing through the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>.</td></tr>
+<tr><td><a href="#FMT_MOF.1/STIP">FMT_MOF.1/STIP</a></td><td>Mitigates the threat by defining the authorized use of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> by association between the supported management functions and the roles that are authorized to perform them.</td></tr>
+<tr><td><a href="#FMT_SMF.1/STIP">FMT_SMF.1/STIP</a></td><td>Mitigates the threat by defining the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>'s management functions that are specific to <abbr class="dyn-abbr"><a href="#abbr_STIP">STIP</a></abbr> functionality.</td></tr>
+<tr><td><a href="#FMT_SMR.2/STIP">FMT_SMR.2/STIP</a></td><td>Mitigates the threat by defining additional management roles that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> may support that are specific to <abbr class="dyn-abbr"><a href="#abbr_STIP">STIP</a></abbr> functionality.</td></tr>
 <tr><td><a href="#FCS_TTTC_EXT.3">FCS_TTTC_EXT.3</a> (selection-based)</td><td>Mitigates the threat by defining optional support for TLS mutual authentication that is applied to the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>'s proxy TLS client interface.</td></tr>
 <tr><td><a href="#FCS_TTTC_EXT.4">FCS_TTTC_EXT.4</a> (selection-based)</td><td>Mitigates the threat by defining optional support for TLS session renegotiation that is applied to the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>'s proxy TLS client interface.</td></tr>
 <tr><td><a href="#FCS_TTTS_EXT.3">FCS_TTTS_EXT.3</a> (selection-based)</td><td>Mitigates the threat by defining optional support for TLS mutual authentication that is applied to the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>'s proxy TLS server interface.</td></tr>
 <tr><td><a href="#FCS_TTTS_EXT.4">FCS_TTTS_EXT.4</a> (selection-based)</td><td>Mitigates the threat by defining optional support for TLS session renegotiation that is applied to the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>'s proxy TLS server interface.</td></tr>
 <tr><td><a href="#FDP_STIP_EXT.2">FDP_STIP_EXT.2</a> (selection-based)</td><td>Mitigates the threat by defining the optional capability of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to establish a proxy TLS session in the case where mutual authentication is supported.</td></tr>
-<tr><td><a href="#FMT_MOF.1/STIP">FMT_MOF.1/STIP</a></td><td>Mitigates the threat by defining the authorized use of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> by association between the supported management functions and the roles that are authorized to perform them.</td></tr>
-<tr><td><a href="#FMT_SMF.1/STIP">FMT_SMF.1/STIP</a></td><td>Mitigates the threat by defining the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>'s management functions that are specific to <abbr class="dyn-abbr"><a href="#abbr_STIP">STIP</a></abbr> functionality.</td></tr>
-<tr><td><a href="#FMT_SMR.2/STIP">FMT_SMR.2/STIP</a></td><td>Mitigates the threat by defining additional management roles that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> may support that are specific to <abbr class="dyn-abbr"><a href="#abbr_STIP">STIP</a></abbr> functionality.</td></tr>
 <tr class="major-row"><td rowspan="7"><a href="#T.INAPPROPRIATE_ACCESS">T.INAPPROPRIATE_​ACCESS</a></td><td><a href="#FDP_PPP_EXT.1">FDP_PPP_EXT.1</a></td><td>Mitigates the threat by defining the processing rules that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> applies to plaintext traffic once decrypted.</td></tr>
 <tr><td><a href="#FDP_RIP.1">FDP_RIP.1</a></td><td>Mitigates the threat by defining the residual data that is cleared from <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> memory and when the clearing occurs.</td></tr>
 <tr><td><a href="#FDP_TEP_EXT.1">FDP_TEP_EXT.1</a></td><td>Mitigates the threat by defining the processing rules that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> applies to encrypted traffic.</td></tr>
