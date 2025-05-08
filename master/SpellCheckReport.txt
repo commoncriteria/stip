@@ -21,6 +21,7 @@ output/stip-release-linkable.html: CodeSigning
 output/stip-release-linkable.html: DataEncryption
 output/stip-release-linkable.html: ECpoint
 output/stip-release-linkable.html: EncryptedPreMasterSecret
+output/stip-release-linkable.html: FCSCKM
 output/stip-release-linkable.html: KERBEROS
 output/stip-release-linkable.html: Key1
 output/stip-release-linkable.html: Key2
@@ -113,6 +114,7 @@ output/stip-release.html: CRL’
 output/stip-release.html: CSP
 output/stip-release.html: CodeSigning
 output/stip-release.html: DataEncryption
+output/stip-release.html: FCSCKM
 output/stip-release.html: KERBEROS
 output/stip-release.html: OIDs
 output/stip-release.html: PINs
@@ -272,6 +274,7 @@ output/stip.html: CodeSigning
 output/stip.html: DataEncryption
 output/stip.html: ECpoint
 output/stip.html: EncryptedPreMasterSecret
+output/stip.html: FCSCKM
 output/stip.html: KERBEROS
 output/stip.html: Key1
 output/stip.html: Key2

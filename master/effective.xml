@@ -771,15 +771,17 @@ expected to enforce.<h:p/>
         <assumption name="A.AUDIT">
           <description>An audit server is assumed to be present in the Operational Environment which contains adequate storage to retain the audit record, and provides adequate availability, integrity, and access control to 
             the audit record to support operational requirements. Administration of the audit server is assumed to be separate to that of the SSL/TLS inspection proxy, and it is also assumed to support all required role separations.</description>
+          <consistency-rationale>This assumption is consistent with the Base-PP because the Base-PP already includes requirements to send audit data to an external server. The functionality assumed can be combined with the functionality required by the Base-PP, thus there is no conflict.</consistency-rationale>
           <objective-refer ref="OE.AUDIT">
-            <rationale>The operational environment objective OE.AUDIT is realized through A.AUDIT because the audit server assumed to be present fulfills all aspects of the objective for the Operational Environment.</rationale>
-          </objective-refer>
+          <rationale>The operational environment objective OE.AUDIT is realized through A.AUDIT because the audit server assumed to be present fulfills all aspects of the objective for the Operational Environment.</rationale>
+        </objective-refer>
         </assumption>
         <assumption name="A.CERT_REPOSITORY">
           <description>A certificate repository is assumed to be present in the Operational Environment that provides storage of certificates (and optionally CRLs) issued by the TSF. This certificate repository is assumed to provide 
             the ability to search for certificates issued by the TSF based on specific certificate fields in the certificate. The search process is assumed to result in the certificate(s) and certificate identifier(s) that correspond to the 
             search criteria.
           </description>
+          <consistency-rationale>The Base-PP does not contain any requirements upon the storage of certificates except that keys must be protected; thus there is no conflict with specifying a secure storage location for certificates.</consistency-rationale>
           <objective-refer ref="OE.CERT_REPOSITORY">
             <rationale>The operational objective OE.CERT_REPOSITORY is realized through A.CERT_REPOSITORY because the certificate repository assumed to be present fulfills all aspects of the objective for the Operational Environment.</rationale>
           </objective-refer>
@@ -1062,7 +1064,7 @@ expected to enforce.<h:p/>
               <h:p>This SFR has been modified from its definition in the Base-PP to mandate the use of TLS. Other protocol options may be selected without restriction. Any element that is not present in this section is unchanged from its definition in the Base-PP.</h:p>
               <h:p>The text of the specified elements is replaced with:</h:p>
               <h:p><h:b>FTP_ITC.1.1: </h:b>The TSF shall be capable of using <h:b>TLS as defined in the <h:a href="https://www.niap-ccevs.org/protectionprofiles/465">Functional Package for TLS, version 2.0</h:a></h:b> and [<h:b>selection: </h:b><h:i>IPsec, 
-                SSH as defined in the <h:a href="https://www.niap-ccevs.org/protectionprofiles/515">Functional Package for SSH, version 2.0</h:a>, DTLS <h:b>as defined in the <h:a href="https://www.niap-ccevs.org/protectionprofiles/465">Functional Package for TLS, version 2.0</h:a></h:b>, HTTPS, <h:b>no other protocols</h:b></h:i>] 
+                SSH <h:b>as defined in the <h:a href="https://www.niap-ccevs.org/protectionprofiles/515">Functional Package for SSH, version 2.0</h:a></h:b>, DTLS <h:b>as defined in the <h:a href="https://www.niap-ccevs.org/protectionprofiles/465">Functional Package for TLS, version 2.0</h:a></h:b>, HTTPS, <h:b>no other protocols</h:b></h:i>] 
                 to provide a trusted communication channel between itself and authorized IT entities supporting the following capabilities: audit server, <h:b>TLS session proxying, </h:b>[<h:b>selection: </h:b><h:i>authentication server, <h:b>Enrollment over Secure Transport, </h:b>[<h:b>assignment: </h:b>other capabilities], no other capabilities</h:i>] 
                 that is logically distinct from other communication channels and provides assured identification of its end points and protection of the channel data from modification and disclosure.</h:p>
               <h:p><h:b>Application Note: </h:b>This SFR is modified from its definition in the Base-PP by specifying that a conformant TOE will always implement TLS trusted channels at minimum, due
@@ -1148,6 +1150,8 @@ expected to enforce.<h:p/>
       <con-mod ref="OE.CERT_REPOSITORY">This objective intends for the TOE’s OE to provide a certificate repository. This is not defined in the Base-PP because not all network devices will necessarily need to interface with a certificate repository.</con-mod>
       <con-mod ref="OE.CERT_REPOSITORY_SEARCH">This objective intends for the TOE’s OE which will provide a certificate
         repository to also have the capability to search within the repository. This is not defined in the Base-PP because not all network devices will necessarily need to interface with a certificate repository.</con-mod>
+      <con-mod ref="OE.CONSENT_TO_INSPECT">This objective intends for the TOE's OE to provide either consent or assurance of consent to monitor SSL/TLS traffic. This is not defined in the Base-PP because not all network devices 
+        will necessarily need to inspect encrypted network traffic.</con-mod>
       
      
 	  
@@ -2969,19 +2973,8 @@ legacy cipher suites. -->
                   <h:li>If the basicConstraints field is configured to be present, it shall be
                     populated with the value cA=False</h:li>
                   <h:li>The subject public key shall be generated in accordance with
-                    FCS_CKM.1.1.</h:li>
-                  <h:li>
-                    <selectables linebreak="yes">
-                      <selectable>policy OID/policy mapping fields are populated in accordance with
-                        a <h:b><selectables>
-                          <selectable>Security Administrator</selectable>
-                          <selectable>CA Operations Staff</selectable>
-                        </selectables></h:b> configured mapping from validated server certificate values to
-                          one or more stated policy OIDs</selectable>
-                      <selectable><assignable>list of rules</assignable></selectable>
-                      <selectable>no additional rules</selectable>
-                    </selectables>.
-                  </h:li>
+                    FCSCKM.1.1.</h:li>
+                  <h:li><assignable>additional rules for populating certificate fields</assignable>.</h:li>
                 </h:ol>
               </title>
             </ext-comp-def-title>
@@ -5339,7 +5332,7 @@ legacy cipher suites. -->
           </f-element>
           <f-element id="fau-sar-1e2">
             <title>
-              The TSF shall provide the local audit data in a manner suitable for the
+              The TSF shall provide the <h:b>local </h:b>audit data in a manner suitable for the
               <h:b>administrator </h:b>to interpret the information.
             </title>
             <aactivity>
@@ -5946,7 +5939,7 @@ legacy cipher suites. -->
                 <selectable>HTTP basic authentication transported over TLS in accordance with RFC
                 7030 section 3.2.3 and FCS_TLSC_EXT.1</selectable>
                 <selectable>HTTP digest authentication using a cryptographic hash algorithm in
-                accordance with FCS_COP.1<h:b>/Hash</h:b>, transported over TLS in accordance
+                accordance with FCS_COP.1, transported over TLS in accordance
                 with RFC 7030 section 3.2.3 and FCS_TLSC_EXT.1</selectable>
                 <selectable>Certificate-based authentication in accordance with RFC 7030 section
                 3.3.2 and FCS_TLSC_EXT.2 using <assignable>a pre-existing certificate
@@ -6527,10 +6520,10 @@ legacy cipher suites. -->
           <f-element id="fdp-cer-ext-4e4">
             <title>
               The TSF shall implement the following rules for populating certificate fields based
-              on the validated certificate and constraints imposed by the <h:b><selectables>
+              on the validated certificate and constraints imposed by the <selectables>
                 <selectable>Security Administrator</selectable>
                 <selectable>CA Operations Staff</selectable>
-              </selectables></h:b>:
+              </selectables>:
               <h:ol type="a">
                 <h:li>The Subject/Subject Alternative Name shall be copied from validated
                   client certificate.</h:li>
