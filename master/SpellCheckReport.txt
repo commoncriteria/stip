@@ -1,4 +1,3 @@
-output/stip-release-linkable.html: 0E
 output/stip-release-linkable.html: 0x00
 output/stip-release-linkable.html: 0x0000000000000000
 output/stip-release-linkable.html: 0x0002
@@ -102,7 +101,6 @@ output/stip-release-linkable.html: tls
 output/stip-release-linkable.html: un
 output/stip-release-linkable.html: untrust
 output/stip-release-linkable.html: v1
-output/stip-release.html: 0E
 output/stip-release.html: 38A
 output/stip-release.html: 38C
 output/stip-release.html: 509v2
@@ -182,8 +180,6 @@ output/stip-release.html: un
 output/stip-release.html: users’
 output/stip-release.html: v1
 output/stip-release.html: ’
-output/stip-sd.html: 0E
-output/stip-sd.html: 0e
 output/stip-sd.html: 0x00
 output/stip-sd.html: 0x0000000000000000
 output/stip-sd.html: 0x0002
@@ -247,7 +243,6 @@ output/stip-sd.html: secp384r1
 output/stip-sd.html: secp521r1
 output/stip-sd.html: subjectAltName
 output/stip-sd.html: untrust
-output/stip.html: 0E
 output/stip.html: 0x00
 output/stip.html: 0x0000000000000000
 output/stip.html: 0x0002

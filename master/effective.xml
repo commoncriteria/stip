@@ -54,7 +54,7 @@
       products. This PP-Module is intended for use with the following Base-PPs:
 
       <h:ul>
-        <h:li>collaborative Protection Profile for Network Devices (NDcPP or CPP_ND_V3.0E), Version 3.0E</h:li>
+        <h:li>Network Device collaborative Protection Profile Version 4.0<comment> please update the references in the bib.</comment></h:li>
       </h:ul>
       
       This Base-PP is valid because a STIP is a specific type of network appliance that is able to function as an authorized man-in-the-middle for TLS connections.
@@ -309,6 +309,7 @@
       <cc-pt3-conf>conformant</cc-pt3-conf>
       <cc-pp-conf/>
       <cc-pp-config-with>
+        <PP-cc-ref>Network Device collaborative Protection Profile Version 4.0</PP-cc-ref>
         <Mod-cc-ref>collaborative PP-Module for Stateful Traffic Filter Firewalls, v1.4 + Errata, 20200625</Mod-cc-ref>
       </cc-pp-config-with>
       <cc-pkg-claim>
@@ -933,7 +934,7 @@ expected to enforce.<h:p/>
     written. 
     
     <!-- 5.1 NDcPP Security Functional Requirements Direction -->
-    <base-pp id="ND" version="3.0e" name="Network Device" product="Network Device" short="ND" plural="Network Devices">
+    <base-pp id="ND" version="4.0" name="Network Device" product="Network Device" short="ND" plural="Network Devices">
       <url>https://www.niap-ccevs.org/protectionprofiles/482</url>
       <cPP/>
       
@@ -7433,7 +7434,7 @@ This appendix lists requirements that should be considered satisfied by products
       <tag>NDcPP</tag>
       <description>
         <h:a href="https://www.niap-ccevs.org/protectionprofiles/482">
-			collaborative Protection Profile for Network Devices</h:a>, Version 3.0E, 06 December 2023
+			collaborative Protection Profile for Network Devices</h:a>, Version 4.0, 06 December 2023
       </description>
     </entry>
 
