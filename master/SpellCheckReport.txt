@@ -18,9 +18,8 @@ output/stip-release-linkable.html: ClientDiffieHellman
 output/stip-release-linkable.html: ClientDiffieHellmanPublic
 output/stip-release-linkable.html: CodeSigning
 output/stip-release-linkable.html: DataEncryption
-output/stip-release-linkable.html: ECpoint
+output/stip-release-linkable.html: ECPoint
 output/stip-release-linkable.html: EncryptedPreMasterSecret
-output/stip-release-linkable.html: FCSCKM
 output/stip-release-linkable.html: KERBEROS
 output/stip-release-linkable.html: Key1
 output/stip-release-linkable.html: Key2
@@ -43,7 +42,6 @@ output/stip-release-linkable.html: SNI
 output/stip-release-linkable.html: SP300
 output/stip-release-linkable.html: SP800
 output/stip-release-linkable.html: STM
-output/stip-release-linkable.html: ServerAuthentication
 output/stip-release-linkable.html: SigGen
 output/stip-release-linkable.html: Stateful
 output/stip-release-linkable.html: SubjectAlternateName
@@ -65,7 +63,7 @@ output/stip-release-linkable.html: cleartext
 output/stip-release-linkable.html: clientAuth
 output/stip-release-linkable.html: customizability
 output/stip-release-linkable.html: deallocation
-output/stip-release-linkable.html: echecking
+output/stip-release-linkable.html: eChecking
 output/stip-release-linkable.html: ffdhe2048
 output/stip-release-linkable.html: ffdhe3072
 output/stip-release-linkable.html: ffdhe4096
@@ -112,7 +110,6 @@ output/stip-release.html: CRL’
 output/stip-release.html: CSP
 output/stip-release.html: CodeSigning
 output/stip-release.html: DataEncryption
-output/stip-release.html: FCSCKM
 output/stip-release.html: KERBEROS
 output/stip-release.html: OIDs
 output/stip-release.html: PINs
@@ -121,7 +118,6 @@ output/stip-release.html: SCSV
 output/stip-release.html: SNI
 output/stip-release.html: SP800
 output/stip-release.html: STM
-output/stip-release.html: ServerAuthentication
 output/stip-release.html: SigGen
 output/stip-release.html: Stateful
 output/stip-release.html: SubjectAlternateName
@@ -141,7 +137,7 @@ output/stip-release.html: cleartext
 output/stip-release.html: clientAuth
 output/stip-release.html: customizability
 output/stip-release.html: deallocation
-output/stip-release.html: echecking
+output/stip-release.html: eChecking
 output/stip-release.html: ffdhe2048
 output/stip-release.html: ffdhe3072
 output/stip-release.html: ffdhe4096
@@ -197,7 +193,7 @@ output/stip-sd.html: CRLv2
 output/stip-sd.html: ClientDiffieHellman
 output/stip-sd.html: ClientDiffieHellmanPublic
 output/stip-sd.html: CodeSigning
-output/stip-sd.html: ECpoint
+output/stip-sd.html: ECPoint
 output/stip-sd.html: EncryptedPreMasterSecret
 output/stip-sd.html: Key1
 output/stip-sd.html: Key2
@@ -216,7 +212,6 @@ output/stip-sd.html: SCSV
 output/stip-sd.html: SNI
 output/stip-sd.html: SP300
 output/stip-sd.html: SP800
-output/stip-sd.html: ServerAuthentication
 output/stip-sd.html: TDEA
 output/stip-sd.html: TDES
 output/stip-sd.html: TLSversion
@@ -267,9 +262,8 @@ output/stip.html: ClientDiffieHellman
 output/stip.html: ClientDiffieHellmanPublic
 output/stip.html: CodeSigning
 output/stip.html: DataEncryption
-output/stip.html: ECpoint
+output/stip.html: ECPoint
 output/stip.html: EncryptedPreMasterSecret
-output/stip.html: FCSCKM
 output/stip.html: KERBEROS
 output/stip.html: Key1
 output/stip.html: Key2
@@ -292,7 +286,6 @@ output/stip.html: SNI
 output/stip.html: SP300
 output/stip.html: SP800
 output/stip.html: STM
-output/stip.html: ServerAuthentication
 output/stip.html: SigGen
 output/stip.html: Stateful
 output/stip.html: SubjectAlternateName
@@ -319,7 +312,7 @@ output/stip.html: cleartext
 output/stip.html: clientAuth
 output/stip.html: customizability
 output/stip.html: deallocation
-output/stip.html: echecking
+output/stip.html: eChecking
 output/stip.html: ffdhe2048
 output/stip.html: ffdhe3072
 output/stip.html: ffdhe4096

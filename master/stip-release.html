@@ -2418,7 +2418,7 @@ provide all of its security functionality.
                   </ul>
                   </li>
                   <li>Server certificates presented for TLS not associated with the Thru-Traffic processing include an extendedKeyUsage field that contains
-                    the ServerAuthentication purpose (id-kp 1 with OID
+                    the Server Authentication purpose (id-kp 1 with OID
                     1.3.6.1.5.5.7.3.1).</li>
                   <li>Code-signing certificates include the extendedKeyUsage field that
                     contains the CodeSigning purpose.</li>
@@ -2936,8 +2936,8 @@ provide all of its security functionality.
 <tr><td><a href="#FCS_TTTS_EXT.4">FCS_TTTS_EXT.4</a> (selection-based)</td><td>Mitigates the threat by defining optional support for TLS session renegotiation that is applied to the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>'s proxy TLS server interface.</td></tr>
 <tr><td><a href="#FDP_CER_EXT.5">FDP_CER_EXT.5</a> (selection-based)</td><td>Mitigates the threat by defining the rules for the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>'s issuing of proxy TLS client certificates if mutual authentication is supported. </td></tr>
 <tr><td><a href="#FDP_CRL_EXT.1">FDP_CRL_EXT.1</a> (selection-based)</td><td>Mitigates the threat by defining rules for the generation of CRLs if the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> uses this as the mechanism to ensure the freshness of its issued certificates. </td></tr>
-<tr><td><a href="#FDP_CSI_EXT.1">FDP_CSI_EXT.1</a> (selection-based)</td><td>Mitigates the threat by defining the revocation echecking method supported by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> for the proxy TLS server certificates it issues, if revocation is how the freshness of its issued certificates is assured. </td></tr>
-<tr><td><a href="#FDP_CSI_EXT.2">FDP_CSI_EXT.2</a> (selection-based)</td><td>Mitigates the threat by defining the revocation echecking method supported by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> for the proxy TLS client certificates it issues, if mutual authentication is supported and revocation is how the freshness of its issued certificates is assured. </td></tr>
+<tr><td><a href="#FDP_CSI_EXT.1">FDP_CSI_EXT.1</a> (selection-based)</td><td>Mitigates the threat by defining the revocation eChecking method supported by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> for the proxy TLS server certificates it issues, if revocation is how the freshness of its issued certificates is assured. </td></tr>
+<tr><td><a href="#FDP_CSI_EXT.2">FDP_CSI_EXT.2</a> (selection-based)</td><td>Mitigates the threat by defining the revocation eChecking method supported by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> for the proxy TLS client certificates it issues, if mutual authentication is supported and revocation is how the freshness of its issued certificates is assured. </td></tr>
 <tr><td><a href="#FDP_OCSP_EXT.1">FDP_OCSP_EXT.1</a> (selection-based)</td><td>Mitigates the threat by defining rules for the generation of OCSP responses if the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> uses this as the mechanism to ensure the freshness of its issued certificates. </td></tr>
 <tr><td><a href="#FDP_STIP_EXT.2">FDP_STIP_EXT.2</a> (selection-based)</td><td>Mitigates the threat by defining the optional capability of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to establish a proxy TLS session in the case where mutual authentication is supported.</td></tr>
 <tr><td><a href="#FIA_ESTC_EXT.1">FIA_ESTC_EXT.1</a> (selection-based)</td><td>Mitigates the threat by defining requirements for the implementation of EST if the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> uses this mechanism to obtain TLS certificates for its own use. </td></tr>
@@ -2974,8 +2974,8 @@ provide all of its security functionality.
 <tr><td><a href="#FDP_CER_EXT.4">FDP_CER_EXT.4</a> (selection-based)</td><td>Mitigates the threat by defining the rules the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> must use to generate and issue proxy TLS client certificates from its internal <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> if mutual authentication is supported. </td></tr>
 <tr><td><a href="#FDP_CER_EXT.5">FDP_CER_EXT.5</a> (selection-based)</td><td>Mitigates the threat by defining the rules for the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>'s issuing of proxy TLS client certificates if mutual authentication is supported. </td></tr>
 <tr><td><a href="#FDP_CRL_EXT.1">FDP_CRL_EXT.1</a> (selection-based)</td><td>Mitigates the threat by defining rules for the generation of CRLs if the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> uses this as the mechanism to ensure the freshness of its issued certificates. </td></tr>
-<tr><td><a href="#FDP_CSI_EXT.1">FDP_CSI_EXT.1</a> (selection-based)</td><td>Mitigates the threat by defining the revocation echecking method supported by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> for the proxy TLS server certificates it issues, if revocation is how the freshness of its issued certificates is assured. </td></tr>
-<tr><td><a href="#FDP_CSI_EXT.2">FDP_CSI_EXT.2</a> (selection-based)</td><td>Mitigates the threat by defining the revocation echecking method supported by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> for the proxy TLS client certificates it issues, if mutual authentication is supported and revocation is how the freshness of its issued certificates is assured. </td></tr>
+<tr><td><a href="#FDP_CSI_EXT.1">FDP_CSI_EXT.1</a> (selection-based)</td><td>Mitigates the threat by defining the revocation eChecking method supported by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> for the proxy TLS server certificates it issues, if revocation is how the freshness of its issued certificates is assured. </td></tr>
+<tr><td><a href="#FDP_CSI_EXT.2">FDP_CSI_EXT.2</a> (selection-based)</td><td>Mitigates the threat by defining the revocation eChecking method supported by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> for the proxy TLS client certificates it issues, if mutual authentication is supported and revocation is how the freshness of its issued certificates is assured. </td></tr>
 <tr><td><a href="#FDP_OCSP_EXT.1">FDP_OCSP_EXT.1</a> (selection-based)</td><td>Mitigates the threat by defining rules for the generation of OCSP responses if the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> uses this as the mechanism to ensure the freshness of its issued certificates. </td></tr>
 <tr><td><a href="#FIA_ESTC_EXT.1">FIA_ESTC_EXT.1</a> (selection-based)</td><td>Mitigates the threat by defining requirements for the implementation of EST if the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> uses this mechanism to obtain TLS certificates for its own use. </td></tr>
 <tr class="major-row"><td rowspan="19"><a href="#T.UNAUTHORIZED_DISCLOSURE">T.UNAUTHORIZED_​DISCLOSURE</a></td><td>FCS_CKM.6 (from <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>)</td><td>Mitigates the threat by ensuring secret and private key data is disposed of immediately after use to prevent unauthorized disclosure of keys.</td></tr>
@@ -4549,7 +4549,7 @@ provide all of its security functionality.
                   <li>If the basicConstraints field is configured to be present, it shall be
                     populated with the value cA=False</li>
                   <li>The subject public key shall be generated in accordance with
-                    FCSCKM.1.1.</li>
+                    FCS_CKM.1.1.</li>
                   <li>[<b>assignment</b>: 
      <span class="assignable-content">additional rules for populating certificate fields</span>].</li>
                 </ol>

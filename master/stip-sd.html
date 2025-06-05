@@ -741,7 +741,7 @@ The following sections list Common Criteria and technology terms used in this do
       
                     The evaluator shall establish a new certificate for a server as configured for <a href="#tttc-eku" class="dynref">Test FCS_TTTC_EXT.1.1:2</a> where the
                     extendedKeyUsage field is present, does not include either the ‘Any’ purpose or
-                    ServerAuthentication purpose and which does contain the CodeSigning purpose, and configure the server
+                    Server Authentication purpose and which does contain the CodeSigning purpose, and configure the server
                     to present the new certificate in its TLS handshake. The evaluator shall make a request to that server from
                     a monitored client through the TOE and verify that the TLS session between the TSF and the server is
                     attempted, but fails. 
@@ -1233,7 +1233,7 @@ The following sections list Common Criteria and technology terms used in this do
                           evaluator shall configure the TSF to request client authentication. After the TSF sends
                           the client certificate request message, the evaluator shall send the TOE a valid client
                           certificate message followed by a KeyExchange message of ECDH type that contains a
-                          random point on a curve supported by the TSF in an ECpoint format supported by the
+                          random point on a curve supported by the TSF in an ECPoint format supported by the
                           TSF. The evaluator shall observe that the TSF sends a fatal TLS alert message and
                           notes whether the error message is different than that received when the KeyExchange message included the modified ClientDiffieHellmanPublic value.</li>
                       </ol><p></p>
@@ -1285,7 +1285,7 @@ The following sections list Common Criteria and technology terms used in this do
                       2048 bits, and observe that the TSF sends a fatal TLS alert message.</li>
                     <li>For a cipher suite that uses static ECDH for key transport, the evaluator shall send the TSF a
                       valid certificate message, followed by a KeyExchange message of ECDHE type, containing a
-                      random point on a curve supported by the TSF, in a ECpoint format supported by the TSF, and
+                      random point on a curve supported by the TSF, in a ECPoint format supported by the TSF, and
                       observe that the TSF sends a fatal TLS alert message.
                     </li>
                   </ol>

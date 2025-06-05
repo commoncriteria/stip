@@ -596,9 +596,9 @@ expected to enforce.<h:p/>
           <addressed-by>FDP_CRL_EXT.1 (selection-based)</addressed-by>
           <rationale>Mitigates the threat by defining rules for the generation of CRLs if the TOE uses this as the mechanism to ensure the freshness of its issued certificates. </rationale>
           <addressed-by>FDP_CSI_EXT.1 (selection-based)</addressed-by>
-          <rationale>Mitigates the threat by defining the revocation echecking method supported by the TOE for the proxy TLS server certificates it issues, if revocation is how the freshness of its issued certificates is assured. </rationale>
+          <rationale>Mitigates the threat by defining the revocation eChecking method supported by the TOE for the proxy TLS server certificates it issues, if revocation is how the freshness of its issued certificates is assured. </rationale>
           <addressed-by>FDP_CSI_EXT.2 (selection-based)</addressed-by>
-          <rationale>Mitigates the threat by defining the revocation echecking method supported by the TOE for the proxy TLS client certificates it issues, if mutual authentication is supported and revocation is how the freshness of its issued certificates is assured. </rationale>
+          <rationale>Mitigates the threat by defining the revocation eChecking method supported by the TOE for the proxy TLS client certificates it issues, if mutual authentication is supported and revocation is how the freshness of its issued certificates is assured. </rationale>
           <addressed-by>FDP_OCSP_EXT.1 (selection-based)</addressed-by>
           <rationale>Mitigates the threat by defining rules for the generation of OCSP responses if the TOE uses this as the mechanism to ensure the freshness of its issued certificates. </rationale>
           <addressed-by>FDP_STIP_EXT.2 (selection-based)</addressed-by>
@@ -669,9 +669,9 @@ expected to enforce.<h:p/>
           <addressed-by>FDP_CRL_EXT.1 (selection-based)</addressed-by>
           <rationale>Mitigates the threat by defining rules for the generation of CRLs if the TOE uses this as the mechanism to ensure the freshness of its issued certificates. </rationale>
           <addressed-by>FDP_CSI_EXT.1 (selection-based)</addressed-by>
-          <rationale>Mitigates the threat by defining the revocation echecking method supported by the TOE for the proxy TLS server certificates it issues, if revocation is how the freshness of its issued certificates is assured. </rationale>
+          <rationale>Mitigates the threat by defining the revocation eChecking method supported by the TOE for the proxy TLS server certificates it issues, if revocation is how the freshness of its issued certificates is assured. </rationale>
           <addressed-by>FDP_CSI_EXT.2 (selection-based)</addressed-by>
-          <rationale>Mitigates the threat by defining the revocation echecking method supported by the TOE for the proxy TLS client certificates it issues, if mutual authentication is supported and revocation is how the freshness of its issued certificates is assured. </rationale>
+          <rationale>Mitigates the threat by defining the revocation eChecking method supported by the TOE for the proxy TLS client certificates it issues, if mutual authentication is supported and revocation is how the freshness of its issued certificates is assured. </rationale>
           <addressed-by>FDP_OCSP_EXT.1 (selection-based)</addressed-by>
           <rationale>Mitigates the threat by defining rules for the generation of OCSP responses if the TOE uses this as the mechanism to ensure the freshness of its issued certificates. </rationale>
           <addressed-by>FIA_ESTC_EXT.1 (selection-based)</addressed-by>
@@ -1778,7 +1778,7 @@ expected to enforce.<h:p/>
                   <test>
                     The evaluator shall establish a new certificate for a server as configured for <xref to="tttc-eku"/> where the
                     extendedKeyUsage field is present, does not include either the ‘Any’ purpose or
-                    ServerAuthentication purpose and which does contain the CodeSigning purpose, and configure the server
+                    Server Authentication purpose and which does contain the CodeSigning purpose, and configure the server
                     to present the new certificate in its TLS handshake. The evaluator shall make a request to that server from
                     a monitored client through the TOE and verify that the TLS session between the TSF and the server is
                     attempted, but fails. 
@@ -2569,7 +2569,7 @@ legacy cipher suites. -->
                           evaluator shall configure the TSF to request client authentication. After the TSF sends
                           the client certificate request message, the evaluator shall send the TOE a valid client
                           certificate message followed by a KeyExchange message of ECDH type that contains a
-                          random point on a curve supported by the TSF in an ECpoint format supported by the
+                          random point on a curve supported by the TSF in an ECPoint format supported by the
                           TSF. The evaluator shall observe that the TSF sends a fatal TLS alert message and
                           notes whether the error message is different than that received when the KeyExchange message included the modified ClientDiffieHellmanPublic value.</h:li>
                       </h:ol><h:p/>
@@ -2621,7 +2621,7 @@ legacy cipher suites. -->
                       2048 bits, and observe that the TSF sends a fatal TLS alert message.</h:li>
                     <h:li>For a cipher suite that uses static ECDH for key transport, the evaluator shall send the TSF a
                       valid certificate message, followed by a KeyExchange message of ECDHE type, containing a
-                      random point on a curve supported by the TSF, in a ECpoint format supported by the TSF, and
+                      random point on a curve supported by the TSF, in a ECPoint format supported by the TSF, and
                       observe that the TSF sends a fatal TLS alert message.
                     </h:li>
                   </h:ol>
@@ -2974,7 +2974,7 @@ legacy cipher suites. -->
                   <h:li>If the basicConstraints field is configured to be present, it shall be
                     populated with the value cA=False</h:li>
                   <h:li>The subject public key shall be generated in accordance with
-                    FCSCKM.1.1.</h:li>
+                    FCS_CKM.1.1.</h:li>
                   <h:li><assignable>additional rules for populating certificate fields</assignable>.</h:li>
                 </h:ol>
               </title>
@@ -4523,7 +4523,7 @@ legacy cipher suites. -->
                   </h:ul>
                   </h:li>
                   <h:li>Server certificates presented for TLS not associated with the Thru-Traffic processing include an extendedKeyUsage field that contains
-                    the ServerAuthentication purpose (id-kp 1 with OID
+                    the Server Authentication purpose (id-kp 1 with OID
                     1.3.6.1.5.5.7.3.1).</h:li>
                   <h:li>Code-signing certificates include the extendedKeyUsage field that
                     contains the CodeSigning purpose.</h:li>

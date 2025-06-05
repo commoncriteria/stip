@@ -2066,7 +2066,7 @@
                                         </li>
                                     </ul>
                                 </li>
-                                <li>Server certificates presented for TLS not associated with the Thru-Traffic processing include an extendedKeyUsage field that contains the ServerAuthentication purpose (id-kp 1 with OID 1.3.6.1.5.5.7.3.1).</li>
+                                <li>Server certificates presented for TLS not associated with the Thru-Traffic processing include an extendedKeyUsage field that contains the Server Authentication purpose (id-kp 1 with OID 1.3.6.1.5.5.7.3.1).</li>
                                 <li>Code-signing certificates include the extendedKeyUsage field that contains the CodeSigning purpose.</li>
                                 <li>Client certificates presented for TLS for any purpose shall include the extendedKeyUsage field that contains the Client Authentication purpose (id-kp 2 with OID 1.3.6.1.5.5.7.3.2) in the extendedKeyUsage field.</li>
                                 <li>OCSP certificates presented for OCSP responses shall have the OCSP Signing purpose (id-kp 9 with OID 1.3.6.1.5.5.7.3.9) in the extendedKeyUsage field.</li>
@@ -2770,10 +2770,10 @@
                     <td><a href="#FDP_CRL_EXT.1">FDP_CRL_EXT.1</a> (selection-based)</td><td>Mitigates the threat by defining rules for the generation of CRLs if the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> uses this as the mechanism to ensure the freshness of its issued certificates. </td>
                 </tr>
                 <tr>
-                    <td><a href="#FDP_CSI_EXT.1">FDP_CSI_EXT.1</a> (selection-based)</td><td>Mitigates the threat by defining the revocation echecking method supported by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> for the proxy TLS server certificates it issues, if revocation is how the freshness of its issued certificates is assured. </td>
+                    <td><a href="#FDP_CSI_EXT.1">FDP_CSI_EXT.1</a> (selection-based)</td><td>Mitigates the threat by defining the revocation eChecking method supported by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> for the proxy TLS server certificates it issues, if revocation is how the freshness of its issued certificates is assured. </td>
                 </tr>
                 <tr>
-                    <td><a href="#FDP_CSI_EXT.2">FDP_CSI_EXT.2</a> (selection-based)</td><td>Mitigates the threat by defining the revocation echecking method supported by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> for the proxy TLS client certificates it issues, if mutual authentication is supported and revocation is how the freshness of its issued certificates is assured. </td>
+                    <td><a href="#FDP_CSI_EXT.2">FDP_CSI_EXT.2</a> (selection-based)</td><td>Mitigates the threat by defining the revocation eChecking method supported by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> for the proxy TLS client certificates it issues, if mutual authentication is supported and revocation is how the freshness of its issued certificates is assured. </td>
                 </tr>
                 <tr>
                     <td><a href="#FDP_OCSP_EXT.1">FDP_OCSP_EXT.1</a> (selection-based)</td><td>Mitigates the threat by defining rules for the generation of OCSP responses if the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> uses this as the mechanism to ensure the freshness of its issued certificates. </td>
@@ -2854,10 +2854,10 @@
                     <td><a href="#FDP_CRL_EXT.1">FDP_CRL_EXT.1</a> (selection-based)</td><td>Mitigates the threat by defining rules for the generation of CRLs if the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> uses this as the mechanism to ensure the freshness of its issued certificates. </td>
                 </tr>
                 <tr>
-                    <td><a href="#FDP_CSI_EXT.1">FDP_CSI_EXT.1</a> (selection-based)</td><td>Mitigates the threat by defining the revocation echecking method supported by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> for the proxy TLS server certificates it issues, if revocation is how the freshness of its issued certificates is assured. </td>
+                    <td><a href="#FDP_CSI_EXT.1">FDP_CSI_EXT.1</a> (selection-based)</td><td>Mitigates the threat by defining the revocation eChecking method supported by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> for the proxy TLS server certificates it issues, if revocation is how the freshness of its issued certificates is assured. </td>
                 </tr>
                 <tr>
-                    <td><a href="#FDP_CSI_EXT.2">FDP_CSI_EXT.2</a> (selection-based)</td><td>Mitigates the threat by defining the revocation echecking method supported by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> for the proxy TLS client certificates it issues, if mutual authentication is supported and revocation is how the freshness of its issued certificates is assured. </td>
+                    <td><a href="#FDP_CSI_EXT.2">FDP_CSI_EXT.2</a> (selection-based)</td><td>Mitigates the threat by defining the revocation eChecking method supported by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> for the proxy TLS client certificates it issues, if mutual authentication is supported and revocation is how the freshness of its issued certificates is assured. </td>
                 </tr>
                 <tr>
                     <td><a href="#FDP_OCSP_EXT.1">FDP_OCSP_EXT.1</a> (selection-based)</td><td>Mitigates the threat by defining rules for the generation of OCSP responses if the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> uses this as the mechanism to ensure the freshness of its issued certificates. </td>
@@ -5377,7 +5377,7 @@
                                 The notAfter field shall not exceed the current time by more than a maximum validity duration value as configured by a [<b>assignment</b>: <span class="assignable-content">authorized role(s)</span>] user.
                             </li>
                             <li>If the basicConstraints field is configured to be present, it shall be populated with the value cA=False</li>
-                            <li>The subject public key shall be generated in accordance with FCSCKM.1.1.</li>
+                            <li>The subject public key shall be generated in accordance with FCS_CKM.1.1.</li>
                             <li>
                                 [<b>assignment</b>: <span class="assignable-content">additional rules for populating certificate fields</span>].
                             </li>
