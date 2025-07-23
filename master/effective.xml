@@ -1193,9 +1193,21 @@ expected to enforce.<h:p/>
             The TSF shall <selectables>
               <selectable id="certStore">store</selectable>
               <selectable>invoke the Operational Environment to store</selectable>
-            </selectables> certificates issued by the TSF.
+            </selectables> certificates and [<h:i>no other information</h:i>] issued by the TSF.
           </title>
+          <ext-comp-def-title>
+            <title>
+              The TSF shall <selectables>
+                <selectable>store</selectable>
+                <selectable>invoke the Operational Environment to store</selectable>
+              </selectables> certificates and <selectables>
+                <selectable>CRLs</selectable>
+                <selectable>no other information</selectable>
+              </selectables> issued by the TSF.
+            </title>
+          </ext-comp-def-title>
           <note role="application">
+            <h:p>
             While there is a requirement that a certificate repository exists and the TOE stores
             all certificates it generates in that repository, the repository can physically be
             within the TOE or in the OE. If the repository is provided by the TOE, then the first
@@ -1203,6 +1215,10 @@ expected to enforce.<h:p/>
             second item in the first selection is chosen. It should be noted that the physical
             implementation of the certificate repository is left to the vendor; for instance, it
             can be a standalone store, or incorporated within the audit trail. 
+            </h:p>
+            <h:p>
+              "No other information" is referenced here because the original definition of the requirement allows for the possibility of CRL storage; this PP-Module does not require the storage of CRLs in this manner, so the selectable option to do so has been removed from the requirement. 
+            </h:p>
           </note>
           <aactivity>
             <TSS>The evaluator shall examine the TSS to determine that it describes the certificate repository. If the
