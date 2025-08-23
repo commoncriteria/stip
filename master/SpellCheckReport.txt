@@ -33,7 +33,6 @@ output/stip-release-linkable.html: M2
 output/stip-release-linkable.html: M3
 output/stip-release-linkable.html: M4
 output/stip-release-linkable.html: M5
-output/stip-release-linkable.html: NSIT
 output/stip-release-linkable.html: OIDs
 output/stip-release-linkable.html: PINs
 output/stip-release-linkable.html: RC4
@@ -98,7 +97,7 @@ output/stip-release-linkable.html: thisUpdate
 output/stip-release-linkable.html: tls
 output/stip-release-linkable.html: un
 output/stip-release-linkable.html: untrust
-output/stip-release-linkable.html: v1
+output/stip-release-linkable.html: v2
 output/stip-release.html: 38A
 output/stip-release.html: 38C
 output/stip-release.html: 509v2
@@ -174,7 +173,7 @@ output/stip-release.html: thisUpdate
 output/stip-release.html: tls
 output/stip-release.html: un
 output/stip-release.html: users’
-output/stip-release.html: v1
+output/stip-release.html: v2
 output/stip-release.html: ’
 output/stip-sd.html: 0x00
 output/stip-sd.html: 0x0000000000000000
@@ -207,7 +206,6 @@ output/stip-sd.html: M2
 output/stip-sd.html: M3
 output/stip-sd.html: M4
 output/stip-sd.html: M5
-output/stip-sd.html: NSIT
 output/stip-sd.html: SCSV
 output/stip-sd.html: SNI
 output/stip-sd.html: SP300
@@ -277,7 +275,6 @@ output/stip.html: M2
 output/stip.html: M3
 output/stip.html: M4
 output/stip.html: M5
-output/stip.html: NSIT
 output/stip.html: OIDs
 output/stip.html: PINs
 output/stip.html: RC4
@@ -352,5 +349,5 @@ output/stip.html: tls
 output/stip.html: un
 output/stip.html: untrust
 output/stip.html: users’
-output/stip.html: v1
+output/stip.html: v2
 output/stip.html: ’

@@ -284,7 +284,7 @@
       The usage of the latter class is not only mandatory, but certificates
       issued as a result of their application are recognized under the CCRA.</p><p><b>Technical Editor:</b><br/>
       National Information Assurance Partnership (NIAP)
-      </p><p><b style="page-break-before:always;">Document history:</b><table><tr class="header"><th>Version</th><th>Date</th><th style="align:left;">Comment</th></tr><tr><td>2.0</td><td>2025-04-25</td><td>Incorporate NIAP Technical Decisions, Update to CC:2022</td></tr><tr><td>1.1</td><td>2022-11-17</td><td>Updates to reflect GitHub conversion, compatibility with CPP_ND_V2.2E, and Technical Decisions applied to version 1.0</td></tr><tr><td>1.0</td><td>2019-08-23</td><td>Update release</td></tr></table></p><p><b>General Purpose:</b><br/>
+      </p><p><b style="page-break-before:always;">Document history:</b><table><tr class="header"><th>Version</th><th>Date</th><th style="align:left;">Comment</th></tr><tr><td>1.0</td><td>2019-08-23</td><td>Update release</td></tr><tr><td>1.1</td><td>2022-11-17</td><td>Updates to reflect GitHub conversion, compatibility with CPP_ND_V2.2E, and Technical Decisions applied to version 1.0</td></tr><tr><td>2.0</td><td>2025-04-25</td><td>Incorporate NIAP Technical Decisions, Update to CC:2022</td></tr></table></p><p><b>General Purpose:</b><br/>
       The purpose of this SD is to define evaluation methods for the functional behavior of
       SSL/TLS Inspection Proxy      
       products.
@@ -647,7 +647,7 @@ The following sections list Common Criteria and technology terms used in this do
                     For i=0..31, the evaluator shall verify the encrypt functionality by using Key1{i}=Key2{i}=Key3{i} equal to
                     the round i key in table A.3 of NIST SP800-20, and IV=0x0000000000000000 to encrypt plaintext =
                     0x0000000000000000, and verifying that the resulting ciphertext c4{i} matches the known result for round
-                    I indicated in table A.3 of NSIT SP800-20.
+                    I indicated in table A.3 of NIST SP800-20.
                     <p></p>
                     For i=0..31, the evaluator shall verify the decrypt functionality by using Key1{i}=Key2{i}=Key3{i} equal to
                     the round I key in table A.3 of NIST SP800-20, and IV=0x0000000000000000 to decrypt ciphertext c4{i}
@@ -658,7 +658,7 @@ The following sections list Common Criteria and technology terms used in this do
                     For i=0..18, the evaluator shall verify the encrypt functionality by using Key1{i}=Key2{i}=Key3{i} equal to
                     the round i key in table A.4 of NIST SP800-20, and IV=0x0000000000000000 to encrypt the round i
                     plaintext, p4{i} in table A.4 of NIST SP300-20, and verifying that the resulting ciphertext c4{i} matches the
-                    known result for round i indicated in table A.4 of NSIT SP800-20.
+                    known result for round i indicated in table A.4 of NIST SP800-20.
                     <p></p>
                     For i=0..18, the evaluator shall verify the decrypt functionality by using Key1{i}=Key2{i}=Key3{i} equal to
                     the round i key in table A.4 of NIST SP800-20, and IV=0x0000000000000000 to decrypt ciphertext =c4{i}
@@ -2510,7 +2510,7 @@ The following sections list Common Criteria and technology terms used in this do
                 mutual authentication inspection operation is provided.<p></p></div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea"><b>Setup:</b> The evaluator shall follow operational guidance to configure the TSF. The evaluator shall establish a
                 monitored client able to initiate a TLS session compliant with FCS_TLSC_EXT.2 (from the <a href="https://www.niap-ccevs.org/protectionprofiles/465">Functional Package for Transport Layer Security (TLS),
         version 
-        2.0</a>) and which is issued a
+        2.1</a>) and which is issued a
                 certificate compliant with FIA_X509_EXT.1/STIP for client authentication from a trusted CA that is
                 different than the embedded CA of the TOE.
                 <p></p>
