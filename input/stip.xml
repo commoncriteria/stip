@@ -42,14 +42,14 @@
   </RevisionHistory>
   
 
-  <include-pkg id="pkgX509">
+  <include-pkg id="X509">
     <git>
       <url>https://github.com/commoncriteria/X509</url>
       <branch>release-1.0</branch>
     </git>
     <url>https://www.niap-ccevs.org/protectionprofiles/511</url>
   </include-pkg>
-  <include-pkg id="pkgTLS">
+  <include-pkg id="tls">
     <git>
       <url>https://github.com/commoncriteria/tls</url>
       <branch>release-2.1</branch>
@@ -309,6 +309,34 @@
 
 
   </sec:Use_Cases> 
+  <section title="Package Usage">
+      This section contains selections and assignments that are required when the listed Functional Packages are claimed by this PP-Module.
+    	<h:br/>
+    	Package Usage guidance defined in the TOE's relevant Base-PP applies to the usage of the packages for this module, unless explicitly stated otherwise in this section.
+      <package-usage-list>
+        <package-usage ref="X509">
+          <usage id="usage-x509-roles" title="Required Role Selections in FIA_XCU_EXT.1.1">
+            <description>
+            The ST author shall select the option to validate X.509 certificates in FIA_XCU_EXT.1.1. If the TOE supports certificate-based authentication for EST operations, the ST author shall also select the option to assert certificate identities.
+            </description>
+            <config>
+              <ref-id>dummy-ref-id</ref-id>
+            </config>
+          </usage>
+        </package-usage>
+        <package-usage ref="tls">
+          <usage id="usage-tls-roles" title="Required Selections in FCS_TLS_EXT.1.1">
+            <description>
+              The ST author shall select the option to support TLS as a client and a server in FCS_TLS_EXT.1.1. If the TOE claims support for DTLS in FTP_ITC.1, the ST author shall additionally select support for DTLS in the roles that correspond with 
+              the supported functions (e.g., DTLS client for audit server functionality).
+            </description>
+            <config>
+              <ref-id>dummy-ref-id</ref-id>
+            </config>
+          </usage>
+        </package-usage>
+      </package-usage-list>
+  </section>
 
   </sec:Introduction>
   
@@ -373,9 +401,9 @@ expected to enforce.<h:p/>
             corruption of the underlying plaintext. </description>
             <addressed-by>FCS_CKM.6 (from Base-PP)</addressed-by>
             <rationale>Mitigates the threat by ensuring secret and private key data is disposed of immediately after use to prevent unauthorized disclosure of keys.</rationale>
-            <addressed-by>FCS_TLSC_EXT.1 (from <xref to="pkgTLS"/>)</addressed-by>
+            <addressed-by>FCS_TLSC_EXT.1 (from <xref to="tls"/>)</addressed-by>
             <rationale>Mitigates the threat by defining the TLS trusted channel used for EST if the TOE supports that functionality.</rationale>
-            <addressed-by>FCS_TLSC_EXT.2 (from <xref to="pkgTLS"/>)</addressed-by>
+            <addressed-by>FCS_TLSC_EXT.2 (from <xref to="tls"/>)</addressed-by>
             <rationale>Mitigates the threat by defining support for mutually-authenticated TLS, which the TOE may optionally support for EST.</rationale>
             <addressed-by>FTP_ITC.1 (refined from Base-PP)</addressed-by>
             <rationale>Mitigates the threat by defining the TOE interfaces that require protected communications as well as the methods of protection applied to these interfaces.</rationale>
@@ -476,13 +504,13 @@ expected to enforce.<h:p/>
             Any modification of the signing key can result in denial of service to inspection capabilities, or to the monitored clients.
           </description>
             
-            <addressed-by>FCS_TLSC_EXT.1 (from <xref to="pkgTLS"/>)</addressed-by>
+            <addressed-by>FCS_TLSC_EXT.1 (from <xref to="tls"/>)</addressed-by>
             <rationale>Mitigates the threat because TLS is a mechanism by which its own certificate data may be obtained from an external CA. </rationale>
-            <addressed-by>FCS_TLSC_EXT.2 (from <xref to="pkgTLS"/>)</addressed-by>
+            <addressed-by>FCS_TLSC_EXT.2 (from <xref to="tls"/>)</addressed-by>
             <rationale>Mitigates the threat because mutually-authenticated TLS is a mechanism by which its own certificate data may be obtained from an external CA. </rationale>
-            <addressed-by>FIA_X509_EXT.1 (from <xref to="pkgX509"/>)</addressed-by>
+            <addressed-by>FIA_X509_EXT.1 (from <xref to="X509"/>)</addressed-by>
             <rationale>Mitigates the threat by defining the TOE functionality for certificate validation. </rationale>
-            <addressed-by>FIA_X509_EXT.3 (from <xref to="pkgX509"/>)</addressed-by>
+            <addressed-by>FIA_X509_EXT.3 (from <xref to="X509"/>)</addressed-by>
             <rationale>Mitigates the threat by defining the mechanism by which the TOE generates certificate signing requests, which includes validation of the certificate provided in response. </rationale>
             <addressed-by>FCS_STG_EXT.1</addressed-by>
             <rationale>Mitigates the threat by requiring the TOE to implement hardware-based protection for stored keys.</rationale>
@@ -543,14 +571,14 @@ expected to enforce.<h:p/>
           </description>
           <addressed-by>FCS_CKM.6 (from Base-PP)</addressed-by>
           <rationale>Mitigates the threat by ensuring secret and private key data is disposed of immediately after use to prevent unauthorized disclosure of keys.</rationale>
-          <addressed-by>FCS_TLSC_EXT.1 (from <xref to="pkgTLS"/>)</addressed-by>
+          <addressed-by>FCS_TLSC_EXT.1 (from <xref to="tls"/>)</addressed-by>
           <rationale>Mitigates the threat because TLS is a mechanism by which its own certificate data may be obtained from an external CA. </rationale>
-          <addressed-by>FCS_TLSC_EXT.2 (from <xref to="pkgTLS"/>)</addressed-by>
+          <addressed-by>FCS_TLSC_EXT.2 (from <xref to="tls"/>)</addressed-by>
           <rationale>Mitigates the threat because mutually-authenticated TLS is a mechanism by which its own certificate 
             data may be obtained from an external CA. </rationale>
-            <addressed-by>FIA_X509_EXT.1 (from <xref to="pkgX509"/>)</addressed-by>
+            <addressed-by>FIA_X509_EXT.1 (from <xref to="X509"/>)</addressed-by>
           <rationale>Mitigates the threat by defining the TOE functionality for certificate validation. </rationale>
-          <addressed-by>FIA_X509_EXT.3 (from <xref to="pkgX509"/>)</addressed-by>
+          <addressed-by>FIA_X509_EXT.3 (from <xref to="X509"/>)</addressed-by>
           <rationale>Mitigates the threat by defining the mechanism by which the TOE generates certificate signing requests, which includes validation of the certificate provided in response. </rationale>
           <addressed-by>FTP_ITC.1 (refined from Base-PP)</addressed-by>
           <rationale>Mitigates the threat by defining the TOE interfaces that require protected communications as well as the methods of protection applied to these interfaces.</rationale>
@@ -632,14 +660,14 @@ expected to enforce.<h:p/>
             modification of traffic, or denial of service to monitored clients.
           </description>
           
-          <addressed-by>FCS_TLSC_EXT.1 (from <xref to="pkgTLS"/>)</addressed-by>
+          <addressed-by>FCS_TLSC_EXT.1 (from <xref to="tls"/>)</addressed-by>
           <rationale>Mitigates the threat because TLS is a mechanism by which its own certificate data may be obtained from an external CA. </rationale>
-          <addressed-by>FCS_TLSC_EXT.2 (from <xref to="pkgTLS"/>)</addressed-by>
+          <addressed-by>FCS_TLSC_EXT.2 (from <xref to="tls"/>)</addressed-by>
           <rationale>Mitigates the threat because mutually-authenticated TLS is a mechanism by which its own certificate 
             data may be obtained from an external CA. </rationale>
-          <addressed-by>FIA_X509_EXT.1 (from <xref to="pkgX509"/>)</addressed-by>
+          <addressed-by>FIA_X509_EXT.1 (from <xref to="X509"/>)</addressed-by>
             <rationale>Mitigates the threat by defining the TOE functionality for certificate validation. </rationale>
-            <addressed-by>FIA_X509_EXT.3 (from <xref to="pkgX509"/>)</addressed-by>
+            <addressed-by>FIA_X509_EXT.3 (from <xref to="X509"/>)</addressed-by>
             <rationale>Mitigates the threat by defining the mechanism by which the TOE generates certificate signing requests, which includes validation of the certificate provided in response. </rationale>
             <addressed-by>FCS_STG_EXT.1</addressed-by>
             <rationale>Mitigates the threat by requiring the TOE to implement hardware-based protection for stored keys.</rationale>
@@ -698,9 +726,9 @@ expected to enforce.<h:p/>
           </description>
           <addressed-by>FCS_CKM.6 (from Base-PP)</addressed-by>
           <rationale>Mitigates the threat by ensuring secret and private key data is disposed of immediately after use to prevent unauthorized disclosure of keys.</rationale>
-          <addressed-by>FCS_TLSC_EXT.1 (from <xref to="pkgTLS"/>)</addressed-by>
+          <addressed-by>FCS_TLSC_EXT.1 (from <xref to="tls"/>)</addressed-by>
           <rationale>Mitigates the threat by defining the TLS trusted channel used for EST if the TOE supports that functionality.</rationale>
-          <addressed-by>FCS_TLSC_EXT.2 (from <xref to="pkgTLS"/>)</addressed-by>
+          <addressed-by>FCS_TLSC_EXT.2 (from <xref to="tls"/>)</addressed-by>
           <rationale>Mitigates the threat by defining support for mutually-authenticated TLS, which the TOE may optionally support for EST.</rationale>
           <addressed-by>FTP_ITC.1 (refined from Base-PP)</addressed-by>
           <rationale>Mitigates the threat by defining the TOE interfaces that require protected communications as well as the methods of protection applied to these interfaces.</rationale>
@@ -5914,7 +5942,7 @@ legacy cipher suites. -->
                     <selectable>CA Operations Staff</selectable></selectables></selectable>
                 <selectable>an explicit TA populated
                   via a TLS-authenticated EST CA certificate request in accordance with RFC 7030
-                  section 4.1.2 and FCS_TLSC_EXT.1 <h:b>(from the <xref to="pkgTLS"/>)</h:b></selectable>
+                  section 4.1.2 and FCS_TLSC_EXT.1 <h:b>(from the <xref to="tls"/>)</h:b></selectable>
               </selectables>.
             </title>
             <ext-comp-def-title>
@@ -5936,7 +5964,7 @@ legacy cipher suites. -->
               store elements from the <selectables>
                 <selectable>implicit Trust Anchor database</selectable>
                 <selectable>explicit Trust Anchor/Trust Store</selectable>
-              </selectables> in accordance with FIA_X509_EXT.1 <h:b>(from <xref to="pkgX509"/>)</h:b> for all EST requests.
+              </selectables> in accordance with FIA_X509_EXT.1 <h:b>(from <xref to="X509"/>)</h:b> for all EST requests.
             </title>
             <ext-comp-def-title>
               <title>
@@ -5955,10 +5983,10 @@ legacy cipher suites. -->
               required to authenticate the TOE</assignable>, from an authorized EST server using
               <selectables linebreak="yes">
               <selectable>HTTP basic authentication transported over TLS in accordance with RFC
-              7030 section 3.2.3 and FCS_TLSC_EXT.1 <h:b>(from the <xref to="pkgTLS"/>)</h:b></selectable>
+              7030 section 3.2.3 and FCS_TLSC_EXT.1 <h:b>(from the <xref to="tls"/>)</h:b></selectable>
               <selectable>HTTP digest authentication using a cryptographic hash algorithm in
               accordance with FCS_COP.1<h:b>/Hash</h:b>, transported over TLS in accordance
-              with RFC 7030 section 3.2.3 and FCS_TLSC_EXT.1 <h:b>(from the <xref to="pkgTLS"/>)</h:b></selectable>
+              with RFC 7030 section 3.2.3 and FCS_TLSC_EXT.1 <h:b>(from the <xref to="tls"/>)</h:b></selectable>
               <selectable>Certificate-based authentication in accordance with RFC 7030 section
               3.3.2 and FCS_TLSC_EXT.2 using <assignable>a pre-existing certificate
               authorized by the EST server</assignable></selectable>
@@ -6973,7 +7001,7 @@ legacy cipher suites. -->
               <Guidance>The evaluator shall examine operational documentation and verify that instructions to configure the
                 mutual authentication inspection operation is provided.<h:p/></Guidance>
               <Tests><h:b>Setup:</h:b> The evaluator shall follow operational guidance to configure the TSF. The evaluator shall establish a
-                monitored client able to initiate a TLS session compliant with FCS_TLSC_EXT.2 (from the <xref to="pkgTLS"/>) and which is issued a
+                monitored client able to initiate a TLS session compliant with FCS_TLSC_EXT.2 (from the <xref to="tls"/>) and which is issued a
                 certificate compliant with FIA_X509_EXT.1/STIP for client authentication from a trusted CA that is
                 different than the embedded CA of the TOE.
                 <h:p/>
