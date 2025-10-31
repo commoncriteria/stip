@@ -40,6 +40,7 @@ output/stip-release-linkable.html: SCSV
 output/stip-release-linkable.html: SNI
 output/stip-release-linkable.html: SP300
 output/stip-release-linkable.html: SP800
+output/stip-release-linkable.html: SPD
 output/stip-release-linkable.html: STM
 output/stip-release-linkable.html: SigGen
 output/stip-release-linkable.html: Stateful
@@ -49,6 +50,7 @@ output/stip-release-linkable.html: TDES
 output/stip-release-linkable.html: TLSversion
 output/stip-release-linkable.html: V2
 output/stip-release-linkable.html: XAML
+output/stip-release-linkable.html: XCU
 output/stip-release-linkable.html: aren
 output/stip-release-linkable.html: authorityInfoAccess
 output/stip-release-linkable.html: authorityKeyIdentifier
@@ -116,6 +118,7 @@ output/stip-release.html: RC4
 output/stip-release.html: SCSV
 output/stip-release.html: SNI
 output/stip-release.html: SP800
+output/stip-release.html: SPD
 output/stip-release.html: STM
 output/stip-release.html: SigGen
 output/stip-release.html: Stateful
@@ -123,6 +126,7 @@ output/stip-release.html: SubjectAlternateName
 output/stip-release.html: TDES
 output/stip-release.html: V2
 output/stip-release.html: XAML
+output/stip-release.html: XCU
 output/stip-release.html: any’
 output/stip-release.html: authorityInfoAccess
 output/stip-release.html: authorityInfoAccess’
@@ -210,6 +214,7 @@ output/stip-sd.html: SCSV
 output/stip-sd.html: SNI
 output/stip-sd.html: SP300
 output/stip-sd.html: SP800
+output/stip-sd.html: SPD
 output/stip-sd.html: TDEA
 output/stip-sd.html: TDES
 output/stip-sd.html: TLSversion
@@ -282,6 +287,7 @@ output/stip.html: SCSV
 output/stip.html: SNI
 output/stip.html: SP300
 output/stip.html: SP800
+output/stip.html: SPD
 output/stip.html: STM
 output/stip.html: SigGen
 output/stip.html: Stateful
@@ -291,6 +297,7 @@ output/stip.html: TDES
 output/stip.html: TLSversion
 output/stip.html: V2
 output/stip.html: XAML
+output/stip.html: XCU
 output/stip.html: any’
 output/stip.html: authorityInfoAccess
 output/stip.html: authorityInfoAccess’
