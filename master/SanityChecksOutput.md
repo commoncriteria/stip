@@ -6,6 +6,16 @@
 * Error: Detected dangling ref-id to 'dummy-ref-id'.
 	  /Module[1]""/sec:Introduction[1]""/section[1]"This sect"/package-usage-list[1]""/package-usage[1]""/usage[1]""/config[1]""/ref-id[1]"dummy-ref"
 * Error: Detected dangling ref-id to 'dummy-ref-id'.
+	  /Module[1]""/sec:Introduction[1]""/section[1]"This sect"/package-usage-list[1]""/package-usage[1]""/usage[2]""/config[1]""/ref-id[1]"dummy-ref"
+* Error: Detected dangling ref-id to 'dummy-ref-id'.
+	  /Module[1]""/sec:Introduction[1]""/section[1]"This sect"/package-usage-list[1]""/package-usage[1]""/usage[3]""/config[1]""/ref-id[1]"dummy-ref"
+* Error: Detected dangling ref-id to 'dummy-ref-id'.
+	  /Module[1]""/sec:Introduction[1]""/section[1]"This sect"/package-usage-list[1]""/package-usage[1]""/usage[4]""/config[1]""/ref-id[1]"dummy-ref"
+* Error: Detected dangling ref-id to 'dummy-ref-id'.
+	  /Module[1]""/sec:Introduction[1]""/section[1]"This sect"/package-usage-list[1]""/package-usage[1]""/usage[5]""/config[1]""/ref-id[1]"dummy-ref"
+* Error: Detected dangling ref-id to 'dummy-ref-id'.
+	  /Module[1]""/sec:Introduction[1]""/section[1]"This sect"/package-usage-list[1]""/package-usage[1]""/usage[6]""/config[1]""/ref-id[1]"dummy-ref"
+* Error: Detected dangling ref-id to 'dummy-ref-id'.
 	  /Module[1]""/sec:Introduction[1]""/section[1]"This sect"/package-usage-list[1]""/package-usage[2]""/usage[1]""/config[1]""/ref-id[1]"dummy-ref"
 * Error: Detected dangling ref to 'O.AUDIT_LOSS_RESPONSE'
         for a ref.

@@ -19,6 +19,7 @@ output/stip-release-linkable.html: ClientDiffieHellmanPublic
 output/stip-release-linkable.html: CodeSigning
 output/stip-release-linkable.html: DataEncryption
 output/stip-release-linkable.html: ECPoint
+output/stip-release-linkable.html: EKU
 output/stip-release-linkable.html: EncryptedPreMasterSecret
 output/stip-release-linkable.html: KERBEROS
 output/stip-release-linkable.html: Key1
@@ -96,6 +97,7 @@ output/stip-release-linkable.html: subjectPublicKeyInfo
 output/stip-release-linkable.html: subjectUniqueID
 output/stip-release-linkable.html: subselections
 output/stip-release-linkable.html: thisUpdate
+output/stip-release-linkable.html: timeframe
 output/stip-release-linkable.html: tls
 output/stip-release-linkable.html: un
 output/stip-release-linkable.html: untrust
@@ -111,6 +113,7 @@ output/stip-release.html: CRL’
 output/stip-release.html: CSP
 output/stip-release.html: CodeSigning
 output/stip-release.html: DataEncryption
+output/stip-release.html: EKU
 output/stip-release.html: KERBEROS
 output/stip-release.html: OIDs
 output/stip-release.html: PINs
@@ -174,6 +177,7 @@ output/stip-release.html: subjectPublicKeyInfo
 output/stip-release.html: subjectUniqueID
 output/stip-release.html: subselections
 output/stip-release.html: thisUpdate
+output/stip-release.html: timeframe
 output/stip-release.html: tls
 output/stip-release.html: un
 output/stip-release.html: users’
@@ -266,6 +270,7 @@ output/stip.html: ClientDiffieHellmanPublic
 output/stip.html: CodeSigning
 output/stip.html: DataEncryption
 output/stip.html: ECPoint
+output/stip.html: EKU
 output/stip.html: EncryptedPreMasterSecret
 output/stip.html: KERBEROS
 output/stip.html: Key1
@@ -352,6 +357,7 @@ output/stip.html: subjectPublicKeyInfo
 output/stip.html: subjectUniqueID
 output/stip.html: subselections
 output/stip.html: thisUpdate
+output/stip.html: timeframe
 output/stip.html: tls
 output/stip.html: un
 output/stip.html: untrust
