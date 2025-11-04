@@ -325,7 +325,28 @@
           </usage>
           <usage id="usage-x509-roles" title="Required Role Selections in FIA_XCU_EXT.1.1">
             <description>
-            The ST author shall select the option to validate X.509 certificates in FIA_XCU_EXT.1.1. If the TOE supports certificate-based authentication for EST operations, the ST author shall also select the option to assert certificate identities.
+            The ST author shall select the option to validate and assert identities in X.509 certificates in FIA_XCU_EXT.1.1.
+            </description>
+            <config>
+              <ref-id>dummy-ref-id</ref-id>
+            </config>
+          </usage>
+          <usage id="usage-x509-cert-sources" title="Required Certificate Sources in FIA_XCU_EXT.2.1">
+            <description>
+              The ST author shall select the option to utilize an embedded CA to obtain its certificates. Either requesting a certificate or obtaining a certificate from the embedded CA is acceptable.
+            </description>
+            <config>
+              <ref-id>dummy-ref-id</ref-id>
+            </config>
+          </usage>
+          <usage id="usage-x509-certificate-sigalgs" title="Required Selections for Certificate Fields in FDP_CER_EXT.1.2/OLTLeaf">
+            <description>
+              The ST author shall make selections as specified below. Options and sections not specified in this usage guidance may be selected as appropriate without restriction. <h:br/>
+              <h:ul>
+                <h:li>The TOE must utilize appropriate cryptographic algorithms that conform to CNSA standards. Thus, the ST author shall select the option to utilize signature algorithms in accordance with RFC 8603 in FDP_CER_EXT.1.2/OLTleaf.</h:li>
+                <h:li>The TOE must issue certificates that reflect exclusive usage for TLS servers. Thus, the ST author shall select the options to set the keyUsage bit for digital signature. The ST author may select to set the keyUsage bits for key encipherment or key agreement, but not both. No other keyUsage bits shall be selected. </h:li>
+                <h:li>The TOE must issue certificates that reflect exclusive usage for TLS servers. Thus, the ST author shall select the option to include the extendedKeyUsage extension and shall select the option to populate the extension with the server authentication value. No other usage values shall be selected. </h:li>
+              </h:ul>
             </description>
             <config>
               <ref-id>dummy-ref-id</ref-id>
