@@ -12,6 +12,7 @@ output/stip-release-linkable.html: 67R2
 output/stip-release-linkable.html: BasicConstraints
 output/stip-release-linkable.html: CCMVS
 output/stip-release-linkable.html: CEM
+output/stip-release-linkable.html: CNSA
 output/stip-release-linkable.html: CRLv2
 output/stip-release-linkable.html: CSP
 output/stip-release-linkable.html: ClientDiffieHellman
@@ -71,6 +72,7 @@ output/stip-release-linkable.html: ffdhe3072
 output/stip-release-linkable.html: ffdhe4096
 output/stip-release-linkable.html: ffdhe6144
 output/stip-release-linkable.html: ffdhe8192
+output/stip-release-linkable.html: href
 output/stip-release-linkable.html: issuerAltName
 output/stip-release-linkable.html: issuerUniqueID
 output/stip-release-linkable.html: keyAgreement
@@ -109,6 +111,7 @@ output/stip-release.html: 67R2
 output/stip-release.html: 6960’
 output/stip-release.html: Auditor’
 output/stip-release.html: CEM
+output/stip-release.html: CNSA
 output/stip-release.html: CRL’
 output/stip-release.html: CSP
 output/stip-release.html: CodeSigning
@@ -262,6 +265,7 @@ output/stip.html: Auditor’
 output/stip.html: BasicConstraints
 output/stip.html: CCMVS
 output/stip.html: CEM
+output/stip.html: CNSA
 output/stip.html: CRLv2
 output/stip.html: CRL’
 output/stip.html: CSP
