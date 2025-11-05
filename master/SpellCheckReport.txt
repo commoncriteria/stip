@@ -18,6 +18,7 @@ output/stip-release-linkable.html: CSP
 output/stip-release-linkable.html: ClientDiffieHellman
 output/stip-release-linkable.html: ClientDiffieHellmanPublic
 output/stip-release-linkable.html: CodeSigning
+output/stip-release-linkable.html: DTLSC
 output/stip-release-linkable.html: DataEncryption
 output/stip-release-linkable.html: ECPoint
 output/stip-release-linkable.html: EKU
@@ -115,6 +116,7 @@ output/stip-release.html: CNSA
 output/stip-release.html: CRL’
 output/stip-release.html: CSP
 output/stip-release.html: CodeSigning
+output/stip-release.html: DTLSC
 output/stip-release.html: DataEncryption
 output/stip-release.html: EKU
 output/stip-release.html: KERBEROS
@@ -272,6 +274,7 @@ output/stip.html: CSP
 output/stip.html: ClientDiffieHellman
 output/stip.html: ClientDiffieHellmanPublic
 output/stip.html: CodeSigning
+output/stip.html: DTLSC
 output/stip.html: DataEncryption
 output/stip.html: ECPoint
 output/stip.html: EKU

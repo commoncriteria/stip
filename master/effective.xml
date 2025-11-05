@@ -329,11 +329,38 @@
           </usage>
           <usage id="usage-x509-certificate-sigalgs" title="Required Selections for Certificate Fields in FDP_CER_EXT.1.2/OLTLeaf">
             <description>
-              The ST author shall make selections as specified below. Options and sections not specified in this usage guidance may be selected as appropriate without restriction. <h:br/>
+              The ST author shall make selections as specified below. Options and sections not specified in the usage guidelines for this element may be selected as appropriate without restriction. <h:br/>
               <h:ul>
                 <h:li>The TOE must utilize appropriate cryptographic algorithms that conform to CNSA standards. Thus, the ST author shall select the option to utilize signature algorithms in accordance with RFC 8603 in FDP_CER_EXT.1.2/OLTleaf.</h:li>
                 <h:li>The TOE must issue certificates that reflect exclusive usage for TLS servers. Thus, the ST author shall select the options to set the keyUsage bit for digital signature. The ST author may select to set the keyUsage bits for key encipherment or key agreement, but not both. No other keyUsage bits shall be selected. </h:li>
                 <h:li>The TOE must issue certificates that reflect exclusive usage for TLS servers. Thus, the ST author shall select the option to include the extendedKeyUsage extension and shall select the option to populate the extension with the server authentication value. No other usage values shall be selected. </h:li>
+                <h:li>The ST author shall select the option to require that the Authority Key Identifier extension in any certificate issued by the TOE be the same as the Subject Key Identifier contained in the TOE's embedded CA's signing certificate.</h:li>
+                <h:li>The ST author shall select the option to allow an administrator to configure the maximum value of time allowed between the notBefore and notAfter validity times.</h:li>
+              </h:ul>
+            </description>
+            <config>
+              <ref-id>dummy-ref-id</ref-id>
+            </config>
+          </usage>
+          <usage id="usage-x509-certificate-fields" title="Required Selections for Certificate Fields in FDP_CER_EXT.1.3/OLTleaf">
+            <description>
+              The ST author shall select the option to restrict the timing of the notAfter validity field of issued certificates by ensuring the certificate validity time does not exceed the notAfter time of the CA's own certificate.
+            </description>
+            <config>
+              <ref-id>dummy-ref-id</ref-id>
+            </config>
+          </usage>
+          <usage id="usage-x509-certificate-names" title="Required Selections for Certificate Fields in FDP_CER_EXT.1.4/OLTleaf">
+            <description>
+              <comment>Note that we do not have a current way to accurately model a STIP-compatible version of this element because the X.509 package does not have a way to not use certificate requests to populate certificate identifiers.</comment>
+               The ST author shall make selections as specified below. Options and sections not specified in the usage guidelines for this element may be selected as appropriate without restriction. <h:br/>
+              <h:ul>
+              <h:li>The ST author shall select the option to generate the public key populated in the issued certificate.</h:li>  
+              <h:li>The ST author shall select the option to further restrict both the notBefore and notAfter validity fields. In the assignment, the ST author shall specify that the issued certificate's notBefore value shall not precede the notBefore value of the validated server certificate, and that the issued certificate's notAfter 
+                  value shall not exceed the notAfter value of the validated server certificate.</h:li>
+                <h:li>The ST author shall utilize the assignment for other issuance conditions to specify that if the basicConstraints field is present, it shall be populated with the value CA=False.</h:li>
+                <h:li>If the TOE populates certificate policy information in the issued certificate, the ST author shall utilize the assignment for other issuance conditions to specify that policy OID/policy mapping fields are populated in accordance with an Administrator or CA Operations Staff-configured mapping from validated server 
+                  certificate values to one or more stated policy OIDs.</h:li>
               </h:ul>
             </description>
             <config>
@@ -383,6 +410,14 @@
             <description>
               The ST author shall select the option to support TLS as a client and a server in FCS_TLS_EXT.1.1. If the TOE claims support for DTLS in FTP_ITC.1, the ST author shall additionally select support for DTLS in the roles that correspond with 
               the supported functions (e.g., DTLS client for audit server functionality).
+            </description>
+            <config>
+              <ref-id>dummy-ref-id</ref-id>
+            </config>
+          </usage>
+          <usage id="usage-tls-mutualauth" title="Mutual Authentication Required for Certificate-Based Authentication for EST in FCS_TLSC_EXT.1.1 or FCS_DTLSC_EXT.1.1">
+            <description>
+              If the TOE supports the use of EST and selects the option to use certificate-based authentication for EST, the ST author shall select the option to support mutual authentication in FCS_TLSC_EXT.1.1 or FCS_DTLSC_EXT.1.1, depending on the protocol support for EST.
             </description>
             <config>
               <ref-id>dummy-ref-id</ref-id>
