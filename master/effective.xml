@@ -379,6 +379,9 @@
             <description>
               The ST author shall refine the definition of FDP_CSI_EXT.1.2 if administrative action is used to support changes to the status of a certificate to clarify that administrative action is taken by a Security Administrator, CA Operations Staff or both.
             </description>
+            <config>
+              <ref-id>dummy-ref-id</ref-id>
+            </config>
           </usage>
           <usage id="usage-x509-extensions" title="Required Extension Processing in FIA_X509_EXT.1.2">
             <description>

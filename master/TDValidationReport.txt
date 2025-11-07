@@ -1,1 +1,0 @@
-/home/runner/work/stip/stip/output/effective.xml:382:19: error: element "usage" incomplete; missing required element "config"
