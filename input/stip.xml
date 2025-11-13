@@ -67,7 +67,7 @@
       products. This PP-Module is intended for use with the following Base-PPs:
 
       <h:ul>
-        <h:li>Network Device collaborative Protection Profile Version 4.0<comment> please update the references in the bib.</comment></h:li>
+        <h:li>Network Device collaborative Protection Profile Version 4.0</h:li>
       </h:ul>
       
       This Base-PP is valid because a STIP is a specific type of network appliance that is able to function as an authorized man-in-the-middle for TLS connections.
@@ -7606,17 +7606,8 @@ This appendix lists requirements that should be considered satisfied by products
 	capabilities of the TOE in addition to the functionality required by the claimed Base-PP.		 
  </appendix>
   
-  <bibliography>
-    <cc-entry/>
-    <entry id="bibNDcPP">
-      <tag>NDcPP</tag>
-      <description>
-        <h:a href="https://www.niap-ccevs.org/protectionprofiles/482">
-			collaborative Protection Profile for Network Devices</h:a>, Version 4.0, 06 December 2023
-      </description>
-    </entry>
-
-	</bibliography>
+  <bibliography/>
+    
 
 	<!-- Appendix G: Acronyms -->
 <!--	<acronyms/>   -->
