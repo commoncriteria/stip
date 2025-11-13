@@ -36,6 +36,7 @@ output/stip-release-linkable.html: M2
 output/stip-release-linkable.html: M3
 output/stip-release-linkable.html: M4
 output/stip-release-linkable.html: M5
+output/stip-release-linkable.html: NDcPP
 output/stip-release-linkable.html: OIDs
 output/stip-release-linkable.html: PINs
 output/stip-release-linkable.html: RC4
@@ -120,6 +121,7 @@ output/stip-release.html: DTLSC
 output/stip-release.html: DataEncryption
 output/stip-release.html: EKU
 output/stip-release.html: KERBEROS
+output/stip-release.html: NDcPP
 output/stip-release.html: OIDs
 output/stip-release.html: PINs
 output/stip-release.html: RC4
@@ -219,6 +221,7 @@ output/stip-sd.html: M2
 output/stip-sd.html: M3
 output/stip-sd.html: M4
 output/stip-sd.html: M5
+output/stip-sd.html: NDcPP
 output/stip-sd.html: SCSV
 output/stip-sd.html: SNI
 output/stip-sd.html: SP300
@@ -292,6 +295,7 @@ output/stip.html: M2
 output/stip.html: M3
 output/stip.html: M4
 output/stip.html: M5
+output/stip.html: NDcPP
 output/stip.html: OIDs
 output/stip.html: PINs
 output/stip.html: RC4
