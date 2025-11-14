@@ -2254,7 +2254,7 @@ provide all of its security functionality.</p>
               <p></p>
               The TLS Client Hello messages, and optional client certificate messages are
               received on the client side interface only. If the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> supports client authentication,
-              ‘TLS client certificate message’ should be selected (with the appropriate subselections supported by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>), and <a href="#FCS_TTTS_EXT.3">FCS_TTTS_EXT.3</a>,
+              ‘TLS client certificate message’ should be selected (with the appropriate sub-selections supported by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>), and <a href="#FCS_TTTS_EXT.3">FCS_TTTS_EXT.3</a>,
               Authentication of Monitored Clients should be claimed.
               <p></p>
               The TLS certificate message is received on a server side interface prior to the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>
@@ -3128,7 +3128,7 @@ provide all of its security functionality.</p>
 	    </td></tr><tr><th colspan="2"> Mandatory <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr></th><tr><td><a href="#FAU_GCR_EXT.1">FAU_GCR_EXT.1</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> applies to storing certificates in a certificate repository which is not
             listed in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>.</td></tr><tr><td><a href="#FAU_GEN.1/STIP">FAU_GEN.1/STIP</a></td><td>
             This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is iterated from the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> to add new auditable events for <abbr class="dyn-abbr"><a href="#abbr_STIP">STIP</a></abbr> functionality. 
-            It does not modify or replace any of the required auditable events defined in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> under the un-iterated FAU_GEN.1.
+            It does not modify or replace any of the required auditable events defined in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> under the uniterated FAU_GEN.1.
             </td></tr><tr><td><a href="#FAU_STG.5">FAU_STG.5</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> applies to the prevention of audit data loss by the inclusion of the
             auditor role which is not listed in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>.</td></tr><tr><td><a href="#FCS_COP.1/STIP">FCS_COP.1/STIP</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> provides encryption/decryption cipher suites used in support for
             the through-traffic processing of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>.</td></tr><tr><td><a href="#FCS_STG_EXT.1">FCS_STG_EXT.1</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> applies to the storage of persistent private and secret keys which is
@@ -3156,7 +3156,7 @@ provide all of its security functionality.</p>
           This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> applies to the restriction of management functions to certain roles that are not defined in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>, 
           which only requires management functionality to be performed by a security administrator.
         </td></tr><tr><td><a href="#FMT_SMF.1/STIP">FMT_SMF.1/STIP</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> is iterated from the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> to add new management functions for <abbr class="dyn-abbr"><a href="#abbr_STIP">STIP</a></abbr> functionality. 
-          It does not modify or replace any of the required management functions defined in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> under the un-iterated FMT_SMF.1.</td></tr><tr><td><a href="#FMT_SMR.2/STIP">FMT_SMR.2/STIP</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> defines additional management roles that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> may define to enforce role separation for <abbr class="dyn-abbr"><a href="#abbr_STIP">STIP</a></abbr> functionality.
+          It does not modify or replace any of the required management functions defined in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> under the uniterated FMT_SMF.1.</td></tr><tr><td><a href="#FMT_SMR.2/STIP">FMT_SMR.2/STIP</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> defines additional management roles that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> may define to enforce role separation for <abbr class="dyn-abbr"><a href="#abbr_STIP">STIP</a></abbr> functionality.
           It does not apply to <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> management functionality, which is managed by the Security Administrator defined in FMT_SMR.2 in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>.</td></tr><tr><td><a href="#FPT_FLS.1/STIP">FPT_FLS.1/STIP</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> applies to preserving a secure state when different failures occur
             which is not defined in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>.</td></tr><tr><td><a href="#FPT_KST_EXT.1">FPT_KST_EXT.1</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> applies to the prevention of plaintext key export which is not
             defined in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>.</td></tr><tr><td><a href="#FPT_KST_EXT.2">FPT_KST_EXT.2</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> applies to the prevention of unauthorized use of private and secret
@@ -3530,7 +3530,7 @@ provide all of its security functionality.</p>
             <div class="appnote"><span class="note-header">Application
       Note:
     </span><span class="note">
-              This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> should be claimed if ‘provide a consent to monitor banner..’ is selected in
+              This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> should be claimed if ‘provide a consent to monitor banner...’ is selected in
               <a href="#FDP_STIP_EXT.1.3">FDP_STIP_EXT.1.3</a>. 
             </span></div></div></div>
           

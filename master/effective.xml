@@ -1384,7 +1384,7 @@ expected to enforce.<h:p/>
         <f-component name="Audit Data Generation (STIP)" cc-id="fau_gen.1" iteration="STIP" id="fau-gen-1">
           <consistency-rationale>
             This SFR is iterated from the Base-PP to add new auditable events for STIP functionality. 
-            It does not modify or replace any of the required auditable events defined in the Base-PP under the un-iterated FAU_GEN.1.
+            It does not modify or replace any of the required auditable events defined in the Base-PP under the uniterated FAU_GEN.1.
             </consistency-rationale>
           <f-element id="fau-gen-1e1-stip">
             <title>
@@ -4194,7 +4194,7 @@ legacy cipher suites. -->
               <h:p/>
               The TLS Client Hello messages, and optional client certificate messages are
               received on the client side interface only. If the TSF supports client authentication,
-              ‘TLS client certificate message’ should be selected (with the appropriate subselections supported by the TOE), and FCS_TTTS_EXT.3,
+              ‘TLS client certificate message’ should be selected (with the appropriate sub-selections supported by the TOE), and FCS_TTTS_EXT.3,
               Authentication of Monitored Clients should be claimed.
               <h:p/>
               The TLS certificate message is received on a server side interface prior to the TSF
@@ -5067,7 +5067,7 @@ legacy cipher suites. -->
 	
       <f-component name="Specification of Management Functions" cc-id="fmt_smf.1" iteration="STIP" id="fmt-smf-1-stip">
         <consistency-rationale>This SFR is iterated from the Base-PP to add new management functions for STIP functionality. 
-          It does not modify or replace any of the required management functions defined in the Base-PP under the un-iterated FMT_SMF.1.</consistency-rationale>
+          It does not modify or replace any of the required management functions defined in the Base-PP under the uniterated FMT_SMF.1.</consistency-rationale>
         <f-element id="fmt-smf-1e1-stip">
           <title>The TSF shall be capable of performing the following management functions <h:b>in support of STIP operations</h:b>: [<h:i>
           <h:ul>
@@ -6190,7 +6190,7 @@ legacy cipher suites. -->
               message regarding use of the TOE</h:i>].
             </title>
             <note role="application">
-              This SFR should be claimed if ‘provide a consent to monitor banner..’ is selected in
+              This SFR should be claimed if ‘provide a consent to monitor banner...’ is selected in
               FDP_STIP_EXT.1.3. 
             </note>
             <aactivity>
