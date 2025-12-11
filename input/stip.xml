@@ -317,10 +317,18 @@
         <package-usage ref="X509">
           <usage id="usage-x509-iteration" title="Required Iteration of X.509 Package Requirements for STIP Operations">
             <description>
-              The ST author shall include an iteration of the <xref to="X509"/> requirements in the ST for STIP purposes using the suffix "STIP".
+              The ST author shall include an iteration of the FIA_X509_EXT.1 and FIA_X509_EXT.2 requirements as defined in <xref to="X509"/> in the ST for STIP purposes using the suffix "STIP".
             </description>
             <config>
               <ref-id>dummy-ref-id</ref-id>
+            </config>
+          </usage>
+          <usage id="usage-x509-noplatform" title="No Platform-Provided Functionality Claims Permitted">
+            <description>Because the TOE boundary is the entire network device that provides STIP functionality, there is no "platform" that exists outside the logical boundary of the TOE that the TSF could access. Therefore, the ST author shall not claim platform-provided functionality for any of the functions specified in the FP. In other words, any applicable SFRs 
+              shall include the claim to implement or provide the functionality, rather than rely on a platform.
+            </description>
+            <config>
+              <ref-id>dummy-ref-id</ref-id>   
             </config>
           </usage>
           <usage id="usage-x509-roles" title="Required Role Selections in FIA_XCU_EXT.1.1">
@@ -364,7 +372,6 @@
           </usage>
           <usage id="usage-x509-certificate-names" title="Required Selections for Certificate Fields in FDP_CER_EXT.1.4/OLTleaf">
             <description>
-              <comment>Note that we do not have a current way to accurately model a STIP-compatible version of this element because the X.509 package does not have a way to not use certificate requests to populate certificate identifiers.</comment>
                The ST author shall make selections as specified below. Options and sections not specified in the usage guidelines for this element may be selected as appropriate without restriction. <h:br/>
               <h:ul>
               <h:li>The ST author shall select the option to generate the public key populated in the issued certificate.</h:li>  
@@ -425,8 +432,27 @@
             <description>
               The TOE will always support the use of extendedKeyUsage values to verify that X.509 certificates are used in accordance with their intended purpose. Accordingly, the ST author shall claim that the TOE supports the processing of extendedKeyUsage fields in the leaf certificate (as opposed 
               to application of trust store context rules or passing the certification path or other supported context information to an external function) and shall select all values that are relevant to the claimed uses of X.509 in the ST. In particular, the ST author shall include the options to require 
-              TLS servers to have the Server Authentication key purpose, TLS clients to have the Client Authentication key purpose, OCSP signers to have the OCSP signing key purpose, and update signing certificates to have the Code Signing key purpose.
+              TLS servers to have the Server Authentication key purpose, TLS clients to have the Client Authentication key purpose, and OCSP signers to have the OCSP signing key purpose.
               The ST author shall utilize the assignment for other EKU values to specify that certificates must not contain the 'any' key purpose.
+            </description>
+            <config>
+              <ref-id>dummy-ref-id</ref-id>
+            </config>
+          </usage>
+          <usage id="usage-x509-functions" title="Required Selections for Functions in FIA_X509_EXT.2.1">
+            <description>
+              The ST author shall use the assignment for supported functions to describe the TOE's usage of X.509v3 certificates for authentication. 
+              The ST author shall select the option to use X.509 with TLS or DTLS (depending on the functionality of the TOE) and shall not select any other options in the SFR.
+            </description>
+            <config>
+              <ref-id>dummy-ref-id</ref-id>
+            </config>
+          </usage>
+          <usage id="usage-x509-revocation-override" title="Required Selections for Certificate Revocation Status Overrides in FIA_X509_EXT.2.2">
+            <description>
+              If the TOE allows an administrative user to determine whether to accept a certificate when valid revocation status information cannot be obtained, the ST author ST author shall refine the SFR to 
+              clarify whether the Security Administrator, CA Operations Staff or both are permitted to configure the revocation information override. <h:br/>
+              The ST author shall additionally use the assignment for a method of determining acceptance via a supported function to specify that the TOE may use a STIP operation in accordance with FDP_TEP_EXT.1.5 to determine whether to accept or not accept the connection. 
             </description>
             <config>
               <ref-id>dummy-ref-id</ref-id>
@@ -1122,30 +1148,6 @@ expected to enforce.<h:p/>
         
         </section>
         -->
- 
-        <section title="Cryptographic Support (FCS)" id="nd-m-fcs">
-          
-         
-            
-          <base-sfr-spec cc-id="fcs_tlsc_ext.1" id="nd-mod-fcs-tlsc-ext-1" title="TLS Client Protocol without Mutual Authentication">
-            <consistency-rationale>Other than defining an additional selection-based trigger, there is no modification to this SFR.</consistency-rationale>
-            <description>This PP-Module does not modify this SFR as it is defined in the <h:a
-              href="https://www.niap-ccevs.org/protectionprofiles/465">Functional Package for TLS, version 2.1</h:a>. This SFR is selection-based in the Functional Package for its potential use in trusted communications.
-              This PP-Module also defines EST as a supported method of obtaining certificates for the TOE, which may use TLS. 
-              This SFR can therefore also be triggered if the TOE claims FIA_ESTC_EXT.1 and selects a mechanism that makes use of FCS_TLSC_EXT.1.</description>
-             
-              <no-change/>
-          </base-sfr-spec>
-          <base-sfr-spec cc-id="fcs_tlsc_ext.2" title="TLS Client Support for Mutual Authentication" id="nd-mod-fcs-tlsc-ext-2">
-            <consistency-rationale>Other than being defined as selection-based, there is no modification to this SFR.</consistency-rationale>
-            <description>This PP-Module does not modify this SFR as it is defined in the <h:a
-              href="https://www.niap-ccevs.org/protectionprofiles/465">Functional Package for TLS, version 2.1</h:a>. This SFR is selection-based in the Functional Package for its potential use in trusted communications.
-              This PP-Module also defines EST as a supported method of obtaining certificates, which may use mutually-authenticated TLS. 
-              This SFR can therefore also be triggered if the TOE claims FIA_ESTC_EXT.1, dependent on selection in FIA_ESTC_EXT.1.4. </description>
-              <no-change/>
-          </base-sfr-spec>
-
-        </section>
         
         <!-- 5.1.1.3  -->
         <section title="Identification and Authentication (FIA)" id="nd-m-fia">
@@ -1484,22 +1486,36 @@ expected to enforce.<h:p/>
           <f-element id="fcs-cop-1e1-stip">
             <title>
               The TSF shall perform [<h:i>encryption/decryption</h:i>] in accordance with specified
-              cryptographic algorithms [<h:i>AES in CCM and CCM-8 mode and <selectables>
-                <selectable>TDES used
-                in CBC mode with 3 distinct keys in its key set</selectable>
-                <selectable>no other algorithms
-                </selectable></selectables></h:i>] and
-              cryptographic key sizes <selectables>
-                <selectable>128 bits</selectable>
-                <selectable>192 bits</selectable>
-                <selectable>256 bits</selectable>
-                </selectables> that meet the
-              following: [<h:i>AES as specified in ISO 18033-3, AES as specified in FIPS PUB 197 CCM and CCM-8 as specified in NIST
-              SP 800-38C and <selectables>
-                <selectable>TDES as specified in NIST SP 800-67 Rev 2 and CBC mode
-                  as specified in NIST SP 800-38A addendum</selectable>
-                <selectable>no other standards</selectable>
-              </selectables></h:i>].
+              cryptographic algorithms 
+              <selectables>
+                <tabularize id="fcs-cop-1e1-stip-sels" title="Allowable choices for FCS_COP.1/STIP">
+                  <textcol>Identifier</textcol>
+                  <reqtext/>
+                  <selectcol>Cryptographic Algorithms</selectcol>
+                  <reqtext>and cryptographic key sizes</reqtext>
+                  <selectcol>Cryptographic Key Sizes</selectcol>
+                  <reqtext>that meet the following:</reqtext>
+                  <selectcol>List of Standards</selectcol>
+                  <reqtext><h:p/><h:p/>
+                    The following table provides the allowable choices for completion of the selection operations in FCS_COP.1/STIP. At a minimum, AES in CCM and CCM-8 mode must be selected.</reqtext>
+                </tabularize>
+                <selectable id="sel-fcs-cop-stip-aes-ccm-ccm8">
+                  <col>AES-CCM and CCM-8</col>
+                  <col>AES in Counter with Cipher Block Chaining-Message Authentication Code mode</col>
+                  <col><selectables>
+                    <selectable>128 bits</selectable>
+                    <selectable>192 bits</selectable>
+                    <selectable>256 bits</selectable>
+                  </selectables></col>
+                  <col>AES as specified in ISO 18033-3, AES as specified in FIPS PUB 197, CCM and CCM-8 as specified in NIST SP 800-38C</col>
+                </selectable>
+                <selectable id="sel-fcs-cop-stip-tdes">
+                  <col>3DES-CBC</col>
+                  <col>Triple-DES used in CBC mode with 3 distinct keys in its key set</col>
+                  <col>168 bits</col>
+                  <col>TDES as specified in NIST SP 800-67 Rev 2, CBC mode as specified in NIST SP 800-38A addendum</col>
+                </selectable>
+              </selectables>
             </title>
               <note role="application">This requirement, in conjunction with FCS_COP.1/DataEncryption from the Base-PP, is used to support FCS_TTTC_EXT.1 and FCS_TTTS_EXT.1. Note that
               FCS_TTTC_EXT.1 and FCS_TTTS_EXT.1 may necessitate certain selections.</note>
@@ -2849,13 +2865,7 @@ legacy cipher suites. -->
           </dependencies>
           <f-element id="fdp-cer-ext-1e1">
             <title>
-              <comment>
-                This SFR can be pulled as an iteration of FDP_CER_EXT.1 from the X.509 FP, however the FP provides customizability in its certificate profile definitions 
-                that the PP-Module version does not specify a position on. A review of these two versions of the SFRs is needed to determine the appropriate assignments/selections such that 
-                the configuration is comparable to its old definitions. Additionally, there is currently no syntactical or administrative 
-                way to provide guidance on what selections/assignments must be made in the FP from the perspective of this PP-Module. There is also no way to provide guidance on what selections must be made in the Base-PP in order to 
-                make the X.509 FP applicable to the product.
-              </comment>The TSF shall implement a certificate profile function for TLS server certificates
+              The TSF shall implement a certificate profile function for TLS server certificates
               issued by a CA embedded within the TOE, and shall ensure that issued certificates
               are consistent with configured profiles.</title>
           </f-element>
@@ -3415,9 +3425,6 @@ legacy cipher suites. -->
           </dependencies>
           <f-element id="fdp-csir-ext-1e1">
             <title>
-              <comment>This requirement can be pulled from the X.509 FP, but it is unclear as to how this SFR should be modeled. A minor refinement would be necessary to remove some selections present in the FP that STIP does not include. 
-                Since the FP is intended to be the single point of definition for a re-used SFR, it is not desirable to manually reproduce the text of the SFR in this PP-Module (i.e. in the modified SFRs section).
-              </comment>
               The TSF shall <selectables>
               <selectable id="genStatus">generate certificate status information</selectable>
               <selectable>only issue certificates with a validity period of less than [24 hours]</selectable>
@@ -4620,11 +4627,6 @@ legacy cipher suites. -->
         <f-component name="X.509 Certificate Validation (STIP)" cc-id="fia_x509_ext.1" iteration="STIP" id="fia-x509-ext-1-stip">
           <consistency-rationale>This SFR specifies validation of certificates used for connections supporting
             STIP functions.</consistency-rationale>
-            <description><comment>This component will ostensibly be moved to the definitions present in the X.509 FP. However, we currently do not have a concrete way to accurately model its status in this PP-Module. 
-              In this case, STIP levies requirements on the Extended Key Usage field that will need to be represented in one of the open-ended assignment fields present in the X.509 FP, but there is 
-              no way to provide guidance on what selections/assignments must be made in the FP. There is also no way to provide guidance on what selections must be made in the Base-PP in order to 
-              make the X.509 FP applicable to the product.
-            </comment></description>
             <f-element id="fia-x509-ext-1e1-stip">
             
             <title>
@@ -4856,11 +4858,6 @@ legacy cipher suites. -->
           <consistency-rationale>The PP-Module iterates this SFR from its definition in the Base-PP to
             specify minimum required functionality for X.509 authentication based on its use in STIP. The PP-Module
             also refines the authorized roles that can perform the related management function.</consistency-rationale>
-            <description><comment>This component will ostensibly be moved to the definitions present in the X.509 FP. However, we currently do not have a way to accurately model its status in this PP-Module. 
-              In this case, there is an assignment that will need to be filled in one of the open-ended assignment fields present in the X.509 FP, but there is 
-              no way to provide guidance on what selections/assignments must be made in the FP from the PP-Module. There is also no way to provide guidance on what selections must be made in the Base-PP in order to 
-              make the X.509 FP applicable to the product.
-            </comment></description>
             <f-element id="nd-fia-x509-ext-2e1">
             <title>
               The TSF shall use X.509v3 certificates as defined by RFC 5280 to support
@@ -6458,11 +6455,7 @@ legacy cipher suites. -->
           <f-element id="fdp-cer-ext-4e1">
             <title>
               <comment>
-                This SFR can be pulled as an iteration of FDP_CER_EXT.1 from the X.509 FP, however the FP provides customizability in its certificate profile definitions 
-                that the PP-Module version does not specify a position on. A review of these two versions of the SFRs is needed to determine the appropriate assignments/selections such that 
-                the configuration is comparable to its old definitions. Additionally, there is currently no syntactical or administrative 
-                way to provide guidance on what selections/assignments must be made in the FP from the perspective of this PP-Module. There is also no way to provide guidance on what selections must be made in the Base-PP in order to 
-                make the X.509 FP applicable to the product.
+                This needs to be assessed to determine how to update the package usage section for this; right now the package usage maps FDP_CER_EXT.1 in the module to FDP_CER_EXT.1/OLTleaf in the FP for issuance of server certificates, but we need to describe how to iterate that SFR if the TSF also issues client certificates as per FDP_CER_EXT.4
               </comment>The TSF shall implement a certificate profile function for TLS client certificates
               issued by a CA embedded within the TOE, and shall ensure that issued certificates
               are consistent with configured profiles.</title>
@@ -6857,7 +6850,7 @@ legacy cipher suites. -->
           </f-element>
           <audit-event>
             <audit-event-descr>Certificate generation</audit-event-descr>
-            <audit-event-info><comment>There is an auditable event designated "Success" here but nothing listed for "Failure". Should an additional event be included for a failure case?</comment>
+            <audit-event-info>
               Success: <selectables>
               <selectable>certificate value</selectable>
               <selectable>certificate object identifier</selectable>
@@ -6893,8 +6886,7 @@ legacy cipher suites. -->
           <f-element id="fdp-csi-ext-2e1">
             
             <title>
-              <comment>This requirement can be pulled from the X.509 FP, but it is unclear as to how this SFR should be modeled. This SFR would likely be an iteration of FDP_CSI_EXT.1 in the FP, with some minor refinements (e.g., the FP defines only a single 
-                "administrative action" in FDP_CSI_EXT.1.2 that STIP would want to refine to provide a selection between the Security Administrator and CA Operations Staff). Like with FDP_CSI_EXT.1, it is not desirable to manually reproduce the text of the SFR in this PP-Module (i.e. in the modified SFRs section).
+              <comment>This needs to be assessed to determine how to update the package usage section for this; right now the package usage maps FDP_CSI_EXT.1 in the module to FDP_CSI_EXT.1 in the FP for issuance of server certificates, but we need to describe how to iterate that SFR if the TSF also issues client certificates as per FDP_CSI_EXT.2.
               </comment>
               The TSF shall generate certificate status information for issued client certificates whose format complies with
               <selectables>
@@ -7476,7 +7468,6 @@ legacy cipher suites. -->
 	    </section>
       
       <section title="Identification and Authentication (FIA)" id="obj-fia">
-        <comment>All objective SFRs need a review to determine if they should change status in the next release of this PP-Module.</comment>
         
         <f-component name="Client Use of TLS-Unique Value" cc-id="fia_estc_ext.2" id="fia-estc-ext-2">
           <consistency-rationale>This SFR applies to the implementation of EST, which is a method of acquiring certificates that is not defined in the Base-PP.</consistency-rationale>
@@ -7487,9 +7478,6 @@ legacy cipher suites. -->
           <dependencies>FIA_ESTC_EXT.1 Enrollment over Secure Transport (EST) Client</dependencies>
           <f-element id="fia-estc-ext-2e1">
             <title>
-              <comment>The parent requirement for this SFR (FIA_ESTC_EXT.1) will likely be moved to the X.509 FP, whose version of FIA_ESTC_EXT.1 does not include a requirement 
-                to include a tls-unique value. A determination will need to be made on if this requirement should be included in a future version of the X.509 FP, or how this requirement should be handled in another case.
-              </comment>
               The TSF shall generate tls-unique values and integrate them into EST requests it
               generates in accordance with RFC 7030 section 3.5.</title>
             <note role="application">
