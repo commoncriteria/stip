@@ -516,8 +516,7 @@ expected to enforce.<h:p/>
             exposed plaintext. An adversary may attempt to gain access the plaintext via misrouting of traffic or
             manipulate the traffic in such a way as to cause unauthorized exposure, denial of service, or
             corruption of the underlying plaintext. </description>
-            <addressed-by>FCS_CKM.6 (from Base-PP)</addressed-by>
-            <rationale>Mitigates the threat by ensuring secret and private key data is disposed of immediately after use to prevent unauthorized disclosure of keys.</rationale>
+          
             <addressed-by>FCS_TLSC_EXT.1 (from <xref to="tls"/>)</addressed-by>
             <rationale>Mitigates the threat by defining the TLS trusted channel used for EST if the TOE supports that functionality.</rationale>
             <addressed-by>FCS_TLSC_EXT.2 (from <xref to="tls"/>)</addressed-by>
@@ -686,8 +685,7 @@ expected to enforce.<h:p/>
             abuse of inspection services. An authorized user (AU) (or adversary able to gain access to AU
             credentials) can access or misuse device services, or disclose sensitive or security critical data.
           </description>
-          <addressed-by>FCS_CKM.6 (from Base-PP)</addressed-by>
-          <rationale>Mitigates the threat by ensuring secret and private key data is disposed of immediately after use to prevent unauthorized disclosure of keys.</rationale>
+         
           <addressed-by>FCS_TLSC_EXT.1 (from <xref to="tls"/>)</addressed-by>
           <rationale>Mitigates the threat because TLS is a mechanism by which its own certificate data may be obtained from an external CA. </rationale>
           <addressed-by>FCS_TLSC_EXT.2 (from <xref to="tls"/>)</addressed-by>
@@ -841,8 +839,7 @@ expected to enforce.<h:p/>
             intended by the monitored client to be encrypted. A malicious user or flawed TOE implementation could cause data to be transmitted 
             in cleartext for which a user has a reasonable expectation of confidentiality.
           </description>
-          <addressed-by>FCS_CKM.6 (from Base-PP)</addressed-by>
-          <rationale>Mitigates the threat by ensuring secret and private key data is disposed of immediately after use to prevent unauthorized disclosure of keys.</rationale>
+        
           <addressed-by>FCS_TLSC_EXT.1 (from <xref to="tls"/>)</addressed-by>
           <rationale>Mitigates the threat by defining the TLS trusted channel used for EST if the TOE supports that functionality.</rationale>
           <addressed-by>FCS_TLSC_EXT.2 (from <xref to="tls"/>)</addressed-by>
@@ -1128,54 +1125,8 @@ expected to enforce.<h:p/>
  
         <section title="Cryptographic Support (FCS)" id="nd-m-fcs">
           
-          <base-sfr-spec cc-id="fcs_ckm.6" id="nd-mod-fcs-ckm-6" title="Cryptographic Key Destruction">
-            <consistency-rationale>The ST author is instructed to include security critical parameters and when
-              key destruction is required.</consistency-rationale>
-            <description><h:p>This SFR is modified from its definition in the Base-PP to include security critical parameters as an item to be destroyed.</h:p>
-              <h:p>The text of the requirement is replaced with: </h:p>
-              <h:p><h:b>FCS_CKM.6.1: </h:b>The TSF shall destroy [<h:i>all cryptographic keys <h:b>and critical security parameters</h:b></h:i>] when 
-                [<h:i>no longer needed</h:i>].</h:p>
-              <h:p><h:b>FCS_CKM.6.2: </h:b>The TSF shall destroy cryptographic keys and keying material specified by FCS_CKM.6.1 in accordance with a specified cryptographic 
-                key destruction method: [<h:b>selection: </h:b><h:i>
-                <h:ul>
-                  <h:li>For plaintext keys in volatile storage, the destruction shall be executed by a [<h:b>selection: </h:b>
-                    <h:ul>
-                      <h:li>Single overwrite consisting of [<h:b>selection: </h:b>
-                        <h:ul>
-                          <h:li>a pseudo-random pattern using the TSF's RBG</h:li>
-                          <h:li>zeroes</h:li>
-                          <h:li>ones</h:li>
-                          <h:li>a new value of the key</h:li>
-                          <h:li>[<h:b>assignment: </h:b>a static or dynamic value that does not contain any CSP]</h:li>
-                        </h:ul>]</h:li>
-                        <h:li>Destruction of reference to the key directly followed by a request for garbage collection</h:li>
-                        </h:ul>]</h:li>
-                      <h:li>For plaintext keys in non-volatile storage, the destruction shall be executed by the invocation of an interface provided by the 
-                        TSF that [<h:b>selection: </h:b>
-                        <h:ul>
-                          <h:li>Logically addresses the storage location of the key and performs a [<h:b>selection: </h:b>single, [<h:b>assignment: </h:b> number of passes]-pass] overwrite 
-                            consisting of [<h:b>selection: </h:b>
-                            <h:ul>
-                              <h:li>a pseudo-random pattern using the TSF's RBG</h:li>
-                              <h:li>zeroes</h:li>
-                              <h:li>ones</h:li>
-                              <h:li>a new value of the key</h:li>
-                              <h:li>[<h:b>assignment: </h:b>a static or dynamic value that does not contain any CSP]</h:li>
-                            </h:ul>
-                          ]</h:li>
-                          <h:li>Instructs a part of the TSF to destroy the abstraction that represents the key</h:li>
-                        </h:ul>]
-                      </h:li>
-                </h:ul></h:i>] that meets the following: [<h:i>no standard</h:i>].
-              </h:p>
-              <h:p><h:b>Application Note: </h:b>This SFR is refined from its definition in the Base-PP through the inclusion of security critical parameters and clarifies when destruction 
-              is required; a STIP device includes persistent keys, including the embedded CA’s signing private key that should not be destroyed until they are no longer needed. Security 
-              critical parameters includes security related information (e.g., secret and private cryptographic keys, authentication data such as passwords and PINs) appearing in plaintext 
-              or otherwise unprotected form and whose disclosure or modification can compromise the security of a CA or the security of the information protected by the CA.</h:p></description>
-              <!-- NDcPP is not in XML so no change can be modeled -->
-              <no-change/>
+         
             
-          </base-sfr-spec>
           <base-sfr-spec cc-id="fcs_tlsc_ext.1" id="nd-mod-fcs-tlsc-ext-1" title="TLS Client Protocol without Mutual Authentication">
             <consistency-rationale>Other than defining an additional selection-based trigger, there is no modification to this SFR.</consistency-rationale>
             <description>This PP-Module does not modify this SFR as it is defined in the <h:a
@@ -1543,7 +1494,7 @@ expected to enforce.<h:p/>
                 <selectable>192 bits</selectable>
                 <selectable>256 bits</selectable>
                 </selectables> that meet the
-              following: [<h:i>AES as specified in ISO 18033-3, CCM and CCM-8 as specified in NIST
+              following: [<h:i>AES as specified in ISO 18033-3, AES as specified in FIPS PUB 197 CCM and CCM-8 as specified in NIST
               SP 800-38C and <selectables>
                 <selectable>TDES as specified in NIST SP 800-67 Rev 2 and CBC mode
                   as specified in NIST SP 800-38A addendum</selectable>
@@ -1800,6 +1751,7 @@ expected to enforce.<h:p/>
           <f-element id="fcs-tttc-ext-1e1"> <!-- Note: TD0577 applied -->
             <title>
               The TSF shall implement [<h:i>TLS 1.2 (RFC 5246), TLS 1.0 (RFC 2246), and <selectables>
+                <selectable>TLS 1.3 (RFC 8446)</selectable>
                 <selectable>TLS 1.1 (RFC 4346)</selectable>
                 <selectable>no other SSL or TLS versions</selectable>
               </selectables></h:i>] as a client to the requested server that
@@ -1845,6 +1797,8 @@ expected to enforce.<h:p/>
                 <h:li>TLS_RSA_WITH_AES_256_CCM_8 as defined in RFC 6655</h:li>
               </h:ul>
                 <selectables linebreak="yes">
+                  <selectable>TLS_AES_128_GCM_SHA384 as defined in RFC 8446</selectable>
+                  <selectable>TLS_AES_256_GCM_SHA384 as defined in RFC 8446</selectable>
                   <selectable>TLS_ECDHE_RSA_WITH_3DES_EDE_CBC_SHA as defined in RFC 8422</selectable>
                   <selectable>TLS_DHE_RSA_WITH_3DES_EDE_CBC_SHA as defined in RFC 5246</selectable>
                   <selectable>TLS_RSA_WITH_3DES_EDE_CBC_SHA as defined in RFC 5246</selectable>
@@ -2439,6 +2393,7 @@ legacy cipher suites. -->
           <f-element id="fcs-ttts-ext-1e1"> <!-- Note: TD0577 applied -->
             <title>
               The TSF shall implement [<h:i>TLS 1.2 (RFC 5246), TLS 1.0 (RFC 2246), and <selectables>
+                <selectable>TLS 1.3 (RFC 8446)</selectable>
                 <selectable>TLS 1.1 (RFC 4346)</selectable>
                 <selectable>no other SSL or TLS versions</selectable>
               </selectables></h:i>] as a server to the monitored client that
@@ -2484,6 +2439,8 @@ legacy cipher suites. -->
                 <h:li>TLS_RSA_WITH_AES_256_CCM_8 as defined in RFC 6655</h:li>
               </h:ul>
                 <selectables linebreak="yes">
+                  <selectable>TLS_AES_128_GCM_SHA384 as defined in RFC 8446</selectable>
+                  <selectable>TLS_AES_256_GCM_SHA384 as defined in RFC 8446</selectable>
                   <selectable>TLS_ECDHE_RSA_WITH_3DES_EDE_CBC_SHA as defined in RFC 8422</selectable>
                   <selectable>TLS_DHE_RSA_WITH_3DES_EDE_CBC_SHA as defined in RFC 5246</selectable>
                   <selectable>TLS_RSA_WITH_3DES_EDE_CBC_SHA as defined in RFC 5246</selectable>
@@ -2625,6 +2582,8 @@ legacy cipher suites. -->
                     <selectable>1536 bits</selectable>
                     <selectable>3072 bits</selectable>
                     <selectable>4096 bits</selectable>
+                    <selectable>6144 bits</selectable>
+                    <selectable>8192 bits</selectable>
                     <selectable>no other sizes</selectable>
                   </selectables></h:li>
                   <h:li><selectables linebreak="yes">
@@ -2634,6 +2593,7 @@ legacy cipher suites. -->
                         <selectable>1536 bits</selectable>
                         <selectable>3072 bits</selectable>
                         <selectable>4096 bits</selectable>
+                        <selectable>6144 bits</selectable>
                         <selectable>8192 bits</selectable>
                         <selectable>no other sizes</selectable></selectables></selectable>
                     <selectable>
@@ -6193,7 +6153,7 @@ legacy cipher suites. -->
         TOE might be required to obtain this consent. The requirement in this section should be claimed if the TLS
         session establishment policy requires it.
         
-        <f-component name="TOE Access Banner (Consent to Monitor Banner for TLS Inspection" cc-id="fta_tab.1" iteration="TLS" id="fta-tab-1">
+        <f-component name="TOE Access Banner (Consent to Monitor Banner for TLS Inspection)" cc-id="fta_tab.1" iteration="TLS" id="fta-tab-1">
           <depends on-sel="banner"/>
           <consistency-rationale>This SFR applies to having a notice and consent warning message at the start
             of an SSL/TLS inspection session which is not defined in the Base-PP. </consistency-rationale>
