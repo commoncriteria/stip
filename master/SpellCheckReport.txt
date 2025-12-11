@@ -14,7 +14,6 @@ output/stip-release-linkable.html: CCMVS
 output/stip-release-linkable.html: CEM
 output/stip-release-linkable.html: CNSA
 output/stip-release-linkable.html: CRLv2
-output/stip-release-linkable.html: CSP
 output/stip-release-linkable.html: ClientDiffieHellman
 output/stip-release-linkable.html: ClientDiffieHellmanPublic
 output/stip-release-linkable.html: CodeSigning
@@ -38,7 +37,6 @@ output/stip-release-linkable.html: M4
 output/stip-release-linkable.html: M5
 output/stip-release-linkable.html: NDcPP
 output/stip-release-linkable.html: OIDs
-output/stip-release-linkable.html: PINs
 output/stip-release-linkable.html: RC4
 output/stip-release-linkable.html: SCSV
 output/stip-release-linkable.html: SNI
@@ -114,7 +112,6 @@ output/stip-release.html: Auditor’
 output/stip-release.html: CEM
 output/stip-release.html: CNSA
 output/stip-release.html: CRL’
-output/stip-release.html: CSP
 output/stip-release.html: CodeSigning
 output/stip-release.html: DTLSC
 output/stip-release.html: DataEncryption
@@ -122,7 +119,6 @@ output/stip-release.html: EKU
 output/stip-release.html: KERBEROS
 output/stip-release.html: NDcPP
 output/stip-release.html: OIDs
-output/stip-release.html: PINs
 output/stip-release.html: RC4
 output/stip-release.html: SCSV
 output/stip-release.html: SNI
@@ -271,7 +267,6 @@ output/stip.html: CEM
 output/stip.html: CNSA
 output/stip.html: CRLv2
 output/stip.html: CRL’
-output/stip.html: CSP
 output/stip.html: ClientDiffieHellman
 output/stip.html: ClientDiffieHellmanPublic
 output/stip.html: CodeSigning
@@ -295,7 +290,6 @@ output/stip.html: M4
 output/stip.html: M5
 output/stip.html: NDcPP
 output/stip.html: OIDs
-output/stip.html: PINs
 output/stip.html: RC4
 output/stip.html: SCSV
 output/stip.html: SNI
