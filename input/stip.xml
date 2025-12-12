@@ -364,7 +364,11 @@
           </usage>
           <usage id="usage-x509-certificate-fields" title="Required Selections for Certificate Fields in FDP_CER_EXT.1.3/OLTleaf">
             <description>
+              <h:p>
               The ST author shall select the option to restrict the timing of the notAfter validity field of issued certificates by ensuring the certificate validity time does not exceed the notAfter time of the CA's own certificate.
+              </h:p><h:p>
+              In the final selection, the ST author shall select the option to limit the subject name based on name constraints and shall not select the option describing the policyConstraints field.
+              </h:p>
             </description>
             <config>
               <ref-id>dummy-ref-id</ref-id>
@@ -402,7 +406,15 @@
               <ref-id>dummy-ref-id</ref-id>
             </config>
           </usage>
-          <usage id="usage-x509-extensions" title="Required Extension Processing in FIA_X509_EXT.1.2">
+          <usage id="iteration-x509-validation" title="Iteration of FIA_X509_EXT.1">
+            <description>
+              In most cases, the Base-PP will already claim FIA_X509_EXT.1 for validation of X.509 certificates presented to the TOE by trusted external entities. The STIP module also requires X.509 certificate validation, but this may obey different rules from the trusted entity case because the connections that the TOE proxies may not have that level of configuration. The ST author shall therefore define a new iteration of this requirement as FIA_X509_EXT.1/STIP. This will clearly identify this requirement as applying to the TOE's STIP interfaces.
+            </description>
+            <config>
+              <ref-id>dummy-ref-id</ref-id>
+            </config>
+          </usage>
+          <usage id="usage-x509-extensions" title="Required Extension Processing in FIA_X509_EXT.1.2/STIP">
             <description>
               The ST author shall select the option to process the basic constraints and extended key usage extensions.
             </description>
@@ -410,16 +422,16 @@
               <ref-id>dummy-ref-id</ref-id>
             </config>
           </usage>
-          <usage id="usage-x509-revocation-methods" title="CRL or OCSP-based Revocation Required for FIA_X509_EXT.1.3 for External Certificates">
+          <usage id="usage-x509-revocation-methods" title="CRL or OCSP-based Revocation Required for FIA_X509_EXT.1.3/STIP for External Certificates">
 						<description>
-						The TOE must support revocation that only involves CRL or OCSP. Accordingly, the TOE shall select only from options involving CRL or OCSP in FIA_X509_EXT.1.3 (e.g., the selection to treat all certificates older than a given short timeframe is not an acceptable substitute or alternative 
+						The TOE must support revocation that only involves CRL or OCSP. Accordingly, the TOE shall select only from options involving CRL or OCSP in FIA_X509_EXT.1.3/STIP (e.g., the selection to treat all certificates older than a given short timeframe is not an acceptable substitute or alternative 
             for supporting CRL or OCSP).
 						</description> 
 						<config>
 						<ref-id>dummy-ref-id</ref-id>
 						</config>
 					</usage>
-          <usage id="usage-x509-revocation-connections" title="Connections to CRL or OCSP Servers Required for FIA_X509_EXT.1.4">
+          <usage id="usage-x509-revocation-connections" title="Connections to CRL or OCSP Servers Required for FIA_X509_EXT.1.4/STIP">
 						<description>
 						Because the TOE is required to support CRL or OCSP, the TSF shall support an appropriate mechanism for obtaining revocation status information. In the case of CRL, the ST author shall claim that revocation status information is obtained via network connection to a CRL distribution point. 
             In the case of OCSP, the ST author shall claim that revocation status information is obtained via network connection to an OCSP responder, via OCSP stapling, or via OCSP multi-stapling.
@@ -428,7 +440,7 @@
 						<ref-id>dummy-ref-id</ref-id>
 						</config>
 					</usage>
-          <usage id="usage-x509-eku-values" title="Restrictions on Acceptable Key Usage Values for FIA_X509_EXT.1.5">
+          <usage id="usage-x509-eku-values" title="Restrictions on Acceptable Key Usage Values for FIA_X509_EXT.1.5/STIP">
             <description>
               The TOE will always support the use of extendedKeyUsage values to verify that X.509 certificates are used in accordance with their intended purpose. Accordingly, the ST author shall claim that the TOE supports the processing of extendedKeyUsage fields in the leaf certificate (as opposed 
               to application of trust store context rules or passing the certification path or other supported context information to an external function) and shall select all values that are relevant to the claimed uses of X.509 in the ST. In particular, the ST author shall include the options to require 
@@ -439,7 +451,15 @@
               <ref-id>dummy-ref-id</ref-id>
             </config>
           </usage>
-          <usage id="usage-x509-functions" title="Required Selections for Functions in FIA_X509_EXT.2.1">
+          <usage id="iteration-x509-support" title="Iteration of FIA_X509_EXT.2">
+            <description>
+              In most cases, the Base-PP will already claim FIA_X509_EXT.2 for the functions for which it uses X.509 certificates for authenticity or integrity. The STIP module also requires X.509 certificates to be used for authentication, but the certificates presented for STIP may processed differently. The ST author shall therefore define a new iteration of this requirement as FIA_X509_EXT.2/STIP. This will clearly identify this requirement as applying to the TOE's STIP interfaces.
+            </description>
+            <config>
+              <ref-id>dummy-ref-id</ref-id>
+            </config>
+          </usage>
+          <usage id="usage-x509-functions" title="Required Selections for Functions in FIA_X509_EXT.2.1/STIP">
             <description>
               The ST author shall use the assignment for supported functions to describe the TOE's usage of X.509v3 certificates for authentication. 
               The ST author shall select the option to use X.509 with TLS or DTLS (depending on the functionality of the TOE) and shall not select any other options in the SFR.
@@ -448,7 +468,7 @@
               <ref-id>dummy-ref-id</ref-id>
             </config>
           </usage>
-          <usage id="usage-x509-revocation-override" title="Required Selections for Certificate Revocation Status Overrides in FIA_X509_EXT.2.2">
+          <usage id="usage-x509-revocation-override" title="Required Selections for Certificate Revocation Status Overrides in FIA_X509_EXT.2.2/STIP">
             <description>
               If the TOE allows an administrative user to determine whether to accept a certificate when valid revocation status information cannot be obtained, the ST author ST author shall refine the SFR to 
               clarify whether the Security Administrator, CA Operations Staff or both are permitted to configure the revocation information override. <h:br/>
