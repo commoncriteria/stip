@@ -83,6 +83,7 @@ output/stip-release-linkable.html: nextUpdate
 output/stip-release-linkable.html: notAfter
 output/stip-release-linkable.html: notBefore
 output/stip-release-linkable.html: p4
+output/stip-release-linkable.html: policyConstraints
 output/stip-release-linkable.html: producedAt
 output/stip-release-linkable.html: proxying
 output/stip-release-linkable.html: ruleset
@@ -161,6 +162,7 @@ output/stip-release.html: misrouting
 output/stip-release.html: nextUpdate
 output/stip-release.html: notAfter
 output/stip-release.html: notBefore
+output/stip-release.html: policyConstraints
 output/stip-release.html: producedAt
 output/stip-release.html: proxying
 output/stip-release.html: ruleset
@@ -341,6 +343,7 @@ output/stip.html: nextUpdate
 output/stip.html: notAfter
 output/stip.html: notBefore
 output/stip.html: p4
+output/stip.html: policyConstraints
 output/stip.html: producedAt
 output/stip.html: proxying
 output/stip.html: ruleset
