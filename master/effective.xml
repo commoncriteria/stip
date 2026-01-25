@@ -3021,7 +3021,10 @@ legacy cipher suites. -->
                 <h:li>The validity field shall specify a notBefore value that does not precede the current time and a notAfter 
                   value that does not precede the value specified in notBefore, and does not exceed the value specified in 
                   notBefore by  <selectables>
-                    <selectable>a time length configured by an administrator</selectable>
+                    <selectable>a time length configured by a <h:b><selectables>
+                      <selectable>Security Administrator</selectable>
+                      <selectable>CA Operations Staff</selectable>
+                    </selectables></h:b></selectable>
                     <selectable> <assignable>positive length of time</assignable></selectable>
                   </selectables></h:li>
                 <h:li>The issuer field is populated with the name of the embedded CA issuing the certificate.</h:li>
@@ -3037,42 +3040,37 @@ legacy cipher suites. -->
                       <selectable>keyEncipherment (2)</selectable>
                       <selectable>keyAgreement (4)</selectable>
                     </selectables>
-                      and no other usage indicators. </h:b>
-                    </h:li>
-                    <h:li> [<h:i>
-                      <h:ul>
-                        <h:li>subjectKeyIdentifier is populated <h:b>with a unique value</h:b></h:li>
-                        <h:li>extendedKeyUsage is present and is populated with [serverAuth {OID: 1.3.6.1.5.5.7.3.1}]</h:li>
-                        <h:li>subjectAltName with name of type  <selectables linebreak="yes">
-                          <selectable>rfc822Name</selectable>
-                          <selectable>dNSName</selectable>
-                          <selectable>directoryName</selectable>
-                          <selectable>uniformResourceIdentifier</selectable>
-                          <selectable>IPAddress</selectable>
-                          <selectable> <assignable>other name</assignable></selectable>
-                        </selectables>
-                        </h:li>
-                        <h:li>basicConstraints is populated with [cA flag equal to false]</h:li>
-                        <h:li>cRLDistributionPoints indicating an access location for CRLs <selectables>
-                          <selectable>configured by an administrator</selectable>
-                          <selectable>determined by the TSF</selectable></selectables></h:li>
-                        <h:li>authorityInfoAccess indicating an access location for [OCSP responder] <selectables>
-                          <selectable>configured by an administrator</selectable>
-                          <selectable>determined by the TSF</selectable>
-                        </selectables></h:li>
-                        <h:li/>
-                      </h:ul>
-                    </h:i>]
-                    </h:li>
-                  </h:ul>
-                </h:li></h:ul>
+                      and no other usage indicators. </h:b>[
+                    </h:li><h:i>
+                      <h:li>subjectKeyIdentifier is populated <h:b>with a unique value</h:b></h:li>  
+                      <h:li>extendedKeyUsage is present and is populated with [serverAuth {OID: 1.3.6.1.5.5.7.3.1}]</h:li>
+                      <h:li>subjectAltName with name of type  <selectables linebreak="yes">
+                        <selectable>rfc822Name</selectable>
+                        <selectable>dNSName</selectable>
+                        <selectable>directoryName</selectable>
+                        <selectable>uniformResourceIdentifier</selectable>
+                        <selectable>IPAddress</selectable>
+                        <selectable> <assignable>other name</assignable></selectable>
+                      </selectables>
+                      </h:li>
+                      <h:li>basicConstraints is populated with [cA flag equal to false]</h:li>
+                      <h:li>cRLDistributionPoints indicating an access location for CRLs <selectables>
+                        <selectable>configured by an administrator</selectable>
+                        <selectable>determined by the TSF</selectable></selectables></h:li>
+                      <h:li>authorityInfoAccess indicating an access location for [OCSP responder] <selectables>
+                        <selectable>configured by an administrator</selectable>
+                        <selectable>determined by the TSF</selectable>
+                      </selectables></h:li></h:i>]
+                    </h:ul>
+                </h:li>
+              </h:ul>
             </title>
             <note role="Application">
               <h:p>
                The ST author describes the certificates issued by its embedded CA for session proxying using TLS server certificates, which is why this is the only EKU specified for this requirement.
               </h:p><h:p>
                 The ST author claims the methods for determining the maximum validity period in the selection for the validity 
-                field. Both options are claimed if the administrator can configure a time up to a TSF defined maximum.  
+                field. Both options are claimed if an administrator can configure a time up to a TSF defined maximum.  
               </h:p><h:p>	
                 The ST author describes the methods for determining the name of the embedded CA in the selection for issuer field.
               </h:p><h:p>
@@ -3083,7 +3081,7 @@ legacy cipher suites. -->
               </h:p><h:p>	
                 The digitalSignature keyUsage value may be by itself or paired with either the keyEncipherment or keyAgreement value.
               </h:p><h:p>
-                Since “subjectAlternateName” is claimed as a supported extension, the ST author claims all RFC 5280 name types supported and designates any other standard name types in the assignment, indicating the formatting and normalization standard used for each supported name type. Standards used to refine or provide alternate normalization for RFC 5280 name types are claimed via the assignment.
+                Since “subjectAltName” is claimed as a supported extension, the ST author claims all RFC 5280 name types supported and designates any other standard name types in the assignment, indicating the formatting and normalization standard used for each supported name type. Standards used to refine or provide alternate normalization for RFC 5280 name types are claimed via the assignment.
               </h:p>
             </note>
           </f-element>
@@ -3093,10 +3091,10 @@ legacy cipher suites. -->
               <h:ul>
                 <h:li>The validity field shall specify a notAfter time that does not exceed [<h:i>[zero time] prior to the notAfter time of the CA's signing certificate</h:i>]</h:li> 
                 <h:li>The issuer field is populated with the <selectables linebreak="yes">
-                  <selectable>subject of the CA’s signing certificate as configured by a <h:b><selectables>
+                  <selectable>subject of the CA’s signing certificate as configured by a <selectables>
                     <selectable>Security Administrator</selectable>
                     <selectable>CA Operations Staff</selectable>
-                  </selectables></h:b></selectable>
+                  </selectables></selectable>
                   <selectable>an identifier for a trust store element associated 
                     <h:b>by a <selectables>
                       <selectable>Security Administrator</selectable>
@@ -3115,8 +3113,7 @@ legacy cipher suites. -->
               </h:ul>
             </title>
             <note role="Application">
-              General profiles described in <xref to="fdp-cer-ext-1e2-server"/> are refined by specific configurations of the issuing CA 
-              in the SFR element. The ST author claims the source of these inputs
+              The first bullet is intended to specify that the notAfter time of the validity field does not exceed the notAfter time of the CA's signing certificate.
             </note>
           </f-element>
           <f-element id="fdp-cer-ext-1e4-server">
@@ -3132,29 +3129,13 @@ legacy cipher suites. -->
                     <selectable>IPAddress</selectable>
                     <selectable> <assignable>other name type</assignable></selectable>							
                   </selectables></selectable></selectables>
-                  of the issued certificate is determined by <selectables linebreak="yes">
-                    <selectable>PKCS-10 request in accordance with RFC 2986</selectable>
-                    <selectable>EST request in accordance with RFC 7030 as updated by RFC 8996</selectable>
-                    <selectable>A CMC request meeting the profile specified in <selectables>
-                      <selectable>RFC 8756</selectable>
-                      <selectable><assignable>CMC profile supported</assignable></selectable>
-                    </selectables> in accordance with RFC 5272, RFC 5273, and RFC 5274 as updated by RFC 6402</selectable>
-                    <selectable>A CMP request in accordance with RFC 4210 <selectables>
-                      <selectable>as updated by RFC 6712 and RFC 9481 (v2 CMP)</selectable>
-                      <selectable>as updated by RFC 6712 and RFC 9480 (v3 CMP)</selectable>
-                    </selectables></selectable>
-                  </selectables>				
-                  validated by <selectables>
-                    <selectable>the supported function</selectable>
-                    <selectable><assignable>administrator action</assignable></selectable>
-                    <selectable><assignable>automated processes</assignable></selectable>
-                  </selectables></h:li>
+                  of the issued certificate is determined by [<h:i>PKCS-10 request in accordance with RFC 2986</h:i>]
+                  validated by [<h:i>[automated processes]</h:i>]</h:li>
                 <h:li>The public key populated in the issued certificate is [<h:i><h:ul>
                   <h:li>generated by the TOE on [issuance] and [[associated with the validated certificate as required by FDP_CER_EXT.2]] </h:li>
                 </h:ul></h:i>] </h:li>
-                  
-                <h:li><h:ul><h:i>
-                  <h:li>The [notBefore, notAfter] portion of the validity field of the issued certificate is limited by [the following constraints:
+                 [<h:i> 
+                <h:li>The [notBefore, notAfter] portion of the validity field of the issued certificate is limited by [the following constraints:
                     <h:ul>
                       <h:li>The notBefore field shall not precede the notBefore field of the validated server certificate</h:li>
                       <h:li>The notAfter field shall not exceed the notAfter field of the validated server certificate</h:li>
@@ -3165,8 +3146,7 @@ legacy cipher suites. -->
                         </selectables> 
                       </h:li>
                     </h:ul>
-                    ]</h:li></h:i>
-                </h:ul></h:li>
+                    ]</h:li>
                 <h:li> 
                   <selectables linebreak="yes"> 
                   
@@ -3174,17 +3154,17 @@ legacy cipher suites. -->
                     <selectable>Security Administrator</selectable>
                     <selectable>CA Operations Staff</selectable>
                   </selectables> configured mapping from validated server certificate values to one or more stated policy OIDs]</selectable>
-                  <selectable>public key uses ML-DSA-87 if post-quantum algorithms are present in the validated server certificate</selectable>
+                  <selectable>The public key uses ML-DSA-87 if post-quantum algorithms are present in the validated server certificate</selectable>
                     <selectable>No other condition</selectable>
                 </selectables></h:li>
+                 </h:i>]
               </h:ul>
             </title>
             <note role="Application">
               <h:p>
                 A certificate profile is further refined by inputs of the function(s) supported. 
               </h:p><h:p>
-                'generated by the TOE on [<h:i>validation of server certificate</h:i>' is intended to require that a new public key be generated for each certificate that is issued.
-                
+        
                 In the first bullet, the ST author describes the name types indicated for each supported function (a subset of the supported name types indicated in <xref to="fdp-cer-ext-1e2-server"/>), how subjects 
                 of certificates are determined, and how the requested subject names are validated. Note that when multiple names are included in a request, 'validated' applies to all names populated in a certificate. When the subject of a certificate represents an entity external to the TOE or when an internal TOE entity supports it, a standard 
                 certificate request formatting or protocol is supported, and all certificate values requested by the entity are included in the request; the internal TOE function which exclusively trusts these external certificates 

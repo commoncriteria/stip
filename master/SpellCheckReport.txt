@@ -114,7 +114,6 @@ output/stip-release-linkable.html: serialNumber
 output/stip-release-linkable.html: serverAuth
 output/stip-release-linkable.html: signatureAlgorithm
 output/stip-release-linkable.html: subjectAltName
-output/stip-release-linkable.html: subjectAlternateName
 output/stip-release-linkable.html: subjectKeyIdentifier
 output/stip-release-linkable.html: subjectName
 output/stip-release-linkable.html: subjectPublicKeyInfo
@@ -217,7 +216,6 @@ output/stip-release.html: serverAuth
 output/stip-release.html: signatureAlgorithm
 output/stip-release.html: store’
 output/stip-release.html: subjectAltName
-output/stip-release.html: subjectAlternateName
 output/stip-release.html: subjectKeyIdentifier
 output/stip-release.html: subjectName
 output/stip-release.html: subjectPublicKeyInfo
@@ -425,7 +423,6 @@ output/stip.html: serverAuth
 output/stip.html: signatureAlgorithm
 output/stip.html: store’
 output/stip.html: subjectAltName
-output/stip.html: subjectAlternateName
 output/stip.html: subjectKeyIdentifier
 output/stip.html: subjectName
 output/stip.html: subjectPublicKeyInfo
