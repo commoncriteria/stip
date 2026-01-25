@@ -5014,6 +5014,7 @@ legacy cipher suites. -->
           <audit-event/>
         </f-component>  
         
+        <!-- 
         <f-component name="X.509 Certificate Validation (STIP)" cc-id="fia_x509_ext.1" iteration="STIP" id="fia-x509-ext-1-stip">
           <consistency-rationale>This SFR specifies validation of certificates used for connections supporting
             STIP functions.</consistency-rationale>
@@ -5164,7 +5165,7 @@ legacy cipher suites. -->
                 security function that uses X.509v3 certificates in association with thru-traffic processing. For
                 example, if the TOE implements mutual authentication for thru-traffic processing, then it shall be
                 tested with each of FCS_TTTC_EXT.1 and FCS_TTTS_EXT.3.
-                <!-- Note: another case of re-numbering tests because testlist requires them to be sequential -->
+
                 <testlist>
                   <test id="valid-cert-chain"> The evaluator shall present the TOE with a valid chain of certificates (terminating in a trusted CA
                     certificate) as needed to validate the leaf certificate to be used in the function, and shall use this chain to
@@ -5201,7 +5202,7 @@ legacy cipher suites. -->
                   <test>The evaluator shall modify any byte in the public key of the certificate and demonstrate that the
                     certificate fails to validate (the hash of the certificate will not validate).</test>
                 </testlist><h:p/>
-                <!-- Would it be better if we broke this testing up per-element since there are two different sets of tests that explicitly reference both elements -->
+               
                 The evaluator shall perform the following tests for FIA_X509_EXT.1.2/STIP. The tests described must be
                 performed in conjunction with the other certificate services assurance activities, including
                 FCS_TTTC_EXT.1 and FCS_TTTS_EXT.3 if claimed. The tests for the extendedKeyUsage rules are performed
@@ -5241,7 +5242,7 @@ legacy cipher suites. -->
           </f-element>
           <audit-event/>
         </f-component>
-        
+        -->
         
         
         <f-component cc-id="fia_x509_ext.2" iteration="STIP" id="fia-x509-ext-2-stip" name="X.509 Certificate Authentication (STIP)">
