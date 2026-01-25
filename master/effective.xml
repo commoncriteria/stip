@@ -329,55 +329,13 @@
           </usage>
           <usage id="usage-x509-cert-sources" title="Required Certificate Sources in FIA_XCU_EXT.2.1">
             <description>
-              The ST author shall select the option to obtain certificates from an embedded CA.
+              The ST author shall select the option to obtain certificates from an embedded CA. Note also that the application note in the package states that FDP_CER_EXT.1/OLTleaf must be claimed when this selection is made. For this PP-Module, that dependency is satisfied through FDP_CER_EXT.1/Server (and FDP_CER_EXT.1/Client if claimed) because this replaces FDP_CER_EXT.1/OLTleaf in the context of the certificates that the TSF generates and issues.
             </description>
             <config>
               <ref-id>dummy-ref-id</ref-id>
             </config>
           </usage>
-          <usage id="usage-x509-certificate-sigalgs" title="Required Selections for Certificate Fields in FDP_CER_EXT.1.2/OLTLeaf">
-            <description>
-              The ST author shall make selections as specified below. Options and sections not specified in the usage guidelines for this element may be selected as appropriate without restriction. <h:br/>
-              <h:ul>
-                <h:li>The TOE must utilize appropriate cryptographic algorithms that conform to CNSA standards. Thus, the ST author shall select the option to utilize signature algorithms in accordance with RFC 8603 in FDP_CER_EXT.1.2/OLTleaf.</h:li>
-                <h:li>The TOE must issue certificates that reflect exclusive usage for TLS servers. Thus, the ST author shall select the options to set the keyUsage bit for digital signature. The ST author may select to set the keyUsage bits for key encipherment or key agreement, but not both. No other keyUsage bits shall be selected. </h:li>
-                <h:li>The TOE must issue certificates that reflect exclusive usage for TLS servers. Thus, the ST author shall select the option to include the extendedKeyUsage extension and shall select the option to populate the extension with the server authentication value. No other usage values shall be selected. </h:li>
-                <h:li>The ST author shall select the option to require that the Authority Key Identifier extension in any certificate issued by the TOE be the same as the Subject Key Identifier contained in the TOE's embedded CA's signing certificate.</h:li>
-                <h:li>The ST author shall select the option to allow an administrator to configure the maximum value of time allowed between the notBefore and notAfter validity times. In addition, the ST author shall refine the SFR to clarify whether the Security Administrator, CA Operations Staff or both are permitted to configure the time limit.</h:li>
-              </h:ul>
-            </description>
-            <config>
-              <ref-id>dummy-ref-id</ref-id>
-            </config>
-          </usage>
-          <usage id="usage-x509-certificate-fields" title="Required Selections for Certificate Fields in FDP_CER_EXT.1.3/OLTleaf">
-            <description>
-              <h:p>
-              The ST author shall select the option to restrict the timing of the notAfter validity field of issued certificates by ensuring the certificate validity time does not exceed the notAfter time of the CA's own certificate.
-              </h:p><h:p>
-              In the final selection, the ST author shall select the option to limit the subject name based on name constraints and shall not select the option describing the policyConstraints field.
-              </h:p>
-            </description>
-            <config>
-              <ref-id>dummy-ref-id</ref-id>
-            </config>
-          </usage>
-          <usage id="usage-x509-certificate-names" title="Required Selections for Certificate Fields in FDP_CER_EXT.1.4/OLTleaf">
-            <description>
-               The ST author shall make selections as specified below. Options and sections not specified in the usage guidelines for this element may be selected as appropriate without restriction. <h:br/>
-              <h:ul>
-              <h:li>The ST author shall select the option to generate the public key populated in the issued certificate.</h:li>  
-              <h:li>The ST author shall select the option to further restrict both the notBefore and notAfter validity fields. In the assignment, the ST author shall specify that the issued certificate's notBefore value shall not precede the notBefore value of the validated server certificate, and that the issued certificate's notAfter 
-                  value shall not exceed the notAfter value of the validated server certificate.</h:li>
-                <h:li>The ST author shall utilize the assignment for other issuance conditions to specify that if the basicConstraints field is present, it shall be populated with the value CA=False.</h:li>
-                <h:li>If the TOE populates certificate policy information in the issued certificate, the ST author shall utilize the assignment for other issuance conditions to specify that policy OID/policy mapping fields are populated in accordance with an Administrator or CA Operations Staff-configured mapping from validated server 
-                  certificate values to one or more stated policy OIDs.</h:li>
-              </h:ul>
-            </description>
-            <config>
-              <ref-id>dummy-ref-id</ref-id>
-            </config>
-          </usage>
+         
           <usage id="usage-x509-revocation-information" title="Required Certificate Status Generation Methods in FDP_CSIR_EXT.1.1">
             <description>
               The ST author shall only select from the option to generate certificate status information or to issue certificates with a validity period of 24 hours or less. 
@@ -397,6 +355,27 @@
           <usage id="iteration-x509-validation" title="Iteration of FIA_X509_EXT.1">
             <description>
               In most cases, the Base-PP will already claim FIA_X509_EXT.1 for validation of X.509 certificates presented to the TOE by trusted external entities. The STIP module also requires X.509 certificate validation, but this may obey different rules from the trusted entity case because the connections that the TOE proxies may not have that level of configuration. The ST author shall therefore define a new iteration of this requirement as FIA_X509_EXT.1/STIP. This will clearly identify this requirement as applying to the TOE's STIP interfaces.
+            </description>
+            <config>
+              <ref-id>dummy-ref-id</ref-id>
+            </config>
+          </usage>
+          <usage id="supported-x509-signatures" title="Supported Signature Values in FIA_X509_EXT.1.1/STIP">
+            <description>
+              FIA_X509_EXT.1.1 specifies a minimum baseline for supported signature algorithms for digital certificates as well as for CRLs, if supported by the TOE. For STIP functionality, in addition to the minimum algorithms specified by RFC 8603, the ST author shall complete the relevant assignments with the following additional algorithms:
+              <h:ul>
+                <h:li>Public key algorithms:</h:li>
+                <h:ul>
+                  <h:li>2048-bit RSA</h:li>
+                  <h:li>ECDSA using P-256 and P-521</h:li>
+                  <h:li>edDSA using ed448 and ed25519</h:li>
+                  <h:li>ML-DSA-44, ML-DSA-65, ML-DSA-87</h:li>
+                </h:ul>
+                <h:li>Hash algorithms:</h:li>
+                <h:ul>
+                  <h:li>SHA-1, SHA-256, SHA-512</h:li>
+                </h:ul>
+              </h:ul>
             </description>
             <config>
               <ref-id>dummy-ref-id</ref-id>
@@ -2810,6 +2789,460 @@ legacy cipher suites. -->
             to act as a proxy between remote entities attempting to establish a TLS connection with one another.
           </fam-behavior>
         </ext-comp-def>
+
+        <f-component name="Leaf Certificate Profiles" cc-id="fdp_cer_ext.1" id="fdp-cer-ext-1-ecd" status="invisible">
+          
+          
+          <comp-lev> requires the TSF to implement a TOE-trusted certificate profile function that conforms to profiles when acting as a CA.</comp-lev>
+          <management>No specific management functions are identified.</management>
+          <audit>The following actions should be auditable if FAU_GEN Security audit data generation is included in the PP/ST:
+            <h:ul>
+              <h:li>Certificate generation</h:li>
+            </h:ul>
+          </audit>
+          <dependencies>
+            <no-link>FCS_CKM.1</no-link> Cryptographic Key Generation<h:br/>
+            <no-link>FCS_COP.1</no-link> Cryptographic Operation<h:br/>
+            <no-link>FMT_SMR.1</no-link> Security Roles
+          </dependencies>
+          
+          <f-element id="fdp-cer-ext-1e1">
+            <title>
+              The TSF shall implement a certificate profile function for certificates issued by a CA embedded within the TOE, 
+              supporting 
+              <assignable>list of TOE functions</assignable>, using certificates in support of: <selectables>
+                <selectable> <selectables linebreak="yes">
+                  <selectable> <selectables>
+                    <selectable>TLS</selectable>
+                    <selectable>DTLS</selectable>
+                  </selectables>
+                    <selectables>
+                      <selectable>client authentication</selectable>
+                      <selectable>server authentication</selectable></selectables></selectable>
+                  <selectable>IPsec and IKE peer authentication</selectable>
+                  <selectable>SMIME subject authentication</selectable>
+                  <selectable> <assignable>entity authentication for other authentication protocols</assignable></selectable>
+                </selectables></selectable>
+                <selectable> <selectables linebreak="yes">
+                  <selectable>Code signing for system software updates</selectable>
+                  <selectable>Code signing for software integrity testing</selectable>
+                  <selectable>Integrity verification for TOE protected data</selectable>
+                  <selectable>Administrator authentication</selectable>
+                  <selectable>User authentication</selectable>
+                  <selectable> <assignable>other TOE functions</assignable></selectable>
+                </selectables></selectable>
+              </selectables>
+              and shall ensure that issued certificates for use by the associated TOE functions are consistent with configured profiles.
+            </title>
+          </f-element>
+          
+          <f-element id="fdp-cer-ext-1e2">
+            <title>
+              The TSF shall generate certificates using certificate profiles that comply with requirements for issued certificates 
+              as specified in IETF RFC 5280, “Internet X.509 Public Key Infrastructure Certificate and Certificate Revocation List 
+              (CRL) Profile” as refined below, that apply to all supported functions described in <no-link>FDP_CER_EXT.1.1</no-link>
+              <h:ul>
+                <h:li>The version is 3 (value 02).</h:li>
+                <h:li>The certificate does not contain subjectUniqueID or issuerUniqueID fields.</h:li>
+                <h:li>The certificate serial number is unique with respect to each supported embedded CA.</h:li>
+                <h:li>The validity field shall specify a notBefore value that does not precede the current time and a notAfter 
+                  value that does not precede the value specified in notBefore, and does not exceed the value specified in 
+                  notBefore by  <selectables>
+                    <selectable>a time length configured by an administrator</selectable>
+                    <selectable> <assignable>positive length of time</assignable></selectable>
+                  </selectables></h:li>
+                <h:li>The issuer field is populated with the name of the embedded CA issuing the certificate.</h:li>
+                <h:li>The signature field and the algorithm specification in the subjectPublicKeyInfo signature field agree and <selectables>
+                  <selectable>are in accordance with RFC 8603</selectable>
+                  <selectable>use <assignable>list of supported functions</assignable></selectable>
+                </selectables></h:li>
+                <h:li>The following extensions are supported as described:
+                  <h:ul>
+                    <h:li>authorityKeyIdentifier  <selectables>
+                      <selectable>containing the Subject Key Identifier in the issuing CA's certificate</selectable>
+                      <selectable> <assignable>an identifier associated with a trust store element corresponding to the issuing 
+                        CA</assignable></selectable> 
+                    </selectables></h:li>
+                    <h:li>keyUsage is marked critical and is not empty</h:li>
+                    <h:li> <selectables linebreak="yes">
+                      <selectable>subjectKeyIdentifier is populated</selectable>
+                      <selectable>extendedKeyUsage is present and is populated with  <selectables linebreak="yes">
+                        <selectable>serverAuth {OID: 1.3.6.1.5.5.7.3.1}</selectable>
+                        <selectable>clientAuth {OID: 1.3.6.1.5.5.7.3.2}</selectable>
+                        <selectable>emailProtection {OID: 1.3.6.1.5.5.7.3.4}</selectable>
+                        <selectable>ipsecIKE {OID: 1.3.6.1.5.5.7.3.17}</selectable>
+                        <selectable>codeSigning {OID: 1.3.6.1.5.5.7.3.3}</selectable>
+                        <selectable> <assignable>other values</assignable></selectable>
+                      </selectables></selectable>
+                      <selectable>subjectAltName with name of type  <selectables linebreak="yes">
+                        <selectable>rfc822Name</selectable>
+                        <selectable>dNSName</selectable>
+                        <selectable>directoryName</selectable>
+                        <selectable>uniformResourceIdentifier</selectable>
+                        <selectable>IPAddress</selectable>
+                        <selectable> <assignable>other name</assignable></selectable>
+                      </selectables></selectable>
+                      <selectable>basicConstraints is populated with CA flag equal to false</selectable>
+                      <selectable>cRLDistributionPoints indicating an access location for CRLs <selectables>
+                        <selectable>configured by an administrator</selectable>
+                        <selectable>determined by the TSF</selectable></selectables></selectable>
+                      <selectable>authorityInfoAccess indicating an access location for <selectables>
+                        <selectable>CA certificates</selectable>
+                        <selectable>OCSP responder</selectable></selectables> <selectables>
+                          <selectable>configured by an administrator</selectable>
+                          <selectable>determined by the TSF</selectable></selectables></selectable>
+                      <selectable> <assignable>other extensions</assignable></selectable>
+                      <selectable>no other extensions</selectable></selectables></h:li>
+                    <h:li>The authorityKeyIdentifier extension in any certificate issued by the TOE must be populated with
+                      <selectables>
+                        <selectable>the subjectKeyIdentifier extension contained in the TOE’s embedded CA’s signing certificate
+                        </selectable>
+                        <selectable>an identifier indicating a trust store element associated with the embedded CA’s public
+                          key</selectable>
+                      </selectables>.</h:li>
+                  </h:ul>
+                </h:li></h:ul>
+            </title>
+          </f-element>
+          <f-element id="fdp-cer-ext-1e3">
+            <title> The TSF shall implement the following rules for populating certificate fields based on constraints imposed by the 
+              configuration of the embedded CA.
+              <h:ul>
+                <h:li>The validity field shall specify a notAfter time that does not exceed <selectables>
+                  <selectable> <assignable>a non-negative time period</assignable> prior to the notAfter time of the CA’s signing 
+                    certificate</selectable>
+                  <selectable>a time associated with the next scheduled update of the trust anchor associated with the CA’s 
+                    public key</selectable>
+                  <selectable> <assignable>a fixed time configured for the signature algorithm used</assignable></selectable>
+                </selectables></h:li>
+                <h:li>The issuer field is populated with the <selectables linebreak="yes">
+                  <selectable>subject of the CA’s signing certificate as configured by an administrator</selectable>
+                  <selectable>an identifier for a trust store element associated with the embedded CA’s public key</selectable>
+                </selectables></h:li>
+                <h:li> <selectables linebreak="yes">
+                  <selectable>The subject name is limited based on name constraints <selectables>
+                    <selectable>indicated in the embedded CA’s certificate</selectable>
+                    <selectable>specified in the context of the trust store element associated with the embedded CA’s public 
+                      key</selectable></selectables></selectable>
+                  <selectable>The policyConstraints field is populated with <selectables>
+                    <selectable>a policy included in the embedded CA's certificate</selectable>
+                    <selectable>an expectedPolicy included in the context of the trust store element associated with the 
+                      embedded CA's public key</selectable></selectables></selectable>
+                  <selectable>no other CA-specific rules</selectable>
+                </selectables></h:li>
+              </h:ul>
+            </title>
+          </f-element>
+          <f-element id="fdp-cer-ext-1e4">
+            <title>The TSF shall populate the following certificate fields according to the rules:
+              <h:ul>
+                <h:li>Each subject identifier as populated in the <selectables linebreak="yes">
+                  <selectable>subjectName</selectable>
+                  <selectable>subjectAltName of type <selectables linebreak="yes">
+                    <selectable>rfc822Name</selectable>
+                    <selectable>dNSName</selectable>
+                    <selectable>directoryName</selectable>
+                    <selectable>uniformResourceIdentifier</selectable>
+                    <selectable>IPAddress</selectable>
+                    <selectable> <assignable>other name type</assignable></selectable>							
+                  </selectables></selectable></selectables>
+                  of the issued certificate is determined by <selectables linebreak="yes">
+                    <selectable>PKCS-10 request in accordance with RFC 2986</selectable>
+                    <selectable>EST request in accordance with RFC 7030 as updated by RFC 8996</selectable>
+                    <selectable>A CMC request meeting the profile specified in <selectables>
+                      <selectable>RFC 8756</selectable>
+                      <selectable><assignable>CMC profile supported</assignable></selectable>
+                    </selectables> in accordance with RFC 5272, RFC 5273, and RFC 5274 as updated by RFC 6402</selectable>
+                    <selectable>A CMP request in accordance with RFC 4210 <selectables>
+                      <selectable>as updated by RFC 6712 and RFC 9481 (v2 CMP)</selectable>
+                      <selectable>as updated by RFC 6712 and RFC 9480 (v3 CMP)</selectable>
+                    </selectables></selectable>
+                  </selectables>				
+                  validated by <selectables>
+                    <selectable>the supported function</selectable>
+                    <selectable><assignable>administrator action</assignable></selectable>
+                    <selectable><assignable>automated processes</assignable></selectable>
+                  </selectables></h:li>
+                <h:li>The public key populated in the issued certificate is <selectables linebreak="yes">
+                  <selectable>generated by the TOE on <assignable>a specific event</assignable> and <selectables>
+                    <selectable>made available to the supported function via an inter-TOE channel</selectable>
+                    <selectable>made available to an external entity via a protected channel</selectable>
+                    <selectable> <assignable>associated with the supported function</assignable></selectable>
+                  </selectables></selectable>
+                  <selectable>provided <selectables>
+                    <selectable>in the request</selectable>
+                    <selectable>by the supported function</selectable></selectables>
+                    together with <assignable>evidence of proof of possession by the requested subject</assignable>
+                  </selectable></selectables></h:li>
+                <h:li> <selectables linebreak="yes"> 
+                  <selectable>The <selectables>
+                    <selectable>notBefore</selectable>
+                    <selectable>notAfter</selectable>
+                  </selectables> portion of the validity field of the issued certificate is limited by <assignable>inputs from the
+                    supported function</assignable></selectable>
+                  <selectable> <assignable>other issuance conditions</assignable></selectable>
+                  <selectable>No other condition</selectable>
+                </selectables></h:li>
+              </h:ul>
+            </title>
+            <aactivity>
+              <no-tests>There are no EAs for this component.</no-tests>
+            </aactivity>
+          </f-element>
+          <audit-event/>
+        </f-component>
+        
+        
+        
+        <f-component name="Certificate Generation and Issuance (Server Certificates)" cc-id="fdp_cer_ext.1" id="fdp-cer-ext-1" iteration="Server">
+          
+          
+          <f-element id="fdp-cer-ext-1e1-server">
+            <title>
+              The TSF shall implement a certificate profile function for certificates issued by a CA embedded within the TOE, 
+              supporting [<h:i>SSL/TLS inspection proxy functionality</h:i>], using certificates in support of [<h:i>
+              <h:ul>
+                <h:li>[[TLS][server authentication]]</h:li>
+              </h:ul>
+              </h:i>] and shall ensure that issued certificates for use by the associated TOE functions are consistent with configured profiles.
+            </title>
+           
+          </f-element>
+          
+          <f-element id="fdp-cer-ext-1e2-server">
+            <title>
+              The TSF shall generate certificates using certificate profiles that comply with requirements for issued certificates 
+              as specified in IETF RFC 5280, “Internet X.509 Public Key Infrastructure Certificate and Certificate Revocation List 
+              (CRL) Profile” as refined below, that apply to all supported functions described in <no-link>FDP_CER_EXT.1.1</no-link><h:b>/Server</h:b>:
+              <h:ul>
+                <h:li>The version is 3 (value 02).</h:li>
+                <h:li>The certificate does not contain subjectUniqueID or issuerUniqueID fields.</h:li>
+                <h:li>The certificate serial number is unique with respect to each supported embedded CA.</h:li>
+                <h:li>The validity field shall specify a notBefore value that does not precede the current time and a notAfter 
+                  value that does not precede the value specified in notBefore, and does not exceed the value specified in 
+                  notBefore by  <selectables>
+                    <selectable>a time length configured by an administrator</selectable>
+                    <selectable> <assignable>positive length of time</assignable></selectable>
+                  </selectables></h:li>
+                <h:li>The issuer field is populated with the name of the embedded CA issuing the certificate.</h:li>
+                <h:li>The signature field and the algorithm specification in the subjectPublicKeyInfo signature field agree and <selectables>
+                  <selectable>are in accordance with RFC 8603</selectable>
+                  <selectable>use <assignable>list of supported functions</assignable></selectable>
+                </selectables></h:li>
+                <h:li>The following extensions are supported as described:
+                  <h:ul>
+                    <h:li>authorityKeyIdentifier [<h:i>containing the subjectKeyIdentifier in the issuing CA's certificate</h:i>]</h:li>
+                    <h:li>keyUsage is marked critical and <h:b>present with bit positions set for <selectables linebreak="yes">
+                      <selectable>digitalSignature (0)</selectable>
+                      <selectable>keyEncipherment (2)</selectable>
+                      <selectable>keyAgreement (4)</selectable>
+                    </selectables>
+                      and no other usage indicators. </h:b>
+                    </h:li>
+                    <h:li> [<h:i>
+                      <h:ul>
+                        <h:li>subjectKeyIdentifier is populated <h:b>with a unique value</h:b></h:li>
+                        <h:li>extendedKeyUsage is present and is populated with [serverAuth {OID: 1.3.6.1.5.5.7.3.1}]</h:li>
+                        <h:li>subjectAltName with name of type  <selectables linebreak="yes">
+                          <selectable>rfc822Name</selectable>
+                          <selectable>dNSName</selectable>
+                          <selectable>directoryName</selectable>
+                          <selectable>uniformResourceIdentifier</selectable>
+                          <selectable>IPAddress</selectable>
+                          <selectable> <assignable>other name</assignable></selectable>
+                        </selectables>
+                        </h:li>
+                        <h:li>basicConstraints is populated with [cA flag equal to false]</h:li>
+                        <h:li>cRLDistributionPoints indicating an access location for CRLs <selectables>
+                          <selectable>configured by an administrator</selectable>
+                          <selectable>determined by the TSF</selectable></selectables></h:li>
+                        <h:li>authorityInfoAccess indicating an access location for [OCSP responder] <selectables>
+                          <selectable>configured by an administrator</selectable>
+                          <selectable>determined by the TSF</selectable>
+                        </selectables></h:li>
+                        <h:li/>
+                      </h:ul>
+                    </h:i>]
+                    </h:li>
+                  </h:ul>
+                </h:li></h:ul>
+            </title>
+            <note role="Application">
+              <h:p>
+               The ST author describes the certificates issued by its embedded CA for session proxying using TLS server certificates, which is why this is the only EKU specified for this requirement.
+              </h:p><h:p>
+                The ST author claims the methods for determining the maximum validity period in the selection for the validity 
+                field. Both options are claimed if the administrator can configure a time up to a TSF defined maximum.  
+              </h:p><h:p>	
+                The ST author describes the methods for determining the name of the embedded CA in the selection for issuer field.
+              </h:p><h:p>
+                The ST author claims the method for constraining the signature field and the algorithm specification in the 
+                subjectPublicKeyInfo field. The selection ‘…in accordance with RFC 8603’ is claimed if the TOE supports the 
+                algorithms indicated in the RFC for signing certificates, and also supports other algorithms not intended for signing 
+                certificates. 
+              </h:p><h:p>	
+                The digitalSignature keyUsage value may be by itself or paired with either the keyEncipherment or keyAgreement value.
+              </h:p><h:p>
+                Since “subjectAlternateName” is claimed as a supported extension, the ST author claims all RFC 5280 name types supported and designates any other standard name types in the assignment, indicating the formatting and normalization standard used for each supported name type. Standards used to refine or provide alternate normalization for RFC 5280 name types are claimed via the assignment.
+              </h:p>
+            </note>
+          </f-element>
+          <f-element id="fdp-cer-ext-1e3-server">
+            <title> The TSF shall implement the following rules for populating certificate fields based on constraints imposed by the 
+              configuration of the embedded CA.
+              <h:ul>
+                <h:li>The validity field shall specify a notAfter time that does not exceed [<h:i>[zero time] prior to the notAfter time of the CA's signing certificate</h:i>]</h:li> 
+                <h:li>The issuer field is populated with the <selectables linebreak="yes">
+                  <selectable>subject of the CA’s signing certificate as configured by a <h:b><selectables>
+                    <selectable>Security Administrator</selectable>
+                    <selectable>CA Operations Staff</selectable>
+                  </selectables></h:b></selectable>
+                  <selectable>an identifier for a trust store element associated 
+                    <h:b>by a <selectables>
+                      <selectable>Security Administrator</selectable>
+                      <selectable>CA Operations Staff</selectable>
+                    </selectables></h:b>
+                    with the embedded CA’s public key</selectable>
+                </selectables></h:li>
+                <h:li> <selectables linebreak="yes">
+                  <selectable>The subject name is limited based on name constraints <selectables>
+                    <selectable>indicated in the embedded CA’s certificate</selectable>
+                    <selectable>specified in the context of the trust store element associated with the embedded CA’s public 
+                      key</selectable></selectables></selectable>
+               
+                  <selectable>no other CA-specific rules</selectable>
+                </selectables></h:li>
+              </h:ul>
+            </title>
+            <note role="Application">
+              General profiles described in <xref to="fdp-cer-ext-1e2-server"/> are refined by specific configurations of the issuing CA 
+              in the SFR element. The ST author claims the source of these inputs
+            </note>
+          </f-element>
+          <f-element id="fdp-cer-ext-1e4-server">
+            <title>The TSF shall populate the following certificate fields according to the rules:
+              <h:ul>
+                <h:li>Each subject identifier as populated in the <selectables linebreak="yes">
+                  <selectable>subjectName</selectable>
+                  <selectable>subjectAltName of type <selectables linebreak="yes">
+                    <selectable>rfc822Name</selectable>
+                    <selectable>dNSName</selectable>
+                    <selectable>directoryName</selectable>
+                    <selectable>uniformResourceIdentifier</selectable>
+                    <selectable>IPAddress</selectable>
+                    <selectable> <assignable>other name type</assignable></selectable>							
+                  </selectables></selectable></selectables>
+                  of the issued certificate is determined by <selectables linebreak="yes">
+                    <selectable>PKCS-10 request in accordance with RFC 2986</selectable>
+                    <selectable>EST request in accordance with RFC 7030 as updated by RFC 8996</selectable>
+                    <selectable>A CMC request meeting the profile specified in <selectables>
+                      <selectable>RFC 8756</selectable>
+                      <selectable><assignable>CMC profile supported</assignable></selectable>
+                    </selectables> in accordance with RFC 5272, RFC 5273, and RFC 5274 as updated by RFC 6402</selectable>
+                    <selectable>A CMP request in accordance with RFC 4210 <selectables>
+                      <selectable>as updated by RFC 6712 and RFC 9481 (v2 CMP)</selectable>
+                      <selectable>as updated by RFC 6712 and RFC 9480 (v3 CMP)</selectable>
+                    </selectables></selectable>
+                  </selectables>				
+                  validated by <selectables>
+                    <selectable>the supported function</selectable>
+                    <selectable><assignable>administrator action</assignable></selectable>
+                    <selectable><assignable>automated processes</assignable></selectable>
+                  </selectables></h:li>
+                <h:li>The public key populated in the issued certificate is [<h:i><h:ul>
+                  <h:li>generated by the TOE on [issuance] and [[associated with the validated certificate as required by FDP_CER_EXT.2]] </h:li>
+                </h:ul></h:i>] </h:li>
+                  
+                <h:li><h:ul><h:i>
+                  <h:li>The [notBefore, notAfter] portion of the validity field of the issued certificate is limited by [the following constraints:
+                    <h:ul>
+                      <h:li>The notBefore field shall not precede the notBefore field of the validated server certificate</h:li>
+                      <h:li>The notAfter field shall not exceed the notAfter field of the validated server certificate</h:li>
+                      <h:li>The notAfter field shall not exceed the current time by more than a maximum validity duration as configured by a
+                        a maximum value as configured by a <selectables>
+                          <selectable>Security Administrator</selectable>
+                          <selectable>CA Operations Staff</selectable>
+                        </selectables> 
+                      </h:li>
+                    </h:ul>
+                    ]</h:li></h:i>
+                </h:ul></h:li>
+                <h:li> 
+                  <selectables linebreak="yes"> 
+                  
+                  <selectable>[policy OID/policy mapping fields are populated in accordance with a <selectables>
+                    <selectable>Security Administrator</selectable>
+                    <selectable>CA Operations Staff</selectable>
+                  </selectables> configured mapping from validated server certificate values to one or more stated policy OIDs]</selectable>
+                  <selectable>public key uses ML-DSA-87 if post-quantum algorithms are present in the validated server certificate</selectable>
+                    <selectable>No other condition</selectable>
+                </selectables></h:li>
+              </h:ul>
+            </title>
+            <note role="Application">
+              <h:p>
+                A certificate profile is further refined by inputs of the function(s) supported. 
+              </h:p><h:p>
+                'generated by the TOE on [<h:i>validation of server certificate</h:i>' is intended to require that a new public key be generated for each certificate that is issued.
+                
+                In the first bullet, the ST author describes the name types indicated for each supported function (a subset of the supported name types indicated in <xref to="fdp-cer-ext-1e2-server"/>), how subjects 
+                of certificates are determined, and how the requested subject names are validated. Note that when multiple names are included in a request, 'validated' applies to all names populated in a certificate. When the subject of a certificate represents an entity external to the TOE or when an internal TOE entity supports it, a standard 
+                certificate request formatting or protocol is supported, and all certificate values requested by the entity are included in the request; the internal TOE function which exclusively trusts these external certificates 
+                may act as a registration authority as specified in the claimed RFC. When the subject of the certificate is 
+                associated with an internal TOE function, the values in the populated certificate may use any method that is under 
+                the control of the subject. PKCS-10 is claimed when the supported function interfaces directly with an embedded CA to generate a certificate representing a TOE entity. When the EST, CMC, or CMP method is claimed, the ST author will claim FDP_ESTS_EXT.1, FDP_CMCS_EXT.1, or FDP_CMPS_EXT.1, respectively.  
+              </h:p><h:p>
+                In the second bullet, the ST author indicates where the key pair is generated and how the embedded CA validates that the entity represented in the certificate is in possession of the associated private key.
+              </h:p><h:p>
+                In the third bullet, the ST author describes the additional certificate constraints, if any, provided by the supported function that may override the values included in a certificate request (if supported).
+              </h:p>
+            </note>
+            <aactivity>
+              <TSS>
+                <h:p>The evaluator shall examine the TSS to ensure it describes the TOE functions using certificates generated by the 
+                  embedded CA and how the certificate is used. For each such function, the evaluator shall verify the TSS describes 
+                  one or more certificate profiles used by the embedded CA in support of the function that are compliant with the 
+                  requirements.
+                </h:p><h:p>
+                  The evaluator shall further examine the TSS to ensure that it describes how the TSF updates and enforces each 
+                  certificate profile based on the configuration of the CA and inputs provided by the supported function.
+                </h:p><h:p>
+                  For each subject DN or subjectAltName name type supported, the evaluator shall verify that the ST indicates the normalization standard used for the name type and the method used for ensuring the name populated in the certificate is appropriately normalized.	
+                </h:p>
+              </TSS>
+              <Guidance>
+                <h:p>The evaluator shall examine the AGD guidance and verify it describes instructions for configuring the 
+                  embedded CA and its certificate profiles to meet the requirements.</h:p>
+              </Guidance>
+              <Tests>
+                The evaluator shall perform the following test.
+                <testlist>
+                  <test>
+                    <h:p>For each supported function claimed in <xref to="fdp-cer-ext-1e1-server"/>, and for each certificate profile associated to the function, the evaluator shall cause the TOE to issue a certificate and observe that the 
+                      certificate meets the appropriate profile, including constraints determined by the embedded CA 
+                      configuration and inputs provided by the function. If 
+                      multiple name types are supported, the evaluator shall repeat this test as necessary to include all supported name types.</h:p>
+                  </test>
+                  <test>
+                    [conditional] If “subjectName” is claimed and standard certificate requests are supported that allow a general DN to be input, the  evaluator shall send the TSF a certificate request that includes a DN with an RDN component containing multiple elements and verify that TSF rejects the request.
+                  </test>
+                  <test>
+                    [conditional] If “subjectAltName” is claimed, and standard certificate requests are supported that allow multiple SAN entries, then for each name type supported, the evaluator shall send the TSF a certificate request with multiple SAN entries of the indicated name type, where the first entry is valid and the second entry is invalid. The evaluator shall confirm that the TSF issues a certificate containing only the first entry.
+                    Note: the method to create an invalid entry depends on the validation methods claimed.
+                  </test>							
+                </testlist>
+              </Tests>
+            </aactivity>
+          </f-element>
+          <audit-event>
+            <audit-event-descr>Certificate generation</audit-event-descr>
+            <audit-event-info>Success: <selectables>
+              <selectable>Certificate value</selectable>
+              <selectable>Certificate object identifier</selectable></selectables></audit-event-info>
+          </audit-event>
+        </f-component>
+
+
 
 <!-- Note: come back to this one to make sure it looks ok -->
         <f-component name="Certificate Profiles for Server Certificates" cc-id="fdp_cer_ext.1" id="fdp-cer-ext-1">
@@ -6400,7 +6833,312 @@ legacy cipher suites. -->
           </audit-event>
         </f-component>
         
-        <!-- Note: come back to this one to make sure it looks ok -->
+        <f-component name="Certificate Generation and Issuance (Client Certificates)" cc-id="fdp_cer_ext.1" id="fdp-cer-ext-1" iteration="Server">
+          <depends on-sel="clientAuth"/>
+          
+          <f-element id="fdp-cer-ext-1e1-client">
+            <title>
+              The TSF shall implement a certificate profile function for certificates issued by a CA embedded within the TOE, 
+              supporting 
+              <assignable>list of TOE functions</assignable>, using certificates in support of: <selectables>
+                <selectable> <selectables linebreak="yes">
+                  <selectable> <selectables>
+                    <selectable>TLS</selectable>
+                    <selectable>DTLS</selectable>
+                  </selectables>
+                    <selectables>
+                      <selectable>client authentication</selectable>
+                      <selectable>server authentication</selectable></selectables></selectable>
+                  <selectable>IPsec and IKE peer authentication</selectable>
+                  <selectable>SMIME subject authentication</selectable>
+                  <selectable> <assignable>entity authentication for other authentication protocols</assignable></selectable>
+                </selectables></selectable>
+                <selectable> <selectables linebreak="yes">
+                  <selectable>Code signing for system software updates</selectable>
+                  <selectable>Code signing for software integrity testing</selectable>
+                  <selectable>Integrity verification for TOE protected data</selectable>
+                  <selectable>Administrator authentication</selectable>
+                  <selectable>User authentication</selectable>
+                  <selectable> <assignable>other TOE functions</assignable></selectable>
+                </selectables></selectable>
+              </selectables>
+              and shall ensure that issued certificates for use by the associated TOE functions are consistent with configured profiles.
+            </title>
+            <note role="application">
+              The ST author claims the TOE functions that will rely on the certificates issued by the embedded CA. A TOE may support 
+              different certificate profiles, each associated with unique embedded CA supporting a subset of the supported functions 
+              or the TOE may support a common profile that uses the key usage and extended key usage extensions to differentiate the 
+              intended use of a certificate. When a single CA supports multiple functions requiring explicit EKU values, the extendedKeyUsage extension is claimed 
+              in <xref to="fdp-cer-ext-1e2-client"/> to distinguish which functions are supported by the certificate.
+            </note>
+          </f-element>
+          
+          <f-element id="fdp-cer-ext-1e2-client">
+            <title>
+              The TSF shall generate certificates using certificate profiles that comply with requirements for issued certificates 
+              as specified in IETF RFC 5280, “Internet X.509 Public Key Infrastructure Certificate and Certificate Revocation List 
+              (CRL) Profile” as refined below, that apply to all supported functions described in <no-link>FDP_CER_EXT.1.1</no-link><h:b>/OLTleaf</h:b>:
+              <h:ul>
+                <h:li>The version is 3 (value 02).</h:li>
+                <h:li>The certificate does not contain subjectUniqueID or issuerUniqueID fields.</h:li>
+                <h:li>The certificate serial number is unique with respect to each supported embedded CA.</h:li>
+                <h:li>The validity field shall specify a notBefore value that does not precede the current time and a notAfter 
+                  value that does not precede the value specified in notBefore, and does not exceed the value specified in 
+                  notBefore by  <selectables>
+                    <selectable>a time length configured by an administrator</selectable>
+                    <selectable> <assignable>positive length of time</assignable></selectable>
+                  </selectables></h:li>
+                <h:li>The issuer field is populated with the name of the embedded CA issuing the certificate.</h:li>
+                <h:li>The signature field and the algorithm specification in the subjectPublicKeyInfo signature field agree and <selectables>
+                  <selectable>are in accordance with RFC 8603</selectable>
+                  <selectable>use <assignable>list of supported functions</assignable></selectable>
+                </selectables></h:li>
+                <h:li>The following extensions are supported as described:
+                  <h:ul>
+                    <h:li>authorityKeyIdentifier  <selectables>
+                      <selectable>containing the Subject Key Identifier in the issuing CA's certificate</selectable>
+                      <selectable> <assignable>an identifier associated with a trust store element corresponding to the issuing 
+                        CA</assignable></selectable> 
+                    </selectables></h:li>
+                    <h:li>keyUsage is present with bit positions set for <selectables linebreak="yes">
+                      <selectable>digitalSignature (0)</selectable>
+                      <selectable>contentCommitment (1)</selectable>
+                      <selectable>keyEncipherment (2)</selectable>
+                      <selectable>dataEncipherment (3)</selectable>
+                      <selectable>keyAgreement (4)</selectable>
+                      <selectable>encipherOnly (7)</selectable>
+                      <selectable>decipherOnly (8)</selectable>
+                    </selectables>
+                      and no other usage indicators.
+                    </h:li>
+                    <h:li> <selectables linebreak="yes">
+                      <selectable>subjectKeyIdentifier is populated</selectable>
+                      <selectable>extendedKeyUsage is present and is populated with  <selectables linebreak="yes">
+                        <selectable>serverAuth {OID: 1.3.6.1.5.5.7.3.1}</selectable>
+                        <selectable>clientAuth {OID: 1.3.6.1.5.5.7.3.2}</selectable>
+                        <selectable>emailProtection {OID: 1.3.6.1.5.5.7.3.4}</selectable>
+                        <selectable>ipsecIKE {OID: 1.3.6.1.5.5.7.3.17}</selectable>
+                        <selectable>codeSigning {OID: 1.3.6.1.5.5.7.3.3}</selectable>
+                        <selectable> <assignable>other values</assignable></selectable>
+                      </selectables>
+                        consistent with the keyUsage value.</selectable>
+                      <selectable>subjectAltName with name of type  <selectables linebreak="yes">
+                        <selectable>rfc822Name</selectable>
+                        <selectable>dNSName</selectable>
+                        <selectable>directoryName</selectable>
+                        <selectable>uniformResourceIdentifier</selectable>
+                        <selectable>IPAddress</selectable>
+                        <selectable> <assignable>other name</assignable></selectable>
+                      </selectables></selectable>
+                      <selectable>basicConstraints is populated with <selectables>
+                        <selectable>no CA flag</selectable>
+                        <selectable>CA flag equal to false</selectable>
+                      </selectables></selectable>
+                      <selectable>cRLDistributionPoints indicating an access location for CRLs <selectables>
+                        <selectable>configured by an administrator</selectable>
+                        <selectable>determined by the TSF</selectable></selectables></selectable>
+                      <selectable>authorityInfoAccess indicating an access location for <selectables>
+                        <selectable>CA certificates</selectable>
+                        <selectable>OCSP responder</selectable></selectables> <selectables>
+                          <selectable>configured by an administrator</selectable>
+                          <selectable>determined by the TSF</selectable></selectables></selectable>
+                      <selectable> <assignable>other extensions</assignable></selectable>
+                      <selectable>no other extensions</selectable></selectables></h:li>
+                    <h:li>The authorityKeyIdentifier extension in any certificate issued by the TOE must be populated with
+                      <selectables>
+                        <selectable>the subjectKeyIdentifier extension contained in the TOE’s embedded CA’s signing certificate
+                        </selectable>
+                        <selectable>an identifier indicating a trust store element associated with the embedded CA’s public
+                          key</selectable>
+                      </selectables>.</h:li>
+                  </h:ul>
+                </h:li></h:ul>
+            </title>
+            <note role="Application">
+              <h:p>
+                The ST author describes the certificates issued by an embedded CA and the methods for obtaining the data contained 
+                in the certificates. The supported fields and default values specified for all TOE functions are described in this 
+                element.
+              </h:p><h:p>
+                The ST author claims the methods for determining the maximum validity period in the selection for the validity 
+                field. Both options are claimed if the administrator can configure a time up to a TSF defined maximum.  
+              </h:p><h:p>	
+                The ST author describes the methods for determining the name of the embedded CA in the selection for issuer field.
+              </h:p><h:p>
+                The ST author claims the method for constraining the signature field and the algorithm specification in the 
+                subjectPublicKeyInfo field. The selection ‘…in accordance with RFC 8603’ is claimed if the TOE supports the 
+                algorithms indicated in the RFC for signing certificates, and also supports other algorithms not intended for signing 
+                certificates. 
+              </h:p><h:p>	
+                The ST author describes each extension supported and how values for the extension are determined. It is recommended 
+                that the extendedKeyUsage is claimed and populated with specific EKU purposes when the supported functions expect explicit EKU 
+                values; it is required that the extendedKeyUsage field is claimed when the embedded CA supports code signing or integrity
+                functions. It is expected that if a single embedded CA issues certificates supporting multiple functions requiring explicit EKU
+                values, the explicit EKU purposes for each function, including IPsec/IKE if supported, are claimed. Other supported EKU values
+                specific to supported functions are indicated in the assignment. Any supported EKU values are consistent with the KU usage
+                indicators claimed. For example, "codeSigning" is claimed only if "digitalSignature" is claimed for keyUsage, and TLS key
+                usages "serverAuth" or "clientAuth" are claimed only when "digitalSignature," "keyEncipherment," or "keyAgreement" are supported
+                according to the supported TLS function's version and ciphersuite capabilities.
+              </h:p><h:p>
+                If “subjectAltName” is claimed as a supported extension, the ST author claims all RFC 5280 name types supported and designates any other standard name types in the assignment, indicating the formatting and normalization standard used for each supported name type. Standards used to refine or provide alternate normalization for RFC 5280 name types are claimed via the assignment.
+              </h:p>
+            </note>
+          </f-element>
+          <f-element id="fdp-cer-ext-1e3-client">
+            <title> The TSF shall implement the following rules for populating certificate fields based on constraints imposed by the 
+              configuration of the embedded CA.
+              <h:ul>
+                <h:li>The validity field shall specify a notAfter time that does not exceed <selectables>
+                  <selectable> <assignable>a non-negative time period</assignable> prior to the notAfter time of the CA’s signing 
+                    certificate</selectable>
+                  <selectable>a time associated with the next scheduled update of the trust anchor associated with the CA’s 
+                    public key</selectable>
+                  <selectable> <assignable>a fixed time configured for the signature algorithm used</assignable></selectable>
+                </selectables></h:li>
+                <h:li>The issuer field is populated with the <selectables linebreak="yes">
+                  <selectable>subject of the CA’s signing certificate as configured by an administrator</selectable>
+                  <selectable>an identifier for a trust store element associated with the embedded CA’s public key</selectable>
+                </selectables></h:li>
+                <h:li> <selectables linebreak="yes">
+                  <selectable>The subject name is limited based on name constraints <selectables>
+                    <selectable>indicated in the embedded CA’s certificate</selectable>
+                    <selectable>specified in the context of the trust store element associated with the embedded CA’s public 
+                      key</selectable></selectables></selectable>
+                  <selectable>The policyConstraints field is populated with <selectables>
+                    <selectable>a policy included in the embedded CA's certificate</selectable>
+                    <selectable>an expectedPolicy included in the context of the trust store element associated with the 
+                      embedded CA's public key</selectable></selectables></selectable>
+                  <selectable>no other CA-specific rules</selectable>
+                </selectables></h:li>
+              </h:ul>
+            </title>
+            <note role="Application">
+              General profiles described in <xref to="fdp-cer-ext-1e2-client"/> are refined by specific configurations of the issuing CA 
+              in the SFR element. The ST author claims the source of these inputs
+            </note>
+          </f-element>
+          <f-element id="fdp-cer-ext-1e4-client">
+            <title>The TSF shall populate the following certificate fields according to the rules:
+              <h:ul>
+                <h:li>Each subject identifier as populated in the <selectables linebreak="yes">
+                  <selectable>subjectName</selectable>
+                  <selectable>subjectAltName of type <selectables linebreak="yes">
+                    <selectable>rfc822Name</selectable>
+                    <selectable>dNSName</selectable>
+                    <selectable>directoryName</selectable>
+                    <selectable>uniformResourceIdentifier</selectable>
+                    <selectable>IPAddress</selectable>
+                    <selectable> <assignable>other name type</assignable></selectable>							
+                  </selectables></selectable></selectables>
+                  of the issued certificate is determined by <selectables linebreak="yes">
+                    <selectable>PKCS-10 request in accordance with RFC 2986</selectable>
+                    <selectable>EST request in accordance with RFC 7030 as updated by RFC 8996</selectable>
+                    <selectable>A CMC request meeting the profile specified in <selectables>
+                      <selectable>RFC 8756</selectable>
+                      <selectable><assignable>CMC profile supported</assignable></selectable>
+                    </selectables> in accordance with RFC 5272, RFC 5273, and RFC 5274 as updated by RFC 6402</selectable>
+                    <selectable>A CMP request in accordance with RFC 4210 <selectables>
+                      <selectable>as updated by RFC 6712 and RFC 9481 (v2 CMP)</selectable>
+                      <selectable>as updated by RFC 6712 and RFC 9480 (v3 CMP)</selectable>
+                    </selectables></selectable>
+                  </selectables>				
+                  validated by <selectables>
+                    <selectable>the supported function</selectable>
+                    <selectable><assignable>administrator action</assignable></selectable>
+                    <selectable><assignable>automated processes</assignable></selectable>
+                  </selectables></h:li>
+                <h:li>The public key populated in the issued certificate is <selectables linebreak="yes">
+                  <selectable>generated by the TOE on <assignable>a specific event</assignable> and <selectables>
+                    <selectable>made available to the supported function via an inter-TOE channel</selectable>
+                    <selectable>made available to an external entity via a protected channel</selectable>
+                    <selectable> <assignable>associated with the supported function</assignable></selectable>
+                  </selectables></selectable>
+                  <selectable>provided <selectables>
+                    <selectable>in the request</selectable>
+                    <selectable>by the supported function</selectable></selectables>
+                    together with <assignable>evidence of proof of possession by the requested subject</assignable>
+                  </selectable></selectables></h:li>
+                <h:li> <selectables linebreak="yes"> 
+                  <selectable>The <selectables>
+                    <selectable>notBefore</selectable>
+                    <selectable>notAfter</selectable>
+                  </selectables> portion of the validity field of the issued certificate is limited by <assignable>inputs from the
+                    supported function</assignable></selectable>
+                  <selectable> <assignable>other issuance conditions</assignable></selectable>
+                  <selectable>No other condition</selectable>
+                </selectables></h:li>
+              </h:ul>
+            </title>
+            <note role="Application">
+              <h:p>
+                A certificate profile is further refined by inputs of the function(s) supported. 
+              </h:p><h:p>
+                In the first bullet, the ST author describes the name types indicated for each supported function (a subset of the supported name types indicated in <xref to="fdp-cer-ext-1e2-client"/>), how subjects 
+                of certificates are determined, and how the requested subject names are validated. Note that when multiple names are included in a request, 'validated' applies to all names populated in a certificate. When the subject of a certificate represents an entity external to the TOE or when an internal TOE entity supports it, a standard 
+                certificate request formatting or protocol is supported, and all certificate values requested by the entity are included in the request; the internal TOE function which exclusively trusts these external certificates 
+                may act as a registration authority as specified in the claimed RFC. When the subject of the certificate is 
+                associated with an internal TOE function, the values in the populated certificate may use any method that is under 
+                the control of the subject. PKCS-10 is claimed when the supported function interfaces directly with an embedded CA to generate a certificate representing a TOE entity. When the EST, CMC, or CMP method is claimed, the ST author will claim FDP_ESTS_EXT.1, FDP_CMCS_EXT.1, or FDP_CMPS_EXT.1, respectively.  
+              </h:p><h:p>
+                In the second bullet, the ST author indicates where the key pair is generated and how the embedded CA validates that the entity represented in the certificate is in possession of the associated private key.
+              </h:p><h:p>
+                In the third bullet, the ST author describes the additional certificate constraints, if any, provided by the supported function that may override the values included in a certificate request (if supported).
+              </h:p>
+            </note>
+            <aactivity>
+              <TSS>
+                <h:p>The evaluator shall examine the TSS to ensure it describes the TOE functions using certificates generated by the 
+                  embedded CA and how the certificate is used. For each such function, the evaluator shall verify the TSS describes 
+                  one or more certificate profiles used by the embedded CA in support of the function that are compliant with the 
+                  requirements.
+                </h:p><h:p>
+                  The evaluator shall further examine the TSS to ensure that it describes how the TSF updates and enforces each 
+                  certificate profile based on the configuration of the CA and inputs provided by the supported function.
+                </h:p><h:p>
+                  For each subject DN or subjectAltName name type supported, the evaluator shall verify that the ST indicates the normalization standard used for the name type and the method used for ensuring the name populated in the certificate is appropriately normalized.	
+                </h:p>
+              </TSS>
+              <Guidance>
+                <h:p>The evaluator shall examine the AGD guidance and verify it describes instructions for configuring the 
+                  embedded CA and its certificate profiles to meet the requirements.</h:p>
+              </Guidance>
+              <Tests>
+                The evaluator shall perform the following test.
+                <testlist>
+                  <test>
+                    <h:p>For each supported function claimed in <xref to="fdp-cer-ext-1e1-client"/>, and for each certificate profile associated to the function, the evaluator shall cause the TOE to issue a certificate and observe that the 
+                      certificate meets the appropriate profile, including constraints determined by the embedded CA 
+                      configuration and inputs provided by the function. If 
+                      multiple name types are supported, the evaluator shall repeat this test as necessary to include all supported name types.</h:p>
+                  </test>
+                  <test>
+                    [conditional] If “subjectName” is claimed and standard certificate requests are supported that allow a general DN to be input, the  evaluator shall send the TSF a certificate request that includes a DN with an RDN component containing multiple elements and verify that TSF rejects the request.
+                  </test>
+                  <test>
+                    [conditional] If “subjectAltName” is claimed, and standard certificate requests are supported that allow multiple SAN entries, then for each name type supported, the evaluator shall send the TSF a certificate request with multiple SAN entries of the indicated name type, where the first entry is valid and the second entry is invalid. The evaluator shall confirm that the TSF issues a certificate containing only the first entry.
+                    Note: the method to create an invalid entry depends on the validation methods claimed.
+                  </test>							
+                </testlist>
+              </Tests>
+            </aactivity>
+          </f-element>
+          <audit-event>
+            <audit-event-descr>Certificate generation</audit-event-descr>
+            <audit-event-info>Success: <selectables>
+              <selectable>Certificate value</selectable>
+              <selectable>Certificate object identifier</selectable></selectables></audit-event-info>
+          </audit-event>
+        </f-component>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         <f-component name="Certificate Profiles for Client Certificates" cc-id="fdp_cer_ext.4" id="fdp-cer-ext-4">
           <depends on-sel="clientAuth"/>
           <consistency-rationale>This SFR applies to how the TOE issues TLS client certificates for STIP traffic, which is an interface that is not defined in the Base-PP.
