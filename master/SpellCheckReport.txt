@@ -10,7 +10,6 @@ output/stip-release-linkable.html: 38C
 output/stip-release-linkable.html: 509v2
 output/stip-release-linkable.html: 67R2
 output/stip-release-linkable.html: AGD
-output/stip-release-linkable.html: BasicConstraints
 output/stip-release-linkable.html: CCMVS
 output/stip-release-linkable.html: CEM
 output/stip-release-linkable.html: CMCS
@@ -35,7 +34,6 @@ output/stip-release-linkable.html: Key3
 output/stip-release-linkable.html: KeyCertSign
 output/stip-release-linkable.html: KeyExchange
 output/stip-release-linkable.html: KeyExchangeMessage
-output/stip-release-linkable.html: KeyUsage
 output/stip-release-linkable.html: M1
 output/stip-release-linkable.html: M2
 output/stip-release-linkable.html: M3
@@ -43,6 +41,7 @@ output/stip-release-linkable.html: M4
 output/stip-release-linkable.html: M5
 output/stip-release-linkable.html: NDcPP
 output/stip-release-linkable.html: OIDs
+output/stip-release-linkable.html: OLTleaf
 output/stip-release-linkable.html: RC4
 output/stip-release-linkable.html: RDN
 output/stip-release-linkable.html: SCSV
@@ -67,7 +66,6 @@ output/stip-release-linkable.html: behaviour
 output/stip-release-linkable.html: c4
 output/stip-release-linkable.html: cA
 output/stip-release-linkable.html: cRLDistributionPoints
-output/stip-release-linkable.html: cRLSign
 output/stip-release-linkable.html: certificatePolicy
 output/stip-release-linkable.html: cleartext
 output/stip-release-linkable.html: clientAuth
@@ -94,7 +92,6 @@ output/stip-release-linkable.html: ipsecIKE
 output/stip-release-linkable.html: issuerAltName
 output/stip-release-linkable.html: issuerUniqueID
 output/stip-release-linkable.html: keyAgreement
-output/stip-release-linkable.html: keyCertSign
 output/stip-release-linkable.html: keyEncipherment
 output/stip-release-linkable.html: lifecycle
 output/stip-release-linkable.html: misrouting
@@ -137,7 +134,6 @@ output/stip-release.html: CMCS
 output/stip-release.html: CMP
 output/stip-release.html: CMPS
 output/stip-release.html: CRL’
-output/stip-release.html: CodeSigning
 output/stip-release.html: DTLSC
 output/stip-release.html: DataEncryption
 output/stip-release.html: EKU
@@ -147,6 +143,7 @@ output/stip-release.html: KERBEROS
 output/stip-release.html: KU
 output/stip-release.html: NDcPP
 output/stip-release.html: OIDs
+output/stip-release.html: OLTleaf
 output/stip-release.html: RC4
 output/stip-release.html: SCSV
 output/stip-release.html: SNI
@@ -160,7 +157,6 @@ output/stip-release.html: TDES
 output/stip-release.html: V2
 output/stip-release.html: XAML
 output/stip-release.html: XCU
-output/stip-release.html: any’
 output/stip-release.html: authorityInfoAccess
 output/stip-release.html: authorityInfoAccess’
 output/stip-release.html: authorityKeyIdentifier
@@ -237,7 +233,6 @@ output/stip-sd.html: 0x0202
 output/stip-sd.html: 0x4117
 output/stip-sd.html: AGD
 output/stip-sd.html: Any’
-output/stip-sd.html: BasicConstraints
 output/stip-sd.html: CA’s
 output/stip-sd.html: CCMVS
 output/stip-sd.html: CEM
@@ -253,7 +248,6 @@ output/stip-sd.html: Key3
 output/stip-sd.html: KeyCertSign
 output/stip-sd.html: KeyExchange
 output/stip-sd.html: KeyExchangeMessage
-output/stip-sd.html: KeyUsage
 output/stip-sd.html: M1
 output/stip-sd.html: M2
 output/stip-sd.html: M3
@@ -273,16 +267,12 @@ output/stip-sd.html: V2
 output/stip-sd.html: authorityInfoAccess
 output/stip-sd.html: a’
 output/stip-sd.html: behaviour
-output/stip-sd.html: break’
 output/stip-sd.html: bypass’
 output/stip-sd.html: b’
 output/stip-sd.html: c4
 output/stip-sd.html: cRLDistributionPoints
-output/stip-sd.html: cRLSign
 output/stip-sd.html: evaluator’s
 output/stip-sd.html: fail’
-output/stip-sd.html: keyCertSign
-output/stip-sd.html: keyEncipherment
 output/stip-sd.html: notAfter
 output/stip-sd.html: notBefore
 output/stip-sd.html: p4
@@ -309,7 +299,6 @@ output/stip.html: 8603’
 output/stip.html: AGD
 output/stip.html: Any’
 output/stip.html: Auditor’
-output/stip.html: BasicConstraints
 output/stip.html: CCMVS
 output/stip.html: CEM
 output/stip.html: CMCS
@@ -335,7 +324,6 @@ output/stip.html: Key3
 output/stip.html: KeyCertSign
 output/stip.html: KeyExchange
 output/stip.html: KeyExchangeMessage
-output/stip.html: KeyUsage
 output/stip.html: M1
 output/stip.html: M2
 output/stip.html: M3
@@ -343,6 +331,7 @@ output/stip.html: M4
 output/stip.html: M5
 output/stip.html: NDcPP
 output/stip.html: OIDs
+output/stip.html: OLTleaf
 output/stip.html: RC4
 output/stip.html: RDN
 output/stip.html: SCSV
@@ -360,19 +349,16 @@ output/stip.html: TLSversion
 output/stip.html: V2
 output/stip.html: XAML
 output/stip.html: XCU
-output/stip.html: any’
 output/stip.html: authorityInfoAccess
 output/stip.html: authorityInfoAccess’
 output/stip.html: authorityKeyIdentifier
 output/stip.html: a’
 output/stip.html: behaviour
-output/stip.html: break’
 output/stip.html: bypass’
 output/stip.html: b’
 output/stip.html: c4
 output/stip.html: cA
 output/stip.html: cRLDistributionPoints
-output/stip.html: cRLSign
 output/stip.html: certificatePolicy
 output/stip.html: cleartext
 output/stip.html: clientAuth
@@ -401,7 +387,6 @@ output/stip.html: ipsecIKE
 output/stip.html: issuerAltName
 output/stip.html: issuerUniqueID
 output/stip.html: keyAgreement
-output/stip.html: keyCertSign
 output/stip.html: keyEncipherment
 output/stip.html: lifecycle
 output/stip.html: message’
