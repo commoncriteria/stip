@@ -34,6 +34,7 @@ output/stip-release-linkable.html: Key3
 output/stip-release-linkable.html: KeyCertSign
 output/stip-release-linkable.html: KeyExchange
 output/stip-release-linkable.html: KeyExchangeMessage
+output/stip-release-linkable.html: KeyUsage
 output/stip-release-linkable.html: M1
 output/stip-release-linkable.html: M2
 output/stip-release-linkable.html: M3
@@ -66,11 +67,14 @@ output/stip-release-linkable.html: behaviour
 output/stip-release-linkable.html: c4
 output/stip-release-linkable.html: cA
 output/stip-release-linkable.html: cRLDistributionPoints
+output/stip-release-linkable.html: certficate
 output/stip-release-linkable.html: certificatePolicy
 output/stip-release-linkable.html: cleartext
+output/stip-release-linkable.html: cleint
 output/stip-release-linkable.html: clientAuth
 output/stip-release-linkable.html: codeSigning
 output/stip-release-linkable.html: contentCommitment
+output/stip-release-linkable.html: crypographic
 output/stip-release-linkable.html: dNSName
 output/stip-release-linkable.html: dataEncipherment
 output/stip-release-linkable.html: deallocation
@@ -92,6 +96,7 @@ output/stip-release-linkable.html: ipsecIKE
 output/stip-release-linkable.html: issuerAltName
 output/stip-release-linkable.html: issuerUniqueID
 output/stip-release-linkable.html: keyAgreement
+output/stip-release-linkable.html: keyCertSign
 output/stip-release-linkable.html: keyEncipherment
 output/stip-release-linkable.html: lifecycle
 output/stip-release-linkable.html: misrouting
@@ -169,6 +174,7 @@ output/stip-release.html: cleartext
 output/stip-release.html: clientAuth
 output/stip-release.html: codeSigning
 output/stip-release.html: contentCommitment
+output/stip-release.html: crypographic
 output/stip-release.html: dNSName
 output/stip-release.html: dataEncipherment
 output/stip-release.html: deallocation
@@ -248,6 +254,7 @@ output/stip-sd.html: Key3
 output/stip-sd.html: KeyCertSign
 output/stip-sd.html: KeyExchange
 output/stip-sd.html: KeyExchangeMessage
+output/stip-sd.html: KeyUsage
 output/stip-sd.html: M1
 output/stip-sd.html: M2
 output/stip-sd.html: M3
@@ -271,8 +278,12 @@ output/stip-sd.html: bypass’
 output/stip-sd.html: b’
 output/stip-sd.html: c4
 output/stip-sd.html: cRLDistributionPoints
+output/stip-sd.html: certficate
+output/stip-sd.html: cleint
 output/stip-sd.html: evaluator’s
 output/stip-sd.html: fail’
+output/stip-sd.html: keyCertSign
+output/stip-sd.html: keyEncipherment
 output/stip-sd.html: notAfter
 output/stip-sd.html: notBefore
 output/stip-sd.html: p4
@@ -324,6 +335,7 @@ output/stip.html: Key3
 output/stip.html: KeyCertSign
 output/stip.html: KeyExchange
 output/stip.html: KeyExchangeMessage
+output/stip.html: KeyUsage
 output/stip.html: M1
 output/stip.html: M2
 output/stip.html: M3
@@ -359,11 +371,14 @@ output/stip.html: b’
 output/stip.html: c4
 output/stip.html: cA
 output/stip.html: cRLDistributionPoints
+output/stip.html: certficate
 output/stip.html: certificatePolicy
 output/stip.html: cleartext
+output/stip.html: cleint
 output/stip.html: clientAuth
 output/stip.html: codeSigning
 output/stip.html: contentCommitment
+output/stip.html: crypographic
 output/stip.html: dNSName
 output/stip.html: dataEncipherment
 output/stip.html: deallocation
@@ -387,6 +402,7 @@ output/stip.html: ipsecIKE
 output/stip.html: issuerAltName
 output/stip.html: issuerUniqueID
 output/stip.html: keyAgreement
+output/stip.html: keyCertSign
 output/stip.html: keyEncipherment
 output/stip.html: lifecycle
 output/stip.html: message’
