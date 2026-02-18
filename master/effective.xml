@@ -4,7 +4,7 @@
     <ReferenceTable>
       <PPVersion>2.0</PPVersion>
       <PPAuthor>National Information Assurance Partnership</PPAuthor>
-      <PPPubDate>2025-04-25</PPPubDate>
+      <PPPubDate>2022-02-18</PPPubDate>
       <Keywords>STIP</Keywords>
     </ReferenceTable>
   </PPReference>
@@ -24,8 +24,8 @@
     
     <entry>
       <version>2.0</version>
-      <date>2025-04-25</date>
-      <subject>Incorporate NIAP Technical Decisions, Update to CC:2022</subject>
+      <date>2026-02-18</date>
+      <subject>Incorporate NIAP Technical Decisions and functional packages, Update to CC:2022</subject>
     </entry>    
   </RevisionHistory>
   
