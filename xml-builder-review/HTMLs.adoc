@@ -1,0 +1,5 @@
+* https://commoncriteria.github.io/stip/xml-builder-review/Master-Diff.html[Master-Diff.html]
+* https://commoncriteria.github.io/stip/xml-builder-review/stip-release-linkable.html[stip-release-linkable.html]
+* https://commoncriteria.github.io/stip/xml-builder-review/stip-release.html[stip-release.html]
+* https://commoncriteria.github.io/stip/xml-builder-review/stip-sd.html[stip-sd.html]
+* https://commoncriteria.github.io/stip/xml-builder-review/stip.html[stip.html]
