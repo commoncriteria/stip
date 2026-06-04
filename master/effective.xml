@@ -420,7 +420,7 @@
           </usage>
           <usage id="iteration-x509-support" title="Iteration of FIA_X509_EXT.2">
             <description>
-              In most cases, the Base-PP will already claim FIA_X509_EXT.2 for the functions for which it uses X.509 certificates for authenticity or integrity. The STIP module also requires X.509 certificates to be used for authentication, but the certificates presented for STIP may processed differently. The ST author shall therefore define a new iteration of this requirement as FIA_X509_EXT.2/STIP. This will clearly identify this requirement as applying to the TOE's STIP interfaces.
+              In most cases, the Base-PP will already claim FIA_X509_EXT.2 for the functions for which it uses X.509 certificates for authenticity or integrity. The STIP module also requires X.509 certificates to be used for authentication, but the certificates presented for STIP may be processed differently. The ST author shall therefore define a new iteration of this requirement as FIA_X509_EXT.2/STIP. This will clearly identify this requirement as applying to the TOE's STIP interfaces.
             </description>
             <config>
               <ref-id>dummy-ref-id</ref-id>
