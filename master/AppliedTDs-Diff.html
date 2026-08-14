@@ -337,7 +337,7 @@
             <dd>
                 <b>Supported Signature Values in FIA_X509_EXT.1.1/<abbr class="dyn-abbr"><a href="#abbr_STIP">STIP</a></abbr></b>
                 <p></p>
-                <span class="description"> FIA_X509_EXT.1.1 specifies a minimum baseline for supported signature algorithms for digital certificates as well as for CRLs and OCSP responses, if supported by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>. For <abbr class="dyn-abbr"><a href="#abbr_STIP">STIP</a></abbr> functionality, in addition to the minimum algorithms specified by RFC 8603, the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author shall complete the relevant assignments for the supported crypographic signatures of certificates, CRLs, and OCSP responses with the following additional algorithms: 
+                <span class="description"> FIA_X509_EXT.1.1 specifies a minimum baseline for supported signature algorithms for digital certificates as well as for CRLs and OCSP responses, if supported by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>. For <abbr class="dyn-abbr"><a href="#abbr_STIP">STIP</a></abbr> functionality, in addition to the minimum algorithms specified by RFC 8603, the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author shall complete the relevant assignments for the supported cryptographic signatures of certificates, CRLs, and OCSP responses with the following additional algorithms: 
                     <ul>
                         <li>Public key algorithms:</li>
                         <ul>
@@ -401,7 +401,7 @@
             <dd>
                 <b>Methods for Certificate Enrollment in FIA_X509_EXT.3</b>
                 <p></p>
-                <span class="description">A conformant <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> must claim FIA_X509_EXT.3 because it will always assert its identity to remote entities using X.509, even if that is the only situation in which it does this. In order to do this, the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> must generate a certificate request to obtain the signing <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> cert for its own embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>. This must be able to be obtained using PKCS#10 at minimmum, though other enrollment methods may be selected as well. For any other certificate that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> requires (e.g. a TLS server certificate for a management interface), any method specified in FIA_X509_EXT.3 may be used for the enrollment request.</span>
+                <span class="description">A conformant <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> must claim FIA_X509_EXT.3 because it will always assert its identity to remote entities using X.509, even if that is the only situation in which it does this. In order to do this, the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> must generate a certificate request to obtain the signing <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> cert for its own embedded <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>. This must be able to be obtained using PKCS#10 at minimum, though other enrollment methods may be selected as well. For any other certificate that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> requires (e.g. a TLS server certificate for a management interface), any method specified in FIA_X509_EXT.3 may be used for the enrollment request.</span>
                 <p></p>
             </dd>
             <dt>
@@ -2544,7 +2544,7 @@
                         <td><a href="#FMT_SMR.2/STIP">FMT_SMR.2/STIP</a></td><td>Mitigates the threat by defining additional management roles that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> may support that are specific to <abbr class="dyn-abbr"><a href="#abbr_STIP">STIP</a></abbr> functionality.</td>
                     </tr>
                     <tr class="major-row">
-                        <td rowspan="21"><a href="#T.CREDENTIALS">T.CREDENTIALS</a></td><td>FCS_TLSC_EXT.1 (from <a href="https://www.niap-ccevs.org/protectionprofiles/465">Functional Package for Transport Layer Security (TLS), version 2.1</a>)</td><td>Mitigates the threat because TLS is a mechanism by which its own certificate data may be obtained from an external <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>. </td>
+                        <td rowspan="20"><a href="#T.CREDENTIALS">T.CREDENTIALS</a></td><td>FCS_TLSC_EXT.1 (from <a href="https://www.niap-ccevs.org/protectionprofiles/465">Functional Package for Transport Layer Security (TLS), version 2.1</a>)</td><td>Mitigates the threat because TLS is a mechanism by which its own certificate data may be obtained from an external <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>. </td>
                     </tr>
                     <tr>
                         <td>FCS_TLSC_EXT.2 (from <a href="https://www.niap-ccevs.org/protectionprofiles/465">Functional Package for Transport Layer Security (TLS), version 2.1</a>)</td><td>Mitigates the threat because mutually-authenticated TLS is a mechanism by which its own certificate data may be obtained from an external <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>. </td>
@@ -2595,9 +2595,6 @@
                         <td><a href="#FDP_PIN_EXT.1">FDP_PIN_EXT.1</a> (optional)</td><td>Mitigates the threat by defining the optional implementation of certificate pinning. </td>
                     </tr>
                     <tr>
-                        <td>FIA_ESTC_EXT.2 (objective)</td><td>Mitigates the threat by defining requirements for the composition of EST requests if the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> supports EST. </td>
-                    </tr>
-                    <tr>
                         <td><a href="#FCS_CKM_EXT.5">FCS_CKM_EXT.5</a> (selection-based)</td><td>Mitigates the threat by defining the integrity mechanism used to guarantee the integrity of public key data.</td>
                     </tr>
                     <tr>
@@ -2607,7 +2604,7 @@
                         <td><a href="#FDP_CER_EXT.5">FDP_CER_EXT.5</a> (selection-based)</td><td>Mitigates the threat by defining the rules for the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>'s issuing of proxy TLS client certificates if mutual authentication is supported. </td>
                     </tr>
                     <tr class="major-row">
-                        <td rowspan="33"><a href="#T.SERVICES">T.SERVICES</a></td><td>FCS_TLSC_EXT.1 (from <a href="https://www.niap-ccevs.org/protectionprofiles/465">Functional Package for Transport Layer Security (TLS), version 2.1</a>)</td><td>Mitigates the threat because TLS is a mechanism by which its own certificate data may be obtained from an external <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>. </td>
+                        <td rowspan="32"><a href="#T.SERVICES">T.SERVICES</a></td><td>FCS_TLSC_EXT.1 (from <a href="https://www.niap-ccevs.org/protectionprofiles/465">Functional Package for Transport Layer Security (TLS), version 2.1</a>)</td><td>Mitigates the threat because TLS is a mechanism by which its own certificate data may be obtained from an external <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>. </td>
                     </tr>
                     <tr>
                         <td>FCS_TLSC_EXT.2 (from <a href="https://www.niap-ccevs.org/protectionprofiles/465">Functional Package for Transport Layer Security (TLS), version 2.1</a>)</td><td>Mitigates the threat because mutually-authenticated TLS is a mechanism by which its own certificate data may be obtained from an external <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>. </td>
@@ -2682,9 +2679,6 @@
                         <td><a href="#FDP_PIN_EXT.1">FDP_PIN_EXT.1</a> (optional)</td><td>Mitigates the threat by defining the optional implementation of certificate pinning. </td>
                     </tr>
                     <tr>
-                        <td>FIA_ESTC_EXT.2 (objective)</td><td>Mitigates the threat by defining requirements for the composition of EST requests if the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> supports EST. </td>
-                    </tr>
-                    <tr>
                         <td><a href="#FDP_CER_EXT.1/Client">FDP_CER_EXT.1/Client</a> (selection-based)</td><td>Mitigates the threat by defining the rules the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> must use to generate and issue proxy TLS client certificates from its internal <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr> if mutual authentication is supported. </td>
                     </tr>
                     <tr>
@@ -2706,7 +2700,7 @@
                         <td><a href="#FDP_STIP_EXT.2">FDP_STIP_EXT.2</a> (selection-based)</td><td>Mitigates the threat by defining the optional capability of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to establish a proxy TLS session in the case where mutual authentication is supported.</td>
                     </tr>
                     <tr class="major-row">
-                        <td rowspan="24"><a href="#T.DEVICE_FAILURE">T.DEVICE_​FAILURE</a></td><td>FCS_TLSC_EXT.1 (from <a href="https://www.niap-ccevs.org/protectionprofiles/465">Functional Package for Transport Layer Security (TLS), version 2.1</a>)</td><td>Mitigates the threat because TLS is a mechanism by which its own certificate data may be obtained from an external <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>. </td>
+                        <td rowspan="23"><a href="#T.DEVICE_FAILURE">T.DEVICE_​FAILURE</a></td><td>FCS_TLSC_EXT.1 (from <a href="https://www.niap-ccevs.org/protectionprofiles/465">Functional Package for Transport Layer Security (TLS), version 2.1</a>)</td><td>Mitigates the threat because TLS is a mechanism by which its own certificate data may be obtained from an external <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>. </td>
                     </tr>
                     <tr>
                         <td>FCS_TLSC_EXT.2 (from <a href="https://www.niap-ccevs.org/protectionprofiles/465">Functional Package for Transport Layer Security (TLS), version 2.1</a>)</td><td>Mitigates the threat because mutually-authenticated TLS is a mechanism by which its own certificate data may be obtained from an external <abbr class="dyn-abbr"><a href="#abbr_CA">CA</a></abbr>. </td>
@@ -2764,9 +2758,6 @@
                     </tr>
                     <tr>
                         <td><a href="#FDP_PIN_EXT.1">FDP_PIN_EXT.1</a> (optional)</td><td>Mitigates the threat by defining the optional implementation of certificate pinning. </td>
-                    </tr>
-                    <tr>
-                        <td>FIA_ESTC_EXT.2 (objective)</td><td>Mitigates the threat by defining requirements for the composition of EST requests if the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> supports EST. </td>
                     </tr>
                     <tr>
                         <td><a href="#FCS_CKM_EXT.5">FCS_CKM_EXT.5</a> (selection-based)</td><td>Mitigates the threat by defining the integrity mechanism used to guarantee the integrity of public key data.</td>

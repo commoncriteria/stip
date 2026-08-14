@@ -67,13 +67,11 @@ output/stip-release-linkable.html: behaviour
 output/stip-release-linkable.html: c4
 output/stip-release-linkable.html: cA
 output/stip-release-linkable.html: cRLDistributionPoints
-output/stip-release-linkable.html: certficate
 output/stip-release-linkable.html: certificatePolicies
 output/stip-release-linkable.html: cleartext
 output/stip-release-linkable.html: cleint
 output/stip-release-linkable.html: clientAuth
 output/stip-release-linkable.html: codeSigning
-output/stip-release-linkable.html: crypographic
 output/stip-release-linkable.html: dNSName
 output/stip-release-linkable.html: deallocation
 output/stip-release-linkable.html: directoryName
@@ -93,7 +91,6 @@ output/stip-release-linkable.html: issuerUniqueID
 output/stip-release-linkable.html: keyCertSign
 output/stip-release-linkable.html: keyEncipherment
 output/stip-release-linkable.html: lifecycle
-output/stip-release-linkable.html: minimmum
 output/stip-release-linkable.html: misrouting
 output/stip-release-linkable.html: notAfter
 output/stip-release-linkable.html: notBefore
@@ -161,7 +158,6 @@ output/stip-release.html: certificatePolicies
 output/stip-release.html: cleartext
 output/stip-release.html: clientAuth
 output/stip-release.html: codeSigning
-output/stip-release.html: crypographic
 output/stip-release.html: dNSName
 output/stip-release.html: deallocation
 output/stip-release.html: directoryName
@@ -181,7 +177,6 @@ output/stip-release.html: ipsecIKE
 output/stip-release.html: issuerUniqueID
 output/stip-release.html: lifecycle
 output/stip-release.html: message’
-output/stip-release.html: minimmum
 output/stip-release.html: misrouting
 output/stip-release.html: notAfter
 output/stip-release.html: notBefore
@@ -249,7 +244,6 @@ output/stip-sd.html: behaviour
 output/stip-sd.html: bypass’
 output/stip-sd.html: b’
 output/stip-sd.html: c4
-output/stip-sd.html: certficate
 output/stip-sd.html: cleint
 output/stip-sd.html: evaluator’s
 output/stip-sd.html: fail’
@@ -339,13 +333,11 @@ output/stip.html: b’
 output/stip.html: c4
 output/stip.html: cA
 output/stip.html: cRLDistributionPoints
-output/stip.html: certficate
 output/stip.html: certificatePolicies
 output/stip.html: cleartext
 output/stip.html: cleint
 output/stip.html: clientAuth
 output/stip.html: codeSigning
-output/stip.html: crypographic
 output/stip.html: dNSName
 output/stip.html: deallocation
 output/stip.html: directoryName
@@ -367,7 +359,6 @@ output/stip.html: keyCertSign
 output/stip.html: keyEncipherment
 output/stip.html: lifecycle
 output/stip.html: message’
-output/stip.html: minimmum
 output/stip.html: misrouting
 output/stip.html: notAfter
 output/stip.html: notBefore
