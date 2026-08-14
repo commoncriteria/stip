@@ -356,7 +356,7 @@
             <description>
               In most cases, the Base-PP will already claim FIA_X509_EXT.1 for validation of X.509 certificates presented to the TOE by trusted external entities. The STIP module also requires X.509 certificate validation, but this may obey different rules from the trusted entity case because the connections that the TOE proxies may not have that level of configuration. The ST author shall therefore define a new iteration of this requirement as FIA_X509_EXT.1/STIP. This will clearly identify this requirement as applying to the TOE's STIP interfaces.<h:p/>
               
-              Also note that if the TOE implements mutual authentication or acts as a server, there is no expectation of performing any checks on TOE’s own leaf certificate during authentication. FIA_X509_EXT.1/STIP is intended to apply to certificates that are used and processed by the TSF. Revocation checking of any CA certificate designated as a trust anchor is also not required.
+              Also note that if the TOE implements mutual authentication or acts as a server, there is no expectation of performing any checks on the TOE’s own leaf certificate during authentication. FIA_X509_EXT.1/STIP is intended to apply to certificates that are used and processed by the TSF. Revocation checking of any CA certificate designated as a trust anchor is also not required.
             </description>
             <config>
               <ref-id>dummy-ref-id</ref-id>
@@ -645,25 +645,30 @@ expected to enforce.<h:p/>
             <rationale>Mitigates the threat because TLS is a mechanism by which its own certificate data may be obtained from an external CA. </rationale>
             <addressed-by>FCS_TLSC_EXT.2 (from <xref to="tls"/>)</addressed-by>
             <rationale>Mitigates the threat because mutually-authenticated TLS is a mechanism by which its own certificate data may be obtained from an external CA. </rationale>
-            <addressed-by>FIA_X509_EXT.1 (from <xref to="X509"/>)</addressed-by>
-            <rationale>Mitigates the threat by defining the TOE functionality for certificate validation. </rationale>
+          <addressed-by>FDP_CRL_EXT.1 (from <xref to="X509"/>)</addressed-by>
+          <rationale>Mitigates the threat by defining rules for the generation of CRLs if the TOE uses this as the mechanism to ensure the freshness of its issued certificates. </rationale>
+          <addressed-by>FDP_CSI_EXT.1 (from <xref to="X509"/>)</addressed-by>
+          <rationale>Mitigates the threat by defining the revocation checking method supported by the TOE for the proxy TLS server certificates it issues, if revocation is how the freshness of its issued certificates is assured. </rationale>
+          <addressed-by>FDP_CSIR_EXT.1 (from <xref to="X509"/>)</addressed-by>
+          <rationale>Mitigates the threat by defining how the TOE can ensure the use of fresh certificates.</rationale>
+          <addressed-by>FDP_OCSP_EXT.1 (from <xref to="X509"/>)</addressed-by>
+          <rationale>Mitigates the threat by defining rules for the generation of OCSP responses if the TOE uses this as the mechanism to ensure the freshness of its issued certificates. </rationale>
+          <addressed-by>FIA_X509_EXT.1/STIP (from <xref to="X509"/>)</addressed-by>
+          <rationale>Mitigates the threat by defining the certificate validation rules that must be followed for certificates that are used for proxy TLS connections. </rationale>
             <addressed-by>FIA_X509_EXT.3 (from <xref to="X509"/>)</addressed-by>
             <rationale>Mitigates the threat by defining the mechanism by which the TOE generates certificate signing requests, which includes validation of the certificate provided in response. </rationale>
             <addressed-by>FCS_STG_EXT.1</addressed-by>
             <rationale>Mitigates the threat by requiring the TOE to implement hardware-based protection for stored keys.</rationale>
-            <addressed-by>FDP_CER_EXT.1</addressed-by>
+            <addressed-by>FDP_CER_EXT.1/Server</addressed-by>
             <rationale>Mitigates the threat by defining the rules the TOE must use to generate and issue proxy TLS server certificates from its internal CA. </rationale>
             <addressed-by>FDP_CER_EXT.2</addressed-by>
             <rationale>Mitigates the threat by requiring the TOE to link the certificates presented for TLS connectivity with the certificates it issues from its internal CA. </rationale>
             <addressed-by>FDP_CER_EXT.3</addressed-by>
             <rationale>Mitigates the threat by defining the rules for the TOE's issuing of proxy TLS server certificates. </rationale>
-            <addressed-by>FDP_CSIR_EXT.1</addressed-by>
-            <rationale>Mitigates the threat by defining how the TOE can ensure the use of fresh certificates.</rationale>
             <addressed-by>FDP_STG_EXT.1</addressed-by>
             <rationale>Mitigates the threat by defining the mechanism used to protect public key data from unauthorized modification.</rationale>
           
-            <addressed-by>FIA_X509_EXT.1/STIP</addressed-by>
-            <rationale>Mitigates the threat by defining the certificate validation rules that must be followed for certificates that are used for proxy TLS connections. </rationale>
+            
             <addressed-by>FIA_X509_EXT.2/STIP</addressed-by>
             <rationale>Mitigates the threat by defining the certificate authentication behavior for STIP connections. </rationale>
             <addressed-by>FPT_KST_EXT.1</addressed-by>
@@ -680,14 +685,8 @@ expected to enforce.<h:p/>
             <rationale>Mitigates the threat by defining the rules the TOE must use to generate and issue proxy TLS client certificates from its internal CA if mutual authentication is supported. </rationale>
             <addressed-by>FDP_CER_EXT.5 (selection-based)</addressed-by>
             <rationale>Mitigates the threat by defining the rules for the TOE's issuing of proxy TLS client certificates if mutual authentication is supported. </rationale>
-            <addressed-by>FDP_CRL_EXT.1 (selection-based)</addressed-by>
-            <rationale>Mitigates the threat by defining rules for the generation of CRLs if the TOE uses this as the mechanism to ensure the freshness of its issued certificates. </rationale>
-            <addressed-by>FDP_CSI_EXT.1 (selection-based)</addressed-by>
-            <rationale>Mitigates the threat by defining the revocation checking method supported by the TOE for the proxy TLS server certificates it issues, if revocation is how the freshness of its issued certificates is assured. </rationale>
-            <addressed-by>FDP_CSI_EXT.2 (selection-based)</addressed-by>
-          <rationale>Mitigates the threat by defining the revocation checking method supported by the TOE for the proxy TLS client certificates it issues, if mutual authentication is supported and revocation is how the freshness of its issued certificates is assured. </rationale>
-            <addressed-by>FDP_OCSP_EXT.1 (selection-based)</addressed-by>
-          <rationale>Mitigates the threat by defining rules for the generation of OCSP responses if the TOE uses this as the mechanism to ensure the freshness of its issued certificates. </rationale>
+    
+            
          
         </threat>
         
@@ -702,6 +701,14 @@ expected to enforce.<h:p/>
           <addressed-by>FCS_TLSC_EXT.2 (from <xref to="tls"/>)</addressed-by>
           <rationale>Mitigates the threat because mutually-authenticated TLS is a mechanism by which its own certificate 
             data may be obtained from an external CA. </rationale>
+          <addressed-by>FDP_CRL_EXT.1 (from <xref to="X509"/>)</addressed-by>
+          <rationale>Mitigates the threat by defining rules for the generation of CRLs if the TOE uses this as the mechanism to ensure the freshness of its issued certificates. </rationale>
+          <addressed-by>FDP_CSI_EXT.1 (from <xref to="X509"/>)</addressed-by>
+          <rationale>Mitigates the threat by defining the revocation eChecking method supported by the TOE for the proxy TLS server certificates it issues, if revocation is how the freshness of its issued certificates is assured. </rationale>
+          <addressed-by>FDP_CSIR_EXT.1 (from <xref to="X509"/>)</addressed-by>
+          <rationale>Mitigates the threat by defining how the TOE can ensure the use of fresh certificates.</rationale>
+          <addressed-by>FDP_OCSP_EXT.1 (from <xref to="X509"/>)</addressed-by>
+          <rationale>Mitigates the threat by defining rules for the generation of OCSP responses if the TOE uses this as the mechanism to ensure the freshness of its issued certificates. </rationale>
             <addressed-by>FIA_X509_EXT.1 (from <xref to="X509"/>)</addressed-by>
           <rationale>Mitigates the threat by defining the TOE functionality for certificate validation. </rationale>
           <addressed-by>FIA_X509_EXT.3 (from <xref to="X509"/>)</addressed-by>
@@ -718,14 +725,13 @@ expected to enforce.<h:p/>
           <addressed-by>FCS_TTTS_EXT.1</addressed-by>
           <rationale>Mitigates the threat by defining requirements for the TOE's implementation of TLS as a server, specifically in the case where the TOE is establishing a proxy connection between itself and the original monitored 
             TLS client.</rationale>
-          <addressed-by>FDP_CER_EXT.1</addressed-by>
+          <addressed-by>FDP_CER_EXT.1/Server</addressed-by>
           <rationale>Mitigates the threat by defining the rules the TOE must use to generate and issue proxy TLS server certificates from its internal CA. </rationale>
           <addressed-by>FDP_CER_EXT.2</addressed-by>
           <rationale>Mitigates the threat by requiring the TOE to link the certificates presented for TLS connectivity with the certificates it issues from its internal CA. </rationale>
           <addressed-by>FDP_CER_EXT.3</addressed-by>
           <rationale>Mitigates the threat by defining the rules for the TOE's issuing of proxy TLS server certificates. </rationale>
-          <addressed-by>FDP_CSIR_EXT.1</addressed-by>
-          <rationale>Mitigates the threat by defining how the TOE can ensure the use of fresh certificates.</rationale>
+          
           <addressed-by>FDP_PRC_EXT.1</addressed-by>
           <rationale>Mitigates the threat by defining requirements for the routing of decrypted plaintext traffic.</rationale>
           <addressed-by>FDP_STIP_EXT.1</addressed-by>
@@ -759,14 +765,9 @@ expected to enforce.<h:p/>
           <rationale>Mitigates the threat by defining optional support for TLS session renegotiation that is applied to the TOE's proxy TLS server interface.</rationale>
           <addressed-by>FDP_CER_EXT.5 (selection-based)</addressed-by>
           <rationale>Mitigates the threat by defining the rules for the TOE's issuing of proxy TLS client certificates if mutual authentication is supported. </rationale>
-          <addressed-by>FDP_CRL_EXT.1 (selection-based)</addressed-by>
-          <rationale>Mitigates the threat by defining rules for the generation of CRLs if the TOE uses this as the mechanism to ensure the freshness of its issued certificates. </rationale>
-          <addressed-by>FDP_CSI_EXT.1 (selection-based)</addressed-by>
-          <rationale>Mitigates the threat by defining the revocation eChecking method supported by the TOE for the proxy TLS server certificates it issues, if revocation is how the freshness of its issued certificates is assured. </rationale>
-          <addressed-by>FDP_CSI_EXT.2 (selection-based)</addressed-by>
-          <rationale>Mitigates the threat by defining the revocation eChecking method supported by the TOE for the proxy TLS client certificates it issues, if mutual authentication is supported and revocation is how the freshness of its issued certificates is assured. </rationale>
-          <addressed-by>FDP_OCSP_EXT.1 (selection-based)</addressed-by>
-          <rationale>Mitigates the threat by defining rules for the generation of OCSP responses if the TOE uses this as the mechanism to ensure the freshness of its issued certificates. </rationale>
+   
+          
+          
           <addressed-by>FDP_STIP_EXT.2 (selection-based)</addressed-by>
           <rationale>Mitigates the threat by defining the optional capability of the TOE to establish a proxy TLS session in the case where mutual authentication is supported.</rationale>
          
@@ -784,6 +785,14 @@ expected to enforce.<h:p/>
           <addressed-by>FCS_TLSC_EXT.2 (from <xref to="tls"/>)</addressed-by>
           <rationale>Mitigates the threat because mutually-authenticated TLS is a mechanism by which its own certificate 
             data may be obtained from an external CA. </rationale>
+          <addressed-by>FDP_CRL_EXT.1 (from <xref to="X509"/>)</addressed-by>
+          <rationale>Mitigates the threat by defining rules for the generation of CRLs if the TOE uses this as the mechanism to ensure the freshness of its issued certificates. </rationale>
+          <addressed-by>FDP_CSI_EXT.1 (from <xref to="X509"/>)</addressed-by>
+          <rationale>Mitigates the threat by defining the revocation eChecking method supported by the TOE for the proxy TLS server certificates it issues, if revocation is how the freshness of its issued certificates is assured. </rationale>
+          <addressed-by>FDP_CSIR_EXT.1 (from <xref to="X509"/>)</addressed-by>
+          <rationale>Mitigates the threat by defining how the TOE can ensure the use of fresh certificates.</rationale>
+          <addressed-by>FDP_OCSP_EXT.1 (from <xref to="X509"/>)</addressed-by>
+          <rationale>Mitigates the threat by defining rules for the generation of OCSP responses if the TOE uses this as the mechanism to ensure the freshness of its issued certificates. </rationale>
           <addressed-by>FIA_X509_EXT.1 (from <xref to="X509"/>)</addressed-by>
             <rationale>Mitigates the threat by defining the TOE functionality for certificate validation. </rationale>
             <addressed-by>FIA_X509_EXT.3 (from <xref to="X509"/>)</addressed-by>
@@ -797,8 +806,7 @@ expected to enforce.<h:p/>
             <rationale>Mitigates the threat by requiring the TOE to link the certificates presented for TLS connectivity with the certificates it issues from its internal CA. </rationale>
             <addressed-by>FDP_CER_EXT.3</addressed-by>
             <rationale>Mitigates the threat by defining the rules for the TOE's issuing of proxy TLS server certificates. </rationale>
-            <addressed-by>FDP_CSIR_EXT.1</addressed-by>
-            <rationale>Mitigates the threat by defining how the TOE can ensure the use of fresh certificates.</rationale>
+            
             <addressed-by>FDP_STG_EXT.1</addressed-by>
             <rationale>Mitigates the threat by defining the mechanism used to protect public key data from unauthorized modification.</rationale>
            
@@ -825,14 +833,8 @@ expected to enforce.<h:p/>
           <rationale>Mitigates the threat by defining the rules the TOE must use to generate and issue proxy TLS client certificates from its internal CA if mutual authentication is supported. </rationale>
           <addressed-by>FDP_CER_EXT.5 (selection-based)</addressed-by>
           <rationale>Mitigates the threat by defining the rules for the TOE's issuing of proxy TLS client certificates if mutual authentication is supported. </rationale>
-          <addressed-by>FDP_CRL_EXT.1 (selection-based)</addressed-by>
-          <rationale>Mitigates the threat by defining rules for the generation of CRLs if the TOE uses this as the mechanism to ensure the freshness of its issued certificates. </rationale>
-          <addressed-by>FDP_CSI_EXT.1 (selection-based)</addressed-by>
-          <rationale>Mitigates the threat by defining the revocation eChecking method supported by the TOE for the proxy TLS server certificates it issues, if revocation is how the freshness of its issued certificates is assured. </rationale>
-          <addressed-by>FDP_CSI_EXT.2 (selection-based)</addressed-by>
-          <rationale>Mitigates the threat by defining the revocation eChecking method supported by the TOE for the proxy TLS client certificates it issues, if mutual authentication is supported and revocation is how the freshness of its issued certificates is assured. </rationale>
-          <addressed-by>FDP_OCSP_EXT.1 (selection-based)</addressed-by>
-          <rationale>Mitigates the threat by defining rules for the generation of OCSP responses if the TOE uses this as the mechanism to ensure the freshness of its issued certificates. </rationale>
+ 
+
         
         </threat>
         
@@ -5888,6 +5890,7 @@ legacy cipher suites. -->
           </fam-behavior>
         </ext-comp-def>
         
+        <!--
         <f-component name="Certificate Revocation List Generation" cc-id="fdp_crl_ext.1" id="fdp-crl-ext-1">
           <depends on-sel="CRLs"/>
           <consistency-rationale>This SFR applies to ability of the TOE to manage its own CRL, which is not defined in the Base-PP.</consistency-rationale>
@@ -5988,7 +5991,8 @@ legacy cipher suites. -->
             <audit-event-info>N/A</audit-event-info>
           </audit-event>
         </f-component>
-        
+        -->
+        <!--
         <ext-comp-def fam-id="FDP_CSI_EXT" title="Certificate Status Information">
           <fam-behavior>Components in this family define requirements for the TOE’s ability to generate certificate status
             information and to modify the status of issued certificates.
@@ -6025,8 +6029,8 @@ legacy cipher suites. -->
               </comment>
               The TSF shall generate certificate status information whose format complies with
               <selectables>
-                <!-- Is X.509v2 correct or should it be v3? -->
-                <selectable id="CRLs">ITU-T Recommendation X.509v2 CRL</selectable>
+                
+                <selectable id="CRLs">ITU-T Recommendation X.509v3 CRL</selectable>
                 <selectable id="OCSP">the OCSP standard as defined by RFC 6960</selectable>
               </selectables>.</title>
           </f-element>
@@ -6062,14 +6066,14 @@ legacy cipher suites. -->
               FDP_CSI_EXT.1.1 via <selectables>
                 <selectable>posting CRLs at the location specified in the cRLDistributionPoints of the issued certificate</selectable>
                 <selectable>an OCSP mechanism indicated in the authorityInfoAccess extension of the issued certificate</selectable>
-                <selectable id="stapling">OCSP Stapling <!--in accordance with FDP_OCSPS_EXT.1--></selectable>
+                <selectable id="stapling">OCSP Stapling </selectable>
               </selectables>.
             </title>
             <note role="application">
               This SFR should be claimed if claimed if the selection ‘generate certificate status
               information’ is selected in FDP_CSIR_EXT.1.1.
               <h:p/>
-              <!-- Note: references to non-existent 'sub-item (g)' have been corrected -->
+              
               The ST should specify the format(s) used to supply certificate status information
               in FDP_CSI_EXT.1.1, and the mechanism(s) used to provide the status to relying
               parties including all monitored clients in the second selection in FDP_CSI_EXT.1.3.
@@ -6122,7 +6126,8 @@ legacy cipher suites. -->
           </f-element>
         <audit-event/>
         </f-component>
-        
+        -->
+        <!--
         <ext-comp-def fam-id="FDP_OCSP_EXT" title="Online Certificate Status Protocol">
           <fam-behavior>Components in this family define requirements for the usage of the Online Certificate Status Protocol
             (OCSP) as a method of recording certificate status information.
@@ -6156,7 +6161,7 @@ legacy cipher suites. -->
             <title>
               <comment>This requirement can be pulled from the X.509 FP, but it is unclear as to how this SFR should be modeled. No refinements are necessary to this SFR, but since the FP is intended to be the single point of definition for a re-used SFR, it is not desirable to manually reproduce the text of the SFR in this PP-Module (i.e. in the modified SFRs section or through duplicating the SFR content).
               </comment>
-              <!--With the move to the X.509 package, FDP_OCSPS_EXT.1 is incorporated into other requirements and is being removed from this PP-Module.-->
+              
               When the TSF is configured to generate OCSP responses of the basic response
               type, the TSF shall ensure that all mandatory fields in the OCSP basic response
               contain values in accordance with RFC 6960. At a minimum, the following items
@@ -6222,7 +6227,7 @@ legacy cipher suites. -->
             <audit-event-info>N/A</audit-event-info>
           </audit-event>
         </f-component>
-        
+        -->
       </section>
       
       <section title="Certificate Enrollment" id="s-b2">
@@ -6300,13 +6305,12 @@ legacy cipher suites. -->
         </h:ul>
         If mutual authentication by the TOE is to perform the TLS inspection operation on TLS sessions between
         monitored clients and requested servers requiring mutual authentication, FCS_TTTC_EXT.3,
-        FCS_TTTS_EXT.3, FDP_CER_EXT.1/Client, FDP_CER_EXT.5, FDP_CSI_EXT.2, and FDP_STIP_EXT.2 in this section
+        FCS_TTTS_EXT.3, FDP_CER_EXT.1/Client, FDP_CER_EXT.5, and FDP_STIP_EXT.2 in this section
         must be claimed. In addition, the ‘mutual authentication inspection’ item should be selected in the
         selection for FDP_TEP_EXT.1.5 and an exception specification to identify servers which are authorized and
         configured to support mutual authentication inspection must be described in the assignment of
         FDP_TEP_EXT.1.4. TLS servers requesting mutual authentication are likely to also require revocation
-        information, so it is recommended that FDP_CSIR_EXT.1 selections be made to provide certificate status
-        information, even if the constraint for short validity periods is achieved
+        information, so it is recommended that certificate status information be generated, even if the constraint for short validity periods is achieved.
       
         <f-component name="Thru-Traffic TLS Inspection Client Protocol with Mutual Authentication Representing Monitored Clients" cc-id="fcs_tttc_ext.3" id="fcs-tttc-ext-3">
           <depends on-sel="clientAuth"/>
@@ -7216,6 +7220,7 @@ legacy cipher suites. -->
           </audit-event>
         </f-component>
         
+        <!--
         <f-component name="Certificate Status Information for Client Certificates" cc-id="fdp_csi_ext.2" id="fdp-csi-ext-2">
           <depends on-sel="genStatus"/>
           <depends on-sel="clientAuth"/>
@@ -7318,7 +7323,7 @@ legacy cipher suites. -->
               Based on the selection, the ST author must choose the appropriate requirements
               from Appendix B.1 of this PP-Module.
               <h:p/>
-              <!-- Note: this previously said sub-item (g) but that doesn't exist, from context we assume it was supposed to be (f) -->
+              
               The ST should specify the format(s) used to supply certificate status information
               in FDP_CSI_EXT.2.1, and the mechanism(s) used to provide the status to relying
               parties including all servers authorized to use mutually authenticated TLS in
@@ -7359,7 +7364,7 @@ legacy cipher suites. -->
           </f-element>
           <audit-event/>
         </f-component>
-
+-->
         <f-component name="Mutual Authentication Inspection Operation" cc-id="fdp_stip_ext.2" id="fdp-stip-ext-2">
           <depends on-sel="clientAuth"/>
           <consistency-rationale>This SFR applies to the TLS session implementation of the inspection
