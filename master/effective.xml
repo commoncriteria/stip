@@ -2943,6 +2943,7 @@ legacy cipher suites. -->
                         <selectable> <assignable>other name</assignable></selectable>
                       </selectables>
                       </h:li>
+                      <h:li>[<h:i>certificatePolicies is supported</h:i>]</h:li>
                       <h:li><selectables linebreak="yes">
                         <selectable>subjectKeyIdentifier is populated <h:b>with a unique value</h:b></selectable>
                         <selectable>basicConstraints is populated with [cA flag equal to false]</selectable>
@@ -6577,6 +6578,7 @@ legacy cipher suites. -->
                         <selectable> <assignable>other name</assignable></selectable>
                       </selectables>
                       </h:li>
+                      <h:li>[<h:i>certificatePolicies is supported</h:i>]</h:li>
                       <h:li><selectables linebreak="yes">
                         <selectable>subjectKeyIdentifier is populated <h:b>with a unique value</h:b></selectable>
                         <selectable>basicConstraints is populated with [cA flag equal to false]</selectable>

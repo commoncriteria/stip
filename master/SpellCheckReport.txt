@@ -68,6 +68,7 @@ output/stip-release-linkable.html: c4
 output/stip-release-linkable.html: cA
 output/stip-release-linkable.html: cRLDistributionPoints
 output/stip-release-linkable.html: certficate
+output/stip-release-linkable.html: certificatePolicies
 output/stip-release-linkable.html: cleartext
 output/stip-release-linkable.html: cleint
 output/stip-release-linkable.html: clientAuth
@@ -162,6 +163,7 @@ output/stip-release.html: behaviour
 output/stip-release.html: bypass’
 output/stip-release.html: cA
 output/stip-release.html: cRLDistributionPoints
+output/stip-release.html: certificatePolicies
 output/stip-release.html: cleartext
 output/stip-release.html: clientAuth
 output/stip-release.html: codeSigning
@@ -355,6 +357,7 @@ output/stip.html: c4
 output/stip.html: cA
 output/stip.html: cRLDistributionPoints
 output/stip.html: certficate
+output/stip.html: certificatePolicies
 output/stip.html: cleartext
 output/stip.html: cleint
 output/stip.html: clientAuth
