@@ -1,0 +1,1 @@
+/home/runner/work/stip/stip/output/effective.xml:5:13: error: element "PPTitle" not allowed here; expected element "PPVersion"
