@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html>
-<html><head><title>Supporting Document - 
-    PP-Module for SSL/TLS Inspection Proxy</title><style type="text/css">
+<html><head><title>Supporting Document - PP-Module for SSL/TLS Inspection Proxy</title><style type="text/css">
     #toc a{
         display: block;
     }
@@ -272,8 +271,7 @@
     }    
    
    </style></head><body><div style="text-align: center; margin-left: auto; margin-right: auto;"><h1 class="title" style="page-break-before:auto;">Supporting Document<br/>
-        Mandatory Technical Document</h1><img src="images/niaplogo.png" alt="NIAP Logo"></img><hr width="50%"></hr><noscript><h1 style="text-align:center; border-style: dashed; border-width: medium; border-color: red;">This page is best viewed with JavaScript enabled!</h1></noscript><br/>
-    PP-Module for SSL/TLS Inspection Proxy<br/>
+        Mandatory Technical Document</h1><img src="images/niaplogo.png" alt="NIAP Logo"></img><hr width="50%"></hr><noscript><h1 style="text-align:center; border-style: dashed; border-width: medium; border-color: red;">This page is best viewed with JavaScript enabled!</h1></noscript><br/>PP-Module for SSL/TLS Inspection Proxy<br/>
       Version: 2.0<br/>2022-02-18<br/><b>National Information Assurance Partnership</b></div><div class="foreword"><h1 style="text-align: center">Foreword</h1><p>This is a Supporting Document (SD), intended to complement the Common Criteria version 3
       and the associated Common Evaluation Methodology for
       Information Technology Security Evaluation.</p><p>SDs may be “Guidance Documents”, that highlight specific approaches 
@@ -293,20 +291,19 @@
       SSL/TLS Inspection Proxy
       Technical Community members, with representatives from industry, government 
       agencies, Common Criteria Test Laboratories, and members of academia.
-      </p></div><h1>Table of Contents</h1><div id="toc"><a href="#introduction" style="text-indent:0px">1<span>Introduction</span></a><a href="#scope" style="text-indent:10px">1.1<span>Technology Area and Scope of Supporting Document</span></a><a href="#structure" style="text-indent:10px">1.2<span>Structure of the Document</span></a><a href="#glossary" style="text-indent:10px">1.3<span>Terms</span></a><a href="#cc-terms" style="text-indent:20px">1.3.1<span>Common Criteria Terms</span></a><a href="#tech-terms" style="text-indent:20px">1.3.2<span>Technical Terms</span></a><a href="#sfr" style="text-indent:0px">2<span>Evaluation Activities for SFRs</span></a><a href="#aa-ND" style="text-indent:10px">2.1<span>Network Device</span></a><a href="#qq-sfrs-ND-Modified" style="text-indent:20px">2.1.1<span>Modified SFRs
-        </span></a><a href="#man-sfrs" style="text-indent:10px">2.2<span>TOE SFR Evaluation Activities</span></a><a href="#m-fau" style="text-indent:20px">2.2.1<span>Security Audit (FAU)</span></a><a href="#m-fcs" style="text-indent:20px">2.2.2<span>Cryptographic Support (FCS)</span></a><a href="#m-fdp" style="text-indent:20px">2.2.3<span>User Data Protection (FDP)</span></a><a href="#m-fia" style="text-indent:20px">2.2.4<span>Identification and Authentication (FIA)</span></a><a href="#m-fmt" style="text-indent:20px">2.2.5<span>Security Management (FMT)</span></a><a href="#m-fpt" style="text-indent:20px">2.2.6<span>Protection of the TSF (FPT)</span></a><a href="#opt-sfrs" style="text-indent:10px">2.3<span>Evaluation Activities for Optional SFRs</span></a><a href="#opt-fau" style="text-indent:20px">2.3.1<span>Persistent Local Audit Storage</span></a><a href="#opt-fdp" style="text-indent:20px">2.3.2<span>Certificate Pinning</span></a><a href="#sel-sfrs" style="text-indent:10px">2.4<span>Evaluation Activities for Selection-Based SFRs</span></a><a href="#s-b3" style="text-indent:20px">2.4.1<span>Inspection Policy Banner</span></a><a href="#s-b4" style="text-indent:20px">2.4.2<span>Authentication of Monitored Clients</span></a><a href="#s-b5" style="text-indent:20px">2.4.3<span>Other Selection-based SFRs</span></a><a href="#obj-sfrs" style="text-indent:10px">2.5<span>Evaluation Activities for Objective SFRs</span></a><a href="#impl-sfrs-" style="text-indent:10px">2.6<span>Evaluation Activities for Implementation-dependent SFRs</span></a><a href="#sar_aas" style="text-indent:0px">3<span>Evaluation Activities for SARs</span></a><a href="#sup-info" style="text-indent:0px">4<span>Required Supplementary Information</span></a><a href="#biblio" style="text-indent:0px">Appendix A - <span>References</span></a></div><h1 id="introduction" class="indexable" data-level="0">1 Introduction</h1><h2 id="scope" class="indexable" data-level="1">1.1 Technology Area and Scope of Supporting Document</h2><p>The scope of the 
-    PP-Module for SSL/TLS Inspection Proxy is
+      </p></div><h1>Table of Contents</h1><div id="toc"><a href="#introduction" style="text-indent:0px">1<span>Introduction</span></a><a href="#scope" style="text-indent:10px">1.1<span>Technology Area and Scope of Supporting Document</span></a><a href="#structure" style="text-indent:10px">1.2<span>Structure of the Document</span></a><a href="#glossary" style="text-indent:10px">1.3<span>Terms</span></a><a href="#cc-terms" style="text-indent:20px">1.3.1<span>Common Criteria Terms</span></a><a href="#tech-terms" style="text-indent:20px">1.3.2<span>Technical Terms</span></a><a href="#sfr" style="text-indent:0px">2<span>Evaluation Activities for SFRs</span></a><a href="#aa-ndcpp" style="text-indent:10px">2.1<span>Collaborative Protection Profile for Network Devices</span></a><a href="#qq-sfrs-ndcpp-Modified" style="text-indent:20px">2.1.1<span>Modified SFRs
+        </span></a><a href="#man-sfrs" style="text-indent:10px">2.2<span>TOE SFR Evaluation Activities</span></a><a href="#m-fau" style="text-indent:20px">2.2.1<span>Security Audit (FAU)</span></a><a href="#m-fcs" style="text-indent:20px">2.2.2<span>Cryptographic Support (FCS)</span></a><a href="#m-fdp" style="text-indent:20px">2.2.3<span>User Data Protection (FDP)</span></a><a href="#m-fia" style="text-indent:20px">2.2.4<span>Identification and Authentication (FIA)</span></a><a href="#m-fmt" style="text-indent:20px">2.2.5<span>Security Management (FMT)</span></a><a href="#m-fpt" style="text-indent:20px">2.2.6<span>Protection of the TSF (FPT)</span></a><a href="#opt-sfrs" style="text-indent:10px">2.3<span>Evaluation Activities for Optional SFRs</span></a><a href="#opt-fau" style="text-indent:20px">2.3.1<span>Persistent Local Audit Storage</span></a><a href="#opt-fdp" style="text-indent:20px">2.3.2<span>Certificate Pinning</span></a><a href="#sel-sfrs" style="text-indent:10px">2.4<span>Evaluation Activities for Selection-Based SFRs</span></a><a href="#s-b3" style="text-indent:20px">2.4.1<span>Inspection Policy Banner</span></a><a href="#s-b4" style="text-indent:20px">2.4.2<span>Authentication of Monitored Clients</span></a><a href="#s-b5" style="text-indent:20px">2.4.3<span>Other Selection-based SFRs</span></a><a href="#obj-sfrs" style="text-indent:10px">2.5<span>Evaluation Activities for Objective SFRs</span></a><a href="#impl-sfrs-" style="text-indent:10px">2.6<span>Evaluation Activities for Implementation-dependent SFRs</span></a><a href="#sar_aas" style="text-indent:0px">3<span>Evaluation Activities for SARs</span></a><a href="#sup-info" style="text-indent:0px">4<span>Required Supplementary Information</span></a><a href="#biblio" style="text-indent:0px">Appendix A - <span>References</span></a></div><h1 id="introduction" class="indexable" data-level="0">1 Introduction</h1><h2 id="scope" class="indexable" data-level="1">1.1 Technology Area and Scope of Supporting Document</h2><p>The scope of the PP-Module for SSL/TLS Inspection Proxy is
     to describe the security functionality of 
     SSL/TLS Inspection Proxy
     products in terms of 
     [CC] and to define functional and assurance requirements for them.
 
     
-    The PP-Module is intended for use with the following Base-PP:
-        <ul><li>Network Device, version 4.0.</li></ul><br/>
+    The PP-Module is intended for use with the following base PP:
+        <ul><li></li></ul><br/>
     This SD is mandatory for evaluations of TOEs that claim conformance to a PP-Configuration that includes the PP-Module for :
     <ul><li>SSL/TLS Inspection Proxy, Version 2.0</li></ul>
-    As such it defines Evaluation Activities for the functionality described in the PP-Module as well as any impacts to the Evaluation Activities to the Base-PP(s) it modifies.
+    As such it defines Evaluation Activities for the functionality described in the PP-Module as well as any impacts to the Evaluation Activities to the base PP(s) it modifies.
     </p><p> 
 Although Evaluation Activities are defined mainly for the evaluators to follow, in general they also help developers to prepare for evaluation by identifying specific requirements for their TOE.
     The specific requirements in Evaluation Activities may in some cases clarify the meaning of Security
@@ -333,7 +330,7 @@ Although Evaluation Activities are defined mainly for the evaluators to follow, 
     </p><div class="no-link"><h2 id="glossary" class="indexable" data-level="1">1.3 Terms</h2>
 The following sections list Common Criteria and technology terms used in this document.
     <h3 id="cc-terms" class="indexable" data-level="2">1.3.1 Common Criteria Terms</h3><table><tr><td><div id="Assurance">Assurance</div></td><td>Grounds for confidence that a TOE meets the SFRs <a href="#bibCC">[CC]</a>.</td></tr>
-<tr><td><div id="Base_Protection_Profile">Base Protection Profile (Base-PP)</div></td><td>Protection Profile used as a basis to build a PP-Configuration.</td></tr>
+<tr><td><div id="Base_Protection_Profile">Base Protection Profile (base PP)</div></td><td>Protection Profile used as a basis to build a PP-Configuration.</td></tr>
 <tr><td><div id="Collaborative_Protection_Profile">Collaborative Protection Profile (cPP)</div></td><td>A Protection Profile developed by
     international technical communities and approved by multiple schemes.</td></tr>
 <tr><td><div id="Common_Criteria">Common Criteria (CC)</div></td><td>Common Criteria for Information Technology Security Evaluation (International Standard ISO/IEC 15408).</td></tr>
@@ -355,8 +352,8 @@ The following sections list Common Criteria and technology terms used in this do
 	    or functionality.</td></tr>
 <tr><td><div id="Operational_Environment">Operational Environment (OE)</div></td><td>Hardware and software that are outside the TOE boundary that support the TOE functionality and security policy.</td></tr>
 <tr><td><div id="Protection_Profile">Protection Profile (PP)</div></td><td>An implementation-independent set of security requirements for a category of products.</td></tr>
-<tr><td><div id="Protection_Profile_Configuration">Protection Profile Configuration (PP-Configuration)</div></td><td>A comprehensive set of security requirements for a product type that consists of at least one Base-PP and at least one PP-Module.</td></tr>
-<tr><td><div id="Protection_Profile_Module">Protection Profile Module (PP-Module)</div></td><td>An implementation-independent statement of security needs for a TOE type complementary to one or more Base-PPs.</td></tr>
+<tr><td><div id="Protection_Profile_Configuration">Protection Profile Configuration (PP-Configuration)</div></td><td>A comprehensive set of security requirements for a product type that consists of at least one base PP and at least one PP-Module.</td></tr>
+<tr><td><div id="Protection_Profile_Module">Protection Profile Module (PP-Module)</div></td><td>An implementation-independent statement of security needs for a TOE type complementary to one or more base PPs.</td></tr>
 <tr><td><div id="Security_Assurance_Requirement">Security Assurance Requirement (SAR)</div></td><td>A requirement to assure the security of the TOE.</td></tr>
 <tr><td><div id="Security_Functional_Requirement">Security Functional Requirement (SFR)</div></td><td>A requirement for security enforcement by the TOE.</td></tr>
 <tr><td><div id="Security_Target">Security Target (ST)</div></td><td>A set of implementation-dependent security requirements for a specific product.</td></tr>
@@ -452,13 +449,13 @@ The following sections list Common Criteria and technology terms used in this do
     In this case, the evaluator must ensure the developer’s tests are executing both 
     in the manner declared by the developer and as mandated by the EA. 
     The CEM workunits that are associated with the EAs specified in this section 
-    are: ATE_IND.1-3, ATE_IND.1-4, ATE_IND.1-5, ATE_IND.1-6, and ATE_IND.1-7.</p><h2 class="indexable" data-level="1" id="aa-ND">2.1 Network Device</h2>
+    are: ATE_IND.1-3, ATE_IND.1-4, ATE_IND.1-5, ATE_IND.1-6, and ATE_IND.1-7.</p><h2 class="indexable" data-level="1" id="aa-ndcpp">2.1 Collaborative Protection Profile for Network Devices</h2>
       The EAs defined in this section are only applicable in cases where the TOE claims conformance
-      to a PP-Configuration that includes the NDcPP.
-     <h3 class="indexable" data-level="2" id="qq-sfrs-ND-Modified">2.1.1 Modified SFRs
+      to a PP-Configuration that includes the ND.
+     <h3 class="indexable" data-level="2" id="qq-sfrs-ndcpp-Modified">2.1.1 Modified SFRs
         </h3>
 	  The PP-Module does not modify any requirements when the 
-	  NDcPP is the base.
+	  ND is the base.
 	<h2 class="indexable" data-level="1" id="man-sfrs">2.2 TOE SFR Evaluation Activities</h2><h2 class="indexable" data-level="2" id="m-fau">2.2.1 Security Audit (FAU)</h2><div class="comp" id="FAU-GCR-EXT-1"><h4>FAU_GCR_EXT.1 Generation of Certificate Repository</h4><span class="activity_pane_body"><div class="component-activity-header">FAU_GCR_EXT.1</div>
             
             
@@ -506,17 +503,12 @@ The following sections list Common Criteria and technology terms used in this do
                 repository is full, then this test will be run for those types of TOEs as well. <a href="#fau-stg-4-remote" class="dynref">Test FAU_STG.5:2</a> is only executed in cases
                 where an external repository is supported, and tests the ability of the TOE to detect when the connection
                 to the repository becomes unavailable:
-                <span class="testlist-"><ul>
-                  <li class="test-"><a id="fau-stg-4-local" class="defined" href="#fau-stg-4-local">Test FAU_STG.5:1</a>:
-      (conditional, the audit trail is local to the TOE) The evaluator shall cause the audit trail to become full, verify that the TSF
+                <span class="testlist-"><ul><li class="test-"><a id="fau-stg-4-local" class="defined" href="#fau-stg-4-local">Test FAU_STG.5:1</a>:<br/>(conditional, the audit trail is local to the TOE) The evaluator shall cause the audit trail to become full, verify that the TSF
                     behaves as documented in the TSS, and verify that a privileged user can perform the
-                    documented remedial steps.</li>
-                  <li class="test-"><a id="fau-stg-4-remote" class="defined" href="#fau-stg-4-remote">Test FAU_STG.5:2</a>:
-      (conditional, the audit trail is stored in the Operational Environment) The evaluator shall cause the audit trail to become unavailable, verify that
+                    documented remedial steps.</li><li class="test-"><a id="fau-stg-4-remote" class="defined" href="#fau-stg-4-remote">Test FAU_STG.5:2</a>:<br/>(conditional, the audit trail is stored in the Operational Environment) The evaluator shall cause the audit trail to become unavailable, verify that
                     the TSF behaves as documented in the TSS, and verify that a privileged user can perform the
                     documented remedial steps.
-                  </li>
-                </ul></span>
+                  </li></ul></span>
               </div></div></span></div><h2 class="indexable" data-level="2" id="m-fcs">2.2.2 Cryptographic Support (FCS)</h2><div class="comp" id="FCS-COP-1-STIP"><h4>FCS_COP.1/STIP Cryptographic Operation (Data Encryption/Decryption in Support of STIP)</h4><span class="activity_pane_body"><div class="component-activity-header">FCS_COP.1/STIP</div>
               
               
@@ -533,9 +525,7 @@ The following sections list Common Criteria and technology terms used in this do
                 Standard (TDES) with three distinct keys.
               <p></p></div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
                 
-                <span class="testlist-"><ul>
-                  <li class="test-"><a id="_t_3" class="defined" href="#_t_3">Test FCS_COP.1/STIP:1</a>:
-      The evaluator shall verify the AES implementation used to support TLS cipher suites in accordance
+                <span class="testlist-"><ul><li class="test-"><a id="_t_3" class="defined" href="#_t_3">Test FCS_COP.1/STIP:1</a>:<br/>The evaluator shall verify the AES implementation used to support TLS cipher suites in accordance
                     with the requirements by conducting the following tests:
                     <p></p>
                     <b>AES-CCM Test</b>
@@ -607,10 +597,7 @@ The following sections list Common Criteria and technology terms used in this do
                     associated data length, payload length, nonce length, and tag length, the evaluator shall supply a key value
                     and 15 sets of input plus ciphertext, and obtain the decrypted payload. Ten of the 15 input sets supplied
                     should fail verification and five should pass.
-                  </li>
-                  
-                  <li class="test-"><a id="_t_4" class="defined" href="#_t_4">Test FCS_COP.1/STIP:2</a>:
-      (conditional, the TSF supports TDES): The evaluator shall test the TDES implementation used to support TLS cipher suites
+                  </li><li class="test-"><a id="_t_4" class="defined" href="#_t_4">Test FCS_COP.1/STIP:2</a>:<br/>(conditional, the TSF supports TDES): The evaluator shall test the TDES implementation used to support TLS cipher suites
                     in accordance with NIST SP 800-67 Rev 2, by conducting the following tests:
                     <p></p>
                     <b>Variable Plaintext/Ciphertext Known Answer Test:</b>
@@ -684,8 +671,7 @@ The following sections list Common Criteria and technology terms used in this do
                         validate the results against a known good implementation of TDEA.
                       </li>
                     </ul>
-                  </li>
-                </ul></span>
+                  </li></ul></span>
               </div></div></span></div><div class="comp" id="FCS-STG-EXT-1"><h4>FCS_STG_EXT.1 Cryptographic Key Storage</h4><span class="activity_pane_body"><div class="component-activity-header">FCS_STG_EXT.1</div>
               
               
@@ -720,9 +706,7 @@ The following sections list Common Criteria and technology terms used in this do
                 Additional configuration instructions for the monitored client, the requested server or the server’s
                 certificate are indicated in each of the tests: 
 
-                <span class="testlist-"><ul>
-                  <li class="test-"><a id="tttc-ciphers" class="defined" href="#tttc-ciphers">Test FCS_TTTC_EXT.1.1:1</a>:
-      For each version and cipher suite combination supported, as indicated in FCS_TTTC_EXT.1.1, the
+                <span class="testlist-"><ul><li class="test-"><a id="tttc-ciphers" class="defined" href="#tttc-ciphers">Test FCS_TTTC_EXT.1.1:1</a>:<br/>For each version and cipher suite combination supported, as indicated in FCS_TTTC_EXT.1.1, the
                     evaluator shall configure a server requested by a monitored client to negotiate the version and cipher
                     suite, and issue the server a valid certificate from the trusted CA containing a subjectAltName (SAN) extension
                     containing the expected DNS name of the server. The evaluator shall then initiate a TLS session from a monitored client through the
@@ -730,9 +714,7 @@ The following sections list Common Criteria and technology terms used in this do
                     TLS session between the TOE and the requested server cipher suites is successful. Additionally, the
                     evaluator shall verify that the Client Hello sent from the TSF to the requested server contains the full,
                     ordered list of cipher suites supported for the selected version in accordance with FCS_TTTC_EXT.1.4.
-                  </li>
-                  <li class="test-"><a id="tttc-eku" class="defined" href="#tttc-eku">Test FCS_TTTC_EXT.1.1:2</a>:
-      
+                  </li><li class="test-"><a id="tttc-eku" class="defined" href="#tttc-eku">Test FCS_TTTC_EXT.1.1:2</a>:<br/>
                     The evaluator shall choose a supported version and cipher suite combination. For each
                     extendedKeyUsage condition for server certificates that allows the TLS session to be completed, as
                     indicated in FIA_X509_EXT.1.1/STIP, the evaluator shall configure a requested server to negotiate the
@@ -742,18 +724,14 @@ The following sections list Common Criteria and technology terms used in this do
                     certificate in its TLS handshake. The evaluator shall then make a TLS request in turn from a monitored
                     client to each of the reconfigured servers through the TOE, and observe that the TLS session from the TOE
                     to the requested server is established.
-                  </li>
-                  <li class="test-"><a id="_t_7" class="defined" href="#_t_7">Test FCS_TTTC_EXT.1.1:3</a>:
-      
+                  </li><li class="test-"><a id="_t_7" class="defined" href="#_t_7">Test FCS_TTTC_EXT.1.1:3</a>:<br/>
                     The evaluator shall establish a new certificate for a server as configured for <a href="#tttc-eku" class="dynref">Test FCS_TTTC_EXT.1.1:2</a> where the
                     extendedKeyUsage field is present, does not include either the ‘Any’ purpose or
                     Server Authentication purpose and which does contain the CodeSigning purpose, and configure the server
                     to present the new certificate in its TLS handshake. The evaluator shall make a request to that server from
                     a monitored client through the TOE and verify that the TLS session between the TSF and the server is
                     attempted, but fails. 
-                  </li>
-                  <li class="test-"><a id="_t_8" class="defined" href="#_t_8">Test FCS_TTTC_EXT.1.1:4</a>:
-      
+                  </li><li class="test-"><a id="_t_8" class="defined" href="#_t_8">Test FCS_TTTC_EXT.1.1:4</a>:<br/>
                     For each of the following, the evaluator shall issue a new certificate as specified from the trusted
                     CA containing the indicated public key type for a server configured to negotiate a supported version and
                     cipher suite as specified, so the server presents a certificate with a signature or static public key type that
@@ -786,50 +764,32 @@ The following sections list Common Criteria and technology terms used in this do
                     server and after the server negotiates the cipher suite, the evaluator shall send the new certificate in a
                     server certificate message to the TSF in the place of the expected certificate message, and observe that
                     the TSF does not establish a TLS session with the server. 
-                  </li>
-                  <li class="test-"><a id="_t_9" class="defined" href="#_t_9">Test FCS_TTTC_EXT.1.1:5</a>:
-      The evaluator shall configure a server to select the TLS_NULL_WITH_NULL_NULL cipher suite. The
+                  </li><li class="test-"><a id="_t_9" class="defined" href="#_t_9">Test FCS_TTTC_EXT.1.1:5</a>:<br/>The evaluator shall configure a server to select the TLS_NULL_WITH_NULL_NULL cipher suite. The
                     evaluator shall make a request from a monitored client to the so configured server and verify that the TLS
-                    session between the TSF and the server is attempted but not established.</li>
-                  <li class="test-"><a id="_t_10" class="defined" href="#_t_10">Test FCS_TTTC_EXT.1.1:6</a>:
-      
+                    session between the TSF and the server is attempted but not established.</li><li class="test-"><a id="_t_10" class="defined" href="#_t_10">Test FCS_TTTC_EXT.1.1:6</a>:<br/>
                     For each of the following, the evaluator shall configure a requested server to negotiate a supported
                     version and cipher suite, as indicated, and use a valid certificate from the trusted CA, but send TLS
                     messages as indicated and otherwise respond as a valid TLS server. For each in turn, the evaluator shall
                     initiate a TLS connection between a monitored client and the requested server through the TOE and
                     observe the indicated behavior of the TOE on receiving the server message: 
                     
-                    <span class="testlist-"><ul>
-                      <li class="test-"><a id="_t_11" class="defined" href="#_t_11">Test FCS_TTTC_EXT.1.1:6.1</a>:
-       Configure the requested server to send an undefined TLS version (for example, 1.5
-                        represented by the two bytes 03 06) and verify that the TSF rejects the connection.</li>
-                      <li class="test-"><a id="_t_12" class="defined" href="#_t_12">Test FCS_TTTC_EXT.1.1:6.2</a>:
-        Configure the requested server to send a Server Hello with the TLS version set to
-                        SSL 3.0 (represented by the two bytes 03 00) and verify that the TSF rejects the connection.</li>
-                      <li class="test-"><a id="_t_13" class="defined" href="#_t_13">Test FCS_TTTC_EXT.1.1:6.3</a>:
-        Configure the requested server to use a DHE cipher suite and configure the
+                    <span class="testlist-"><ul><li class="test-"><a id="_t_11" class="defined" href="#_t_11">Test FCS_TTTC_EXT.1.1:6.1</a>:<br/> Configure the requested server to send an undefined TLS version (for example, 1.5
+                        represented by the two bytes 03 06) and verify that the TSF rejects the connection.</li><li class="test-"><a id="_t_12" class="defined" href="#_t_12">Test FCS_TTTC_EXT.1.1:6.2</a>:<br/>  Configure the requested server to send a Server Hello with the TLS version set to
+                        SSL 3.0 (represented by the two bytes 03 00) and verify that the TSF rejects the connection.</li><li class="test-"><a id="_t_13" class="defined" href="#_t_13">Test FCS_TTTC_EXT.1.1:6.3</a>:<br/>  Configure the requested server to use a DHE cipher suite and configure the
                       requested server to send a Server Hello message with at least one byte in the server’s nonce 
                       in the Server Hello handshake message modified from the expected response, and verify
                       that the TSF rejects the connection. Repeat this test using a requested server configured to
-                      use an ECDHE cipher suite and observe that the TSF rejects the connection.</li>
-                      <li class="test-"><a id="_t_14" class="defined" href="#_t_14">Test FCS_TTTC_EXT.1.1:6.4</a>:
-        Configure the requested server to respond to a Client Hello with a cipher suite that
+                      use an ECDHE cipher suite and observe that the TSF rejects the connection.</li><li class="test-"><a id="_t_14" class="defined" href="#_t_14">Test FCS_TTTC_EXT.1.1:6.4</a>:<br/>  Configure the requested server to respond to a Client Hello with a cipher suite that
                       is not supported by the TSF, and therefore not present in the Client Hello received by the
-                      server. The evaluator shall verify that the TSF rejects the connection.</li>
-                      <li class="test-"><a id="_t_15" class="defined" href="#_t_15">Test FCS_TTTC_EXT.1.1:6.5</a>:
-        Using requested servers configured to use a cipher suite using DHE, and send a
+                      server. The evaluator shall verify that the TSF rejects the connection.</li><li class="test-"><a id="_t_15" class="defined" href="#_t_15">Test FCS_TTTC_EXT.1.1:6.5</a>:<br/>  Using requested servers configured to use a cipher suite using DHE, and send a
                       KeyExchange handshake message with an invalid signature (e.g., by modifying the signature
                       block in the expected KeyExchange handshake message), and verify that the TSF rejects the
                       connection. Repeat this test with a requested server configured to use a cipher suite using
-                      ECDHE and verify that the TSF rejects the connection.</li>
-                      <li class="test-"><a id="_t_16" class="defined" href="#_t_16">Test FCS_TTTC_EXT.1.1:6.6</a>:
-      Configure the requested server to respond with an invalid Server Finished message
+                      ECDHE and verify that the TSF rejects the connection.</li><li class="test-"><a id="_t_16" class="defined" href="#_t_16">Test FCS_TTTC_EXT.1.1:6.6</a>:<br/>Configure the requested server to respond with an invalid Server Finished message
                       (e.g., by modifying a byte in the expected Server Finished handshake message) and verify
-                      that the TSF rejects the connection.</li>
-                    </ul></span>
+                      that the TSF rejects the connection.</li></ul></span>
                     
-                  </li>
-                </ul></span>
+                  </li></ul></span>
               </div>
             <div class="element-activity-header">FCS_TTTC_EXT.1.2</div>
               <div class="eacategory">TSS</div><div class="ea">
@@ -847,17 +807,13 @@ The following sections list Common Criteria and technology terms used in this do
                 FCS_TTTC_EXT.1.1 confirms the TSF properly validates the reference ID of a certificate containing a DNS
                 name in the subjectAltName matching the SNI contained in the Client Hello of a monitored client, and is
                 not repeated. The remaining tests cover support for other name forms and negative testing.
-                <span class="testlist-"><ul>
-                  <li class="test-"><a id="_t_17" class="defined" href="#_t_17">Test FCS_TTTC_EXT.1.2:1</a>:
-      The evaluator shall issue a certificate from the trusted CA that represents a requested server that
+                <span class="testlist-"><ul><li class="test-"><a id="_t_17" class="defined" href="#_t_17">Test FCS_TTTC_EXT.1.2:1</a>:<br/>The evaluator shall issue a certificate from the trusted CA that represents a requested server that
                     contains a SAN extension with a valid DNS name type. The evaluator shall configure the requested server
                     to use a valid, supported version and cipher suite combination consistent with the certificate, and provide
                     the certificate in response to a TLS request. The evaluator shall establish a TLS session from a monitored
                     client to the requested server through the TOE using an SNI extension in the Client Hello that does not
                     match the name in the certificate. The evaluator shall ensure the TOE does not succeed in establishing a
-                    TLS connection to the requested server.</li>
-                  <li class="test-"><a id="_t_18" class="defined" href="#_t_18">Test FCS_TTTC_EXT.1.2:2</a>:
-      (conditional, the TSF supports additional reference identifiers not used in FCS_TTTC_EXT.1.1 <a href="#tttc-ciphers" class="dynref">Test FCS_TTTC_EXT.1.1:1</a>): 
+                    TLS connection to the requested server.</li><li class="test-"><a id="_t_18" class="defined" href="#_t_18">Test FCS_TTTC_EXT.1.2:2</a>:<br/>(conditional, the TSF supports additional reference identifiers not used in FCS_TTTC_EXT.1.1 <a href="#tttc-ciphers" class="dynref">Test FCS_TTTC_EXT.1.1:1</a>): 
                     For each additional reference identifier described in the TSS, the evaluator shall establish a
                     monitored client and requested server that causes the TSF to establish a reference identifier of the
                     indicated type. The evaluator shall issue a new certificate for the requested server from the trusted CA
@@ -866,9 +822,7 @@ The following sections list Common Criteria and technology terms used in this do
                     requested server to use a valid, supported version and cipher suite combination consistent with the
                     certificate, and provide the new certificate in a valid server certificate message. The evaluator shall initiate
                     a TLS session from the monitored client to the requested server through the TOE and observe that the
-                    TSF establishes the TLS session to the requested server. </li>
-                  <li class="test-"><a id="_t_19" class="defined" href="#_t_19">Test FCS_TTTC_EXT.1.2:3</a>:
-      (conditional, the TSF supports additional reference identifiers): For each additional reference
+                    TSF establishes the TLS session to the requested server. </li><li class="test-"><a id="_t_19" class="defined" href="#_t_19">Test FCS_TTTC_EXT.1.2:3</a>:<br/>(conditional, the TSF supports additional reference identifiers): For each additional reference
                     identifier described in the TSS, the evaluator shall establish a monitored client and requested server to
                     cause the TSF to use the indicated reference identifier and issue a certificate for a server from the trusted
                     CA that contains a name of the same type in the subject name or the SAN extension as appropriate for
@@ -877,9 +831,7 @@ The following sections list Common Criteria and technology terms used in this do
                     certificate, and provide the new certificate in a valid server certificate message. The evaluator shall initiate
                     a TLS session between the monitored client and the server through the TOE and observe that the TSF does
                     not establish a valid TLS session to the requested server.
-                  </li>
-                  <li class="test-"><a id="_t_20" class="defined" href="#_t_20">Test FCS_TTTC_EXT.1.2:4</a>:
-      The evaluator shall perform the following wildcard tests with each type of reference identifier
+                  </li><li class="test-"><a id="_t_20" class="defined" href="#_t_20">Test FCS_TTTC_EXT.1.2:4</a>:<br/>The evaluator shall perform the following wildcard tests with each type of reference identifier
                     based on DNS name types. This test is not intended for reference identifiers using IP addresses. The
                     support for wildcards is intended to be optional. If wildcards are supported, the first, second, and third
                     tests below shall be executed. If wildcards are not supported, then the fourth test below shall be executed.
@@ -891,35 +843,25 @@ The following sections list Common Criteria and technology terms used in this do
                     the evaluator shall initiate a TLS session between the monitored client and requested server through the
                     TSF, causing the TSF to attempt to match the presented identifier to the established reference identifier
                     and observe the indicated result: 
-                    <span class="testlist-"><ul>
-                      <li class="test-"><a id="_t_21" class="defined" href="#_t_21">Test FCS_TTTC_EXT.1.2:4.1</a>:
-       (conditional, the TSF supports wildcards): The evaluator shall use a server certificate
+                    <span class="testlist-"><ul><li class="test-"><a id="_t_21" class="defined" href="#_t_21">Test FCS_TTTC_EXT.1.2:4.1</a>:<br/> (conditional, the TSF supports wildcards): The evaluator shall use a server certificate
                       containing a wildcard that is not in the left-most label of the presented identifier (e.g.,
-                      foo.*.example.com) and verify that the connection fails.</li>
-                      <li class="test-"><a id="_t_22" class="defined" href="#_t_22">Test FCS_TTTC_EXT.1.2:4.2</a>:
-       (conditional, the TSF supports wildcards): The evaluator shall use a server certificate
+                      foo.*.example.com) and verify that the connection fails.</li><li class="test-"><a id="_t_22" class="defined" href="#_t_22">Test FCS_TTTC_EXT.1.2:4.2</a>:<br/> (conditional, the TSF supports wildcards): The evaluator shall use a server certificate
                       containing a wildcard in the left-most label but not preceding the public suffix (e.g.,
                       *.example.com). The evaluator shall cause the reference identifier to have a single left-most
                       label (e.g., foo.example.com) and verify that the connection succeeds. The evaluator shall
                       cause the reference identifier to be without a left-most label as in the certificate (e.g.,
                       example.com) and verify that the connection fails. The evaluator shall cause the reference
                       identifier to have two left-most labels (e.g., bar.foo.example.com) and verify that the
-                      connection fails.</li>
-                      <li class="test-"><a id="_t_23" class="defined" href="#_t_23">Test FCS_TTTC_EXT.1.2:4.3</a>:
-       (conditional, the TSF supports wildcards): The evaluator shall use a server certificate
+                      connection fails.</li><li class="test-"><a id="_t_23" class="defined" href="#_t_23">Test FCS_TTTC_EXT.1.2:4.3</a>:<br/> (conditional, the TSF supports wildcards): The evaluator shall use a server certificate
                       containing a wildcard in the left-most label immediately preceding the public suffix (e.g.,
                       *.com). The evaluator shall cause the reference identifier to have a single left-most label
                       (e.g., foo.com) and verify that the connection fails. The evaluator shall cause the reference
                       identifier to have two left-most labels (e.g., bar.foo.com) and verify that the connection
-                      fails.</li>
-                      <li class="test-"><a id="_t_24" class="defined" href="#_t_24">Test FCS_TTTC_EXT.1.2:4.4</a>:
-       (conditional, the TSF does not support wildcards): The evaluator shall use a server
+                      fails.</li><li class="test-"><a id="_t_24" class="defined" href="#_t_24">Test FCS_TTTC_EXT.1.2:4.4</a>:<br/> (conditional, the TSF does not support wildcards): The evaluator shall use a server
                       certificate containing a wildcard in the left-most label (e.g., *.example.com). The evaluator
                       shall cause the reference identifier to have a single left-most label (e.g., foo.example.com)
-                      and verify that the connection fails.</li>
-                    </ul></span>
-                  </li>
-                </ul></span>
+                      and verify that the connection fails.</li></ul></span>
+                  </li></ul></span>
               </div>
             <div class="element-activity-header">FCS_TTTC_EXT.1.3</div>
               <div class="eacategory">TSS</div><div class="ea">
@@ -944,25 +886,17 @@ The following sections list Common Criteria and technology terms used in this do
                 TLS session from a monitored client through the TOE to the requested server presenting the certificate
                 with the indicated failures, and verify that the TSF terminates the TLS handshake with the requested
                 server:
-                <span class="testlist-"><ul>
-                  <li class="test-"><a id="_t_25" class="defined" href="#_t_25">Test FCS_TTTC_EXT.1.3:1</a>:
-      The evaluator shall issue a valid certificate for the requested server from the untrusted CA. The
+                <span class="testlist-"><ul><li class="test-"><a id="_t_25" class="defined" href="#_t_25">Test FCS_TTTC_EXT.1.3:1</a>:<br/>The evaluator shall issue a valid certificate for the requested server from the untrusted CA. The
                     evaluator shall confirm that the TSF rejects the TLS session with the requested server when it presents a
-                    valid certificate message and certificate verify message using the certificate issued by the untrusted CA.</li>
-                  <li class="test-"><a id="_t_26" class="defined" href="#_t_26">Test FCS_TTTC_EXT.1.3:2</a>:
-      The evaluator shall issue a valid certificate for the requested server by the subordinate CA, but not
+                    valid certificate message and certificate verify message using the certificate issued by the untrusted CA.</li><li class="test-"><a id="_t_26" class="defined" href="#_t_26">Test FCS_TTTC_EXT.1.3:2</a>:<br/>The evaluator shall issue a valid certificate for the requested server by the subordinate CA, but not
                     load it into the TSF trust store, and shall ensure the requested server does not provide the subordinate
                     CA in the certificate chain. The evaluator shall confirm that the TSF rejects the TLS session with the
                     requested server when the server presents a valid certificate message and certificate verify message using
-                    the certificate that does not properly chain to a trusted root.</li>
-                  <li class="test-"><a id="_t_27" class="defined" href="#_t_27">Test FCS_TTTC_EXT.1.3:3</a>:
-      The evaluator shall establish a valid certificate for the requested server issued by the subordinate
+                    the certificate that does not properly chain to a trusted root.</li><li class="test-"><a id="_t_27" class="defined" href="#_t_27">Test FCS_TTTC_EXT.1.3:3</a>:<br/>The evaluator shall establish a valid certificate for the requested server issued by the subordinate
                     CA, and establish valid revocation information from the trusted subordinate CA using a supported
                     mechanism for end-entity certificates, indicating the requested server’s certificate is revoked. The
                     evaluator shall ensure the subordinate CA is included in the certificate chain provided by the requested
-                    server and the revocation information is available. The evaluator shall confirm that authentication fails.</li>
-                  <li class="test-"><a id="_t_28" class="defined" href="#_t_28">Test FCS_TTTC_EXT.1.3:4</a>:
-      The evaluator shall issue a valid certificate for the requested server from the subordinate CA, and
+                    server and the revocation information is available. The evaluator shall confirm that authentication fails.</li><li class="test-"><a id="_t_28" class="defined" href="#_t_28">Test FCS_TTTC_EXT.1.3:4</a>:<br/>The evaluator shall issue a valid certificate for the requested server from the subordinate CA, and
                     establish valid revocation information from the subordinate CA using a supported mechanism for end-entity certificates, indicating the requested server’s certificate is revoked. The evaluator shall ensure the
                     subordinate CA is included in the certificate chain provided by the requested server and ensure the
                     revocation information is not available to the TSF. The evaluator shall confirm that the default behavior
@@ -970,18 +904,14 @@ The following sections list Common Criteria and technology terms used in this do
                     item is claimed in the first selection for FIA_X509_EXT.2.2/STIP), the evaluator shall in turn follow guidance 
                     documentation to configure the TSF for each response, and initiate the TLS session from the monitored
                     client to demonstrate the TSF performs the configured behavior.
-                  </li>
-                  <li class="test-"><a id="_t_29" class="defined" href="#_t_29">Test FCS_TTTC_EXT.1.3:5</a>:
-      The evaluator shall issue a valid certificate for the requested server from the subordinate CA, and
+                  </li><li class="test-"><a id="_t_29" class="defined" href="#_t_29">Test FCS_TTTC_EXT.1.3:5</a>:<br/>The evaluator shall issue a valid certificate for the requested server from the subordinate CA, and
                     generate valid revocation information from the trusted subordinate CA using a supported mechanism for
                     end-entity certificates, indicating the requested server’s certificate is valid, and generate valid revocation
                     information from the trusted CA using a supported mechanism for CA certificates, indicating the
                     subordinate CA’s certificate is revoked. The evaluator shall ensure the subordinate CA is included in the
                     certificate chain provided by the requested server and all revocation information is available. The
                     evaluator shall confirm that authentication fails.
-                  </li>
-                  <li class="test-"><a id="_t_30" class="defined" href="#_t_30">Test FCS_TTTC_EXT.1.3:6</a>:
-      The evaluator shall issue a valid certificate for the requested server from trusted subordinate CA,
+                  </li><li class="test-"><a id="_t_30" class="defined" href="#_t_30">Test FCS_TTTC_EXT.1.3:6</a>:<br/>The evaluator shall issue a valid certificate for the requested server from trusted subordinate CA,
                     and generate valid revocation information from the trusted subordinate CA using a supported mechanism
                     for end-entity certificates indicating the requested server’s certificate is valid, and generate valid
                     revocation information from the trusted CA using a supported mechanism for CA certificates, indicating
@@ -992,17 +922,13 @@ The following sections list Common Criteria and technology terms used in this do
                     performed by the TSF. If this behavior is configurable (the first item is claimed in the selection for
                     FIA_X509_EXT.2.2/STIP), the evaluator shall, in turn, follow guidance documentation to configure the TSF for each
                     response, and initiate the TLS session from the monitored client to demonstrate the TSF performs the
-                    configured behavior. </li>
-                  <li class="test-"><a id="_t_31" class="defined" href="#_t_31">Test FCS_TTTC_EXT.1.3:7</a>:
-      The evaluator shall issue a valid certificate from the trusted CA for the requested server that
+                    configured behavior. </li><li class="test-"><a id="_t_31" class="defined" href="#_t_31">Test FCS_TTTC_EXT.1.3:7</a>:<br/>The evaluator shall issue a valid certificate from the trusted CA for the requested server that
                     expires prior to initiating the TLS session from the monitored client, and generate revocation information
                     indicating the requested server’s certificate is not revoked. The evaluator shall initiate a TLS session from
                     the monitored client to the requested server through the TOE after the certificate has expired, and ensure
                     the certificate status information from the trusted CA is available to the TSF. The evaluator shall observe
                     that the TSF fails to establish the TLS connection with the requested server, demonstrating that a server
-                    using a certificate which has passed its expiration date results in an authentication failure.</li>
-                  <li class="test-"><a id="_t_32" class="defined" href="#_t_32">Test FCS_TTTC_EXT.1.3:8</a>:
-      The evaluator shall establish a new subordinate CA from the trusted CA, by issuing the subordinate
+                    using a certificate which has passed its expiration date results in an authentication failure.</li><li class="test-"><a id="_t_32" class="defined" href="#_t_32">Test FCS_TTTC_EXT.1.3:8</a>:<br/>The evaluator shall establish a new subordinate CA from the trusted CA, by issuing the subordinate
                     CA a certificate that expires prior to initiating the TLS session from the monitored client. The evaluator
                     shall issue a valid certificate for the requested server from the subordinate CA but which does not expire
                     prior to initiating the TLS session from the monitored client and generate valid revocation information
@@ -1010,8 +936,7 @@ The following sections list Common Criteria and technology terms used in this do
                     The evaluator shall initiate a TLS session from the monitored client to the requested server through the
                     TOE and observe that the TLS session between the TSF and requested server fails, demonstrating that a
                     server using a valid certificate (not yet expired) issued by a subordinate CA that has passed its expiration
-                    date results in an authentication failure.</li>
-                </ul></span>
+                    date results in an authentication failure.</li></ul></span>
               </div>
             <div class="element-activity-header">FCS_TTTC_EXT.1.4</div>
               <div class="eacategory">TSS</div><div class="ea">The evaluator shall ensure that the TSS includes a description of cipher suite dependence on the TLS
@@ -1029,18 +954,14 @@ The following sections list Common Criteria and technology terms used in this do
                 servers that are valid in accordance with FIA_X509_EXT.1/STIP, and install the appropriate trust anchors
                 within the TSF to validate the certificates (the trusted CA). Additional configuration instructions for the
                 monitored client, the requested server or the server’s certificate are indicated in each of the tests.
-              <span class="testlist-"><ul>
-                <li class="test-"><a id="_t_33" class="defined" href="#_t_33">Test FCS_TTTC_EXT.1.4:1</a>:
-      For each supported version other than TLS 1.2, the evaluator shall configure a server requested by
+              <span class="testlist-"><ul><li class="test-"><a id="_t_33" class="defined" href="#_t_33">Test FCS_TTTC_EXT.1.4:1</a>:<br/>For each supported version other than TLS 1.2, the evaluator shall configure a server requested by
                   a monitored client to negotiate the version and an allowed cipher suite for that version, regardless of the
                   Client Hello message received. The evaluator shall, in turn, establish a TLS connection from the monitored
                   client to the requested server through the TOE and observe that the TSF sends a Client Hello to the
                   requested server that includes the allowed version and cipher suites, in the order indicated in
                   FCS_TTTC_EXT.1.1. The evaluator shall confirm that the requested server sends the TOE a Server Hello
                   indicating the configured version and cipher suite, and confirm that the TSF responds by terminating the
-                  TLS handshake with the requested server.</li>
-                <li class="test-"><a id="_t_34" class="defined" href="#_t_34">Test FCS_TTTC_EXT.1.4:2</a>:
-      The evaluator shall follow operational guidance to reconfigure the TLS session establishment policy to
+                  TLS handshake with the requested server.</li><li class="test-"><a id="_t_34" class="defined" href="#_t_34">Test FCS_TTTC_EXT.1.4:2</a>:<br/>The evaluator shall follow operational guidance to reconfigure the TLS session establishment policy to
                   allow any supported version to the requested servers, but only allow the subset of cipher suites as
                   indicated in the setup. For each supported version, the evaluator shall configure the requested server to
                   negotiate the version and a valid cipher suite for that version which is included in FCS_TTTC_EXT.1.1, but
@@ -1049,8 +970,7 @@ The following sections list Common Criteria and technology terms used in this do
                   supported version, through the TOE. The evaluator shall observe that the Client Hello generated by the
                   TSF specifies version 1.2 and the allowed cipher suites in the order indicated in FCS_TTTC_EXT.1.1. The
                   evaluator shall confirm that the server sends the TOE a Server Hello message as configured and confirm
-                  that the TSF responds by terminating the TLS handshake with the requested server.</li>
-              </ul></span>
+                  that the TSF responds by terminating the TLS handshake with the requested server.</li></ul></span>
               </div>
             </span></div><div class="comp" id="FCS-TTTC-EXT-5"><h4>FCS_TTTC_EXT.5 Thru-Traffic TLS Inspection Client Support for Supported Groups Extension</h4><span class="activity_pane_body"><div class="component-activity-header">FCS_TTTC_EXT.5</div>
               
@@ -1063,18 +983,14 @@ The following sections list Common Criteria and technology terms used in this do
                 Supported Elliptic Curves Extension, the evaluator shall verify the operational guidance includes instructions for
                 configuration of the Supported Elliptic Curves Extension.
               <p></p></div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
-                <span class="testlist-"><ul>
-                   <li class="test-"><a id="_t_35" class="defined" href="#_t_35">Test FCS_TTTC_EXT.5:1</a>:
-      The evaluator shall establish a requested server to negotiate a supported version and cipher suite
+                <span class="testlist-"><ul><li class="test-"><a id="_t_35" class="defined" href="#_t_35">Test FCS_TTTC_EXT.5:1</a>:<br/>The evaluator shall establish a requested server to negotiate a supported version and cipher suite
                    using ECDSA signature and ECDHE key exchange using a custom elliptic curve not included in
                    FCS_TTTC_EXT.5.1, regardless of the Client Hello received. The evaluator shall follow operational guidance to
                    configure the TLS session establishment policy so the TSF inspects traffic to the so configured server from
                    a monitored client. The evaluator shall initiate a TLS session to the requested server from the monitored
                    client through the TOE and observe that the TSF sends a Client Hello to the requested server, and receives
                    the configured server Hello Message from the requested server. The evaluator shall confirm that the TSF
-                   terminates the TLS handshake with the requested server.</li>
-                  <li class="test-"><a id="_t_36" class="defined" href="#_t_36">Test FCS_TTTC_EXT.5:2</a>:
-      (conditional, the TSF supports additional elliptic curves that are managed via TLS session establishment policy allowances): 
+                   terminates the TLS handshake with the requested server.</li><li class="test-"><a id="_t_36" class="defined" href="#_t_36">Test FCS_TTTC_EXT.5:2</a>:<br/>(conditional, the TSF supports additional elliptic curves that are managed via TLS session establishment policy allowances): 
                     For each elliptic curve claimed in the assignment of FCS_TTTC_EXT.5.1, the evaluator shall establish a
                     requested server to use the curve in a TLS handshake with a supported version and cipher suite using
                     ECDSA signature and ECDHE key exchange, using the curve. The evaluator shall follow operational guidance to
@@ -1082,9 +998,7 @@ The following sections list Common Criteria and technology terms used in this do
                     server and allow the server to negotiate the additional curve. The evaluator shall initiate a TLS request
                     from a monitored client to the server and observe that the Client Hello sent from the TSF to the requested
                     includes the allowed curve. The evaluator shall confirm that the configured server sends a Server Hello
-                    message to the TSF that selects the curve, and that the TSF accepts the connection. </li>
-                  <li class="test-"><a id="_t_37" class="defined" href="#_t_37">Test FCS_TTTC_EXT.5:3</a>:
-      (conditional, the TSF supports additional elliptic curves that are managed via TLS session establishment policy allowances): 
+                    message to the TSF that selects the curve, and that the TSF accepts the connection. </li><li class="test-"><a id="_t_37" class="defined" href="#_t_37">Test FCS_TTTC_EXT.5:3</a>:<br/>(conditional, the TSF supports additional elliptic curves that are managed via TLS session establishment policy allowances): 
                     For each elliptic curve claimed in the assignment of FCS_TTTC_EXT.5.1, the evaluator shall establish a
                     requested server to use the curve in a TLS handshake with a supported version and cipher suite using
                     ECDSA signature and ECDHE key exchange, regardless of the Client Hello received. The evaluator shall
@@ -1093,8 +1007,7 @@ The following sections list Common Criteria and technology terms used in this do
                     evaluator shall initiate a TLS request from a monitored client to the server and observe that the Supported
                     Groups extension Client Hello sent from the TSF to the requested does not include the curve. The
                     evaluator shall confirm that the configured server sends a Server Hello message to the TSF that selects
-                    the curve, and that the TSF terminates the TLS handshake with the requested server.</li>
-                </ul></span></div></div></span></div><div class="comp" id="FCS-TTTS-EXT-1"><h4>FCS_TTTS_EXT.1 Thru-Traffic TLS Inspection Server Protocol</h4><span class="activity_pane_body"><div class="element-activity-header">FCS_TTTS_EXT.1.1</div>
+                    the curve, and that the TSF terminates the TLS handshake with the requested server.</li></ul></span></div></div></span></div><div class="comp" id="FCS-TTTS-EXT-1"><h4>FCS_TTTS_EXT.1 Thru-Traffic TLS Inspection Server Protocol</h4><span class="activity_pane_body"><div class="element-activity-header">FCS_TTTS_EXT.1.1</div>
               <div class="eacategory">TSS</div><div class="ea">The evaluator shall check the description of this protocol in the TSS to ensure that the TLS versions and
                 cipher suites supported for establishing a TLS session with a monitored client include those listed in
                 FCS_TTTS_EXT.1.1 and determine if configuration is needed to restrict the use of other versions or cipher
@@ -1111,38 +1024,29 @@ The following sections list Common Criteria and technology terms used in this do
                 establish certificates for the servers that are valid in accordance with FIA_X509_EXT.1/STIP and install the
                 appropriate trust anchors within the TSF to validate the certificates. Additional configuration instructions
                 for the monitored client, the requested server or the server’s certificate are indicated in each of the tests: 
-                <span class="testlist-"><ul>
-                  <li class="test-"><a id="_t_38" class="defined" href="#_t_38">Test FCS_TTTS_EXT.1.1:1</a>:
-      For each version and each valid cipher suite for the version, as indicated in FCS_TTTS_EXT.1.1, the
+                <span class="testlist-"><ul><li class="test-"><a id="_t_38" class="defined" href="#_t_38">Test FCS_TTTS_EXT.1.1:1</a>:<br/>For each version and each valid cipher suite for the version, as indicated in FCS_TTTS_EXT.1.1, the
                     evaluator shall configure the monitored client to include the version and a list consisting of a single
                     element specifying the indicated cipher suite in the Client Hello. The evaluator shall follow operational guidance
                     to configure the TLS session establishment policy to allow the TSF to negotiate the version and cipher
                     suite for that client. The evaluator shall then initiate a TLS session from the so configured monitored client
                     through the TOE to a requested server and observe that a TLS session between the monitored client and
-                    the TSF using the specified version and cipher suite is successful. </li>
-                  <li class="test-"><a id="_t_39" class="defined" href="#_t_39">Test FCS_TTTS_EXT.1.1:2</a>:
-      For each supported version indicated in FCS_TTTS_EXT.1.1, the evaluator shall select a valid cipher
+                    the TSF using the specified version and cipher suite is successful. </li><li class="test-"><a id="_t_39" class="defined" href="#_t_39">Test FCS_TTTS_EXT.1.1:2</a>:<br/>For each supported version indicated in FCS_TTTS_EXT.1.1, the evaluator shall select a valid cipher
                     suite in FCS_TTTS_EXT.1.1 and configure a monitored client to present the version and a cipher suite list
                     containing the single cipher suite. The evaluator shall follow operational guidance to configure the TLS session
                     establishment policy so that use of the cipher suite is not allowed for the client. The evaluator shall initiate
                     a TLS session from the monitored client through the TOE to a requested server and observe that a TLS
-                    session between the monitored client and the TSF is denied. </li>
-                  <li class="test-"><a id="_t_40" class="defined" href="#_t_40">Test FCS_TTTS_EXT.1.1:3</a>:
-      For each supported version other than TLS 1.2 indicated in FCS_TTTS_EXT.1.1, the evaluator shall
+                    session between the monitored client and the TSF is denied. </li><li class="test-"><a id="_t_40" class="defined" href="#_t_40">Test FCS_TTTS_EXT.1.1:3</a>:<br/>For each supported version other than TLS 1.2 indicated in FCS_TTTS_EXT.1.1, the evaluator shall
                     configure a monitored client to include the version and a cipher suite list consisting of a cipher suite valid
                     for TLS 1.2 and another valid for the version in its Client Hello. The evaluator shall follow operational guidance to
                     configure the TLS session establishment policy to only allow the client to use TLS 1.2. The evaluator shall
                     initiate a TLS session from the monitored client to a requested server through the TOE and observe that
-                    a TLS session between the monitored client and the TSF is not established.</li>
-                  <li class="test-"><a id="_t_41" class="defined" href="#_t_41">Test FCS_TTTS_EXT.1.1:4</a>:
-      For each supported version indicated in FCS_TTTS_EXT.1.1, the evaluator shall configure a
+                    a TLS session between the monitored client and the TSF is not established.</li><li class="test-"><a id="_t_41" class="defined" href="#_t_41">Test FCS_TTTS_EXT.1.1:4</a>:<br/>For each supported version indicated in FCS_TTTS_EXT.1.1, the evaluator shall configure a
                     monitored client to include the version and a cipher suite list consisting of a single
                     TLS_NULL_WITH_NULL_NULL cipher suite. The evaluator shall follow operational guidance to configure the TLS
                     session establishment policy to allow any version and cipher suite for the client. The evaluator shall initiate
                     a TLS session from the monitored client to a requested server through the TOE and observe that the TLS
                     session between the monitored client and the TSF is denied.
-                  </li>
-                </ul></span>
+                  </li></ul></span>
               </div>
             <div class="element-activity-header">FCS_TTTS_EXT.1.2</div>
               <div class="eacategory">TSS</div><div class="ea">The evaluator shall verify that the TSS contains a description of the denial of SSL versions and TLS versions
@@ -1170,16 +1074,12 @@ The following sections list Common Criteria and technology terms used in this do
                 establish certificates for valid servers in accordance with FIA_X509_EXT.1/STIP and install the appropriate
                 trust anchors within the TSF to validate the certificates. Additional configuration instructions for the
                 monitored client, the requested server, or the server’s certificate are indicated in each of the tests.
-                <span class="testlist-"><ul>
-                  <li class="test-"><a id="_t_42" class="defined" href="#_t_42">Test FCS_TTTS_EXT.1.3:1</a>:
-      For each of the key parameter selections in FCS_TTTS_EXT.1.3, the evaluator shall configure a
+                <span class="testlist-"><ul><li class="test-"><a id="_t_42" class="defined" href="#_t_42">Test FCS_TTTS_EXT.1.3:1</a>:<br/>For each of the key parameter selections in FCS_TTTS_EXT.1.3, the evaluator shall configure a
                     monitored client to use a valid supported version and cipher suite combination that supports the key
                     parameter, and follow operational guidance to configure the TSF to use a cipher suite supporting the parameters.
                     The evaluator shall initiate a TLS session from the monitored client to a requested server through the TOE,
                     and observe that a TLS session between the monitored client and the TLS uses the key parameters and is
-                    successful.</li>
-                  <li class="test-"><a id="_t_43" class="defined" href="#_t_43">Test FCS_TTTS_EXT.1.3:2</a>:
-      The intent of this test is to show that the TSF properly handles unexpected KeyExchange messages
+                    successful.</li><li class="test-"><a id="_t_43" class="defined" href="#_t_43">Test FCS_TTTS_EXT.1.3:2</a>:<br/>The intent of this test is to show that the TSF properly handles unexpected KeyExchange messages
                     from a client that does not agree with the negotiated cipher suite.
                     <p></p>
                     For each of the key parameter selections claimed for FCS_TTTS_EXT.1.3, the evaluator shall configure a
@@ -1295,9 +1195,7 @@ The following sections list Common Criteria and technology terms used in this do
                       observe that the TSF sends a fatal TLS alert message.
                     </li>
                   </ol>
-                  </li>
-                  <li class="test-"><a id="ttts-invalid-rsa-kex" class="defined" href="#ttts-invalid-rsa-kex">Test FCS_TTTS_EXT.1.3:3</a>:
-      
+                  </li><li class="test-"><a id="ttts-invalid-rsa-kex" class="defined" href="#ttts-invalid-rsa-kex">Test FCS_TTTS_EXT.1.3:3</a>:<br/>
                     The intent of this test is to ensure the TSF, when negotiating cipher suites using RSA key transport,
                     responds to invalid RSA KeyExchange messages consistently in order to resist a well-known class of chosen
                     ciphertext attacks against RSA key transport mechanisms, which are especially problematic in TLS 1.0. 
@@ -1309,16 +1207,11 @@ The following sections list Common Criteria and technology terms used in this do
                     the monitored client and requested server and to allow the version and cipher suite for the client and
                     server, and note this initial configuration for subsequent sub-tests:
                     <p></p>
-                    <span class="testlist-"><ul> 
-                    <li class="test-"><a id="_t_45" class="defined" href="#_t_45">Test FCS_TTTS_EXT.1.3:3.1</a>:
-       The evaluator shall send a Client Hello from the monitored client to the requested server
+                    <span class="testlist-"><p></p><p></p><ul><li class="test-"><a id="_t_45" class="defined" href="#_t_45">Test FCS_TTTS_EXT.1.3:3.1</a>:<br/> The evaluator shall send a Client Hello from the monitored client to the requested server
                     and observe that the Server Hello from the TSF selects TLS 1.0 and the desired cipher suite in its Server
                     Hello message. The evaluator shall note the size and formatting of pre-master secret input to the client’s
                     KeyExchange message, continue the handshake from the client, and confirm that the TSF successfully
-                    establishes a TLS connection with the client.</li>
-                    <p></p>
-                    <li class="test-"><a id="_t_46" class="defined" href="#_t_46">Test FCS_TTTS_EXT.1.3:3.2</a>:
-       The evaluator shall terminate the TLS sessions and restore the TSF, monitored client and
+                    establishes a TLS connection with the client.</li><li class="test-"><a id="_t_46" class="defined" href="#_t_46">Test FCS_TTTS_EXT.1.3:3.2</a>:<br/> The evaluator shall terminate the TLS sessions and restore the TSF, monitored client and
                       requested server to the initial configuration for <a href="#ttts-invalid-rsa-kex" class="dynref">Test FCS_TTTS_EXT.1.3:3</a> above. The evaluator shall compute the following
                     KeyExchange based on encrypting the following tailored messages with the server’s public key, using a
                     random value, ran, of size equal to that of the correctly computed pre-master secret, but having a
@@ -1336,14 +1229,9 @@ The following sections list Common Criteria and technology terms used in this do
                       message to the TSF as part of a complete TLS handshake with the server, and observe the TLS error alert
                       response provided by the TSF. Between each iteration, the evaluator shall terminate any residual TLS
                       sessions, reset any cache, and restore the configuration of the monitored client, requested server, and
-                      TOE to its initial configuration for <a href="#ttts-invalid-rsa-kex" class="dynref">Test FCS_TTTS_EXT.1.3:3</a>.</li>
-                      <p></p>
-                      <li class="test-"><a id="_t_47" class="defined" href="#_t_47">Test FCS_TTTS_EXT.1.3:3.3</a>:
-       The evaluator shall observe that each error alert response provided by the TSF for the
-                      iterations in part b match the description in the TSS and is identical for each message M1 through M5.</li>
-                    </ul></span>
-                  </li>
-                </ul></span>
+                      TOE to its initial configuration for <a href="#ttts-invalid-rsa-kex" class="dynref">Test FCS_TTTS_EXT.1.3:3</a>.</li><li class="test-"><a id="_t_47" class="defined" href="#_t_47">Test FCS_TTTS_EXT.1.3:3.3</a>:<br/> The evaluator shall observe that each error alert response provided by the TSF for the
+                      iterations in part b match the description in the TSS and is identical for each message M1 through M5.</li></ul></span>
+                  </li></ul></span>
               </div>
             </span></div><h2 class="indexable" data-level="2" id="m-fdp">2.2.3 User Data Protection (FDP)</h2><div class="comp" id="FDP-CER-EXT-1"><h4>FDP_CER_EXT.1/Server Certificate Generation and Issuance (Server Certificates)</h4><span class="activity_pane_body"><div class="component-activity-header">FDP_CER_EXT.1/Server</div>
               
@@ -1365,13 +1253,9 @@ The following sections list Common Criteria and technology terms used in this do
                   embedded CA and its certificate profiles to meet the requirements.</p>
               </div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
                 The evaluator shall perform the following test.
-                <span class="testlist-"><ul>
-                  <li class="test-"><a id="_t_48" class="defined" href="#_t_48">Test FDP_CER_EXT.1/Server:1</a>:
-      
+                <span class="testlist-"><ul><li class="test-"><a id="_t_48" class="defined" href="#_t_48">Test FDP_CER_EXT.1/Server:1</a>:<br/>
                     <p>The evaluator shall establish a TLS server with a TLS server certificate, and cause the TOE to issue a certificate by establishing a TLS connection between a monitored cleint and the server.  The issued certificate shall be checked to satisfy FDP_CER_EXT.1.2/Server.  The evaluator shall repeat this test as necessary to test all supported name types and extensions.  </p>
-                  </li>
-                  <li class="test-"><a id="_t_49" class="defined" href="#_t_49">Test FDP_CER_EXT.1/Server:2</a>:
-      
+                  </li><li class="test-"><a id="_t_49" class="defined" href="#_t_49">Test FDP_CER_EXT.1/Server:2</a>:<br/>
                     The evaluator shall conduct the following tests by establishing a server with certificate identical to that used in Test 35, except for the differences described as follows (each in turn). The evaluator shall make any configuration changes to the TOE as indicated, establish a monitored client, and submit a TLS request for the server through the TOE so that the inspection operation is performed, and observe the certificate received at the monitored client has the indicated features:<ul>
                       <li>notBefore field test: The evaluator shall assign a notBefore value in the established server certificate that precedes both the current time and the value of notBefore field in the TOE’s embedded CA’s certificate, and observe that the generated certificate has a notBefore value that does not precede the current time.</li>
                       <li>notAfter field test a: The evaluator shall configure the maximum validity duration so that the notAfter value of the TOE’s embedded CA certificate does not exceed the current time by more than the maximum validity duration. The evaluator shall assign a notAfter value in the established server certificate that exceeds the current time by more than the maximum validity period, and observe that the notAfter field of the generated certificate has a notAfter value that does not exceed the notAfter value of the embedded CA’s certificate.</li>
@@ -1382,17 +1266,12 @@ The following sections list Common Criteria and technology terms used in this do
                       <li>extendedKeyUsage field test b: The evaluator shall populate the extendedKeyUsage field in the established server’s certificate to indicate both TLS server authentication and code signing, and observe that the generated certificate only indicates TLS server authentication.</li>
                       <li>extendedKeyUsage field test c: The evaluator shall populate the extendedKeyUsage field in the established server’s certificate to indicate any usage, and observe that the generated certificate only indicates TLS server authentication.</li>
                     </ul>
-                  </li>
-                  <li class="test-"><a id="_t_50" class="defined" href="#_t_50">Test FDP_CER_EXT.1/Server:3</a>:
-      
+                  </li><li class="test-"><a id="_t_50" class="defined" href="#_t_50">Test FDP_CER_EXT.1/Server:3</a>:<br/>
                     [conditional] If “subjectName” is claimed and standard certificate requests are supported that allow a general DN to be input, the  evaluator shall send the TSF a certificate request that includes a DN with an RDN component containing multiple elements and verify that TSF rejects the request.
-                  </li>
-                  <li class="test-"><a id="_t_51" class="defined" href="#_t_51">Test FDP_CER_EXT.1/Server:4</a>:
-      
+                  </li><li class="test-"><a id="_t_51" class="defined" href="#_t_51">Test FDP_CER_EXT.1/Server:4</a>:<br/>
                     [conditional] If “subjectAltName” is claimed, and standard certificate requests are supported that allow multiple SAN entries, then for each name type supported, the evaluator shall send the TSF a certificate request with multiple SAN entries of the indicated name type, where the first entry is valid and the second entry is invalid. The evaluator shall confirm that the TSF issues a certificate containing only the first entry.
                     Note: the method to create an invalid entry depends on the validation methods claimed.
-                  </li>	
-                </ul></span>
+                  </li></ul></span>
               </div></div></span></div><div class="comp" id="FDP-CER-EXT-2"><h4>FDP_CER_EXT.2 Certificate Request Matching of Server Certificates</h4><span class="activity_pane_body"><div class="component-activity-header">FDP_CER_EXT.2</div>
               
               
@@ -1419,15 +1298,11 @@ The following sections list Common Criteria and technology terms used in this do
                 receipt and approval of external requests.
               <p></p></div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
                 The evaluator shall perform the following tests:
-                <span class="testlist-"><ul>
-                  <li class="test-"><a id="_t_52" class="defined" href="#_t_52">Test FDP_CER_EXT.3:1</a>:
-      (conditional, the TSF has one or more interfaces that could be used to receive external certificate requests): 
+                <span class="testlist-"><ul><li class="test-"><a id="_t_52" class="defined" href="#_t_52">Test FDP_CER_EXT.3:1</a>:<br/>(conditional, the TSF has one or more interfaces that could be used to receive external certificate requests): 
                     For each interface that can be used to receive external certificate requests, the evaluator shall configure the certificate issuance approval function in accordance with the
                     operational guidance. The evaluator shall create a certificate request and submit it to the TOE. The
                     evaluator shall access the TOE using the defined interface and verify that the submitted request is
-                    rejected.</li>
-                  <li class="test-"><a id="issue-cert-inspected-traffic" class="defined" href="#issue-cert-inspected-traffic">Test FDP_CER_EXT.3:2</a>:
-      
+                    rejected.</li><li class="test-"><a id="issue-cert-inspected-traffic" class="defined" href="#issue-cert-inspected-traffic">Test FDP_CER_EXT.3:2</a>:<br/>
                     The intent of this test is to exercise a representative set of SSL/TLS inspection proxy rules for the
                     supported features of the TLS session establishment policy and demonstrate certificates are generated by
                     the TSF only when the inspection operation is authorized.
@@ -1488,9 +1363,7 @@ The following sections list Common Criteria and technology terms used in this do
                     and observe that no certificate was issued in response to the request. The evaluator shall also search the
                     certificate repository for any certificate matching any of the names included in the requested server’s
                     subject alternate name extension and observe that no certificate was issued in response to the request. 
-                  </li>
-                  <li class="test-"><a id="_t_54" class="defined" href="#_t_54">Test FDP_CER_EXT.3:3</a>:
-      (conditional, the TSF supports caching of issued certificates): The evaluator shall
+                  </li><li class="test-"><a id="_t_54" class="defined" href="#_t_54">Test FDP_CER_EXT.3:3</a>:<br/>(conditional, the TSF supports caching of issued certificates): The evaluator shall
                     configure the TSF to retain certificates in the cache, and initiate a TLS session from a monitored client to
                     a requested server as in <a href="#issue-cert-inspected-traffic" class="dynref">Test FDP_CER_EXT.3:2</a> where the monitored client requested server combination matches a rule
                     associated with the inspection operation without allowance violations. The evaluator shall confirm that
@@ -1499,8 +1372,7 @@ The following sections list Common Criteria and technology terms used in this do
                     server also match a rule associated with the inspection operation without allowance violations. The
                     evaluator shall initiate a TLS session from the second client to the same requested server, observe logs to
                     verify that the inspection operation was performed, and search the certificate repository to confirm that
-                    a new certificate for the request was not issued.</li>
-                </ul></span>
+                    a new certificate for the request was not issued.</li></ul></span>
               </div></div></span></div><div class="comp" id="FDP-PPP-EXT-1"><h4>FDP_PPP_EXT.1 Plaintext Processing Policy</h4><span class="activity_pane_body"><div class="component-activity-header">FDP_PPP_EXT.1</div>
               
               
@@ -1510,16 +1382,11 @@ The following sections list Common Criteria and technology terms used in this do
                 The evaluator shall examine the TSS to ensure that all events that initiate a transition to the block operation based on internal routing function
                 indicators are described.</p></div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea">The evaluator shall inspect the operational guidance documents and ensure that instructions for any
                 configurable features of the Plaintext Processing Policy function are provided.<p></p></div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">The evaluator shall perform the following tests:
-              <span class="testlist-"><ul>
-                <li class="test-"><a id="_t_55" class="defined" href="#_t_55">Test FDP_PPP_EXT.1:1</a>:
-      For each routing option described in the routing policy, the evaluator shall attempt to construct a
+              <span class="testlist-"><ul><li class="test-"><a id="_t_55" class="defined" href="#_t_55">Test FDP_PPP_EXT.1:1</a>:<br/>For each routing option described in the routing policy, the evaluator shall attempt to construct a
                   data flow that exercises the routing option and observe the intended routing occurs.
-                </li>
-                <li class="test-"><a id="_t_56" class="defined" href="#_t_56">Test FDP_PPP_EXT.1:2</a>:
-      For each routing option described in the routing policy, the evaluator shall attempt to construct a
+                </li><li class="test-"><a id="_t_56" class="defined" href="#_t_56">Test FDP_PPP_EXT.1:2</a>:<br/>For each routing option described in the routing policy, the evaluator shall attempt to construct a
                   data flow that violates the routing option and observe that the violation is detected and the flow blocked.
-                </li>
-              </ul></span></div></div></span></div><div class="comp" id="FDP-PRC-EXT-1"><h4>FDP_PRC_EXT.1 Plaintext Routing Control</h4><span class="activity_pane_body"><div class="component-activity-header">FDP_PRC_EXT.1</div>
+                </li></ul></span></div></div></span></div><div class="comp" id="FDP-PRC-EXT-1"><h4>FDP_PRC_EXT.1 Plaintext Routing Control</h4><span class="activity_pane_body"><div class="component-activity-header">FDP_PRC_EXT.1</div>
               
               
               
@@ -1531,22 +1398,17 @@ The following sections list Common Criteria and technology terms used in this do
                 configurable features of the Plaintext Routing function are provided.
               <p></p></div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
                 The evaluator shall perform the following tests:
-                <span class="testlist-"><ul>
-                  <li class="test-"><a id="_t_57" class="defined" href="#_t_57">Test FDP_PRC_EXT.1:1</a>:
-      The evaluator shall configure the TSF and establish monitored clients and requested servers to
+                <span class="testlist-"><ul><li class="test-"><a id="_t_57" class="defined" href="#_t_57">Test FDP_PRC_EXT.1:1</a>:<br/>The evaluator shall configure the TSF and establish monitored clients and requested servers to
                     establish multiple TLS session threads through the inspection processing functional components, in which
                     the plaintext in each thread is distinguishable, either by the expected response of an inspection processing
                     functional component, or by logs. The evaluator shall examine the observable responses and logs to
-                    confirm that the threads are treated separately. </li>
-                  <li class="test-"><a id="_t_58" class="defined" href="#_t_58">Test FDP_PRC_EXT.1:2</a>:
-      (conditional, the TSF can establish plaintext processing rules that exclude plaintext processing by a particular inspection processing component): The evaluator shall configure the TSF,
+                    confirm that the threads are treated separately. </li><li class="test-"><a id="_t_58" class="defined" href="#_t_58">Test FDP_PRC_EXT.1:2</a>:<br/>(conditional, the TSF can establish plaintext processing rules that exclude plaintext processing by a particular inspection processing component): The evaluator shall configure the TSF,
                     configure a plaintext processing policy, and establish monitored clients and requested servers to establish
                     a TLS session thread through the inspection processing functional components for which the configured
                     plaintext processing rules prohibits the processing of the data by a particular inspection processing
                     component. The evaluator shall examine the logs and/or inspection processing response to determine
                     that data is not processed by the component.
-                  </li>
-                </ul></span>
+                  </li></ul></span>
               </div></div></span></div><div class="comp" id="FDP-RIP-1"><h4>FDP_RIP.1 Subset Residual Information Protection</h4><span class="activity_pane_body"><div class="component-activity-header">FDP_RIP.1</div>
               
               
@@ -1601,17 +1463,13 @@ The following sections list Common Criteria and technology terms used in this do
                 first two tests have additional instructions if TLS resumption is supported, but apply regardless of TLS resumption
                 support. The third test should only be performed if TLS resumption is supported.
                 The evaluator shall perform the following tests, in order: <p></p>
-                <span class="testlist-"><ul>
-                  <li class="test-"><a id="stip-unique-client-sessions" class="defined" href="#stip-unique-client-sessions">Test FDP_STIP_EXT.1.1:1</a>:
-      The evaluator shall initiate a TLS session from client ‘a’ to server 1, and initiate a TLS session from
+                <span class="testlist-"><ul><li class="test-"><a id="stip-unique-client-sessions" class="defined" href="#stip-unique-client-sessions">Test FDP_STIP_EXT.1.1:1</a>:<br/>The evaluator shall initiate a TLS session from client ‘a’ to server 1, and initiate a TLS session from
                     client ‘b’ to server 2. The evaluator shall observe the traffic between the TOE and the servers the data
                     decrypted at the servers to verify that the TLS sessions are distinct. The evaluator shall also observe the
                     traffic between the clients and the TOE and observe that the TLS sessions are distinct. The evaluator shall
                     note and retain the TLS session information for the remaining tests and ensure that the sessions are not
                     terminated during <a href="#stip-unique-server-sessions" class="dynref">Test FDP_STIP_EXT.1.1:2</a>.
-                  </li>
-                  <li class="test-"><a id="stip-unique-server-sessions" class="defined" href="#stip-unique-server-sessions">Test FDP_STIP_EXT.1.1:2</a>:
-      The evaluator shall retain the state of the TOE from <a href="#stip-unique-client-sessions" class="dynref">Test FDP_STIP_EXT.1.1:1</a>. If TLS resumption is supported, the
+                  </li><li class="test-"><a id="stip-unique-server-sessions" class="defined" href="#stip-unique-server-sessions">Test FDP_STIP_EXT.1.1:2</a>:<br/>The evaluator shall retain the state of the TOE from <a href="#stip-unique-client-sessions" class="dynref">Test FDP_STIP_EXT.1.1:1</a>. If TLS resumption is supported, the
                     evaluator shall ensure the TLS state in server 1 is retained. The evaluator shall initiate a TLS session from
                     client ‘b’ to server 1 through the TOE. The evaluator shall observe the traffic between the TOE and server
                     1, and data received at server 1 to confirm the TLS session thread between client ‘b’ and server 1 is
@@ -1621,12 +1479,9 @@ The following sections list Common Criteria and technology terms used in this do
                     TLS session between client ‘b’ and the TOE associated to the TLS session thread between client b and
                     server 2 established in <a href="#stip-unique-client-sessions" class="dynref">Test FDP_STIP_EXT.1.1:1</a>. The evaluator shall terminate the TLS sessions from client ‘b’ to the TOE and
                     observe that both TLS sessions associated to the TLS session threads, one to server 1 and the other to
-                    server 2, are terminated.</li>
-                  <li class="test-"><a id="_t_61" class="defined" href="#_t_61">Test FDP_STIP_EXT.1.1:3</a>:
-      (conditional, the TSF supports session resumption): The evaluator shall initiate a TLS session resumption
+                    server 2, are terminated.</li><li class="test-"><a id="_t_61" class="defined" href="#_t_61">Test FDP_STIP_EXT.1.1:3</a>:<br/>(conditional, the TSF supports session resumption): The evaluator shall initiate a TLS session resumption
                     between client ‘b’ and server 2 through the TOE, and observe that the TSF responds with a full TLS
-                    handshake.</li>
-                </ul></span>
+                    handshake.</li></ul></span>
               </div>
             <div class="element-activity-header">FDP_STIP_EXT.1.2</div>
               <div class="eacategory">TSS</div><div class="ea">The evaluator shall examine the TSS to ensure it contains a description of the TOEs embedded certification
@@ -1637,9 +1492,7 @@ The following sections list Common Criteria and technology terms used in this do
               <p></p></div>
               <div class="eacategory">Tests</div><div class="ea">
                 The evaluator shall perform the following tests: <p></p>
-                <span class="testlist-"><ul>
-                  <li class="test-"><a id="stip-toe-issues-server-cert" class="defined" href="#stip-toe-issues-server-cert">Test FDP_STIP_EXT.1.2:1</a>:
-      The evaluator shall configure and establish a monitored client and a requested server, and ensure
+                <span class="testlist-"><ul><li class="test-"><a id="stip-toe-issues-server-cert" class="defined" href="#stip-toe-issues-server-cert">Test FDP_STIP_EXT.1.2:1</a>:<br/>The evaluator shall configure and establish a monitored client and a requested server, and ensure
                     the requested server has a certificate issued by a CA trusted by the TSF, but different than the TOE’s
                     embedded CA. The requested server certificate shall contain a valid identifier of DNS name type
                     identifying the requested server subject alternate name extension. The monitored client will be
@@ -1649,9 +1502,7 @@ The following sections list Common Criteria and technology terms used in this do
                     between the monitored client and the requested server through the TOE, and observe that the certificate
                     received in the server certificate message at the monitored client is issued by the TOE’s embedded signing
                     certificate and contains the same DNS name for the server in the subject alternate name extension, as
-                    requested by the client.</li>
-                  <li class="test-"><a id="_t_63" class="defined" href="#_t_63">Test FDP_STIP_EXT.1.2:2</a>:
-      (conditional, the TSF supports certificate caching): The evaluator shall follow the operational guidance to
+                    requested by the client.</li><li class="test-"><a id="_t_63" class="defined" href="#_t_63">Test FDP_STIP_EXT.1.2:2</a>:<br/>(conditional, the TSF supports certificate caching): The evaluator shall follow the operational guidance to
                     configure the TSF to retain generated certificates in cache for a short time. The evaluator shall establish
                     three monitored clients and a single requested server, and follow operational guidance to ensure TLS sessions
                     between the monitored clients and the requested server are inspected as in <a href="#stip-toe-issues-server-cert" class="dynref">Test FDP_STIP_EXT.1.2:1</a>. The evaluator shall
@@ -1659,8 +1510,7 @@ The following sections list Common Criteria and technology terms used in this do
                     configured cache time, and confirm that the certificates received at each client are identical. The evaluator
                     shall wait until the cache time has expired, and then initiate a TLS connection from the third monitored
                     client and note that the certificate received at the third client is different than the previous certificates
-                    receive at the first two clients.</li>
-                </ul></span>
+                    receive at the first two clients.</li></ul></span>
               </div>
             <div class="element-activity-header">FDP_STIP_EXT.1.3</div>
               <div class="eacategory">TSS</div><div class="ea">The evaluator shall examine the TSS to ensure it describes the mechanism used to determine clients have
@@ -1788,9 +1638,7 @@ The following sections list Common Criteria and technology terms used in this do
                 described in each test. The evaluator shall configure the TOE according to operational guidance to have
                 non-trivial rules for all TLS session establishment policy states. The evaluator shall conduct the following
                 tests, establishing any additional configuration requirements as indicated in each.
-                <span class="testlist-"><ul>
-                  <li class="test-"><a id="_t_64" class="defined" href="#_t_64">Test FDP_TEP_EXT.1:1</a>:
-      For each rule of the TLS establishment policy indicating inspection operation processing, the
+                <span class="testlist-"><ul><li class="test-"><a id="_t_64" class="defined" href="#_t_64">Test FDP_TEP_EXT.1:1</a>:<br/>For each rule of the TLS establishment policy indicating inspection operation processing, the
                     evaluator shall ensure the monitored client  and requested server are configured to communicate 
                     through the TOE and that the server
                     certificate is valid. The evaluator shall configure the TSF so the rule
@@ -1800,24 +1648,18 @@ The following sections list Common Criteria and technology terms used in this do
                     and plaintext decrypted by the requested server. The evaluator shall then confirm that the TSF established
                     a TLS session with the requested server, issued a certificate representing the requested server, established
                     a TLS session with the monitored client, decrypted the data, performed any inspection processing, and
-                    presented the data to the requested server via the established TLS session.</li>
-                  <li class="test-"><a id="_t_65" class="defined" href="#_t_65">Test FDP_TEP_EXT.1:2</a>:
-      For each rule of the TLS establishment policy indicating bypass processing, the evaluator shall
+                    presented the data to the requested server via the established TLS session.</li><li class="test-"><a id="_t_65" class="defined" href="#_t_65">Test FDP_TEP_EXT.1:2</a>:<br/>For each rule of the TLS establishment policy indicating bypass processing, the evaluator shall
                     establish a monitored client, requested server, and server certificate that meets the rule. The evaluator
                     shall send a TLS request from the monitored client to the requested server through the TOE, and then
                     inspect logs, certificate repository, certificate received by the monitored client in the Server Hello
                     message, plaintext encrypted by the monitored client, and plaintext decrypted by the requested server to
-                    confirm that bypass processing occurred.</li>
-                  <li class="test-"><a id="_t_66" class="defined" href="#_t_66">Test FDP_TEP_EXT.1:3</a>:
-      The evaluator shall follow operational guidance to ensure the TSF is configured to log blocked TLS sessions.
+                    confirm that bypass processing occurred.</li><li class="test-"><a id="_t_66" class="defined" href="#_t_66">Test FDP_TEP_EXT.1:3</a>:<br/>The evaluator shall follow operational guidance to ensure the TSF is configured to log blocked TLS sessions.
                     For each rule of the TLS establishment policy indicating blocking of the TLS session, as indicated in any
                     element of this component, the evaluator shall establish that a monitored client, a requested server, and
                     a server certificate meet the rule. The evaluator shall send a TLS session from the monitored client to the
                     requested server through the TOE and observe that the monitored client receives an error response in
                     accordance with FDP_STIP_EXT.1.5 indicating that the session was blocked. The evaluator shall inspect
-                    the TSF logs to verify that each session was recorded as blocked.</li>
-                  <li class="test-"><a id="_t_67" class="defined" href="#_t_67">Test FDP_TEP_EXT.1:4</a>:
-      For each event that initiates a transition from the inspection operation to the block operation, the
+                    the TSF logs to verify that each session was recorded as blocked.</li><li class="test-"><a id="_t_67" class="defined" href="#_t_67">Test FDP_TEP_EXT.1:4</a>:<br/>For each event that initiates a transition from the inspection operation to the block operation, the
                     evaluator shall attempt to establish a monitored client and requested server, and configure the TOE and
                     its TLS session establishment policy to invoke the event. For each such event, the evaluator shall initiate
                     a TLS session from the monitored client to the requested server through the TOE. The evaluator shall
@@ -1826,9 +1668,7 @@ The following sections list Common Criteria and technology terms used in this do
                     sessions established prior to the event are terminated on transition of the session to the block operation.
                     The evaluator shall observe that the monitored client receives the specified error message indicating that
                     the TLS session is blocked.
-                  </li>
-                  <li class="test-"><a id="_t_68" class="defined" href="#_t_68">Test FDP_TEP_EXT.1:5</a>:
-      
+                  </li><li class="test-"><a id="_t_68" class="defined" href="#_t_68">Test FDP_TEP_EXT.1:5</a>:<br/>
                      
                     (conditional, both 'mutual authentication inspection' and 'send an empty certificate list as part of the inspection operation' are selected in FDP_TEP_EXT.1.7):
                     The evaluator shall establish a server to send certificate requests in its TLS handshake. 
@@ -1840,8 +1680,7 @@ The following sections list Common Criteria and technology terms used in this do
                     Using the same server, the evaluator shall follow operational guidance to configure the TSF to perform mutual authentication inspection with the server, 
                     and initiate a TLS request from the same monitored client to the same requested server through the TOE. 
                     The evaluator shall observe network traffic between the TOE and the requested server and confirm the TOE sends a certificate message containing a client certificate representing the monitored client.
-                  </li>
-                </ul></span>
+                  </li></ul></span>
               </div></div></span></div><h2 class="indexable" data-level="2" id="m-fia">2.2.4 Identification and Authentication (FIA)</h2><div class="comp" id="FIA-X509-EXT-2-STIP"><h4>FIA_X509_EXT.2/STIP X.509 Certificate Authentication (STIP)</h4><span class="activity_pane_body"><div class="component-activity-header">FIA_X509_EXT.2/STIP</div>
               This SFR is evaluated per the EAs for FIA_X509_EXT.2 defined in the Base-PP.<br/><br/>
             </span></div><h2 class="indexable" data-level="2" id="m-fmt">2.2.5 Security Management (FMT)</h2><div class="comp" id="FMT-MOF-1"><h4>FMT_MOF.1/STIP Management of Functions Behavior</h4><span class="activity_pane_body"><div class="component-activity-header">FMT_MOF.1/STIP</div>
@@ -1992,40 +1831,30 @@ The following sections list Common Criteria and technology terms used in this do
                 accordance with FIA_X509.EXT.1/STIP. The evaluator shall install the appropriate trust anchors within the
                 TSF to validate the client and server certificates. Additional configuration of the requested servers,
                 monitored clients, and TSF are specified in the tests below.<p></p>
-              <span class="testlist-"><ul>
-                <li class="test-"><a id="_t_69" class="defined" href="#_t_69">Test FCS_TTTC_EXT.3:1</a>:
-      The evaluator shall configure the TOE’s TLS session establishment policy to allow client
+              <span class="testlist-"><ul><li class="test-"><a id="_t_69" class="defined" href="#_t_69">Test FCS_TTTC_EXT.3:1</a>:<br/>The evaluator shall configure the TOE’s TLS session establishment policy to allow client
                   authentication to the servers used in this test. For each certificate established for a monitored client, the
                   evaluator shall initiate a TLS session between the monitored client and a requested server configured to
                   require client authentication via a certificate of the indicated type. The evaluator shall then verify that the
                   TLS session between the proxy and the requested server includes a client certificate message containing
                   a certificate issued by the TSF, and that the certificate verifies messages that authenticate the TSF as
                   controlling the private key associated to the certificate.
-                </li>
-                <li class="test-"><a id="_t_70" class="defined" href="#_t_70">Test FCS_TTTC_EXT.3:2</a>:
-      The evaluator shall configure the TOE’s TLS session establishment policy to allow client
+                </li><li class="test-"><a id="_t_70" class="defined" href="#_t_70">Test FCS_TTTC_EXT.3:2</a>:<br/>The evaluator shall configure the TOE’s TLS session establishment policy to allow client
                   authentication to the servers used in this test. The evaluator shall configure a requested server to send a
                   certificate request message to clients with a CA field that does not contain the embedded CA of the TOE.
                   The evaluator shall initiate a TLS session from a monitored client using one of the issued certificates for
                   client authentication to the so configured server through the TSF and observe that the TSF does not
-                  establish a TLS session with the requested server.</li>
-                <li class="test-"><a id="_t_71" class="defined" href="#_t_71">Test FCS_TTTC_EXT.3:3</a>:
-      The evaluator shall configure the TOE’s TLS session establishment policy to allow client
+                  establish a TLS session with the requested server.</li><li class="test-"><a id="_t_71" class="defined" href="#_t_71">Test FCS_TTTC_EXT.3:3</a>:<br/>The evaluator shall configure the TOE’s TLS session establishment policy to allow client
                   authentication to the servers used in this test. The evaluator shall configure a requested server not to
                   send a certificate request message to clients. The evaluator shall initiate a TLS session from a monitored
                   client using one of the issued certificates for client authentication to the so configured server through the
                   TSF and observe that the TSF does not send a client certificate message or certificate verify message to
-                  within its handshake with requested server.</li>
-                <li class="test-"><a id="_t_72" class="defined" href="#_t_72">Test FCS_TTTC_EXT.3:4</a>:
-      The evaluator shall configure the TOE’s TLS session establishment policy to not allow client
+                  within its handshake with requested server.</li><li class="test-"><a id="_t_72" class="defined" href="#_t_72">Test FCS_TTTC_EXT.3:4</a>:<br/>The evaluator shall configure the TOE’s TLS session establishment policy to not allow client
                   authentication to the servers used in this test, and if the TSF supports a block-bypass allowance, to block
                   mutual authentication requests to the server. The evaluator shall configure a requested server to send a
                   certificate request message to clients. The evaluator shall initiate a TLS session from a monitored client
                   using one of the issued certificates for client authentication to the so configured server through the TSF
                   and observe that the TSF does not send a client certificate message or certificate verify message to within
-                  its handshake with requested server.</li>
-                <li class="test-"><a id="_t_73" class="defined" href="#_t_73">Test FCS_TTTC_EXT.3:5</a>:
-      (conditional, the TSF supports block-bypass specifications in the TLS session establishment policy):
+                  its handshake with requested server.</li><li class="test-"><a id="_t_73" class="defined" href="#_t_73">Test FCS_TTTC_EXT.3:5</a>:<br/>(conditional, the TSF supports block-bypass specifications in the TLS session establishment policy):
                   The evaluator shall configure the TOE’s TLS session establishment policy to not allow client authentication
                   to the requested server used in this test, and to bypass mutual authentication requests to that server. The
                   evaluator shall configure the requested server to trust the CA used to issue a certificate issued to the
@@ -2035,8 +1864,7 @@ The following sections list Common Criteria and technology terms used in this do
                   observe that the TSF performs the bypass operations and sends a client certificate message containing
                   the certificate established for the monitored client and a certificate verify message that validates the
                   monitored client to the requested server.
-                </li>
-              </ul></span>
+                </li></ul></span>
               </div></div></span></div><div class="comp" id="FCS-TTTS-EXT-3"><h4>FCS_TTTS_EXT.3 Thru-Traffic TLS Inspection Server Protocol with Mutual Authentication of Monitored Clients</h4><span class="activity_pane_body"><div class="component-activity-header">FCS_TTTS_EXT.3</div>
               
               
@@ -2055,44 +1883,32 @@ The following sections list Common Criteria and technology terms used in this do
                 might also be necessary to configure the requested servers to require mutual authentication, and
                 configure the TLS session establishment policy to allow mutual authentication to the requested servers to
                 induce a client certificate request from the TSF.<p></p>
-                <span class="testlist-"><ul>
-                  <li class="test-"><a id="_t_74" class="defined" href="#_t_74">Test FCS_TTTS_EXT.3:1</a>:
-      For each certificate signature algorithm supported, the evaluator shall establish a monitored client
+                <span class="testlist-"><ul><li class="test-"><a id="_t_74" class="defined" href="#_t_74">Test FCS_TTTS_EXT.3:1</a>:<br/>For each certificate signature algorithm supported, the evaluator shall establish a monitored client
                     with a certificate signed by a trusted CA using the certificate algorithm, where the client properly supports
                     client authentication. For each such client, the evaluator shall initiate a TLS session to a requested server
                     through the TSF. In each case, the evaluator shall observe that valid TLS sessions between the monitored
                     client and the TSF is established and that during the TLS handshake the TSF sends a certificate request
-                    message to each monitored client.</li>
-                  <li class="test-"><a id="_t_75" class="defined" href="#_t_75">Test FCS_TTTS_EXT.3:2</a>:
-      The evaluator shall initiate a TLS session between a monitored client and a requested server
+                    message to each monitored client.</li><li class="test-"><a id="_t_75" class="defined" href="#_t_75">Test FCS_TTTS_EXT.3:2</a>:<br/>The evaluator shall initiate a TLS session between a monitored client and a requested server
                     through the TSF, where the client does not provide a certificate message. The evaluator shall observe that
                     a TLS session between the client and the TSF is not established, and that any TLS session between the TSF
-                    and the requested server associated to that TLS session thread is terminated.</li>
-                  <li class="test-"><a id="_t_76" class="defined" href="#_t_76">Test FCS_TTTS_EXT.3:3</a>:
-      The evaluator shall initiate a TLS session between a monitored client and requested server through
+                    and the requested server associated to that TLS session thread is terminated.</li><li class="test-"><a id="_t_76" class="defined" href="#_t_76">Test FCS_TTTS_EXT.3:3</a>:<br/>The evaluator shall initiate a TLS session between a monitored client and requested server through
                     the TSF, where the monitored client’s certificate is issued by a subordinate CA of a trusted root CA and
                     only the root CA is in the TSF trust store. In response to the certificate request, the evaluator shall replace
                     the last byte of the subordinate CA certificate in a valid certificate message from the client to the TSF and
                     send the modified certificate message, along with a valid Certificate Verify message and Finished message
                     to the TSF. The evaluator shall observe TSF logs to verify that the certificate is deemed invalid, that the
                     TSF does not establish a TLS session with the client, and that any TLS session between the TSF and the
-                    requested server associated to that TLS session thread is terminated.</li>
-                  <li class="test-"><a id="_t_77" class="defined" href="#_t_77">Test FCS_TTTS_EXT.3:4</a>:
-      The evaluator shall configure the TSF trust store so the root certificate authority that issues the
+                    requested server associated to that TLS session thread is terminated.</li><li class="test-"><a id="_t_77" class="defined" href="#_t_77">Test FCS_TTTS_EXT.3:4</a>:<br/>The evaluator shall configure the TSF trust store so the root certificate authority that issues the
                     certificate for a monitored client is not trusted. The evaluator shall then initiate a TLS session between a
                     monitored client and requested server using client authentication through the TSF and observe that the
                     TSF does not establish a TLS session with the client and that any TLS session between the TSF and the
                     requested server associated to that TLS session thread is terminated.
-                  </li>
-                  <li class="test-"><a id="_t_78" class="defined" href="#_t_78">Test FCS_TTTS_EXT.3:5</a>:
-      The evaluator shall establish a monitored client whose otherwise valid certificate issued by a
+                  </li><li class="test-"><a id="_t_78" class="defined" href="#_t_78">Test FCS_TTTS_EXT.3:5</a>:<br/>The evaluator shall establish a monitored client whose otherwise valid certificate issued by a
                     trusted CA does not include the client authentication purpose in the extended key usage field. The
                     evaluator shall initiate a TLS session between the monitored client and a requested server through the
                     TSF. The evaluator shall observe that the TLS session between the monitored client and the TSF is not
                     established, and that any TLS session between the TSF and the requested server associated to that TLS
-                    session thread is terminated.</li>
-                  <li class="test-"><a id="_t_79" class="defined" href="#_t_79">Test FCS_TTTS_EXT.3:6</a>:
-      (conditional, the TLS session establishment supports authenticated attributes of a client in exception specifications):
+                    session thread is terminated.</li><li class="test-"><a id="_t_79" class="defined" href="#_t_79">Test FCS_TTTS_EXT.3:6</a>:<br/>(conditional, the TLS session establishment supports authenticated attributes of a client in exception specifications):
                     The evaluator shall configure a TLS establishment policy in the TSF to
                     perform mutual authentication for a client. The evaluator shall establish a monitored client subject to the 
                     exception specification but having a valid certificate issued by a trusted CA, where the subject identifier
@@ -2100,8 +1916,7 @@ The following sections list Common Criteria and technology terms used in this do
                     session from the monitored client to a requested server through the TSF and observe that the TLS session
                     between the client and the TSF is not established and any TLS session between the TSF and the requested
                     server associated to that TLS session thread is terminated.
-                  </li>
-                </ul></span>
+                  </li></ul></span>
               </div></div></span></div><div class="comp" id="FDP-CER-EXT-1"><h4>FDP_CER_EXT.1/Client Certificate Generation and Issuance (Client Certificates)</h4><span class="activity_pane_body"><div class="component-activity-header">FDP_CER_EXT.1/Client</div>
               
               
@@ -2122,13 +1937,9 @@ The following sections list Common Criteria and technology terms used in this do
                   embedded CA and its certificate profiles to meet the requirements.</p>
               </div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
                 The evaluator shall perform the following test.
-                <span class="testlist-"><ul>
-                  <li class="test-"><a id="_t_80" class="defined" href="#_t_80">Test FDP_CER_EXT.1/Client:1</a>:
-      
+                <span class="testlist-"><ul><li class="test-"><a id="_t_80" class="defined" href="#_t_80">Test FDP_CER_EXT.1/Client:1</a>:<br/>
                     <p>The evaluator shall establish a TLS server with a TLS server certificate, and cause the TOE to issue a certificate by establishing a TLS connection between a monitored cleint and the server.  The issued certificate shall be checked to satisfy FDP_CER_EXT.1.2/Server.  The evaluator shall repeat this test as necessary to test all supported name types and extensions.  </p>
-                  </li>
-                  <li class="test-"><a id="_t_81" class="defined" href="#_t_81">Test FDP_CER_EXT.1/Client:2</a>:
-      
+                  </li><li class="test-"><a id="_t_81" class="defined" href="#_t_81">Test FDP_CER_EXT.1/Client:2</a>:<br/>
                     The evaluator shall conduct the following tests by establishing a server with certificate identical to that used in Test 35, except for the differences described as follows (each in turn). The evaluator shall make any configuration changes to the TOE as indicated, establish a monitored client, and submit a TLS request for the server through the TOE so that the inspection operation is performed, and observe the certificate received at the monitored client has the indicated features:<ul>
                       <li>notBefore field test: The evaluator shall assign a notBefore value in the established server certificate that precedes both the current time and the value of notBefore field in the TOE’s embedded CA’s certificate, and observe that the generated certificate has a notBefore value that does not precede the current time.</li>
                       <li>notAfter field test a: The evaluator shall configure the maximum validity duration so that the notAfter value of the TOE’s embedded CA certificate does not exceed the current time by more than the maximum validity duration. The evaluator shall assign a notAfter value in the established server certificate that exceeds the current time by more than the maximum validity period, and observe that the notAfter field of the generated certificate has a notAfter value that does not exceed the notAfter value of the embedded CA’s certificate.</li>
@@ -2139,17 +1950,12 @@ The following sections list Common Criteria and technology terms used in this do
                       <li>extendedKeyUsage field test b: The evaluator shall populate the extendedKeyUsage field in the established server’s certificate to indicate both TLS server authentication and code signing, and observe that the generated certificate only indicates TLS server authentication.</li>
                       <li>extendedKeyUsage field test c: The evaluator shall populate the extendedKeyUsage field in the established server’s certificate to indicate any usage, and observe that the generated certificate only indicates TLS server authentication.</li>
                     </ul>
-                  </li>
-                  <li class="test-"><a id="_t_82" class="defined" href="#_t_82">Test FDP_CER_EXT.1/Client:3</a>:
-      
+                  </li><li class="test-"><a id="_t_82" class="defined" href="#_t_82">Test FDP_CER_EXT.1/Client:3</a>:<br/>
                     [conditional] If “subjectName” is claimed and standard certificate requests are supported that allow a general DN to be input, the  evaluator shall send the TSF a certificate request that includes a DN with an RDN component containing multiple elements and verify that TSF rejects the request.
-                  </li>
-                  <li class="test-"><a id="_t_83" class="defined" href="#_t_83">Test FDP_CER_EXT.1/Client:4</a>:
-      
+                  </li><li class="test-"><a id="_t_83" class="defined" href="#_t_83">Test FDP_CER_EXT.1/Client:4</a>:<br/>
                     [conditional] If “subjectAltName” is claimed, and standard certificate requests are supported that allow multiple SAN entries, then for each name type supported, the evaluator shall send the TSF a certificate request with multiple SAN entries of the indicated name type, where the first entry is valid and the second entry is invalid. The evaluator shall confirm that the TSF issues a certificate containing only the first entry.
                     Note: the method to create an invalid entry depends on the validation methods claimed.
-                  </li>	
-                </ul></span>
+                  </li></ul></span>
               </div></div></span></div><div class="comp" id="FDP-CER-EXT-5"><h4>FDP_CER_EXT.5 Certificate Issuance Rules for Client Certificates</h4><span class="activity_pane_body"><div class="component-activity-header">FDP_CER_EXT.5</div>
               
               
@@ -2177,8 +1983,8 @@ The following sections list Common Criteria and technology terms used in this do
                 certificate received from the monitored client requesting TLS to the server.
               <p></p></div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea">The evaluator shall examine operational documentation and verify that instructions to configure the
                 mutual authentication inspection operation is provided.<p></p></div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea"><b>Setup:</b> The evaluator shall follow operational guidance to configure the TSF. The evaluator shall establish a
-                monitored client able to initiate a TLS session compliant with FCS_TLSC_EXT.2 (from the <a href="https://www.niap-ccevs.org/protectionprofiles/465">Functional Package for Transport Layer Security (TLS),
-        version 
+                monitored client able to initiate a TLS session compliant with FCS_TLSC_EXT.2 (from the <a href="https://www.niap-ccevs.org/protectionprofiles/519">Functional Package for Transport Layer Security (TLS)
+        Version 
         2.1</a>) and which is issued a
                 certificate compliant with FIA_X509_EXT.1/STIP for client authentication from a trusted CA that is
                 different than the embedded CA of the TOE.
@@ -2199,41 +2005,32 @@ The following sections list Common Criteria and technology terms used in this do
                 The evaluator shall use appropriate tools to monitor the traffic between the clients and the TOE, and
                 between the TOE and the server to observe the TLS handshake messages. The evaluator shall perform
                 the following tests in order:<p></p>
-                  <span class="testlist-"><ul>
-                    <li class="test-"><a id="_t_84" class="defined" href="#_t_84">Test FDP_STIP_EXT.2:1</a>:
-      The evaluator shall configure the server to not require mutual authentication of the client, initiate
+                  <span class="testlist-"><ul><li class="test-"><a id="_t_84" class="defined" href="#_t_84">Test FDP_STIP_EXT.2:1</a>:<br/>The evaluator shall configure the server to not require mutual authentication of the client, initiate
                       a TLS session to the server through the TSF, and observe a TLS session between the TSF and the server is
                       established and does not include a certificate message or certificate verify message from the TSF. The
                       evaluator shall inspect the server certificate received at the client to confirm that it was issued by the
                       embedded CA of the TOE, confirming that the inspection operation was implemented. The evaluator shall
                       inspect the certificate repository of the TOE and confirm that no certificate representing the client is
                       present.
-                    </li>
-                    <li class="test-"><a id="_t_85" class="defined" href="#_t_85">Test FDP_STIP_EXT.2:2</a>:
-      The evaluator shall configure the server to require mutual authentication of the client, initiate a
+                    </li><li class="test-"><a id="_t_85" class="defined" href="#_t_85">Test FDP_STIP_EXT.2:2</a>:<br/>The evaluator shall configure the server to require mutual authentication of the client, initiate a
                       TLS session from the client to the requested server, and observe the traffic between the TOE and the
                       server to verify that the TSF sends a certificate message containing a certificate issued by the embedded
                       CA of the TOE, and a certificate verify message that validates the TSF’s possession of the corresponding
                       private key. The evaluator shall examine the certificate repository of the TOE to confirm that the
                       certificate observed in the certificate message is present in the repository.
-                    </li>
-                    <li class="test-"><a id="issue-new-client-cert" class="defined" href="#issue-new-client-cert">Test FDP_STIP_EXT.2:3</a>:
-      Adjusting the time of the TSF if necessary so that the initial certificate issued to the client is expired,
+                    </li><li class="test-"><a id="issue-new-client-cert" class="defined" href="#issue-new-client-cert">Test FDP_STIP_EXT.2:3</a>:<br/>Adjusting the time of the TSF if necessary so that the initial certificate issued to the client is expired,
                       the evaluator shall establish a new certificate for the client, using the same subject but using a validity
                       period that is valid in the current time setting. The evaluator shall initiate a TLS session between the client
                       and the server requiring mutual authentication through the TOE and observe that a TLS session containing
                       a certificate message with a new certificate generated by the embedded CA of the TOE, and a certificate
                       verify message that validates the TSF’s possession of the associated private key. The evaluator shall
                       examine the certificate repository of the TOE and verify that both certificates representing the client are
-                      present.</li>
-                    <li class="test-"><a id="_t_87" class="defined" href="#_t_87">Test FDP_STIP_EXT.2:4</a>:
-      The evaluator shall initiate a new TLS session between the client and server through the TOE,
+                      present.</li><li class="test-"><a id="_t_87" class="defined" href="#_t_87">Test FDP_STIP_EXT.2:4</a>:<br/>The evaluator shall initiate a new TLS session between the client and server through the TOE,
                       where the certificate in the certificate message from the client is modified in the last byte, and a valid
                       certificate verify message is sent for the unmodified certificate. The evaluator shall observe that a TLS
                       session between the client and the TSF is not established, and that any TLS session between the TSF and
                       the server associated to that TLS session thread is terminated.
-                    </li>
-                  </ul></span>
+                    </li></ul></span>
               </div></div></span></div><h2 class="indexable" data-level="2" id="s-b5">2.4.3 Other Selection-based SFRs</h2><div class="comp" id="FAU-SCR-EXT-1"><h4>FAU_SCR_EXT.1 Certificate Repository Review</h4><span class="activity_pane_body"><div class="component-activity-header">FAU_SCR_EXT.1</div>
               
               
@@ -2275,24 +2072,19 @@ The following sections list Common Criteria and technology terms used in this do
               <div class="eacategory">Guidance</div>
 			There are no additional Guidance evaluation activities for this element.<br/><br/>
               <div class="eacategory">Tests</div><div class="ea">
-                <span class="testlist-"><ul>
-                  <li class="test-"><a id="_t_88" class="defined" href="#_t_88">Test FCS_TTTC_EXT.4.1:1</a>:
-      The evaluator shall verify the TSF’s handling of Server Hello messages received from a requested
+                <span class="testlist-"><ul><li class="test-"><a id="_t_88" class="defined" href="#_t_88">Test FCS_TTTC_EXT.4.1:1</a>:<br/>The evaluator shall verify the TSF’s handling of Server Hello messages received from a requested
                     server during an authorized inspection of a TLS session between a monitored client and the requested
                     server through the TOE, during the initial handshake that include the renegotiation_info extension. The
                     evaluator shall modify the length portion of this field in the Server Hello message to be non-zero and verify
                     that the TSF sends a failure and terminates the connection. The evaluator shall verify that a properly
                     formatted field during an authorized inspection of traffic to the server results in a successful TLS
                     connection between the TSF and the requested server.
-                  </li>
-                  <li class="test-"><a id="_t_89" class="defined" href="#_t_89">Test FCS_TTTC_EXT.4.1:2</a>:
-      The evaluator shall cause the TSF to initiate renegotiation with the requested server and verify
+                  </li><li class="test-"><a id="_t_89" class="defined" href="#_t_89">Test FCS_TTTC_EXT.4.1:2</a>:<br/>The evaluator shall cause the TSF to initiate renegotiation with the requested server and verify
                     that the Client Hello message received by the requested server contains the renegotiation_info extension.
                     The evaluator shall cause the requested server to send a Server Hello message with a renegotiation info
                     extension containing data in which one or both of the client_verify_data or server_verify_data value is
                     modified. The evaluator shall verify that the TSF terminates the connection.
-                  </li>
-                </ul></span>
+                  </li></ul></span>
               </div>
             <div class="element-activity-header">FCS_TTTC_EXT.4.2</div>
               <div class="eacategory">TSS</div>
@@ -2300,14 +2092,11 @@ The following sections list Common Criteria and technology terms used in this do
               <div class="eacategory">Guidance</div>
 			There are no additional Guidance evaluation activities for this element.<br/><br/>
               <div class="eacategory">Tests</div><div class="ea">
-                <span class="testlist-"><ul>
-                  <li class="test-"><a id="_t_90" class="defined" href="#_t_90">Test FCS_TTTC_EXT.4.2:1</a>:
-      The evaluator shall use a network packet analyzer and/or sniffer to capture the traffic between
+                <span class="testlist-"><ul><li class="test-"><a id="_t_90" class="defined" href="#_t_90">Test FCS_TTTC_EXT.4.2:1</a>:<br/>The evaluator shall use a network packet analyzer and/or sniffer to capture the traffic between
                     the TSF and a requested server during inspection of a TLS session between a monitored client and the
                     requested server through the TOE. The evaluator shall verify that either the renegotiation_info field or
                     the SCSV cipher suite is included in the Client Hello message during the initial handshake.
-                  </li>
-                </ul></span>
+                  </li></ul></span>
               </div>
             <div class="element-activity-header">FCS_TTTC_EXT.4.3</div>
               <div class="eacategory">TSS</div><div class="ea">The evaluator shall verify that the TSS describes the mechanisms used to specify when renegotiation
@@ -2315,9 +2104,7 @@ The following sections list Common Criteria and technology terms used in this do
               <div class="eacategory">Guidance</div><div class="ea">The evaluator shall check the operational guidance documentation to ensure that instructions for any
                 configurable features of the TLS implementation required to meet this requirement are provided.<p></p></div>
               <div class="eacategory">Tests</div><div class="ea">The evaluator shall perform the following tests:<p></p>
-              <span class="testlist-"><ul>
-                <li class="test-"><a id="_t_91" class="defined" href="#_t_91">Test FCS_TTTC_EXT.4.3:1</a>:
-      For any mechanism specified, the evaluator will establish one or more monitored client and
+              <span class="testlist-"><ul><li class="test-"><a id="_t_91" class="defined" href="#_t_91">Test FCS_TTTC_EXT.4.3:1</a>:<br/>For any mechanism specified, the evaluator will establish one or more monitored client and
                   requested servers configured to use each of the supported cipher suites through the TSF. For each
                   supported cipher suite, the evaluator shall initiate a session between the monitored client to a requested
                   server and observe network traffic between the TOE and the requested server to confirm that the
@@ -2325,9 +2112,7 @@ The following sections list Common Criteria and technology terms used in this do
                   inspected channel between the monitored client until the renegotiation criteria is met. The evaluator
                   shall observe that the TSF terminates or renegotiates the TLS session as specified by the renegotiation
                   mechanism.
-                </li>
-                <li class="test-"><a id="_t_92" class="defined" href="#_t_92">Test FCS_TTTC_EXT.4.3:2</a>:
-      (conditional, the ST selects "2^20 64-bit data blocks are encrypted using TDES cipher suites using the same key"
+                </li><li class="test-"><a id="_t_92" class="defined" href="#_t_92">Test FCS_TTTC_EXT.4.3:2</a>:<br/>(conditional, the ST selects "2^20 64-bit data blocks are encrypted using TDES cipher suites using the same key"
                   in FCS_TTTC_EXT.4.3): the evaluator shall establish one or more monitored client and requested servers
                   configured to use each of the supported cipher suites using TDES through the TSF. For each supported
                   cipher suite using TDES, the evaluator shall configure the TLS session establishment of the TSF to inspect
@@ -2337,8 +2122,7 @@ The following sections list Common Criteria and technology terms used in this do
                   evaluator shall then send application data over the inspected channel between the monitored client and
                   the requested server so that the number of data blocks encrypted under TDES will exceed 2^20. The
                   evaluator shall observe that the TSF terminates or renegotiates the TLS session before the number of data
-                  blocks encrypted to the requested server exceeds 2^20.</li>
-              </ul></span>
+                  blocks encrypted to the requested server exceeds 2^20.</li></ul></span>
               </div>
             </span></div><div class="comp" id="FCS-TTTS-EXT-4"><h4>FCS_TTTS_EXT.4 STIP Server-Side Support for Renegotiation</h4><span class="activity_pane_body"><div class="component-activity-header">FCS_TTTS_EXT.4</div>
               
@@ -2348,33 +2132,26 @@ The following sections list Common Criteria and technology terms used in this do
                 The evaluator shall establish a monitored client that supports secure renegotiation and the
                 renegotiation_info extension, and a requested server that is authorized for the inspection operation. 
                 The evaluator shall then perform the following tests: <p></p>
-                <span class="testlist-"><ul>
-                  <li class="test-"><a id="_t_93" class="defined" href="#_t_93">Test FCS_TTTS_EXT.4:1</a>:
-      The evaluator shall use a network packet analyzer or sniffer to capture the traffic between the TSF
+                <span class="testlist-"><ul><li class="test-"><a id="_t_93" class="defined" href="#_t_93">Test FCS_TTTS_EXT.4:1</a>:<br/>The evaluator shall use a network packet analyzer or sniffer to capture the traffic between the TSF
                     and a monitored client. The evaluator shall initiate a TLS session between the monitored client and the
                     requested server through the TOE, and verify the renegotiation_info field is included in the Server Hello
-                    message sent from the TSF to the monitored client.</li>
-                  <li class="test-"><a id="_t_94" class="defined" href="#_t_94">Test FCS_TTTS_EXT.4:2</a>:
-      The evaluator shall initiate a new (initial) TLS session between the monitored client and the
+                    message sent from the TSF to the monitored client.</li><li class="test-"><a id="_t_94" class="defined" href="#_t_94">Test FCS_TTTS_EXT.4:2</a>:<br/>The evaluator shall initiate a new (initial) TLS session between the monitored client and the
                     requested server through the TOE, where the Client Hello message includes a renegotiation_info
                     extension with non-zero length, and verify the TSF sends a failure and terminates the connection. The
                     evaluator shall verify that a properly formatted field results in a successful TLS connection.
-                  </li>
-                  <li class="test-"><a id="_t_95" class="defined" href="#_t_95">Test FCS_TTTS_EXT.4:3</a>:
-      The evaluator shall send a renegotiation request from the monitored client to the TSF containing
+                  </li><li class="test-"><a id="_t_95" class="defined" href="#_t_95">Test FCS_TTTS_EXT.4:3</a>:<br/>The evaluator shall send a renegotiation request from the monitored client to the TSF containing
                     a modified client_verify_data value in the Client Hello message. The evaluator shall verify the TSF
-                    terminates the connection.</li>
-                </ul></span>
+                    terminates the connection.</li></ul></span>
               </div></div></span></div><h2 class="indexable" data-level="1" id="obj-sfrs">2.5 Evaluation Activities for Objective SFRs</h2>The PP-Module does not define any objective requirements.<h2 class="indexable" data-level="1" id="impl-sfrs-">2.6 Evaluation Activities for Implementation-dependent SFRs</h2>The PP-Module does not define any implementation-dependent requirements.<h1 id="sar_aas" class="indexable" data-level="0">3 Evaluation Activities for SARs</h1><p>The PP-Module does not define any SARs beyond those defined within the
     
-	base NDcPP to which it must claim conformance.
+	base ND to which it must claim conformance.
 	It is important to note that a TOE that is evaluated against the PP-Module is
-	inherently evaluated against this Base-PP as well. 
-	The NDcPP 
+	inherently evaluated against this base PP as well. 
+	The ND 
         includes a number of Evaluation Activities associated with both SFRs and SARs.
 	Additionally, the PP-Module includes a number of SFR-based Evaluation Activities 
-	that similarly refine the SARs of the Base-PPs.
-	The evaluation laboratory will evaluate the TOE against the Base-PP
+	that similarly refine the SARs of the base PPs.
+	The evaluation laboratory will evaluate the TOE against the base PP
       
     and supplement that evaluation with the necessary SFRs that are taken from the PP-Module.
     </p><h1 id="sup-info" class="indexable" data-level="0">4 Required Supplementary Information</h1><p>This Supporting Document has no required supplementary information beyond the ST, operational

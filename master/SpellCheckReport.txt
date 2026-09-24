@@ -72,6 +72,7 @@ output/stip-release-linkable.html: cleartext
 output/stip-release-linkable.html: cleint
 output/stip-release-linkable.html: clientAuth
 output/stip-release-linkable.html: codeSigning
+output/stip-release-linkable.html: collarborative
 output/stip-release-linkable.html: dNSName
 output/stip-release-linkable.html: deallocation
 output/stip-release-linkable.html: directoryName
@@ -158,6 +159,7 @@ output/stip-release.html: certificatePolicies
 output/stip-release.html: cleartext
 output/stip-release.html: clientAuth
 output/stip-release.html: codeSigning
+output/stip-release.html: collarborative
 output/stip-release.html: dNSName
 output/stip-release.html: deallocation
 output/stip-release.html: directoryName
@@ -228,7 +230,6 @@ output/stip-sd.html: M2
 output/stip-sd.html: M3
 output/stip-sd.html: M4
 output/stip-sd.html: M5
-output/stip-sd.html: NDcPP
 output/stip-sd.html: RDN
 output/stip-sd.html: SCSV
 output/stip-sd.html: SNI
@@ -338,6 +339,7 @@ output/stip.html: cleartext
 output/stip.html: cleint
 output/stip.html: clientAuth
 output/stip.html: codeSigning
+output/stip.html: collarborative
 output/stip.html: dNSName
 output/stip.html: deallocation
 output/stip.html: directoryName
